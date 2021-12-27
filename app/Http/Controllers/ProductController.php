@@ -191,6 +191,7 @@ class ProductController extends Controller
                 $image->scale(25);
                 $image->save("photos/small_".$basefname);
                 
+                unlink("photos/tmp.".$basefname.".jpg");
 
                 /*$ifp = fopen($fname, 'wb');
 
