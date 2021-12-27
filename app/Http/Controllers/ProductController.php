@@ -171,21 +171,23 @@ class ProductController extends Controller
 
                 $data = explode(',', $gal['small']);
 
-                //$x = file_put_contents("photos/deb.jpg",base64_decode($data[1]));
+                $x = file_put_contents("photos/tmp.".$basefname.".jpg",base64_decode($data[1]));
                // dd($x);
                // dd($data);
                //test
 
                 //$image = ImageResize::createFromString(base64_decode($data[1]));
-                $image = new ImageResize('photos/small_78085175.jpg');
-                dd($image);
+                $image = new ImageResize("photos/tmp.".$basefname.".jpg");
+
                 $image->save("photos/" . $basefname);
 
-                $image = ImageResize::createFromString(base64_decode($data[1]));
+               // $image = ImageResize::createFromString(base64_decode($data[1]));
+                $image = new ImageResize("photos/tmp.".$basefname.".jpg");
                 $image->scale(50);
                 $image->save("photos/medium_".$basefname);
                 
-                $image = ImageResize::createFromString(base64_decode($data[1]));
+                //$image = ImageResize::createFromString(base64_decode($data[1]));
+                $image = new ImageResize("photos/tmp.".$basefname.".jpg");
                 $image->scale(25);
                 $image->save("photos/small_".$basefname);
                 
