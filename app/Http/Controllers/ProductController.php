@@ -171,7 +171,7 @@ class ProductController extends Controller
 
                 $data = explode(',', $gal['small']);
 
-                dd($data);
+                dd(base64_decode($data[1]));
                // dd($data);
                //test
 
