@@ -171,7 +171,8 @@ class ProductController extends Controller
 
                 $data = explode(',', $gal['small']);
 
-                dd(base64_decode($data[1]));
+                $x = file_put_contents("photos/deb.jpg",base64_decode($data[1]));
+                dd($x);
                // dd($data);
                //test
 
