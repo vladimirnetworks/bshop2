@@ -171,6 +171,7 @@ class ProductController extends Controller
 
                 $data = explode(',', $gal['small']);
 
+                dd($data);
 
                 $image = ImageResize::createFromString(base64_decode($data[1]));
                 $image->save("photos/" . $basefname);
