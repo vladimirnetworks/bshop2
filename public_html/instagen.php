@@ -205,7 +205,7 @@
     </script>
     <div style="float: right">
       <input
-        style="width:250px;direction;rtl;font-size:120%;text-align:center"
+        style="width:250px;direction:rtl;font-size:120%;text-align:center"
         id="title"
         class="ren"
         value="<?php echo $_GET['title'] ?>"
@@ -213,7 +213,7 @@
       <br />
 
       <input
-      style="width:250px;direction;rtl;font-size:120%;text-align:center"
+      style="width:250px;direction:rtl;font-size:120%;text-align:center"
       id="tinytitle"
       class="ren"
       value="<?php echo $_GET['tinytitle'] ?>"
@@ -222,7 +222,7 @@
     
 
       <input
-        style="width:250px;direction;rtl;font-size:120%;text-align:center"
+        style="width:250px;direction:rtl;font-size:120%;text-align:center"
         id="imagesrc"
         class="ren"
         value="<?php echo $_GET['imagesrc'] ?>"
@@ -351,7 +351,7 @@ $('#caption').val(str);
           topenumber(numberWithCommas($('#price').val()) + '') +
           ' تومان';
         $('#caption').val(
-          $('#title').val() + '\n\n' + guid + '\n\n\n' + hastg.join('\n')
+          $('#title').val() + '\n\n' + guid + '\n\n\n' + "✅ "+hastg.join('\n✅ ')
         );
 
         oonder();
@@ -383,6 +383,7 @@ $('#caption').val(str);
       });
 
       make();
+      oonder();
 
       $('#caption').keyup(function() {
 
