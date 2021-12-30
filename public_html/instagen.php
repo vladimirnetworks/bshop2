@@ -208,7 +208,7 @@
         style="width:250px;direction;rtl;font-size:120%;text-align:center"
         id="title"
         class="ren"
-        value="title"
+        value="<?php echo $_GET['title'] ?>"
       />
       <br />
 
