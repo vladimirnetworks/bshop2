@@ -354,7 +354,7 @@ $('#caption').val(str);
           $('#title').val() + '\n\n' + guid + '\n\n\n' + hastg.join('\n')
         );
 
-        oonder();
+       setTimeout(function() {   oonder();},100);
 
       }
 
