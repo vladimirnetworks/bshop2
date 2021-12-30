@@ -216,7 +216,7 @@
       style="width:250px;direction;rtl;font-size:120%;text-align:center"
       id="tinytitle"
       class="ren"
-      value="tinytitle"
+      value="<?php echo $_GET['tinytitle'] ?>"
     />
     <br />
     
@@ -225,14 +225,14 @@
         style="width:250px;direction;rtl;font-size:120%;text-align:center"
         id="imagesrc"
         class="ren"
-        value="https://www.behkiana.ir/photos/20666679.jpg"
+        value="<?php echo $_GET['imagesrc'] ?>"
       /><br />
 
       <input
         style="width:250px;direction;rtl;font-size:120%;text-align:center"
         type="number"
         id="price"
-        value="60000"
+        value="<?php echo $_GET['price'] ?>"
         class="ren"
       />
       <br />
@@ -247,8 +247,7 @@
         "
         id="dlt"
         class="ren"
-      >
-AAA</textarea
+      ><?php echo $_GET['dtl'] ?></textarea
       >
       <br />
       <textarea
