@@ -205,7 +205,7 @@
     </script>
     <div style="float: right">
       <input
-        style="width:250px;direction:rtl;font-size:120%;text-align:center"
+        style="width:350px;direction:rtl;font-size:120%;text-align:center"
         id="title"
         class="ren"
         value="<?php echo $_GET['title'] ?>"
@@ -240,7 +240,7 @@
       <textarea
         style="
           direction: rtl;
-          width: 250px;
+          width: 350px;
           font-size: 120%;
           text-align: right;
           height: 200px;
