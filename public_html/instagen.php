@@ -192,7 +192,7 @@
 
           do {
             linefontsize = linefontsize - 0.05;
-            ctx.font = linefontsize + 'px irans';
+            ctx.font = linefontsize + 'px iransnorm';
 
             var lntxt = biggestline;
             var lineme = ctx.measureText(biggestline);
