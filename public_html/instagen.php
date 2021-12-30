@@ -247,7 +247,7 @@
         "
         id="dlt"
         class="ren"
-      ><?php echo $_GET['dtl'] ?></textarea
+      ><?php echo str_replace("[br]","\n",$_GET['dtl']) ?></textarea
       >
       <br />
       <textarea
