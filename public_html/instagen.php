@@ -343,7 +343,7 @@ $('#caption').val(str);
         $('#pan').empty();
         $('#pan').append(x);
 
-        var guid = $('#dlt').val();
+        var guid = "✅ "+$('#dlt').val().trim().split("\n").join("\n ✅ ");
 
         guid +=
           '\n\n' +
@@ -351,7 +351,7 @@ $('#caption').val(str);
           topenumber(numberWithCommas($('#price').val()) + '') +
           ' تومان';
         $('#caption').val(
-          $('#title').val() + '\n\n' + guid + '\n\n\n' + "✅ "+hastg.join('\n✅ ')
+          $('#title').val() + '\n\n' + guid + '\n\n\n' + hastg.join('\n')
         );
 
         oonder();
