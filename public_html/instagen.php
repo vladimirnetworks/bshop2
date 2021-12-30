@@ -158,7 +158,7 @@
           ctx.fillText(
             title,
             (w - title_width) / 2 + title_width,
-            title_height + h * 0.07
+            title_height + h * 0.05
           );
 
           /*
