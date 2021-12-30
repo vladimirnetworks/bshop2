@@ -343,7 +343,7 @@ $('#caption').val(str);
         $('#pan').empty();
         $('#pan').append(x);
 
-        var guid = "✅ "+$('#dlt').val().trim().split("\n").join("\n ✅ ");
+        var guid = "✅ "+$('#dlt').val().trim().split("\n").join("\n✅ ");
 
         guid +=
           '\n\n' +
