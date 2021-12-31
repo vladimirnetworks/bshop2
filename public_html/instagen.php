@@ -126,7 +126,7 @@
 
           ctx.fillStyle = 'white';
 
-          var price_fontsize = priceback.width * 0.15;
+          var price_fontsize = priceback.width * 0.12;
           ctx.font = price_fontsize + 'px irans';
           var price_txt = topenumber(numberWithCommas(price) + '') + ' تومان';
 
