@@ -110,8 +110,8 @@
           // ctx.fillRect(0, 400, 250, 20);
 
           var priceback = {};
-          priceback.width = w * 0.7;
-          priceback.height = h * 0.12;
+          priceback.width = w * 0.8;
+          priceback.height = h * 0.15;
           priceback.top = h * 0.791;
           priceback.left = -priceback.height;
           ctx
@@ -126,7 +126,7 @@
 
           ctx.fillStyle = 'white';
 
-          var price_fontsize = priceback.width * 0.1;
+          var price_fontsize = priceback.width * 0.15;
           ctx.font = price_fontsize + 'px irans';
           var price_txt = topenumber(numberWithCommas(price) + '') + ' تومان';
 
