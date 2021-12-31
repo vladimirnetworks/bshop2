@@ -188,7 +188,7 @@
             }
           });
 
-          var linefontsize = w * 0.04;
+          var linefontsize = w * 0.1;
 
           do {
             linefontsize = linefontsize - 0.05;
