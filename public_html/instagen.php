@@ -156,8 +156,8 @@
             title_height = ctx.measureText(price_txt).actualBoundingBoxAscent;
           }
 
-          if (title_fontsize > w * 0.1) {
-            title_fontsize = w * 0.1;
+          if (title_fontsize > w * 0.12) {
+            title_fontsize = w * 0.12;
             ctx.font = title_fontsize + 'px irans';
             title_width = ctx.measureText(title).width;
             title_height = ctx.measureText(price_txt).actualBoundingBoxAscent;
