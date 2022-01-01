@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 //Route::apiResource('orders', 'App\Http\Controllers\OrderController');
 Route::post('preorder', 'App\Http\Controllers\OrderController@preorder');
+Route::get('xnotif', 'App\Http\Controllers\NotifController@sendsmstome');
 
 Route::apiResource('products', 'App\Http\Controllers\ProductController');
 Route::apiResource('fastprice', 'App\Http\Controllers\fastprice');

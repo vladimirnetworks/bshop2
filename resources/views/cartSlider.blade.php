@@ -7,25 +7,22 @@
 <div
    style="box-shadow:rgb(136 136 136) 0px 0px 10px;transition:height 0.3s;direction:rtl;position:fixed;bottom:0px;left:0px;width:100%;background-color:white;z-index:1001"
    id="mcartslider" class="text-left cartslider border-top ">
-   <div class="cartslider_smallview"
-      style="transition:all 0.3s;display:flex;height:100%;align-items: center">
+   <div class="cartslider_smallview" style="transition:all 0.3s;display:flex;height:100%;align-items: center">
 
 
 
 
-<div id="gotomain" class="bottommenuitem mr-2 TransFormAnim">
-         <img src="/icons/home.png" style="height:60%"/><small>صفحه‌اول</small>
-</div>
+      <div id="gotomain" class="bottommenuitem mr-2 TransFormAnim">
+         <img src="/icons/home.png" style="height:60%" /><small>صفحه‌اول</small>
+      </div>
 
 
-<div id="enamd" class="bottommenuitem mr-2 TransFormAnim">
-   <img src="/icons/enamad.png" style="height:60%"/></a><small>نماد اعتماد</small>
-</div>
+      <div id="enamd" class="bottommenuitem mr-2 TransFormAnim">
+         <img src="/icons/enamad.png" style="height:60%" /></a><small>نماد اعتماد</small>
+      </div>
 
-<script>
-
-
-$("#enamd").click(function() {
+      <script>
+         $("#enamd").click(function() {
 
 window.location = "https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstposy1";
 
@@ -46,35 +43,36 @@ window.location = "https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstpo
        hpu({act: "gotomain"});
        */
    });
-   </script>
+      </script>
 
-<div id="totoorders" style="margin-left: auto;" class="bottommenuitem mr-2 TransFormAnim">
+      <div id="totoorders" style="margin-left: auto;" class="bottommenuitem mr-2 TransFormAnim">
 
-        <img src="/icons/orders.png" style="height:60%"/><small>سفارشات‌من</small>
-</div>
+         <img src="/icons/orders.png" style="height:60%" /><small>سفارشات‌من</small>
+      </div>
 
 
-<script>
-   $("#totoorders").click(function() {
+      <script>
+         $("#totoorders").click(function() {
       window.location = "/myorders";
    });
-   </script>
+      </script>
 
 
-         <div class="ml-2 text-center"
-   style="height:100%;display:flex;flex-direction: column;align-items: center;justify-content: center">
-   <div class="cartslider_smallview_text" style=""></div>
+      <div class="ml-2 text-center"
+         style="height:100%;display:flex;flex-direction: column;align-items: center;justify-content: center">
+         <div class="cartslider_smallview_text" style=""></div>
 
-   <button style="position: relative;line-height: 1.1;height:50%;max-height:5vh" class="font-weight-bold w-100 btn btn-danger  showsabad">
+         <button style="position: relative;line-height: 1.1;height:50%;max-height:5vh"
+            class="font-weight-bold w-100 btn btn-danger  showsabad">
 
-      <span style="position: relative;height:100%;">
-         <img src="/icons/cart.png" style="height:100%;" />
+            <span style="position: relative;height:100%;">
+               <img src="/icons/cart.png" style="height:100%;" />
 
 
 
-      </span>
+            </span>
 
-      <span class="showsabadcount" style="
+            <span class="showsabadcount" style="
       position: absolute;
       right:-1px;
       top:-14%;
@@ -84,11 +82,11 @@ window.location = "https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstpo
       font-size: 0.7em;
   "></span>
 
-      <span class="showsabadtxt">سبد خرید</span>
+            <span class="showsabadtxt">سبد خرید</span>
 
-   </button>
+         </button>
 
-</div>
+      </div>
 
 
 
@@ -100,13 +98,13 @@ window.location = "https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstpo
    <div class="cartslider_bigview text-center" style="display:none">
 
       <div class="cartslider_bigview_cart"></div>
-       <div class="cartslider_bigview_cart_total"></div>
+      <div class="cartslider_bigview_cart_total"></div>
       <div class="w-100 text-center p-2 m-2">
          <button style="display:none" class="finishshop btn btn-primary">تایید و ثبت سفارش</button>
-        
-         
-        
-         <div style="display:none" class="khalie">سبد خریدتون خالیه 🖐<br>  </div>
+
+
+
+         <div style="display:none" class="khalie">سبد خریدتون خالیه 🖐<br> </div>
       </div>
 
    </div>
@@ -131,6 +129,8 @@ window.location = "https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstpo
    $(".finishshop").click(function() {
       cartdown();
       $("#getNumberModal").modal("show");
+
+
     
       hpu({ act: "finishcart"});
       toyou("preorder", xcart.items(), function(res) {
@@ -156,6 +156,25 @@ window.location = "https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstpo
             maindiv.append(labelx);
             $("#shippingx").append(maindiv);
          }
+
+
+
+        $.ajax({
+        url: "/api/xnotif",
+        type: "post",
+        data: "ok" ,
+        success: function (response) {
+
+         
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           console.log(textStatus, errorThrown);
+        }
+    });
+    
+
+
+
       });
    });
 </script>
