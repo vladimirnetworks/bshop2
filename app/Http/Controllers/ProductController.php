@@ -133,7 +133,7 @@ class ProductController extends Controller
         // header('Access-Control-Allow-Methods: *');
         //header('Access-Control-Allow-Headers: *');
 
-        $targets = Product::orderBy('id', 'DESC')->paginate(20, ['*'], 'page', $request->page);
+        $targets = Product::orderBy('id', 'DESC')->paginate(50, ['*'], 'page', $request->page);
 
 
         return response($targets);
