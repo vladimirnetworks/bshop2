@@ -67,7 +67,12 @@
       }
 
       function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        if (x >= 10000) {
+          return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        } else {
+          return x.toString();
+        }
+        
       }
 
       function rendercanv(
