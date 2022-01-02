@@ -54,6 +54,7 @@ width: 100%;
 display: flex;justify-content: center;
     align-items: center;
 ">
+
 <div style="width:12vw;max-width:100px">
   <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=244136&amp;Code=NAYvp5VDiHI1pstposy1"><img style="width:100%" referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=244136&amp;Code=NAYvp5VDiHI1pstposy1" alt="" style="cursor:pointer" id="NAYvp5VDiHI1pstposy1"></a>
 
@@ -65,6 +66,16 @@ display: flex;justify-content: center;
 
      <div id="search_box" style="display:none;width:100%;z-index:999;position:absolute;background-color:white;top: 100%;height:100vh"></div>
   </div>
+
+ <script>
+   $("body").css("margin-top",$("#topxbar").height()+"px");
+
+   window.addEventListener('resize', function () {
+     
+    $("body").css("margin-top",$("#topxbar").height()+"px");
+
+   })
+ </script> 
 
     </form>
   </div>
