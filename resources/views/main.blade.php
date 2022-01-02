@@ -68,11 +68,11 @@ display: flex;justify-content: center;
   </div>
 
  <script>
-   $("body").css("margin-top",$("#topxbar").height()+"px");
+ $("body").css("margin-top","calc(2vh + "$("#topxbar").height()+"px)");
 
    window.addEventListener('resize', function () {
      
-    $("body").css("margin-top",$("#topxbar").height()+"px");
+    $("body").css("margin-top","calc(2vh + "$("#topxbar").height()+"px)");
 
    })
  </script> 
