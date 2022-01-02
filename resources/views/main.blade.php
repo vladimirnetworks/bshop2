@@ -49,12 +49,18 @@
    justify-content: center;
    align-items: center;flex-direction: column;" >
 
-     <input autocomplete="off" id="search_input" type="text" class="form-control " style="direction:rtl;display:inline-block" placeholder="جستجو در محصولات">
+<div style="
+width: 100%;
+display: flex;
+">
+<div style="width:100px">enamad</div>
+
+     <input autocomplete="off" id="search_input" type="text" class="form-control " style="direction:rtl;display:inline-block;flex:1" placeholder="جستجو در محصولات">
      
   
 
      <div id="search_box" style="display:none;width:100%;z-index:999;position:absolute;background-color:white;top: 100%;height:100vh"></div>
-
+  </div>
 
     </form>
   </div>
