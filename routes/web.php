@@ -29,6 +29,9 @@ Route::get('/product/{product}', "App\Http\Controllers\ProductController@show")-
 Route::get('/onlinepayment/{orderid}', "App\Http\Controllers\OrderController@onlinepayment")->middleware('tokin');
 
 
+Route::get('/contactus', function() {
+    return view("contactus");
+})->middleware('tokin');
 
 
 
