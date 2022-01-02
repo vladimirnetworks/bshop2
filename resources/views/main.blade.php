@@ -43,7 +43,7 @@
     
     </script>
 
-  <div style="z-index:1003;position:fixed;background-color:white;top:2vh;left:0px;text-align:center;width:100%;" class="px-2 whitetopbar" >
+  <div id="maintopxbar" style="z-index:1003;position:fixed;background-color:white;top:2vh;left:0px;text-align:center;width:100%;" class="px-2 whitetopbar" >
    <form style="display: flex;
    height: 100%;
    justify-content: center;
@@ -68,11 +68,11 @@ display: flex;justify-content: center;
   </div>
 
  <script>
- $("body").css("margin-top","calc(2vh + "$("#topxbar").height()+"px)");
+   $("body").css("margin-top",$("#topxbar").height()+"px");
 
    window.addEventListener('resize', function () {
      
-    $("body").css("margin-top","calc(2vh + "$("#topxbar").height()+"px)");
+    $("body").css("margin-top",$("#topxbar").height()+"px");
 
    })
  </script> 
