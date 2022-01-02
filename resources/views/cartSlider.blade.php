@@ -24,7 +24,7 @@
       <script>
          $("#tamasbama").click(function() {
 
-window.location = "/contact-us";
+window.location = "/contactus";
 
 });
 

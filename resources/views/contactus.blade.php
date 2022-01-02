@@ -2,7 +2,7 @@
 
 @section('main')
 
-<div class="container p-3" style="line-height:44px">
+<div class="container p-3" style="line-height:44px;direction:rtl;text-align:right">
 
 <h1>تماس با ما</h1>
 جهت پیگیری سفارش و یا ثبت سفارش به صورت تلفنی با شماره ی زیر تماس بگیرید
@@ -18,4 +18,15 @@
 (فروش حضوری نداریم)
 
 </div>
+
+<script>
+    $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
+ 
+    window.addEventListener('resize', function () {
+      
+     $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
+ 
+    })
+  </script> 
+  
 @stop
