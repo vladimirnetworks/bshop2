@@ -19,17 +19,6 @@
 
 </div>
 
-<script>
-    $( document ).ready(function() {
-        $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
 
-    });
- 
-    window.addEventListener('resize', function () {
-      
-     $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
- 
-    })
-  </script> 
 
 @stop

@@ -67,17 +67,7 @@ display: flex;justify-content: center;
      <div id="search_box" style="display:none;width:100%;z-index:999;position:absolute;background-color:white;top: 100%;height:100vh"></div>
   </div>
 
- <script>
-    $( document ).ready(function() {
-        $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
 
-    });
-   window.addEventListener('resize', function () {
-     
-    $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
-
-   })
- </script> 
 
     </form>
   </div>
@@ -315,6 +305,25 @@ $(".TransFormAnim").on("click touchstart", function() {
 </div>
 </div>
 
+
+
+
+
+
+
+
+
+<script>
+  $( document ).ready(function() {
+      $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
+
+  });
+ window.addEventListener('resize', function () {
+   
+  $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
+
+ })
+</script> 
 </body>
 
 </html>
