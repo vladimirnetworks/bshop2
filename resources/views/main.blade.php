@@ -54,7 +54,7 @@ width: 100%;
 display: flex;justify-content: center;
     align-items: center;
 ">
-<div style="width:12vw">
+<div style="width:12vw;max-width:100px">
   <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=244136&amp;Code=NAYvp5VDiHI1pstposy1"><img style="width:100%" referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=244136&amp;Code=NAYvp5VDiHI1pstposy1" alt="" style="cursor:pointer" id="NAYvp5VDiHI1pstposy1"></a>
 
 </div>
