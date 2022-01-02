@@ -315,7 +315,13 @@ $(".TransFormAnim").on("click touchstart", function() {
 
 <script>
   $( document ).ready(function() {
+
+    setTimeout(function() {
+
       $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
+
+
+    },1000);
 
   });
  window.addEventListener('resize', function () {
