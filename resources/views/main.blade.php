@@ -316,12 +316,12 @@ $(".TransFormAnim").on("click touchstart", function() {
 <script>
   $( document ).ready(function() {
 
-    setTimeout(function() {
+    setInterval(function() {
 
       $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
 
 
-    },3000);
+    },2000);
 
   });
  window.addEventListener('resize', function () {
