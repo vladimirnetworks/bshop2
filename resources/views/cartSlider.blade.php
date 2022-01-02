@@ -17,14 +17,14 @@
       </div>
 
 
-      <div id="enamd" class="bottommenuitem mr-2 TransFormAnim">
-         <img src="/icons/enamad.png" style="height:60%" /></a><small>نماد اعتماد</small>
+      <div id="tamasbama" class="bottommenuitem mr-2 TransFormAnim">
+         <img src="/icons/phone.png" style="height:60%" /></a><small>تماس با ما</small>
       </div>
 
       <script>
-         $("#enamd").click(function() {
+         $("#tamasbama").click(function() {
 
-window.location = "https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstposy1";
+window.location = "/contact-us";
 
 });
 
