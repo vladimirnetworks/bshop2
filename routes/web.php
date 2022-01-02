@@ -29,8 +29,8 @@ Route::get('/product/{product}', "App\Http\Controllers\ProductController@show")-
 Route::get('/onlinepayment/{orderid}', "App\Http\Controllers\OrderController@onlinepayment")->middleware('tokin');
 
 
-Route::get('/contactus', function() {
-    return view("contact−us",["pageTitle"=>"تماس با فروشگاه بهکیانا"]);
+Route::get('/contact−us', function() {
+    return view("contactus",["pageTitle"=>"تماس با فروشگاه بهکیانا"]);
 })->middleware('tokin');
 
 
