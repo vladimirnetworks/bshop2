@@ -30,7 +30,7 @@ Route::get('/onlinepayment/{orderid}', "App\Http\Controllers\OrderController@onl
 
 
 Route::get('/contactus', function() {
-    return view("contactus");
+    return view("contact−us",["pageTitle"=>"تماس با فروشگاه بهکیانا"]);
 })->middleware('tokin');
 
 
