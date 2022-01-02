@@ -20,7 +20,10 @@
 </div>
 
 <script>
-    $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
+    $( document ).ready(function() {
+        $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
+
+    });
  
     window.addEventListener('resize', function () {
       
@@ -28,5 +31,5 @@
  
     })
   </script> 
-  
+
 @stop

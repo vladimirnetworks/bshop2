@@ -68,8 +68,10 @@ display: flex;justify-content: center;
   </div>
 
  <script>
-   $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
+    $( document ).ready(function() {
+        $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
 
+    });
    window.addEventListener('resize', function () {
      
     $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
