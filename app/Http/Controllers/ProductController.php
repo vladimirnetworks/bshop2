@@ -392,7 +392,7 @@ class ProductController extends Controller
                       
                   } else {
                       echo $im." must delete <br>";
-                      $totfree += filesize($im);
+                      $totfree += filesize("photos/".$im);
                   }
 
             }
