@@ -387,7 +387,11 @@ class ProductController extends Controller
 
                 $results = $query->first();
 
-                dd(  $results->id );
+                  if (isset($results->id) && $results->id > 0) {
+                      
+                  } else {
+                      echo $im." must delete <br>";
+                  }
 
             }
             
