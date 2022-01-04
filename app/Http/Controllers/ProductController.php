@@ -381,7 +381,7 @@ class ProductController extends Controller
 
                 $query = Product::query();
 
-
+                $whre=[];
                 $whre[] = ['photos', 'like', '%' . str_replace("/","\/",$im) . '%'];
 
 
