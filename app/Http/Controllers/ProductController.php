@@ -284,6 +284,8 @@ class ProductController extends Controller
 
                 $data = explode(',', $gal['small']);
 
+                $x = file_put_contents("photos/tmp.".$basefname.".jpg",base64_decode($data[1]));
+
 
                 /*$ifp = fopen($fname, 'wb');
 
@@ -292,14 +294,17 @@ class ProductController extends Controller
                 fclose($ifp);
 */
 
-                $image = ImageResize::createFromString(base64_decode($data[1]));
+                //$image = ImageResize::createFromString(base64_decode($data[1]));
+                $image = new ImageResize("photos/tmp.".$basefname.".jpg");
                 $image->save("photos/" . $basefname);
 
-                $image = ImageResize::createFromString(base64_decode($data[1]));
+                //$image = ImageResize::createFromString(base64_decode($data[1]));
+                $image = new ImageResize("photos/tmp.".$basefname.".jpg");
                 $image->scale(50);
                 $image->save("photos/medium_".$basefname);
                 
-                $image = ImageResize::createFromString(base64_decode($data[1]));
+                $image = new ImageResize("photos/tmp.".$basefname.".jpg");
+                //$image = ImageResize::createFromString(base64_decode($data[1]));
                 $image->scale(25);
                 $image->save("photos/small_".$basefname);
 
