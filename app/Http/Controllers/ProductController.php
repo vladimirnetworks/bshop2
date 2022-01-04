@@ -24,7 +24,7 @@ class ProductController extends Controller
         $prods = Product::orderBy('id', 'DESC')->paginate(50, ['*'], 'page', $request->page);
 
 
-      /*  $prods->each(function ($item) {
+        /*  $prods->each(function ($item) {
 
             $phot = json_decode($item->photos, true);
 
@@ -49,7 +49,7 @@ class ProductController extends Controller
         });
 */
 
-   
+
 
 
         return  $prods;
@@ -67,31 +67,30 @@ class ProductController extends Controller
     public function indecat($catid, Request $request)
     {
 
-     $rel = Relish::whereCatId($catid)->orderBy('product_id', 'DESC')->paginate(10, ['*'], 'page', $request->page);
-   
-     $prdid = [];
-     foreach ($rel as $rl) {
-          $prdid[] = $rl['product_id'];
-     }
+        $rel = Relish::whereCatId($catid)->orderBy('product_id', 'DESC')->paginate(10, ['*'], 'page', $request->page);
 
-     return ["data"=>Product::findMany($prdid)];
+        $prdid = [];
+        foreach ($rel as $rl) {
+            $prdid[] = $rl['product_id'];
+        }
 
+        return ["data" => Product::findMany($prdid)];
     }
 
 
     public function relateto($prodid)
     {
-        $rels = Relish::whereProductId($prodid)->orderBy('cat_id','ASC')->get(['cat_id']);
+        $rels = Relish::whereProductId($prodid)->orderBy('cat_id', 'ASC')->get(['cat_id']);
 
 
         $cats = array();
         foreach ($rels as $rel) {
-           $cats[] = $rel->cat_id;
+            $cats[] = $rel->cat_id;
         }
 
-       
 
-      /* $cats = array();
+
+        /* $cats = array();
        if (isset($rels->cat_id)) {
          $xcats = Cat::whereParent($rels->cat_id)->orderBy('id', 'DESC')->get();
 
@@ -106,24 +105,22 @@ class ProductController extends Controller
        
       */
 
-       $rels = Relish::whereIn('cat_id',$cats)->get(['product_id']);
+        $rels = Relish::whereIn('cat_id', $cats)->get(['product_id']);
 
-    
-       
-       foreach ($rels as $hprodid) {
-          // if ($hprodid->product_id != $prdid) {
+
+
+        foreach ($rels as $hprodid) {
+            // if ($hprodid->product_id != $prdid) {
 
             if ($hprodid->product_id != $prodid) {
                 $prd[] = $hprodid->product_id;
             }
-            
-          // }
-        
-       }
-      
-       return ["data"=>Product::findMany($prd)];
 
+            // }
 
+        }
+
+        return ["data" => Product::findMany($prd)];
     }
 
     public function index(Request $request)
@@ -150,48 +147,46 @@ class ProductController extends Controller
         # header('Access-Control-Allow-Methods: *');
         # header('Access-Control-Allow-Headers: *');
 
-      
+
 
 
 
         $sgal = [];
         foreach ($request->gal as $gal) {
 
-          
+
             if (strtolower(substr($gal['small'], 0, 10)) == 'data:image') {
 
                 do {
 
                     $basefname = rand(0, 99999999) . '.jpg';
                     $fname = "photos/" . $basefname;
-
-
                 } while (file_exists($fname));
 
 
                 $data = explode(',', $gal['small']);
 
-                $x = file_put_contents("photos/tmp.".$basefname.".jpg",base64_decode($data[1]));
-               // dd($x);
-               // dd($data);
-               //test
+                $x = file_put_contents("photos/tmp." . $basefname . ".jpg", base64_decode($data[1]));
+                // dd($x);
+                // dd($data);
+                //test
 
                 //$image = ImageResize::createFromString(base64_decode($data[1]));
-                $image = new ImageResize("photos/tmp.".$basefname.".jpg");
+                $image = new ImageResize("photos/tmp." . $basefname . ".jpg");
 
                 $image->save("photos/" . $basefname);
 
-               // $image = ImageResize::createFromString(base64_decode($data[1]));
-                $image = new ImageResize("photos/tmp.".$basefname.".jpg");
+                // $image = ImageResize::createFromString(base64_decode($data[1]));
+                $image = new ImageResize("photos/tmp." . $basefname . ".jpg");
                 $image->scale(50);
-                $image->save("photos/medium_".$basefname);
-                
+                $image->save("photos/medium_" . $basefname);
+
                 //$image = ImageResize::createFromString(base64_decode($data[1]));
-                $image = new ImageResize("photos/tmp.".$basefname.".jpg");
+                $image = new ImageResize("photos/tmp." . $basefname . ".jpg");
                 $image->scale(25);
-                $image->save("photos/small_".$basefname);
-                
-                unlink("photos/tmp.".$basefname.".jpg");
+                $image->save("photos/small_" . $basefname);
+
+                unlink("photos/tmp." . $basefname . ".jpg");
 
                 /*$ifp = fopen($fname, 'wb');
 
@@ -203,13 +198,9 @@ class ProductController extends Controller
 
                 $sgal[] = [
                     "big" => $fname,
-                    "medium" => "photos/medium_".$basefname,
-                    "small" => "photos/small_".$basefname
+                    "medium" => "photos/medium_" . $basefname,
+                    "small" => "photos/small_" . $basefname
                 ];
-
-
-
-
             } else {
 
                 $sgal[] = $gal;
@@ -224,7 +215,7 @@ class ProductController extends Controller
             'title' => $request['title'], 'tinytitle' => $request['tinytitle'],
             'price' => $request['price'],
             'photos' =>  $photos,
-            "caption" => $request['caption'],"searchkey" => $request['searchkey']
+            "caption" => $request['caption'], "searchkey" => $request['searchkey']
         ]);
 
         return ["data" => $newprod];
@@ -277,14 +268,12 @@ class ProductController extends Controller
 
                     $basefname = rand(0, 99999999) . '.jpg';
                     $fname = "photos/" . $basefname;
-
-
                 } while (file_exists($fname));
 
 
                 $data = explode(',', $gal['small']);
 
-                $x = file_put_contents("photos/tmp.".$basefname.".jpg",base64_decode($data[1]));
+                $x = file_put_contents("photos/tmp." . $basefname . ".jpg", base64_decode($data[1]));
 
 
                 /*$ifp = fopen($fname, 'wb');
@@ -295,29 +284,29 @@ class ProductController extends Controller
 */
 
                 //$image = ImageResize::createFromString(base64_decode($data[1]));
-                $image = new ImageResize("photos/tmp.".$basefname.".jpg");
+                $image = new ImageResize("photos/tmp." . $basefname . ".jpg");
                 $image->save("photos/" . $basefname);
 
                 //$image = ImageResize::createFromString(base64_decode($data[1]));
-                $image = new ImageResize("photos/tmp.".$basefname.".jpg");
+                $image = new ImageResize("photos/tmp." . $basefname . ".jpg");
                 $image->scale(50);
-                $image->save("photos/medium_".$basefname);
-                
-                $image = new ImageResize("photos/tmp.".$basefname.".jpg");
+                $image->save("photos/medium_" . $basefname);
+
+                $image = new ImageResize("photos/tmp." . $basefname . ".jpg");
                 //$image = ImageResize::createFromString(base64_decode($data[1]));
                 $image->scale(25);
-                $image->save("photos/small_".$basefname);
+                $image->save("photos/small_" . $basefname);
 
-                unlink("photos/tmp.".$basefname.".jpg");
-           
-             
+                unlink("photos/tmp." . $basefname . ".jpg");
+
+
 
 
 
                 $sgal[] = [
                     "big" => $fname,
-                    "medium" => "photos/medium_".$basefname,
-                    "small" => "photos/small_".$basefname
+                    "medium" => "photos/medium_" . $basefname,
+                    "small" => "photos/small_" . $basefname
                 ];
             } else {
 
@@ -327,27 +316,20 @@ class ProductController extends Controller
 
                     $image = new ImageResize($gal['big']);
                     $image->scale(50);
-                    $image->save(str_replace("photos/","photos/medium_",$gal['big']));
-                    
+                    $image->save(str_replace("photos/", "photos/medium_", $gal['big']));
+
 
                     $image = new ImageResize($gal['big']);
                     $image->scale(25);
-                    $image->save(str_replace("photos/","photos/small_",$gal['big']));
+                    $image->save(str_replace("photos/", "photos/small_", $gal['big']));
 
-                    $gal['medium'] = str_replace("photos/","photos/medium_",$gal['medium']);
-                    $gal['small'] = str_replace("photos/","photos/small_",$gal['small']);
+                    $gal['medium'] = str_replace("photos/", "photos/medium_", $gal['medium']);
+                    $gal['small'] = str_replace("photos/", "photos/small_", $gal['small']);
 
                     $sgal[] = $gal;
-
                 } else {
-                $sgal[] = $gal;
+                    $sgal[] = $gal;
                 }
-
-
-
-
-
-
             }
         }
 
@@ -356,25 +338,25 @@ class ProductController extends Controller
 
         Relish::whereProductId($Product->id)->delete();
 
-       
+
 
         $cats = [];
 
         foreach ($request->cat as $cat) {
-            $cats[] = $cat;        
-            $cats = array_merge($cats,Cat::AllParent($cat));
+            $cats[] = $cat;
+            $cats = array_merge($cats, Cat::AllParent($cat));
         }
 
         $cats = array_unique($cats);
 
         foreach ($cats as $cat) {
             Relish::create([
-                "product_id"=>$Product->id,
-                "cat_id"=>$cat
+                "product_id" => $Product->id,
+                "cat_id" => $cat
             ]);
         }
 
-        return ["data" => $Product->save(),"test"=>$cats];
+        return ["data" => $Product->save(), "test" => $cats];
     }
 
     /**
@@ -388,10 +370,27 @@ class ProductController extends Controller
         return ["data" => $Product->delete()];
     }
 
-    public function imagecleaner() {
+    public function imagecleaner()
+    {
         $dix = scandir("photos");
         foreach ($dix as $im) {
-           echo $im."<br>";
+
+            if ($im != "." &&  $im != "..") {
+
+                $query = Product::query();
+
+
+                $whre[] = ['searchkey', 'like', '%' . $im . '%'];
+
+
+                $query->where($whre);
+
+                $results = $query->get();
+
+                dd(  $results );
+
+            }
+            
         }
     }
 }
