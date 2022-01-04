@@ -316,7 +316,7 @@ $(".TransFormAnim").on("click touchstart", function() {
 <script>
   $( document ).ready(function() {
 
-    setInterval(function() {
+    setTimeout(function() {
 
       $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
 
