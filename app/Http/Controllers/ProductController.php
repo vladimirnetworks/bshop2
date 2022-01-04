@@ -373,6 +373,7 @@ class ProductController extends Controller
     public function imagecleaner()
     {
         $dix = scandir("photos");
+        $totfree = 0;
         foreach ($dix as $im) {
 
             if ($im != "." &&  $im != "..") {
@@ -391,10 +392,13 @@ class ProductController extends Controller
                       
                   } else {
                       echo $im." must delete <br>";
+                      $totfree += filesize($im);
                   }
 
             }
             
         }
+          echo "<hr>";
+        echo $totfree;
     }
 }
