@@ -374,6 +374,7 @@ class ProductController extends Controller
     {
         $dix = scandir("photos");
         $totfree = 0;
+        $tot = 0;
         foreach ($dix as $im) {
 
             if ($im != "." &&  $im != "..") {
@@ -389,7 +390,7 @@ class ProductController extends Controller
                 $results = $query->first();
 
                   if (isset($results->id) && $results->id > 0) {
-                      
+                    $tot += filesize("photos/".$im);
                   } else {
                       echo $im." must delete <br>";
                       $totfree += filesize("photos/".$im);
@@ -399,6 +400,7 @@ class ProductController extends Controller
             
         }
           echo "<hr>";
-        echo $totfree;
+        echo formatBytes($totfree)." freed <br>";
+        echo  formatBytes($tot)." is using";
     }
 }
