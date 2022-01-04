@@ -387,7 +387,7 @@ class ProductController extends Controller
 
                 $results = $query->first();
 
-                dd(  $results );
+                dd(  $results->id );
 
             }
             
