@@ -326,7 +326,7 @@ $(".TransFormAnim").on("click touchstart", function() {
   });
  window.addEventListener('resize', function () {
    
-  $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
+ // $("body").css("margin-top",($("#maintopxbar").offset()['top']+$("#topxbar").height())+"px");
 
  })
 </script> 
