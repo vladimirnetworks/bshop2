@@ -385,7 +385,7 @@ class ProductController extends Controller
 
                 $query->where($whre);
 
-                $results = $query->get();
+                $results = $query->first();
 
                 dd(  $results );
 
