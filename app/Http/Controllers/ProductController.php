@@ -308,6 +308,7 @@ class ProductController extends Controller
                 $image->scale(25);
                 $image->save("photos/small_".$basefname);
 
+                unlink("photos/tmp.".$basefname.".jpg");
            
              
 
@@ -385,5 +386,12 @@ class ProductController extends Controller
     public function destroy(Product $Product)
     {
         return ["data" => $Product->delete()];
+    }
+
+    public function imagecleaner() {
+        $dix = scandir("photos");
+        foreach ($dix as $im) {
+           echo $im."<br>";
+        }
     }
 }
