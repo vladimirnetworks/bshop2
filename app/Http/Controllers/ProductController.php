@@ -207,8 +207,12 @@ class ProductController extends Controller
             }
         }
 
+
         $photos = json_encode($sgal);
 
+        if ((isset($sgal) && count($sgal) < 1) || !isset($sgal)) {
+            $photos   = '[{"big":"photos\/def.jpg","medium":"photos\/def.jpg","small":"photos\/def.jpg"}]';
+        }
 
 
         $newprod = Product::create([
@@ -334,6 +338,12 @@ class ProductController extends Controller
         }
 
         $Product->photos = json_encode($sgal);
+
+
+
+        if ((isset($sgal) && count($sgal) < 1) || !isset($sgal)) {
+            $Product->photos   = '[{"big":"photos\/def.jpg","medium":"photos\/def.jpg","small":"photos\/def.jpg"}]';
+        }
 
 
         Relish::whereProductId($Product->id)->delete();
