@@ -19,7 +19,8 @@ class Product extends Model
         'photos',
         'photo',
         'caption',
-        'searchkey'
+        'searchkey',
+        'instagramed'
 
     ];
 

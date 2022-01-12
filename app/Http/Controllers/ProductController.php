@@ -262,6 +262,7 @@ class ProductController extends Controller
         $Product->caption = $request->caption;
         $Product->tinytitle = $request->tinytitle;
         $Product->searchkey = $request->searchkey;
+        $Product->instagramed = $request->instagramed;
 
         $sgal = [];
         foreach ($request->gal as $gal) {
