@@ -21,6 +21,8 @@ Route::post('xnotif', 'App\Http\Controllers\NotifController@sendsmstome');
 Route::apiResource('products', 'App\Http\Controllers\ProductController');
 Route::apiResource('fastprice', 'App\Http\Controllers\fastprice');
 
+Route::get('products2/{q}', 'App\Http\Controllers\ProductController@index');
+
 Route::get('admin/orders', 'App\Http\Controllers\OrderController@allorders');
 Route::put('admin/orders/{order}', 'App\Http\Controllers\OrderController@changeorder');
 Route::get('admin/latestusers', 'App\Http\Controllers\monitorController@LatestUsers');

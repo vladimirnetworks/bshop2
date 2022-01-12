@@ -130,11 +130,16 @@ class ProductController extends Controller
         // header('Access-Control-Allow-Methods: *');
         //header('Access-Control-Allow-Headers: *');
 
+        if (isset($request->q)) {
+            $targets = Product::where('title', 'like', '%' . $request->q . '%')->orderBy('id', 'DESC')->paginate(50, ['*'], 'page', $request->page);
+        } else {
         $targets = Product::orderBy('id', 'DESC')->paginate(50, ['*'], 'page', $request->page);
-
+        }
 
         return response($targets);
     }
+
+
 
     /**
      * Store a newly created resource in storage.
