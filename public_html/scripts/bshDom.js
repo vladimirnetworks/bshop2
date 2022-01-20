@@ -83,7 +83,7 @@ function openprod(vals, noanim = null) {
 
 
 
-        var fly = $('<div class="fly" style="position:fixed;bottom:-100%;left:-100%;background-color:white;z-index:99991"></div>');
+        var fly = $('<div class="fly" style="position:fixed;bottom:-100%;left:-100%;z-index:99991"></div>');
         $('.fly').remove();
         var cloned_photos = photos.clone();
 
