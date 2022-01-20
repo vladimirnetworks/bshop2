@@ -91,7 +91,7 @@ function openprod(vals, noanim = null) {
             width: "100%"
         });
 
-        var pattern = /jpg/;
+        var pattern = /jpg|png/;
         var flyingimage = "";
         for (var i = 0; i < photoitems.length; i++) {
 
