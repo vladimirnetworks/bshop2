@@ -154,7 +154,7 @@ body {
 }
 
 .cartslider {
-    height: 9vh;
+    height: 13vh;
 }
 
 @media screen and (orientation:landscape) {
@@ -165,6 +165,6 @@ body {
 
 @media screen and (orientation:portrait) {
     .cartslider {
-        height: 9vh;
+        height: 13vh;
     }
 }
