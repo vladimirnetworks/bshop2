@@ -166,7 +166,7 @@ function openprod(vals, noanim = null) {
         setTimeout(function() {
 
             $(".cartslider").css({
-                "height": "9vh"
+                "height": "13vh"
             });
 
 
