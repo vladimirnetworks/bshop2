@@ -32,7 +32,7 @@ function cartdown(speed = 100) {
     cartsliderdata.isup = false;
 
     $(".cartslider").css({
-        "height": "9vh"
+        "height": "13vh"
     })
 
     $(".cartslider_dim").css({ 'display': 'none' });
