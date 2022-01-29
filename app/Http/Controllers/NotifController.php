@@ -86,11 +86,11 @@ class NotifController extends Controller
         //
     }
 
-    public function sendsmstome()
+    public function sendsmstome_sus()
     {
         
     }
-    public function sendsmstome_sus()
+    public function sendsmstome()
     {
   
         date_default_timezone_set("Asia/Tehran");
