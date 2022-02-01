@@ -30,7 +30,7 @@ class mainPageController extends Controller
     }
 
 
-    public function index2(Request $request)
+    public function index22(Request $request)
     {
 
 
