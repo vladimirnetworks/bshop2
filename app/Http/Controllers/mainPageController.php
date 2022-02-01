@@ -45,6 +45,29 @@ class mainPageController extends Controller
             if (isset($phot[0])) {
                 $item->photo = $phot[0]['medium'];
             }
+        });
+
+
+
+        return view('index2', ['pageTitle' => "بهکیانا - فروشگاه محصولات بهداشتی", "products" => $prods]);
+    }
+
+
+    public function index2(Request $request)
+    {
+
+
+        $prods = Product::orderBy('id', 'DESC')->paginate(10, ['*'], 'page', $request->page);
+
+
+        $prods->each(function ($item) {
+
+            $phot = json_decode($item->photos, true);
+
+
+            if (isset($phot[0])) {
+                $item->photo = $phot[0]['medium'];
+            }
 
 
             $item->jsondata = str_replace('','',json_encode([
