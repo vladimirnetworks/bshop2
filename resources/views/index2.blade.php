@@ -1,1 +1,6 @@
-index2
+@extends('main')
+
+@section('main')
+
+i
+@stop
