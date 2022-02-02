@@ -57,6 +57,10 @@
       max-height: 4rem;
       min-height: 3rem;
   }
+
+  .top {
+    width: 100%;
+  }
  }
  @media screen and (orientation:landscape) { 
   
@@ -68,6 +72,10 @@
       max-width: 10rem;
       min-width: 5rem;
 }
+
+.top {
+    width: calc(100%-11vw);
+  }
 
   }
 
