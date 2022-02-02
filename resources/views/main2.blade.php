@@ -108,7 +108,7 @@ function island() {
 
       } else {
         $(".top").css({"width":"100%"});
-        $("body").css({"padding-right":"0px");
+        $("body").css({"padding-right":"0px"});
       }
 }
 
