@@ -77,11 +77,23 @@
 <body>
   @yield('main')
 
+
   <script>
+
+function island() {
+  if(window.innerHeight > window.innerWidth){
+    return false;
+  } else {
+    return true;
+  }
+}
+
     function marginize() {
 
       $("body").css({"padding-top":$(".top").height()+"px"});
-      $(".bottom").css({"top":$(".top").height()+"px"});
+      if (island()) {
+       $(".bottom").css({"top":$(".top").height()+"px"});
+      }
 }
 
  window.addEventListener(
