@@ -93,6 +93,8 @@ function island() {
       $("body").css({"padding-top":$(".top").height()+"px"});
       if (island()) {
        $(".bottom").css({"top":$(".top").height()+"px"});
+      } else {
+        $(".bottom").css({"top":"auto");
       }
 }
 
