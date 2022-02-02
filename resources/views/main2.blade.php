@@ -21,13 +21,20 @@
       height: 11vh;
       max-height: 4rem;
       min-height: 3rem;
-      display: inline;
+      display: flex;
+      justify-content: center;
+    align-items: center;
+
     }
   </style>
 </head>
 
 <body>
   @yield('main')
+
+<script>
+
+</script>  
 </body>
 
 </html>
