@@ -33,17 +33,24 @@
   @yield('main')
 
 <script>
+
+function marginize() {
+  $("body").css({"padding-top":$(".top").height()+"px"});
+}
+
  window.addEventListener(
         'resize',
         function (event) {
 
 
+          marginize();
 
-$("body").css({"padding-top":$(".top").height()+"px"});
            
         },
         true
       );
+
+      marginize();     
 </script>  
 </body>
 
