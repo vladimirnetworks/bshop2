@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta name="description" content="Webpage description goes here" />
+  <meta name="description" content="" />
   <meta charset="utf-8">
   <title>{{$pageTitle}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
