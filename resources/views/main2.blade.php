@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="">
 
-  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="/jquery/jquery.min.js"></script>
   <style>
     .top {
       z-index: 1003;
