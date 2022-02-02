@@ -63,7 +63,7 @@
 .bottom {
       right: 0px;
       top: 11vh;
-      width: 5vw;
+      width: 11vw;
       height: 100%;
       max-width: 4rem;
       min-width: 3rem;
