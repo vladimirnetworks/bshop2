@@ -33,7 +33,15 @@
   @yield('main')
 
 <script>
+ window.addEventListener(
+        'resize',
+        function (event) {
 
+console.log($(".top").height());
+           
+        },
+        true
+      );
 </script>  
 </body>
 
