@@ -94,7 +94,7 @@ function island() {
       if (island()) {
        $(".bottom").css({"top":$(".top").height()+"px"});
       } else {
-        $(".bottom").css({"top":"auto")};
+        $(".bottom").css({"top":"auto"});
       }
 }
 
