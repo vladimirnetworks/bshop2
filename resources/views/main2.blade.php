@@ -101,8 +101,11 @@ function island() {
       $("body").css({"padding-top":$(".top").height()+"px"});
       if (island()) {
       // $(".bottom").css({"top":$(".top").height()+"px"});
+
+      $(".top").css({"width":"calc(100% - "+$(".bottom").width()+"px)"});
+
       } else {
-        //$(".bottom").css({"top":"auto"});
+        $(".top").css({"width":"100%"});
       }
 }
 
