@@ -62,7 +62,7 @@
   
 .bottom {
       right: 0px;
-      top: 11vh;
+      top: 0px;
       width: 11vw;
       height: 100%;
       max-width: 10rem;
@@ -92,9 +92,9 @@ function island() {
 
       $("body").css({"padding-top":$(".top").height()+"px"});
       if (island()) {
-       $(".bottom").css({"top":$(".top").height()+"px"});
+      // $(".bottom").css({"top":$(".top").height()+"px"});
       } else {
-        $(".bottom").css({"top":"auto"});
+        //$(".bottom").css({"top":"auto"});
       }
 }
 
