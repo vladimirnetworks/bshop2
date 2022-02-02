@@ -30,14 +30,15 @@
     .bottom {
       z-index: 1003;
       position: fixed;
-      background-color: red;
+      background-color: blue;
 
-      bottom: 0px;
+    /*  bottom: 0px;
       left: 0px;
       width: 100%;
       height: 11vh;
       max-height: 4rem;
       min-height: 3rem;
+      */
 
       display: flex;
       justify-content: center;
@@ -61,7 +62,7 @@
   
 .bottom {
       right: 0px;
-      bottom: 0px;
+      top: 11vh;
       width: 5vw;
       height: 100%;
       max-width: 4rem;
