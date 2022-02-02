@@ -79,7 +79,9 @@
 
   <script>
     function marginize() {
-  $("body").css({"padding-top":$(".top").height()+"px"});
+
+      $("body").css({"padding-top":$(".top").height()+"px"});
+      $(".bottom").css({"top":$(".top").height()+"px"});
 }
 
  window.addEventListener(
