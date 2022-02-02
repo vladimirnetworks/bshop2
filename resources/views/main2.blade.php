@@ -37,7 +37,9 @@
         'resize',
         function (event) {
 
-console.log($(".top").height());
+
+
+$("body").css({"padding-top":$(".top").height()+"px"});
            
         },
         true
