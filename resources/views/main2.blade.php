@@ -31,18 +31,45 @@
       z-index: 1003;
       position: fixed;
       background-color: red;
+
       bottom: 0px;
       left: 0px;
-      text-align: center;
       width: 100%;
       height: 11vh;
       max-height: 4rem;
       min-height: 3rem;
+
       display: flex;
       justify-content: center;
       align-items: center;
+      text-align: center;
 
     }
+
+
+@media screen and (orientation:portrait) {
+  .bottom {
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      height: 11vh;
+      max-height: 4rem;
+      min-height: 3rem;
+  }
+ }
+ @media screen and (orientation:landscape) { 
+  
+.bottom {
+      right: 0px;
+      bottom: 0px;
+      width: 5vw;
+      height: 100%;
+      max-width: 4rem;
+      min-width: 3rem;
+}
+
+  }
+
   </style>
 </head>
 
