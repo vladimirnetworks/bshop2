@@ -74,7 +74,7 @@
 }
 
 .top {
-    width: calc(100%-11vw);
+    width: calc(100% - 11vw);
   }
 
   }
