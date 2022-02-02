@@ -104,8 +104,11 @@ function island() {
 
       $(".top").css({"width":"calc(100% - "+$(".bottom").width()+"px)"});
 
+      $("body").css({"padding-right":$(".bottom").width()+"px"});
+
       } else {
         $(".top").css({"width":"100%"});
+        $("body").css({"padding-right":"0px");
       }
 }
 
