@@ -23,7 +23,24 @@
       min-height: 3rem;
       display: flex;
       justify-content: center;
-    align-items: center;
+      align-items: center;
+
+    }
+
+    .bottom {
+      z-index: 1003;
+      position: fixed;
+      background-color: red;
+      bottom: 0px;
+      left: 0px;
+      text-align: center;
+      width: 100%;
+      height: 11vh;
+      max-height: 4rem;
+      min-height: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
     }
   </style>
@@ -32,9 +49,8 @@
 <body>
   @yield('main')
 
-<script>
-
-function marginize() {
+  <script>
+    function marginize() {
   $("body").css({"padding-top":$(".top").height()+"px"});
 }
 
@@ -51,7 +67,7 @@ function marginize() {
       );
 
       marginize();     
-</script>  
+  </script>
 </body>
 
 </html>
