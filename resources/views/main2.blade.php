@@ -65,8 +65,8 @@
       top: 11vh;
       width: 11vw;
       height: 100%;
-      max-width: 20rem;
-      min-width: 15rem;
+      max-width: 10rem;
+      min-width: 5rem;
 }
 
   }
