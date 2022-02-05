@@ -30,6 +30,14 @@ class mainPageController extends Controller
     }
 
 
+    public function index33(Request $request)
+    {
+
+
+        return view('index3', ['pageTitle' => "بهکیانا - فروشگاه محصولات بهداشتی"]);
+
+    }
+
     public function index22(Request $request)
     {
 
