@@ -13,7 +13,7 @@ function oproduct(p) {
     $(".product").append(p.title);
 
 
-    hpu({ act: "product", prod: p });
+
 
 }
 
@@ -27,11 +27,12 @@ function llist(target, path) {
     $(target).empty();
 
     apix.get(path, function(vals) {
-        console.log(vals);
+
         var product = $("<div>" + vals.tinytitle + "</div>");
 
         product.click(function() {
             oproduct(vals);
+            hpu({ act: "product", prod: vals });
         });
 
         $(target).append(product);

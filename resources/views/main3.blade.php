@@ -125,6 +125,9 @@
     }
 
     function openmenu() {
+
+      
+
       $('.dim').fadeIn();
       $('.min').hide();
       $('.big').show();
@@ -186,10 +189,12 @@
 
     $('.dim').click(function () {
       closemenu();
+     // hpu({ act: "cartdown"});
     });
 
     $('.bottom').click(function () {
       openmenu();
+      hpu({ act: "cartup"});
     });
 
 
@@ -199,12 +204,22 @@
      console.log(event);
 
       if (event.state == null) {
-       llist(".products", "index")
+       llist(".products", "index");
+       closemenu();
       } else {
+
         if (event.state.act == 'product') {
+
           console.log(event.state.prod);
           oproduct(event.state.prod);
+          closemenu();
+
         }
+
+        if (event.state.act == 'cartup') {
+         // openmenu();
+        }
+
       }
 
     });
