@@ -196,10 +196,15 @@
 
     window.addEventListener('popstate', (event) => {
 
-      console.log(event.state);
+     console.log(event);
 
       if (event.state == null) {
        llist(".products", "index")
+      } else {
+        if (event.state.act == 'product') {
+          console.log(event.state.prod);
+          oproduct(event.state.prod);
+        }
       }
 
     });
