@@ -13,6 +13,9 @@ function oproduct(p) {
     $(".product").append(p.title);
 
 
+    llist(".products", "relateto/186")
+
+
 
 
 }
@@ -20,8 +23,7 @@ function oproduct(p) {
 function llist(target, path) {
 
 
-    $(".product").empty();
-    $(".product").hide();
+
 
 
     $(target).empty();
@@ -51,8 +53,8 @@ function api() {
 
             if (onload) {
                 onload(self.xcache[self.api + path].data);
-                if (data.hasOwnProperty('dval')) {
-                    eval(data.hasOwnProperty('dval'));
+                if (data.hasOwnProperty('dval2')) {
+                    eval(data.hasOwnProperty('dval2'));
                 }
             }
 
@@ -69,8 +71,8 @@ function api() {
                 if (onload) {
                     onload(data.data);
 
-                    if (data.hasOwnProperty('dval')) {
-                        eval(data.dval);
+                    if (data.hasOwnProperty('dval2')) {
+                        eval(data.dval2);
                     }
 
 

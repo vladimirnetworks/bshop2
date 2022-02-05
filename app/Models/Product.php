@@ -87,8 +87,18 @@ class Product extends Model
     }
 
 
+    public function getDval2Attribute()
+    {
 
-    protected $appends = ['photo','licaption','cat','dval'];
+
+      //  return 'loadcat(".catmain","catload",{"type":"relateto","id":"'.$this->id.'"});';
+
+        return '$(".products").empty();setTimeout(function() {llist(".products","relateto/'.$this->id.'");},1);';
+
+    }
+
+
+    protected $appends = ['photo','licaption','cat','dval','dval2'];
 
 
 

@@ -205,6 +205,8 @@
 
       if (event.state == null) {
        llist(".products", "index");
+       $(".product").empty();
+       $(".product").hide();
        closemenu();
       } else {
 
@@ -219,6 +221,13 @@
         if (event.state.act == 'cartup') {
          // openmenu();
         }
+
+        if (event.state.act == 'list') {
+          $(".product").empty();
+          $(".product").hide();
+        }
+
+
 
       }
 
