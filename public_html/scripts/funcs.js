@@ -13,7 +13,12 @@ function oproduct(p) {
     $(".product").append(p.title);
 
 
-    llist(".products", "relateto/186")
+    if (p.hasOwnProperty('dval2')) {
+        eval(p.dval2);
+    }
+
+
+
 
 
 
