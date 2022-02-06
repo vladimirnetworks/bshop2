@@ -226,7 +226,8 @@ $(document).ready(function() {
     marginize();
 
     $('.dim').click(function () {
-      closemenu();
+      //closemenu();
+      history.back();
      // hpu({ act: "cartdown"});
     });
 
@@ -293,7 +294,8 @@ $(document).ready(function() {
 </div>
 <script>
 $('#zz').click(function() {
-  closedialog("dialog1");
+  //closedialog("dialog1");
+  history.back();
 });
 </script>
 
