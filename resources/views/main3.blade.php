@@ -262,7 +262,9 @@ $(document).ready(function() {
 
 <div style="position: fixed;width:100%;height:100%;z-index: 1016;top: 0px;left:0px;display: flex;justify-content: center;align-items: center;">
 
-   <div style="width:80%;height:80%;background-color:white;border-radius:1rem;1px solid rgba(0,0,0,.2)"></div>
+   <div style="width:80%;height:80%;background-color:white;border-radius:1rem;1px solid rgba(0,0,0,.2)">
+   <input type="number"/>
+  </div>
 
 </div>
   
