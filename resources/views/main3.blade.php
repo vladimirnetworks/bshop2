@@ -101,7 +101,7 @@ $(document).ready(function() {
 
       var tot = xcart.total();
 
-      $(".big").text(tot.count+"<hr>"+tot.amount);
+     // $(".big").text(tot.count+"<hr>"+tot.amount);
 
       });
     </script>
