@@ -256,8 +256,16 @@ $(document).ready(function() {
   </script>
 
 
-<div style="position: fixed;width:90%;height:90%;z-index: 1016;background-color:white;top: 0px;left: -100%;right: -100%;margin: auto;">
-<div>
+
+<div style="position: fixed;width:100%;height:100%;z-index: 1003;background-color:black;top:0px;left:0px;opacity:0.5">
+</div>
+
+<div style="position: fixed;width:100%;height:100%;z-index: 1016;top: 0px;left:0px;display: flex;justify-content: center;align-items: center;">
+
+   <div style="width:80%;height:80%;background-color:white;border-radius:1rem;1px solid rgba(0,0,0,.2)"></div>
+
+</div>
+  
 
 
 
