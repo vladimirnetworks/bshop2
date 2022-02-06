@@ -3,22 +3,22 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <title>{{$pageTitle}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>{{$pageTitle}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="/jquery/jquery.min.js"></script>
-    <link rel="stylesheet" href="/bs4/bootstrap.min.css">
+  <script src="/jquery/jquery.min.js"></script>
+  <link rel="stylesheet" href="/bs4/bootstrap.min.css">
 
-    <link rel="stylesheet" href="/css/main.css?{{time()}}">
-    <script src="/scripts/funcs.js?{{time()}}"></script>
+  <link rel="stylesheet" href="/css/main.css?{{time()}}">
+  <script src="/scripts/funcs.js?{{time()}}"></script>
 
 
 </head>
 
 <body>
-<script>
- apix = new api();    
+  <script>
+    apix = new api();    
  xcart = new Cart();
 $(document).ready(function() {
 
@@ -33,35 +33,24 @@ $(document).ready(function() {
    }
 
 });
-</script>
+  </script>
 
 
 
 
-    @yield('main')
+  @yield('main')
 
-    <div class="top">
-      <a
-        style="height: 90%"
-        referrerpolicy="origin"
-        target="_blank"
-        href="https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstposy1"
-        style="height: 95%"
-        ><img
-          style="height: 100%"
-          referrerpolicy="origin"
-          src="https://upload.wikimedia.org/wikipedia/commons/5/53/Wikimedia-logo.png"
-      /></a>
-    
-      <input style="height: 60%; flex-grow: 2" placeholder="جستجو در محصولات" />
-      <img
-        style="height: 60%; margin-left: 0.5em; margin-right: 0.5em"
-        src="https://s6.uupload.ir/files/mag_91qh.png"
-      />
-    </div>
-  
-    <div
-    style="
+  <div class="top">
+    <a style="height: 90%" referrerpolicy="origin" target="_blank"
+      href="https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstposy1" style="height: 95%"><img
+        style="height: 100%" referrerpolicy="origin"
+        src="https://upload.wikimedia.org/wikipedia/commons/5/53/Wikimedia-logo.png" /></a>
+
+    <input style="height: 60%; flex-grow: 2" placeholder="جستجو در محصولات" />
+    <img style="height: 60%; margin-left: 0.5em; margin-right: 0.5em" src="https://s6.uupload.ir/files/mag_91qh.png" />
+  </div>
+
+  <div style="
       opacity: 0.5;
       position: fixed;
       bottom: 0px;
@@ -71,25 +60,43 @@ $(document).ready(function() {
       height: 100%;
       z-index: 1000;
       display: none;
-    "
-    class="dim"
-  ></div>
-  
+    " class="dim"></div>
+
   <div class="bottom">
     <div class="min">
       <div class="itm cart"></div>
+      <script>
+        xcart.addChangeListener(function() {
+
+        var tot = xcart.total();
+
+        $(".cart").text(tot.count);
+
+        });
+      </script>
       <div class="itm"></div>
       <div class="itm"></div>
     </div>
-  
+
     <div class="big">i am big</div>
-  
-  </div> 
-
-
 
     <script>
-        mmenu = {};
+      xcart.addChangeListener(function() {
+
+      var tot = xcart.total();
+
+      $(".big").text(tot.count+"<hr>"+tot.amount);
+
+      });
+    </script>
+
+
+  </div>
+
+
+
+  <script>
+    mmenu = {};
 
     mmenu.open = false;
     function island() {
@@ -246,7 +253,7 @@ $(document).ready(function() {
       }
 
     });
-    </script>
+  </script>
 </body>
 
 </html>
