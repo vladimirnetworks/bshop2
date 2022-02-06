@@ -3,6 +3,22 @@ function hpu(xact) {
     history.pushState(xact, xact.act, "?" + xact.act);
 }
 
+
+function readCookie(name) {
+    var nameEQ = encodeURIComponent(name) + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ')
+            c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0)
+            return decodeURIComponent(c.substring(nameEQ.length, c.length));
+    }
+    return null;
+}
+
+
+
 function oproduct(p) {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
@@ -10,7 +26,34 @@ function oproduct(p) {
     $(".product").empty();
     $(".product").show();
 
-    $(".product").append(p.title);
+    var prd = $("<div></div>");
+
+    prd.append(p.title);
+
+    var addtocartButton = $('<button>addTocart</button>');
+
+    addtocartButton.click(function() {
+
+        var itm = xcart.getItem(p.id);
+
+
+        if (!itm) {
+            xcart.add({
+                id: p.id,
+                title: p.title,
+                tinytitle: p.tinytitle,
+                price: parseInt(p.price)
+            });
+        } else {
+            xcart.changeCount(p.id, parseInt(itm.count) + 1);
+        }
+
+
+    });
+
+    prd.append(addtocartButton);
+
+    $(".product").append(prd);
 
 
     if (p.hasOwnProperty('dval2')) {
@@ -121,6 +164,122 @@ function api() {
             }
         });
 
+
+    }
+
+
+
+    return this;
+}
+
+
+
+function Cart() {
+
+    var self = this;
+    this.prods = {};
+
+    this.eech = function(e) {
+        var self = this;
+        Object.keys(this.prods).forEach(function(key) {
+            e(self.prods[key])
+        });
+
+    }
+
+
+    this.empty = function() {
+
+        self.prods = {};
+        self.triggerAllChangeListeners();
+    }
+
+    this.loadfromjson = function(jsonx) {
+        this.prods = JSON.parse(jsonx);
+
+
+
+        $(document).ready(function() {
+            self.triggerAllChangeListeners();
+        });
+
+    }
+
+    this.items = function() {
+        var x = [];
+        self.eech(function(i) {
+            x.push(i);
+        });
+        return x;
+    }
+
+    this.total = function() {
+        var tot = {
+            amount: 0,
+            count: 0
+        }
+        this.eech(function(prod) {
+            tot.count += prod.count;
+            tot.amount += prod.price * prod.count;
+        });
+        return tot;
+    }
+
+
+    this.getItem = function(id) {
+        if (self.prods.hasOwnProperty(id)) {
+            return self.prods[id];
+        } else {
+            return null;
+        }
+
+    }
+
+    this.changeListeners = [];
+
+    this.addChangeListener = function(e) {
+
+
+        self.changeListeners.push(e);
+    }
+
+    this.triggerAllChangeListeners = function() {
+        const d = new Date();
+
+        var exdays = 10;
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        let expires = "expires=" + d.toUTCString();
+
+
+        console.log("coockeset");
+        document.cookie = "zcart=" + JSON.stringify(this.prods) + ';' + expires + '; path=/';
+
+        for (i = 0; i < self.changeListeners.length; i++) {
+            self.changeListeners[i]();
+        }
+    }
+
+    this.add = function(prod) {
+        if (!self.prods[prod.id]) {
+            var newprod = prod;
+            newprod.count = 1;
+            self.prods[prod.id] = newprod;
+        }
+
+        this.triggerAllChangeListeners();
+
+    }
+
+
+    this.changeCount = function(prodid, num) {
+        if (self.prods[prodid]) {
+            self.prods[prodid].count = num;
+        }
+        if (num < 1) {
+            delete self.prods[prodid];
+        }
+
+        this.triggerAllChangeListeners();
 
     }
 

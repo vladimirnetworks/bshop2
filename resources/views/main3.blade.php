@@ -19,6 +19,20 @@
 <body>
 <script>
  apix = new api();    
+ xcart = new Cart();
+$(document).ready(function() {
+
+ 
+
+
+   // xcart.triggerAllChangeListeners();
+
+
+    //if (readCookie('zcart')) {
+    //    xcart.loadfromjson(readCookie('zcart'));
+   // }
+
+});
 </script>
 
 
