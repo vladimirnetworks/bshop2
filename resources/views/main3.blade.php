@@ -72,15 +72,31 @@ $(document).ready(function() {
 
         $(".cart").text(tot.count);
 
+
+
         });
+
+  
+      
+
       </script>
       <div class="itm"></div>
       <div class="itm"></div>
     </div>
 
-    <div class="big">i am big</div>
+    <div class="big">
+      
+      <button id="checkout">checkout</button>
+
+    </div>
 
     <script>
+
+       $("#checkout").click(function() {
+          opendialog("dialog1");
+        });
+
+
       xcart.addChangeListener(function() {
 
       var tot = xcart.total();
@@ -257,18 +273,19 @@ $(document).ready(function() {
 
 
 
-<div style="position: fixed;width:100%;height:100%;z-index: 1003;background-color:black;top:0px;left:0px;opacity:0.5">
-</div>
 
-<div style="position: fixed;width:100%;height:100%;z-index: 1016;top: 0px;left:0px;display: flex;justify-content: center;align-items: center;">
 
-   <div style="width:80%;height:80%;background-color:white;border-radius:1rem;1px solid rgba(0,0,0,.2)">
-   <input type="number"/>
-  </div>
 
-</div>
+
   
-
+<div class="dialog" id="dialog1">
+ <div id="zz">ok</div>
+</div>
+<script>
+$('#zz').click(function() {
+  closedialog("dialog1");
+});
+</script>
 
 
 </body>

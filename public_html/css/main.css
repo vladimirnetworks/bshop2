@@ -140,3 +140,7 @@
                 max-width: 33.33333333%;
             }
         }
+        
+        .dialog {
+            display: none;
+        }

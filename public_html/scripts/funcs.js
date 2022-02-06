@@ -287,3 +287,52 @@ function Cart() {
 
     return this;
 }
+
+function closedialog(i) {
+
+    var dialogbox = $("#" + i + '_box');
+    dialogbox.css({ "margin-top": "100%", "transform": "scale(0)" });
+
+    setTimeout(function() {
+
+        $("#" + i + "_container").css({ "opacity": "0" });
+        $(".dialog_dim").css({ "opacity": "0" });
+
+        setTimeout(function() {
+            $(".dialog_container").remove();
+            $(".dialog_dim").remove();
+        }, 500)
+
+    }, 100);
+
+
+}
+
+function opendialog(i, w = "80%", h = "80%") {
+    var ddialog = $("#" + i).clone(true, true);
+
+    console.log(ddialog);
+    ddialog.css({ "display": "block" });
+
+    $(".dialog_container").remove();
+    $(".dialog_dim").remove();
+
+    var dialog_cont = $('<div id="' + i + '_container" class="dialog_container" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1016;top: 0px;left:0px;display: flex;justify-content: center;align-items: center;"></div>');
+
+    var dialogbox = $('<div  id="' + i + '_box" style="transform: scale(0.8);transition: all 0.2s  cubic-bezier(0.175, 0.885, 0.32, 1.275) ;width:' + w + ';height:' + h + ';background-color:white;border-radius:1rem;border : 1px solid rgba(0,0,0,.2);padding: 1rem;margin-top: 40%;opacity:0"></div>');
+
+    dialogbox.append(ddialog);
+
+    setTimeout(function() {
+        dialogbox.css({ "margin-top": "unset", "opacity": "1", "transform": "scale(1.2)" });
+        setTimeout(function() {
+            dialogbox.css({ "transform": "scale(1)" });
+        }, 200)
+    }, 1);
+
+    dialog_cont.append(dialogbox);
+
+
+    $("body").append('<div class="dialog_dim" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1003;background-color:black;top:0px;left:0px;opacity:0.5"></div>');
+    $("body").append(dialog_cont);
+}
