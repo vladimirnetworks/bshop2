@@ -94,6 +94,7 @@ $(document).ready(function() {
 
        $("#checkout").click(function() {
           opendialog("dialog1");
+          hpu({ act: "getnumber"});
         });
 
 
@@ -238,7 +239,7 @@ $(document).ready(function() {
 
     window.addEventListener('popstate', (event) => {
 
-     console.log(event);
+     //console.log(event.state.act);
 
       if (event.state == null) {
        llist(".products", "index");
@@ -246,6 +247,8 @@ $(document).ready(function() {
        $(".product").hide();
        closemenu();
       } else {
+
+        console.log(event.state.act);
 
         if (event.state.act == 'product') {
 
@@ -257,7 +260,14 @@ $(document).ready(function() {
 
         if (event.state.act == 'cartup') {
          // openmenu();
+         closemenu();
         }
+
+
+        if (event.state.act == 'getnumber') {
+               closedialog("dialog1");
+        }
+
 
         if (event.state.act == 'list') {
           $(".product").empty();
