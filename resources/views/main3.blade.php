@@ -28,9 +28,9 @@ $(document).ready(function() {
    // xcart.triggerAllChangeListeners();
 
 
-    //if (readCookie('zcart')) {
-    //    xcart.loadfromjson(readCookie('zcart'));
-   // }
+   if (readCookie('zcart')) {
+        xcart.loadfromjson(readCookie('zcart'));
+   }
 
 });
 </script>
