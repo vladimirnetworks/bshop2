@@ -254,6 +254,13 @@ $(document).ready(function() {
 
     });
   </script>
+
+
+<div style="position: fixed;width:90%;height:90%;z-index: 1016;background-color:white;top: 0px;left: -100%;right: -100%;margin: auto;">
+<div>
+
+
+
 </body>
 
 </html>
