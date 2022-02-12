@@ -89,6 +89,40 @@ function llist(target, path) {
     })
 }
 
+
+function makeid(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() *
+            charactersLength));
+    }
+    return result;
+}
+
+function me() {
+    return readCookie('base_address') + ":" + readCookie('x_address');
+}
+
+function toyou(path, data, onloadx) {
+    var xhttp = new XMLHttpRequest();
+
+
+    xhttp.onload = function() {
+        if (onloadx != null) {
+
+
+            onloadx(JSON.parse(this.responseText))
+        }
+    }
+
+
+    xhttp.open("POST", "/api/" + path + "?session=" + makeid(7));
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(JSON.stringify({ "me": me(), "data": data }));
+}
+
 function api() {
     self = this;
     this.api = "/api/";
@@ -288,7 +322,7 @@ function Cart() {
     return this;
 }
 
-function closedialog(i) {
+function closedialog_sus(i) {
 
     var dialogbox = $("#" + i + '_box');
     dialogbox.css({ "margin-top": "100%", "transform": "scale(0)" });
@@ -299,7 +333,8 @@ function closedialog(i) {
         $(".dialog_dim").css({ "opacity": "0" });
 
         setTimeout(function() {
-            $(".dialog_container").remove();
+            //$(".dialog_container").remove();
+            $(".dialog_container").hide();
             $(".dialog_dim").remove();
         }, 500)
 
@@ -308,14 +343,62 @@ function closedialog(i) {
 
 }
 
+function closedialog(i) {
+    $("#"+i+"_container").hide();
+    $(".dialog_dim").remove();
+}
 function opendialog(i, w = "80%", h = "80%") {
+
+$(".dialog_dim").remove();
+var dim = $('<div class="dialog_dim" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1003;background-color:black;top:0px;left:0px;opacity:0.5"></div>');
+$("body").append(dim);
+
+    if (!$("#"+i+"_container")[0]) {
+
+        var dialogent = $("#" + i).clone(true, true);
+        $("#" + i).remove();
+
+        var dialog_cont = $('<div id="' + i + '_container" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1016;top: 0px;left:0px;display: flex;justify-content: center;align-items: center;"></div>');
+        var dialogbox = $('<div id="' + i + '_box" style="width:' + w + ';height:' + h + ';background-color:white;border-radius:1rem;border : 1px solid rgba(0,0,0,.2);padding: 1rem;"></div>');
+        dialogbox.click(function (e) {
+            e.stopPropagation();
+        });
+
+        dialogent.css({"display":"block"});
+        dialogbox.append(dialogent);
+        dialog_cont.append(dialogbox);
+
+       dialog_cont.click(function(e) {
+           
+            history.back();
+            return false;
+        });
+       
+        $("body").append(dialog_cont);
+        
+    } else {
+        $("#"+i+"_container").show();
+    }
+
+}
+
+function opendialog_sus(i, w = "80%", h = "80%") {
+
+    $(".dialog_container").hide();
+    if (!$("#"+i+"_container")[0]) {
+       
+    
+     console.log("make it");
+  
+
     var ddialog = $("#" + i).clone(true, true);
+  $("#" + i).remove();
 
     console.log(ddialog);
     ddialog.css({ "display": "block" });
 
-    $(".dialog_container").remove();
-    $(".dialog_dim").remove();
+    $(".dialog_container").hide();
+    
 
     var dialog_cont = $('<div id="' + i + '_container" class="dialog_container" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1016;top: 0px;left:0px;display: flex;justify-content: center;align-items: center;"></div>');
 
@@ -336,12 +419,28 @@ function opendialog(i, w = "80%", h = "80%") {
     dialog_cont.append(dialogbox);
 
 
-    var dim = $('<div class="dialog_dim" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1003;background-color:black;top:0px;left:0px;opacity:0.5"></div>');
     
     dialog_cont.click(function() {
         history.back();
+        return false;
     });
-
-    $("body").append(dim);
     $("body").append(dialog_cont);
+    
+} else {
+
+    console.log("reload"+i);
+/**/
+$("#" + i + "_container").show();
+setTimeout(function() {
+var dialogbox = $("#" + i + '_box');
+dialogbox.css({ "margin-top": "unset", "transform": "scale(1)" });
+$("#" + i + "_container").css({ "opacity": "1" });
+},1000);
+/**/
+
+}
+$(".dialog_dim").remove();
+var dim = $('<div class="dialog_dim" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1003;background-color:black;top:0px;left:0px;opacity:0.5"></div>');
+$("body").append(dim);
+
 }

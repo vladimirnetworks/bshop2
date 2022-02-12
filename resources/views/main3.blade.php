@@ -18,6 +18,8 @@
 
 <body>
   <script>
+    myorder = {};
+   
     apix = new api();    
  xcart = new Cart();
 $(document).ready(function() {
@@ -85,20 +87,69 @@ $(document).ready(function() {
     </div>
 
     <div class="big">
-      
+
       <button id="checkout">checkout</button>
-     
+
       <div id="bigcartview"></div>
 
 
     </div>
 
     <script>
-
-       $("#checkout").click(function() {
+      $("#checkout").click(function() {
 
         hpu({ act: "getnumber"});
 
+
+        /**/
+        toyou("preorder", xcart.items(), function(res) {
+         console.log(res);
+      
+         myorder.orderid = res.data.id;
+         myorder.shipping = res.data.shipping;
+         $("#shippingx").empty();
+         for (var i = 0; i < myorder.shipping.length; i++) {
+            var maindiv = $("<div></div>");
+            var labelx = $('<label ></label>');
+
+            labelx.click(function() {
+             // return true;
+            });
+            if (i === 0) {
+               var inputx = $('<input checked type="radio"  name="shiptype" value="' + i + '">');
+            } else {
+               var inputx = $('<input type="radio"  name="shiptype" value="' + i + '">');
+            }
+            var textx = $('<span>' + myorder.shipping[i].text + '</span>');
+            labelx.append(inputx);
+
+
+            
+            labelx.append(textx);
+            maindiv.append(labelx);
+            $("#shippingx").append(maindiv);
+         }
+
+
+
+        $.ajax({
+        url: "/api/xnotif",
+        type: "post",
+        data: "ok" ,
+        success: function (response) {
+
+         
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           console.log(textStatus, errorThrown);
+        }
+    });
+    
+
+
+
+      });
+        /**/
           opendialog("dialog1");
          
           return false;
@@ -309,11 +360,14 @@ $(document).ready(function() {
 
 
         if (event.state.act == 'getnumber') {
+       
+          closedialog("dialog2");
           opendialog("dialog1");
         }
 
 
         if (event.state.act == 'getaddress') {
+          closedialog("dialog3");
           opendialog("dialog2");
         }
 
@@ -338,17 +392,17 @@ $(document).ready(function() {
 
 
 
-  
-<div class="dialog" id="dialog1">
- <div id="close">close</div>
-<br>
-enter number
-<input type="number" />
-<button id="next">next</button>
 
-</div>
-<script>
-$('#close').click(function() {
+  <div class="dialog" id="dialog1">
+    <div id="close">close</div>
+    <br>
+    enter number
+    <input type="number" />
+    <button id="next">next</button>
+
+  </div>
+  <script>
+    $('#close').click(function() {
 
   history.back();
 });
@@ -356,28 +410,32 @@ $('#close').click(function() {
 
 $('#next').click(function() {
 hpu({ act: "getaddress"});
-//closedialog("dialog1");
+closedialog("dialog1");
 opendialog("dialog2");
 return false;  
 });
 
-</script>
+  </script>
 
 
 
 
-<div class="dialog" id="dialog2">
-enter address
-  <input type="text" />
-  <button id="next2">next</button>
- </div>
+  <div class="dialog" id="dialog2">
+    enter address
+
+    <form>
+    <div id="shippingx"></div>
+    </form>
+
+    <input type="text" />
+    <button id="next2">next</button>
+  </div>
 
 
- <script>
-  
-  $('#next2').click(function() {
+  <script>
+    $('#next2').click(function() {
   hpu({ act: "payment"});
-  //closedialog("dialog1");
+ closedialog("dialog2");
   opendialog("dialog3");
   return false;  
   });
@@ -388,9 +446,9 @@ enter address
 
 
 
-<div class="dialog" id="dialog3">
-payment
-</div>
+  <div class="dialog" id="dialog3">
+    payment
+  </div>
 
 
 

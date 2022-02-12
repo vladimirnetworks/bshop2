@@ -36,19 +36,22 @@ class tokin
         }
 
         
+        $hostx = $_SERVER["HTTP_HOST"];
+
+        $hostx = str_replace(":8000","",$hostx);
 
         setcookie(
             "x_address",
             $hash,
             time() + (10 * 365 * 24 * 60 * 60)
-            ,"/","www.behkiana.ir"
+            ,"/",$hostx
           ); 
 
           setcookie(
             "base_address",
             $id ,
             time() + (10 * 365 * 24 * 60 * 60)
-            ,"/","www.behkiana.ir"
+            ,"/",$hostx
           );
      }
 
