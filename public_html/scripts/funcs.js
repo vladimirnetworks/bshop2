@@ -321,6 +321,9 @@ function opendialog(i, w = "80%", h = "80%") {
 
     var dialogbox = $('<div  id="' + i + '_box" style="transform: scale(0.8);transition: all 0.2s  cubic-bezier(0.175, 0.885, 0.32, 1.275) ;width:' + w + ';height:' + h + ';background-color:white;border-radius:1rem;border : 1px solid rgba(0,0,0,.2);padding: 1rem;margin-top: 40%;opacity:0"></div>');
 
+    dialogbox.click(function () {
+        return false;
+    });
     dialogbox.append(ddialog);
 
     setTimeout(function() {
@@ -333,6 +336,12 @@ function opendialog(i, w = "80%", h = "80%") {
     dialog_cont.append(dialogbox);
 
 
-    $("body").append('<div class="dialog_dim" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1003;background-color:black;top:0px;left:0px;opacity:0.5"></div>');
+    var dim = $('<div class="dialog_dim" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1003;background-color:black;top:0px;left:0px;opacity:0.5"></div>');
+    
+    dialog_cont.click(function() {
+        history.back();
+    });
+
+    $("body").append(dim);
     $("body").append(dialog_cont);
 }

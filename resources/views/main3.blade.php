@@ -93,8 +93,12 @@ $(document).ready(function() {
     <script>
 
        $("#checkout").click(function() {
+
+        hpu({ act: "getnumber"});
+
           opendialog("dialog1");
-          hpu({ act: "getnumber"});
+         
+          return false;
         });
 
 
@@ -226,21 +230,27 @@ $(document).ready(function() {
     marginize();
 
     $('.dim').click(function () {
-      //closemenu();
+     
       history.back();
-     // hpu({ act: "cartdown"});
+   
     });
 
     $('.bottom').click(function () {
+      if (!mmenu.open) {
       openmenu();
+      console.log("bottom clicked");
       hpu({ act: "cartup"});
+      }
     });
 
 
 
     window.addEventListener('popstate', (event) => {
 
-     //console.log(event.state.act);
+      if (event.state != null) {
+            console.log(event.state);
+      }
+
 
       if (event.state == null) {
        llist(".products", "index");
@@ -249,25 +259,33 @@ $(document).ready(function() {
        closemenu();
       } else {
 
-        console.log(event.state.act);
+
 
         if (event.state.act == 'product') {
 
-          console.log(event.state.prod);
-          oproduct(event.state.prod);
           closemenu();
+          oproduct(event.state.prod);
+
 
         }
 
         if (event.state.act == 'cartup') {
-         // openmenu();
-         closemenu();
+         
+          closedialog("dialog1");
+          
         }
 
 
         if (event.state.act == 'getnumber') {
-               closedialog("dialog1");
+          opendialog("dialog1");
         }
+
+
+        if (event.state.act == 'getaddress') {
+          opendialog("dialog2");
+        }
+
+        
 
 
         if (event.state.act == 'list') {
@@ -290,14 +308,60 @@ $(document).ready(function() {
 
   
 <div class="dialog" id="dialog1">
- <div id="zz">ok</div>
+ <div id="close">close</div>
+<br>
+enter number
+<input type="number" />
+<button id="next">next</button>
+
 </div>
 <script>
-$('#zz').click(function() {
-  //closedialog("dialog1");
+$('#close').click(function() {
+
   history.back();
 });
+
+
+$('#next').click(function() {
+hpu({ act: "getaddress"});
+//closedialog("dialog1");
+opendialog("dialog2");
+return false;  
+});
+
 </script>
+
+
+
+
+<div class="dialog" id="dialog2">
+enter address
+  <input type="text" />
+  <button id="next2">next</button>
+ </div>
+
+
+ <script>
+  
+  $('#next2').click(function() {
+  hpu({ act: "payment"});
+  //closedialog("dialog1");
+  opendialog("dialog3");
+  return false;  
+  });
+  
+  </script>
+
+
+
+
+
+<div class="dialog" id="dialog3">
+payment
+</div>
+
+
+
 
 
 </body>
