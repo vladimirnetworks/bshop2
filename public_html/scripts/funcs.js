@@ -331,7 +331,7 @@ function opendialog(i, w = "80%", h = "80%") {
         setTimeout(function() {
             dialogbox.css({ "transform": "scale(1)" });
         }, 200)
-    }, 100);
+    }, 150);
 
     dialog_cont.append(dialogbox);
 

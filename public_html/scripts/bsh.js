@@ -312,6 +312,7 @@ xcart.addChangeListener(function() {
 
         bez.click(function() {
             xcart.changeCount(prod.id, prod.count + 1);
+            return false;
         });
         num.append('<span style="display:inline-block" >' + prod.count + '</span>');
 
@@ -319,6 +320,7 @@ xcart.addChangeListener(function() {
 
         men.click(function() {
             xcart.changeCount(prod.id, prod.count - 1);
+            return false;
         });
 
         num.append(men);

@@ -87,6 +87,9 @@ $(document).ready(function() {
     <div class="big">
       
       <button id="checkout">checkout</button>
+     
+      <div id="bigcartview"></div>
+
 
     </div>
 
@@ -104,9 +107,38 @@ $(document).ready(function() {
 
       xcart.addChangeListener(function() {
 
+        $("#bigcartview").empty();
       var tot = xcart.total();
 
-     // $(".big").text(tot.count+"<hr>"+tot.amount);
+        var cartlist = $("<div></div>")
+      xcart.eech(function(prod) {
+
+        var bez = $('<button>+</button>');
+        var men = $('<button>-</button>');
+
+        men.click(function() {
+            xcart.changeCount(prod.id, prod.count - 1);
+        });
+
+        bez.click(function() {
+            xcart.changeCount(prod.id, prod.count + 1);
+        });
+
+        var itm = $("<div>"+prod.tinytitle+"</div>");
+
+        itm.prepend(bez);
+        itm.prepend(prod.count);
+        itm.prepend(men);
+
+        cartlist.append(itm);
+      });
+
+   
+
+        $("#bigcartview").append(cartlist);
+
+        $("#bigcartview").append("<hr>"+tot.count+"  , "+tot.amount);
+        
 
       });
     </script>
