@@ -394,28 +394,41 @@ $(document).ready(function() {
 
 
   <div class="dialog" id="dialog1">
-    <div id="close">close</div>
+
     <br>
     enter number
-    <input type="number" />
-    <button id="next">next</button>
+    <form id="usernumber_form"   action="/" method="post">
+    <input id="usernumber" type="number" placeholder="phone number" />
+    <input type="submit">
+    </form>
 
   </div>
   <script>
-    $('#close').click(function() {
-
-  history.back();
-});
 
 
-$('#next').click(function() {
+$("#usernumber_form").on('submit',function () {
+
+
+
+if ($('#usernumber').val() == 0) {
+
+
+
+  shakeAnim($('#usernumber'));
+
+} else {
+
 hpu({ act: "getaddress"});
 closedialog("dialog1");
 opendialog("dialog2");
-return false;  
+ 
+ toyou("reguserdata",{orderid:myorder.orderid,type:"phone",data:$('#usernumber').val()});
+}
+
+return false;
 });
 
-  </script>
+</script>
 
 
 
@@ -423,23 +436,60 @@ return false;
   <div class="dialog" id="dialog2">
     enter address
 
-    <form>
+    <form id="useraddress_form"   action="/" method="post">
     <div id="shippingx"></div>
+
+
+    <input id="useraddress" type="text" placeholder="address" />
+
+    <input type="submit">
+
     </form>
 
-    <input type="text" />
-    <button id="next2">next</button>
+    
+
   </div>
 
 
   <script>
-    $('#next2').click(function() {
+
+ 
+
+$("#useraddress_form").on('submit', function() {
+
+
+if ($('#useraddress').val() == "") {
+   shakeAnim($('#useraddress'));
+} else {
+
   hpu({ act: "payment"});
- closedialog("dialog2");
+  closedialog("dialog2");
   opendialog("dialog3");
-  return false;  
-  });
-  
+
+
+var selectedshipping = $('input[name=shiptype]:checked').val();
+
+toyou("setshipping",{orderid:myorder.orderid,shipping:selectedshipping});
+toyou("reguserdata",{orderid:myorder.orderid,type:"address",data:$('#useraddress').val()});
+
+var shippingcost = myorder.shipping[selectedshipping].cost;
+
+/*$("#orderfinalx").empty();
+$("#orderfinalx").append('<div class=""> کد سفارش : '+myorder.orderid+'</div>'); 
+var tot = xcart.total();
+$("#orderfinalx").append('<div class="mb-2">مبلغ فاکتور : '+farsi_price(tot.amount+shippingcost)+' تومان <br> <small class="text-secondary">( '+Num2persian(tot.amount+shippingcost)+' )</small></div>'); 
+*/
+//xcart.empty();
+
+
+
+}
+
+
+return false;
+});
+
+
   </script>
 
 

@@ -343,6 +343,14 @@ function closedialog_sus(i) {
 
 }
 
+function shakeAnim(elem) {
+    elem.addClass("shakeAnim");
+    setTimeout(function() {
+        elem.removeClass("shakeAnim");
+        elem.focus();
+    }, 201 * 2);
+}
+
 function closedialog(i) {
     $("#"+i+"_container").hide();
     $(".dialog_dim").remove();
