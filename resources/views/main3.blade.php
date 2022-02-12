@@ -97,14 +97,16 @@ $(document).ready(function() {
 
     <script>
       $("#checkout").click(function() {
-
-        hpu({ act: "getnumber"});
+       
+        
 
 
         /**/
         toyou("preorder", xcart.items(), function(res) {
-         console.log(res);
+         console.log(res.data.id);
       
+         hpu({ act: "getnumber",orderid:res.data.id});
+
          myorder.orderid = res.data.id;
          myorder.shipping = res.data.shipping;
          $("#shippingx").empty();
@@ -354,6 +356,11 @@ $(document).ready(function() {
 
         if (event.state.act == 'cartup') {
          
+
+         if (xcart.total().count < 1) {
+            closemenu();
+            history.back();
+         }
           closedialog("dialog1");
           
         }
@@ -361,15 +368,43 @@ $(document).ready(function() {
 
         if (event.state.act == 'getnumber') {
        
+
+          if (myorder.orderid != event.state.orderid) {
+               history.back();
+          } 
+          
           closedialog("dialog2");
           opendialog("dialog1");
+          
+
+
         }
+
+
+        //if (event.state.act == 'getnumber') {
+
+       // }
 
 
         if (event.state.act == 'getaddress') {
+
+
+          if (myorder.orderid != event.state.orderid) {
+              history.back();
+          } 
+          
           closedialog("dialog3");
           opendialog("dialog2");
+
+
+          
+
+
+
         }
+
+
+
 
         
 
@@ -418,7 +453,7 @@ if ($('#usernumber').val() == 0) {
 
 } else {
 
-hpu({ act: "getaddress"});
+hpu({ act: "getaddress",orderid:myorder.orderid});
 closedialog("dialog1");
 opendialog("dialog2");
  
@@ -462,7 +497,7 @@ if ($('#useraddress').val() == "") {
    shakeAnim($('#useraddress'));
 } else {
 
-  hpu({ act: "payment"});
+  hpu({ act: "payment",orderid:myorder.orderid});
   closedialog("dialog2");
   opendialog("dialog3");
 
@@ -497,7 +532,7 @@ return false;
 
 
   <div class="dialog" id="dialog3">
-    payment
+    payment <button onclick="myorder.orderid=null;xcart.empty();" >ok</button>
   </div>
 
 
