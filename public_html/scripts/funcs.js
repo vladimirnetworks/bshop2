@@ -456,31 +456,46 @@ $("body").append(dim);
 
 }
 
+//function onFinishorder() {
+//    console.log("finished order");
+//}
 
 function loadmyorders() {
  $('.myorders').append('<div style="min-height:90vh"> your orders is </div>');
-
+ document.body.scrollTop = 0;
+ document.documentElement.scrollTop = 0;
 
 }
 
-function offlinepay() {
-
-
+function offlinepay2() {
 
     myorder.orderid=null;xcart.empty();history.back();
 
-
-    addOnCloseMenuListener(function() {
-        hpu({act:"showmyorders"});    
+      //hpu({act:"showmyorders"});    
         loadmyorders();
-        removeOnCloseMenuListener(this);
-    });
-
+     
 
 }
 
 
+function offlinepay() {
+    xcart.empty();
+    window.history.go(-4);
+
+           
+    setTimeout(function() {
+        loadmyorders();
+        hpu({act:"showmyorders"});  
+    },100);
+
+
+}
+
 function onlinepay() {
+    window.history.go(-4);
+}
+
+function onlinepay2() {
     history.back();
     setTimeout(function() {
     hpu({act:"waitforonlinepay"});

@@ -252,17 +252,7 @@ $(document).ready(function() {
     }
 
 
-    closemenulistener = [];
-    function addOnCloseMenuListener(f) {
-      closemenulistener.push(f);
-    }
 
-    function removeOnCloseMenuListener(f) {
-         const index = closemenulistener.indexOf(f);
-        if (index > -1) {
-          closemenulistener.splice(index, 1); 
-        }
-    }
 
     function openmenu() {
 
@@ -298,10 +288,7 @@ $(document).ready(function() {
         marginize();
       }, 350);
 
-      for (var i = 0;i<closemenulistener.length;i++) {
-        //closemenulistener[i]();
-        console.log("sdf");
-      }
+
     }
     function closemenu2() {
       if (island()) {
@@ -350,11 +337,22 @@ $(document).ready(function() {
 
     window.addEventListener('popstate', (event) => {
 
-    
+      if (event.state != null) {
+         console.log("back called "+event.state.act);
+      } else {
+        console.log("back called null");
+      }
 
       // if any back
+
+      if (xcart.total().count < 1) {
+            closedialog("dialog3");
+      }
+      $('.myorders').empty();
+
+
       //closedialog('onlinepaydialog');
-      //$('.myorders').empty();
+     
      
       if (event.state == null) {
        llist(".products", "index");
@@ -379,10 +377,15 @@ $(document).ready(function() {
         if (event.state.act == 'cartup') {
          
 
-         if (xcart.total().count < 1) {
-            closemenu();
-            history.back();
-         }
+        // if (xcart.total().count < 1) {
+         //   closemenu();
+        //    history.back();
+
+        //    onFinishorder();
+
+        // }
+
+
           closedialog("dialog1");
           
         }
@@ -391,9 +394,9 @@ $(document).ready(function() {
         if (event.state.act == 'getnumber') {
        
 
-          if (myorder.orderid != event.state.orderid) {
-               history.back();
-          } 
+          //if (myorder.orderid != event.state.orderid) {
+          //     history.back();
+          //} 
           
           closedialog("dialog2");
           opendialog("dialog1");
@@ -403,17 +406,13 @@ $(document).ready(function() {
         }
 
 
-        //if (event.state.act == 'getnumber') {
-
-       // }
-
 
         if (event.state.act == 'getaddress') {
 
 
-          if (myorder.orderid != event.state.orderid) {
-              history.back();
-          } 
+          //if (myorder.orderid != event.state.orderid) {
+          //    history.back();
+         // } 
           
           closedialog("dialog3");
           opendialog("dialog2");
