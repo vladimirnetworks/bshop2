@@ -251,6 +251,19 @@ $(document).ready(function() {
       }
     }
 
+
+    closemenulistener = [];
+    function addOnCloseMenuListener(f) {
+      closemenulistener.push(f);
+    }
+
+    function removeOnCloseMenuListener(f) {
+         const index = closemenulistener.indexOf(f);
+        if (index > -1) {
+          closemenulistener.splice(index, 1); 
+        }
+    }
+
     function openmenu() {
 
       
@@ -284,6 +297,11 @@ $(document).ready(function() {
       setTimeout(function () {
         marginize();
       }, 350);
+
+      for (var i = 0;i<closemenulistener.length;i++) {
+        //closemenulistener[i]();
+        console.log("sdf");
+      }
     }
     function closemenu2() {
       if (island()) {
@@ -332,16 +350,18 @@ $(document).ready(function() {
 
     window.addEventListener('popstate', (event) => {
 
-      if (event.state != null) {
-            console.log(event.state);
-      }
+    
 
-
+      // if any back
+      //closedialog('onlinepaydialog');
+      //$('.myorders').empty();
+     
       if (event.state == null) {
        llist(".products", "index");
        $(".product").empty();
        $(".product").hide();
        closemenu();
+      
       } else {
 
 
@@ -350,6 +370,8 @@ $(document).ready(function() {
 
           closemenu();
           oproduct(event.state.prod);
+
+       
 
 
         }
@@ -412,6 +434,7 @@ $(document).ready(function() {
         if (event.state.act == 'list') {
           $(".product").empty();
           $(".product").hide();
+         
         }
 
 
@@ -525,6 +548,9 @@ return false;
 });
 
 
+
+
+
   </script>
 
 
@@ -532,10 +558,19 @@ return false;
 
 
   <div class="dialog" id="dialog3">
-    payment <button onclick="myorder.orderid=null;xcart.empty();" >ok</button>
+
+    payment <button onclick="offlinepay()" >offlinepayment</button>
+
+
+    <button onclick="onlinepay()" >onlinePayment</button>
+
   </div>
 
 
+
+  <div class="dialog" id="onlinepaydialog">
+پرداخت آنلاین ....
+  </div>
 
 
 
