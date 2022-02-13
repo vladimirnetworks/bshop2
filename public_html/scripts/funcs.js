@@ -492,7 +492,15 @@ function offlinepay() {
 }
 
 function onlinepay() {
+    xcart.empty();
     window.history.go(-4);
+
+    setTimeout(function() {
+        hpu({act:"waitforonlinepay"});  
+        opendialog('onlinepaydialog');
+    },100);
+
+    
 }
 
 function onlinepay2() {

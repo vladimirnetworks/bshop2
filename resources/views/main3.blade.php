@@ -346,9 +346,13 @@ $(document).ready(function() {
       // if any back
 
       if (xcart.total().count < 1) {
+
             closedialog("dialog3");
+            
+            
       }
       $('.myorders').empty();
+      closedialog("onlinepaydialog");
 
 
       //closedialog('onlinepaydialog');
