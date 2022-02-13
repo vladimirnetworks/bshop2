@@ -461,7 +461,16 @@ $("body").append(dim);
 //}
 
 function loadmyorders() {
- $('.myorders').append('<div style="min-height:90vh"> your orders is </div>');
+
+    var ordcont = $('<div style="min-height:90vh"> wait ... </div>');
+
+ apix.get("myorders", function(vals) {
+     console.log(vals);
+    ordcont.append("<div>"+vals.encoded_id+"</div>");
+ });
+
+ $('.myorders').append(ordcont);
+
  document.body.scrollTop = 0;
  document.documentElement.scrollTop = 0;
 

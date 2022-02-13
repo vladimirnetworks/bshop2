@@ -205,13 +205,26 @@ $(document).ready(function() {
     mmenu = {};
 
     mmenu.open = false;
-    function island() {
+    function island_sus() {
       if (window.innerHeight > window.innerWidth) {
         return false;
       } else {
         return true;
       }
     }
+
+    function island() {
+      if (window.matchMedia("(orientation: portrait)").matches) {
+        return false;
+}
+
+if (window.matchMedia("(orientation: landscape)").matches) {
+  return true;
+}
+    }
+
+ 
+
 
     function marginize() {
       $('body').css({ 'padding-top': $('.top').height() + 'px' });
@@ -458,16 +471,14 @@ $(document).ready(function() {
 
     <br>
     enter number
-    <form id="usernumber_form"   action="/" method="post">
-    <input id="usernumber" type="number" placeholder="phone number" />
-    <input type="submit">
+    <form id="usernumber_form" action="/" method="post">
+      <input id="usernumber" type="number" placeholder="phone number" />
+      <input type="submit">
     </form>
 
   </div>
   <script>
-
-
-$("#usernumber_form").on('submit',function () {
+    $("#usernumber_form").on('submit',function () {
 
 
 
@@ -489,7 +500,7 @@ opendialog("dialog2");
 return false;
 });
 
-</script>
+  </script>
 
 
 
@@ -497,26 +508,23 @@ return false;
   <div class="dialog" id="dialog2">
     enter address
 
-    <form id="useraddress_form"   action="/" method="post">
-    <div id="shippingx"></div>
+    <form id="useraddress_form" action="/" method="post">
+      <div id="shippingx"></div>
 
 
-    <input id="useraddress" type="text" placeholder="address" />
+      <input id="useraddress" type="text" placeholder="address" />
 
-    <input type="submit">
+      <input type="submit">
 
     </form>
 
-    
+
 
   </div>
 
 
   <script>
-
- 
-
-$("#useraddress_form").on('submit', function() {
+    $("#useraddress_form").on('submit', function() {
 
 
 if ($('#useraddress').val() == "") {
@@ -562,17 +570,17 @@ return false;
 
   <div class="dialog" id="dialog3">
 
-    payment <button onclick="offlinepay()" >offlinepayment</button>
+    payment <button onclick="offlinepay()">offlinepayment</button>
 
 
-    <button onclick="onlinepay()" >onlinePayment</button>
+    <button onclick="onlinepay()">onlinePayment</button>
 
   </div>
 
 
 
   <div class="dialog" id="onlinepaydialog">
-پرداخت آنلاین ....
+    پرداخت آنلاین ....
   </div>
 
 

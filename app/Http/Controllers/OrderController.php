@@ -114,6 +114,46 @@ class OrderController extends Controller
         }
     }
 
+    public function indexapi()
+    {
+       
+
+
+        $orders = liteauth::me()->orders;
+
+        $ords = [];
+
+        foreach ($orders as $order) {
+
+
+
+
+            $cart = json_decode($order->data, true);
+
+
+
+            $orderItems = null;
+            $orderTot = 0;
+
+            foreach ($cart as $cartitem) {
+
+                $orderItems[] = ["text" => $cartitem['title'], "count" => $cartitem['count']];
+
+                $orderTot = $orderTot + intval($cartitem['price']) * intval($cartitem['count']);
+            }
+
+            $ords[] = [
+                'items' => $orderItems,
+                'total' => $orderTot,
+                'shipping_status' => $order->shipping_status,
+                'payment_status' => $order->payment_status,
+                'encoded_id' => $order->encoded_id,
+            ];
+        }
+
+        return ['data'=>$ords];
+
+    }
     public function index()
     {
 
