@@ -28,6 +28,53 @@ class OrderController extends Controller
         return view("singleorder", ["pageTitle" => "سفارش " . $orderid, "order" => $order, "payment" => $payment]);
     }
 
+    function onlinepayapi() {
+
+        $orderid = request("orderid");
+       
+        $order = liteauth::me()->orders()->whereId(decode_id($orderid))->first();
+
+      
+        /*$cart = json_decode($order->data, true);
+
+        $totamount = 0;
+
+        foreach ($cart as $item) {
+            $prod = Product::whereId($item['id'])->first();
+            $totamount = $totamount + ($prod->price * $item['count']);
+        }
+        */
+
+        $totamount = $order->total_amount;
+
+
+        $ipayment = Payment::Create([
+            "order_id" => $orderid,
+            "decoded_order_id" => decode_id($orderid)
+        ]);
+
+
+        $paymnt = $this->zarinpal_payapi($totamount, "سفارش " . $orderid, "09332806144", encode_id($ipayment->id));
+        
+     
+        $res = "";
+        if ($paymnt != 'error') {
+
+
+            $ipayment->type = 'zarinpal';
+            $ipayment->authority = $paymnt['authority'];
+            $ipayment->save();
+
+
+            $res = $paymnt['redirecturl'];
+         
+        } else {
+            $res = "error";
+        }
+
+        return ["res"=>$res];
+    }
+
     public function onlinepay($orderid)
     {
         $order = liteauth::me()->orders()->whereId(decode_id($orderid))->first();
@@ -67,6 +114,7 @@ class OrderController extends Controller
 
     public function zarinpal_pay($amout, $title, $mob, $orderid)
     {
+      
         $data = array(
             "merchant_id" => env("ZARINMERCH"),
             "amount" => $amout * 10,
@@ -87,6 +135,7 @@ class OrderController extends Controller
 
         $result = curl_exec($ch);
         $err = curl_error($ch);
+        
         $result = json_decode($result, true, JSON_PRETTY_PRINT);
 
 
@@ -113,6 +162,60 @@ class OrderController extends Controller
             }
         }
     }
+
+
+
+    public function zarinpal_payapi($amout, $title, $mob, $paymentid)
+    {
+      
+        $data = array(
+            "merchant_id" => env("ZARINMERCH"),
+            "amount" => $amout * 10,
+            "callback_url" => "http://127.0.0.1:8000/index33?zpalvf=true&paymentid=" . $paymentid,
+            "description" => $title,
+            "metadata" => ["email" => "alaeebehnam@gmail.com", "mobile" => $mob],
+        );
+        $jsonData = json_encode($data);
+        $ch = curl_init('https://api.zarinpal.com/pg/v4/payment/request.json');
+        curl_setopt($ch, CURLOPT_USERAGENT, 'ZarinPal Rest Api v1');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen($jsonData)
+        ));
+
+        $result = curl_exec($ch);
+        $err = curl_error($ch);
+        
+        $result = json_decode($result, true, JSON_PRETTY_PRINT);
+
+
+        curl_close($ch);
+
+        if ($err) {
+            return "error";
+        } else {
+            if (empty($result['errors'])) {
+                if ($result['data']['code'] == 100) {
+
+
+
+                    return [
+                        'redirecturl' => 'https://www.zarinpal.com/pg/StartPay/' . $result['data']["authority"],
+                        'authority' => $result['data']["authority"]
+                    ];
+                }
+            } else {
+                #echo 'Error Code: ' . $result['errors']['code'];
+                #echo 'message: ' .  $result['errors']['message'];
+
+                return "error";
+            }
+        }
+    }
+
 
     public function indexapi()
     {

@@ -60,7 +60,7 @@ Route::post('catload', 'App\Http\Controllers\CatController@catload');
 
 
 Route::get('myorders', 'App\Http\Controllers\OrderController@indexapi');
-
+Route::post('onlinepay', 'App\Http\Controllers\OrderController@onlinepayapi');
 
 
 Route::get('onelevelchild/{rootid}', 'App\Http\Controllers\CatController@oneLevelChild');

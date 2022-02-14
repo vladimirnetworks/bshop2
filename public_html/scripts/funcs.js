@@ -500,13 +500,33 @@ function offlinepay() {
 
 }
 
-function onlinepay() {
+function onlinepay(oid) {
     xcart.empty();
     window.history.go(-4);
 
     setTimeout(function() {
         hpu({act:"waitforonlinepay"});  
         opendialog('onlinepaydialog');
+
+
+        $.ajax({
+            url: "/api/onlinepay",
+            type: "post",
+            data: {orderid:oid} ,
+            success: function (response) {
+    
+               if (response.res != "error") {
+                      window.location = response.res;
+               }
+             
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+               console.log(textStatus, errorThrown);
+            }
+        });
+    
+        
+
     },100);
 
     
