@@ -82,7 +82,17 @@ $(document).ready(function() {
       
 
       </script>
-      <div class="itm"></div>
+      
+
+      <div class="itm" id="oorder" >myorders</div>
+      <script>
+        $('#oorder').click(function(e) {
+          e.stopPropagation();
+          loadmyorders();hpu({act:"showmyorders"});       
+        });
+
+        </script>
+
       <div class="itm"></div>
     </div>
 
@@ -364,8 +374,12 @@ if (window.matchMedia("(orientation: landscape)").matches) {
             
             
       }
-      $('.myorders').empty();
+     
+     // 
+     
       closedialog("onlinepaydialog");
+      
+      
 
 
       //closedialog('onlinepaydialog');
@@ -375,6 +389,7 @@ if (window.matchMedia("(orientation: landscape)").matches) {
        llist(".products", "index");
        $(".product").empty();
        $(".product").hide();
+       $('.myorders').empty();
        closemenu();
       
       } else {
@@ -385,6 +400,8 @@ if (window.matchMedia("(orientation: landscape)").matches) {
 
           closemenu();
           oproduct(event.state.prod);
+
+          $('.myorders').empty();
 
        
 
@@ -441,13 +458,16 @@ if (window.matchMedia("(orientation: landscape)").matches) {
 
         }
 
+        if (event.state.act == 'showmyorders') {
 
+        closedialog("singleorderview");
+        closemenu();
 
-
-        
+        }
 
 
         if (event.state.act == 'list') {
+          $('.myorders').empty();
           $(".product").empty();
           $(".product").hide();
          
@@ -576,6 +596,19 @@ return false;
     <button onclick="onlinepay(myorder.orderid)">onlinePayment</button>
 
   </div>
+
+
+
+
+  <div class="dialog" id="singleorderview">
+
+        this is your order
+
+  </div>
+
+
+
+  
 
 
 

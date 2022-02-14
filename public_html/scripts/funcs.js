@@ -462,11 +462,20 @@ $("body").append(dim);
 
 function loadmyorders() {
 
-    var ordcont = $('<div style="min-height:90vh"> wait ... </div>');
+
+    var ordcont = $('<div style="min-height:90vh"></div>');
 
  apix.get("myorders", function(vals) {
      console.log(vals);
-    ordcont.append("<div>"+vals.encoded_id+"</div>");
+
+     var orderitem = $("<div>"+vals.encoded_id+"</div>");
+
+     orderitem.click(function() {
+            opendialog("singleorderview");
+            hpu({act:"singleorderview"});
+     });
+
+    ordcont.append(orderitem);
  });
 
  $('.myorders').append(ordcont);
