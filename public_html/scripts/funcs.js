@@ -517,7 +517,7 @@ function loadmyorders() {
 
      orderitem.click(function() {
             opendialog("singleorderview");
-            hpu({act:"singleorderview"});
+            hpu({act:"singleorderview",orderid:vals.encoded_id});
      });
 
      myorders.append(orderitem);
@@ -554,6 +554,30 @@ function offlinepay() {
 
 }
 
+function onlinepaygo(oid) {
+    hpu({act:"waitforonlinepay"});  
+    opendialog('onlinepaydialog');
+    gotopay(oid);
+}
+
+function gotopay(oid) {
+    $.ajax({
+        url: "/api/onlinepay",
+        type: "post",
+        data: {orderid:oid} ,
+        success: function (response) {
+
+           if (response.res != "error") {
+                  window.location = response.res;
+           }
+         
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           console.log(textStatus, errorThrown);
+        }
+    });
+}
+
 function onlinepay(oid) {
     xcart.empty();
     window.history.go(-4);
@@ -563,21 +587,7 @@ function onlinepay(oid) {
         opendialog('onlinepaydialog');
 
 
-        $.ajax({
-            url: "/api/onlinepay",
-            type: "post",
-            data: {orderid:oid} ,
-            success: function (response) {
-    
-               if (response.res != "error") {
-                      window.location = response.res;
-               }
-             
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-               console.log(textStatus, errorThrown);
-            }
-        });
+        gotopay(oid);
     
         
 

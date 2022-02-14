@@ -93,7 +93,19 @@ $(document).ready(function() {
 
         </script>
 
-      <div class="itm"></div>
+      <div class="itm" id="mainpage">mainpage</div>
+
+
+      <script>
+        $('#mainpage').click(function(e) {
+          e.stopPropagation();
+          llist("index");
+          hpu({act:"list",path:'index'});       
+        });
+
+        </script>
+
+
     </div>
 
     <div class="big">
@@ -362,11 +374,11 @@ if (window.matchMedia("(orientation: landscape)").matches) {
 
       if (xcart.total().count < 1) {
 
-            closedialog("dialog3");
+           // closedialog("dialog3");
             
             
       }
-      closedialog("onlinepaydialog");
+      //closedialog("onlinepaydialog");
      // 
      
      
@@ -380,9 +392,25 @@ if (window.matchMedia("(orientation: landscape)").matches) {
 
 
 
+        
+
+        if (event.state.act == 'singleorderview') {
+
+          closedialog("onlinepaydialog");
+          opendialog("singleorderview");
+
+        }
+
+
         if (event.state.act == 'product') {
           oproduct(event.state.prod);
         }
+
+
+        if (event.state.act == 'list') {
+          llist(event.state.path);
+        }
+
 
         if (event.state.act == 'cartup') {
            openmenu();       
@@ -552,7 +580,7 @@ return false;
 
         this is your order
 
-        <button onclick="onlinepay('6113')">online pay</button>
+        <button onclick="onlinepaygo(6113)">online pay</button>
 
   </div>
 
