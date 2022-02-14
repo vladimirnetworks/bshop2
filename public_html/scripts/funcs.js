@@ -1,3 +1,8 @@
+mmenu = {};
+
+
+
+
 function hpu(xact) {
     console.log("added " + xact.act);
     history.pushState(xact, xact.act, "?" + xact.act);
@@ -22,12 +27,17 @@ function readCookie(name) {
 function oproduct(p) {
 
 
+    var rt = r();
+
+    var product = $('<div class="product"></div>');
+
+    rt.append(product);
+
 
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 
-    $(".product").empty();
-    $(".product").show();
+
 
     var prd = $("<div></div>");
 
@@ -56,11 +66,12 @@ function oproduct(p) {
 
     prd.append(addtocartButton);
 
-    $(".product").append(prd);
+    product.append(prd);
 
 
     if (p.hasOwnProperty('dval2')) {
-        eval(p.dval2);
+      //eval(p.dval2);
+      // console.log(p.dval2);
     }
 
 
@@ -71,14 +82,45 @@ function oproduct(p) {
 
 }
 
-function llist(target, path) {
+
+function closemenu() {
+    $('.min').show();
+    $('.big').hide();
+    $('.dim').hide();
+    mmenu.open = false;
+    $('.bottom').attr('style', '');
+    // marginize();
+    setTimeout(function () {
+      marginize();
+    }, 350);
 
 
+  }
+
+function closealldialogs() {
+closedialog("dialog1");
+closedialog("dialog2");
+closedialog("dialog3");
+closedialog("singleorderview");
+closedialog("onlinepaydialog");
+}
+
+function r() {
+
+    closealldialogs();
+
+    closemenu();
+    $("#router1").empty();
+    return $("#router1");
+}
+
+function llist(path) {
 
 
+  var rt = r();
 
-    $(target).empty();
-
+  var products = $('<div class="products"></div>');
+  rt.append(products);
     apix.get(path, function(vals) {
 
         var product = $("<div>" + vals.tinytitle + "</div>");
@@ -88,7 +130,7 @@ function llist(target, path) {
             hpu({ act: "product", prod: vals });
         });
 
-        $(target).append(product);
+        products.append(product);
     })
 }
 
@@ -463,7 +505,10 @@ $("body").append(dim);
 function loadmyorders() {
 
 
-    var ordcont = $('<div style="min-height:90vh"></div>');
+    var rt = r();
+    var myorders = $('<div class="myorders"  style="min-height:90vh"></div>');
+    rt.append(myorders);
+
 
  apix.get("myorders", function(vals) {
      console.log(vals);
@@ -475,10 +520,10 @@ function loadmyorders() {
             hpu({act:"singleorderview"});
      });
 
-    ordcont.append(orderitem);
+     myorders.append(orderitem);
  });
 
- $('.myorders').append(ordcont);
+
 
  document.body.scrollTop = 0;
  document.documentElement.scrollTop = 0;

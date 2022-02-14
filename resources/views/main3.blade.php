@@ -212,7 +212,7 @@ $(document).ready(function() {
 
 
   <script>
-    mmenu = {};
+
 
     mmenu.open = false;
     function island_sus() {
@@ -279,7 +279,7 @@ if (window.matchMedia("(orientation: landscape)").matches) {
 
     function openmenu() {
 
-      
+      closealldialogs();
 
       $('.dim').fadeIn();
       $('.min').hide();
@@ -300,19 +300,7 @@ if (window.matchMedia("(orientation: landscape)").matches) {
       }
     }
 
-    function closemenu() {
-      $('.min').show();
-      $('.big').hide();
-      $('.dim').hide();
-      mmenu.open = false;
-      $('.bottom').attr('style', '');
-      // marginize();
-      setTimeout(function () {
-        marginize();
-      }, 350);
 
-
-    }
     function closemenu2() {
       if (island()) {
         $('.bottom').css({
@@ -360,11 +348,15 @@ if (window.matchMedia("(orientation: landscape)").matches) {
 
     window.addEventListener('popstate', (event) => {
 
-      if (event.state != null) {
-         console.log("back called "+event.state.act);
-      } else {
-        console.log("back called null");
-      }
+  
+  
+
+
+
+
+
+
+
 
       // if any back
 
@@ -374,109 +366,65 @@ if (window.matchMedia("(orientation: landscape)").matches) {
             
             
       }
-     
+      closedialog("onlinepaydialog");
      // 
      
-      closedialog("onlinepaydialog");
-      
+     
       
 
-
-      //closedialog('onlinepaydialog');
      
      
       if (event.state == null) {
-       llist(".products", "index");
-       $(".product").empty();
-       $(".product").hide();
-       $('.myorders').empty();
-       closemenu();
-      
+       llist("index");      
       } else {
 
 
 
         if (event.state.act == 'product') {
-
-          closemenu();
           oproduct(event.state.prod);
-
-          $('.myorders').empty();
-
-       
-
-
         }
 
         if (event.state.act == 'cartup') {
-         
-
-        // if (xcart.total().count < 1) {
-         //   closemenu();
-        //    history.back();
-
-        //    onFinishorder();
-
-        // }
-
-
-          closedialog("dialog1");
-          
+           openmenu();       
         }
-
 
         if (event.state.act == 'getnumber') {
-       
 
-          //if (myorder.orderid != event.state.orderid) {
-          //     history.back();
-          //} 
-          
           closedialog("dialog2");
           opendialog("dialog1");
-          
-
-
+        
         }
-
 
 
         if (event.state.act == 'getaddress') {
-
-
-          //if (myorder.orderid != event.state.orderid) {
-          //    history.back();
-         // } 
           
           closedialog("dialog3");
           opendialog("dialog2");
-
-
-          
-
-
 
         }
 
         if (event.state.act == 'showmyorders') {
 
-        closedialog("singleorderview");
-        closemenu();
+       loadmyorders();
 
         }
-
-
-        if (event.state.act == 'list') {
-          $('.myorders').empty();
-          $(".product").empty();
-          $(".product").hide();
-         
-        }
-
-
 
       }
 
+
+
+
+
+
+
+
+
+
+      if (event.state != null) {
+         console.log("back called "+event.state.act);
+      } else {
+        console.log("back called null");
+      }
     });
   </script>
 

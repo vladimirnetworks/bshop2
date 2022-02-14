@@ -93,7 +93,7 @@ class Product extends Model
 
       //  return 'loadcat(".catmain","catload",{"type":"relateto","id":"'.$this->id.'"});';
 
-        return '$(".products").empty();setTimeout(function() {llist(".products","relateto/'.$this->id.'");},1);';
+        return 'setTimeout(function() {llist("relateto/'.$this->id.'");},1);';
 
     }
 

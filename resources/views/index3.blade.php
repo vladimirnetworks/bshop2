@@ -7,14 +7,11 @@
 
      <div class="myorders"></div>
 
-     <div class="product"></div>
-     <div class="products"></div>
-
-
+     <div id="router1"></div>
      
       
       <script>
-      llist(".products", "index")
+      llist("index")
       </script>
     
 @if(isset($_GET['zpalvf']))
