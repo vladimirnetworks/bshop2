@@ -41,9 +41,27 @@ function oproduct(p) {
 
 
 
-    var prd = $("<div></div>");
+    var prd = $('<div></div>');
 
-    prd.append(p.title);
+    var prdtop = $('<div style="display:flex;align-items: center;"></div>');
+
+    var back = $('<div style="text-align:center;display:flex;padding: 0.9em;justify-content: center;"><img style="width:70%;min-width: 50px;" src="https://www.behkiana.ir/icons/back.png"/></div>');
+    var srch = $('<div style="text-align:center;display:flex;padding: 0.9em ;justify-content: center;"><img style="width:70%;min-width: 50px;" src="https://www.behkiana.ir/icons/mag.png"/></div>');
+    var title = $('<div style="flex-grow: 1;text-align:center">'+p.title+'</div>');
+  
+    prdtop.append(back);
+    prdtop.append(title);
+    prdtop.append(srch);
+
+
+    back.click(function() {
+        history.back();
+    });
+
+
+    prd.append(prdtop);
+
+   // prd.append(p.title);
 
     var addtocartButton = $('<button>addTocart</button>');
 
