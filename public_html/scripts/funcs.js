@@ -254,8 +254,8 @@ function oproduct(p) {
 
     var prdtop = $('<div style="display:flex;align-items: start;"></div>');
 
-    var back = $('<div style="text-align:center;display:flex;padding: 0.9em;justify-content: center;"><img style="width:70%;min-width: 50px;object-fit: contain;" src="https://www.behkiana.ir/icons/back.png"/></div>');
-    var srch = $('<div style="text-align:center;display:flex;padding: 0.9em ;justify-content: center;"><img style="width:70%;min-width: 50px;object-fit: contain;" src="https://www.behkiana.ir/icons/mag.png"/></div>');
+    var back = $('<div style="text-align:center;display:flex;padding: 0.9em;justify-content: center;"><img style="width:70%;min-width: 50px;" src="https://www.behkiana.ir/icons/back.png"/></div>');
+    var srch = $('<div style="text-align:center;display:flex;padding: 0.9em ;justify-content: center;"><img style="width:70%;min-width: 50px;" src="https://www.behkiana.ir/icons/mag.png"/></div>');
     var title = $('<div style="flex-grow: 1;text-align:center">'+p.title+'</div>');
   
 
