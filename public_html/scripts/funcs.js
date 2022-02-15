@@ -352,8 +352,8 @@ function oproduct(p) {
 
     var landbox = $('<div class="prodlandbox" style="text-align: center;padding-right:2rem"></div>');
 
-    var leftlandbox = $('<div style="flex-grow:2;text-align: right;direction:rtl;    padding-right: 1rem"></div>');
-    var rightlandbox = $('<div style="flex-grow:1.7;"></div>');
+    var leftlandbox = $('<div style="flex-grow:1;text-align: right;direction:rtl;    padding-right: 1rem"></div>');
+    var rightlandbox = $('<div style="flex-grow:1;"></div>');
 
 
     var priceAndAddtoCart = $('<div style="display:flex"></div>');
