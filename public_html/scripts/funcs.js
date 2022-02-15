@@ -1,6 +1,23 @@
 mmenu = {};
 
 
+function topersiannumber(str) {
+    var numbers = [/[0۰٠]/g, /[1۱١]/g, /[2۲٢]/g, /[3۳٣]/g, /[4۴٤]/g, /[5۵٥]/g, /[6۶٦]/g, /[7۷٧]/g, /[8۸٨]/g, /[9۹٩]/g];
+    var persiannumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+
+
+    for (var i = 0; i < numbers.length; i++) {
+        str = str.replace(numbers[i], persiannumbers[i]);
+    }
+    return str;
+
+}
+
+function farsi_price(inp) {
+    var inpc = inp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return topersiannumber(inpc);
+}
+
 function SwiperBox(fields) {
     var self = this;
 
@@ -302,6 +319,12 @@ function oproduct(p) {
 
 
 
+    var price = $('<div class="pt-1 text-success" style="font-size:150%;font-weight:bold">' + farsi_price(p.price) + ' تومان </div>');
+
+    var caption = $('<ul style="text-align: right;font-size:80%">' + p.licaption + '</ul>');
+
+
+
 
     //
 
@@ -317,13 +340,25 @@ function oproduct(p) {
 
     prdtop.append(srch);
 
-    prd.append('<div class="portprodtitle" style="text-align: center;">'+p.title+'</div>');
+
+    var porttitle = $('<div class="portprodtitle" style="text-align: center;direction:rtl">'+p.title+'</div>');
+    prd.append(porttitle);
+
+    porttitle.append(price);
+
+    porttitle.append(caption);
+    
 
 
     var landbox = $('<div class="prodlandbox" style="text-align: center;"></div>');
 
-    var leftlandbox = $('<div style="flex-grow:2">a</div>');
-    var rightlandbox = $('<div style="flex-grow:1"><a/div>');
+    var leftlandbox = $('<div style="flex-grow:2;text-align: right;direction:rtl;    padding-right: 1rem"></div>');
+    var rightlandbox = $('<div style="flex-grow:1"></div>');
+
+    leftlandbox.append(price.clone());
+    leftlandbox.append(caption.clone());
+
+
     rightlandbox.append(photos2);
 
     landbox.append(leftlandbox);
