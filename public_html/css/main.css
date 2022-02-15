@@ -61,6 +61,14 @@
         }
         
         @media screen and (orientation: portrait) {
+
+            .landprodtitle {display:none}
+            .portprodtitle {display:block}
+
+            .prodgalwidth {width:50vw;
+                margin-right:auto;margin-left:auto;
+            }
+
             .bottom {
                 bottom: 0px;
                 left: 0px;
@@ -84,6 +92,11 @@
         }
         
         @media screen and (orientation: landscape) {
+
+            .landprodtitle {display:block}
+            .portprodtitle {display:none}
+            .prodgalwidth {width:50vh;float:right}
+
             .bottom {
                 right: 0px;
                 top: 0px;

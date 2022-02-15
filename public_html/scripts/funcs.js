@@ -284,12 +284,14 @@ function oproduct(p) {
         items: photoitems
     });
 
-    var photos = $('<div style="width:50vw;margin-right:auto;margin-left:auto"></div>');
+    var photos = $('<div class="prodgalwidth" style=""></div>');
     photos.append($(mySwipe.HTMLElement));
 
     //
 
     var vasat = $('<div style="flex-grow:1"></div>');
+
+    vasat.append('<div class="landprodtitle" style="text-align: center;">'+p.title+'</div>');
 
     vasat.append(photos);
 
@@ -299,7 +301,7 @@ function oproduct(p) {
 
     prdtop.append(srch);
 
-    prd.append('<div style="text-align: center;">'+p.title+'</div>');
+    prd.append('<div class="portprodtitle" style="text-align: center;">'+p.title+'</div>');
 
 
     /**/
