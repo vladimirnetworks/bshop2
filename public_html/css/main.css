@@ -67,6 +67,8 @@
             .prodtopvasat {align-self: start;}
             .prodlandbox {display: none;}
 
+            .portaddtocart {display: block;}
+
             .prodgalport {
                 width:50vw;margin-right:auto;margin-left:auto;
             }
@@ -100,6 +102,7 @@
             .prodgalport {display:none}
             .prodtopvasat {align-self: center;}
             .prodlandbox {display: flex;}
+            .portaddtocart {display: none;}
 
 
             .bottom {

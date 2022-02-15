@@ -350,16 +350,27 @@ function oproduct(p) {
     
 
 
-    var landbox = $('<div class="prodlandbox" style="text-align: center;"></div>');
+    var landbox = $('<div class="prodlandbox" style="text-align: center;padding-right:2rem"></div>');
 
     var leftlandbox = $('<div style="flex-grow:2;text-align: right;direction:rtl;    padding-right: 1rem"></div>');
-    var rightlandbox = $('<div style="flex-grow:1"></div>');
+    var rightlandbox = $('<div style="flex-grow:1.7;"></div>');
 
-    leftlandbox.append(price.clone());
+
+    var priceAndAddtoCart = $('<div style="display:flex"></div>');
+
+    priceAndAddtoCart.append(price.clone());
+    priceAndAddtoCart.append('<button>addToCart</button>');
+
+    leftlandbox.append(priceAndAddtoCart);
+
+
+
     leftlandbox.append(caption.clone());
 
 
     rightlandbox.append(photos2);
+
+   
 
     landbox.append(leftlandbox);
     landbox.append(rightlandbox);
@@ -369,9 +380,7 @@ function oproduct(p) {
     /**/
 
 
-   // prd.append(p.title);
-
-    var addtocartButton = $('<div style="text-align: center;"><button>addTocart</button></div>');
+    var addtocartButton = $('<div class="portaddtocart" style="text-align: center;"><button>addTocart</button></div>');
 
     addtocartButton.click(function() {
 
