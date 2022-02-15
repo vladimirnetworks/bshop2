@@ -1,6 +1,22 @@
 mmenu = {};
 
 
+function TransFormAnim(elem) {
+    elem.css({ "transition": "all 0.100s", "transform": 'scale(0.8)' });
+    setTimeout(function() {
+        elem.css({ "transform": 'scale(1.0)' });
+    }, 101);
+}
+
+function setTransFormAnim(elem) {
+    elem.on("click touchstart", function() {
+
+        TransFormAnim(elem);
+
+    });
+}
+
+
 function topersiannumber(str) {
     var numbers = [/[0۰٠]/g, /[1۱١]/g, /[2۲٢]/g, /[3۳٣]/g, /[4۴٤]/g, /[5۵٥]/g, /[6۶٦]/g, /[7۷٧]/g, /[8۸٨]/g, /[9۹٩]/g];
     var persiannumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
@@ -356,10 +372,13 @@ function oproduct(p) {
     var rightlandbox = $('<div style="flex-grow:1;"></div>');
 
 
-    var priceAndAddtoCart = $('<div style="display:flex"></div>');
+    var priceAndAddtoCart = $('<div style="display:flex;padding:1rem"></div>');
 
     priceAndAddtoCart.append(price.clone());
-    priceAndAddtoCart.append('<button>addToCart</button>');
+
+    var addtocartland = $('<button class="cartBtn" style="margin-right:1rem" >خرید</button>');
+    priceAndAddtoCart.append(addtocartland);
+    setTransFormAnim(addtocartland)
 
     leftlandbox.append(priceAndAddtoCart);
 
