@@ -275,21 +275,37 @@ function oproduct(p) {
     var photgals = JSON.parse(p.photos);
 
     var photoitems = [];
+    var photoitems2 = [];
     console.log(photgals);
     for (var i = 0; i < photgals.length; i++) {
         photoitems.push('<div class="myitem"><img style="width:100%" src="https://www.behkiana.ir/' + photgals[i].medium + '"  /></div>');
+    
+        photoitems2.push('<div class="myitem"><img style="width:100%" src="https://www.behkiana.ir/' + photgals[i].medium + '"  /></div>');
     }
 
     var mySwipe = new SwiperBox({
         items: photoitems
     });
 
-    var photos = $('<div class="prodgalwidth" style=""></div>');
+    var photos = $('<div class="prodgalport"></div>');
     photos.append($(mySwipe.HTMLElement));
+
+
+
+
+    var mySwipe2 = new SwiperBox({
+        items: photoitems2
+    });
+
+    var photos2 = $('<div style="flex-grow:1"></div>');
+    photos2.append($(mySwipe2.HTMLElement));
+
+
+
 
     //
 
-    var vasat = $('<div style="flex-grow:1"></div>');
+    var vasat = $('<div class="prodtopvasat" style="flex-grow:1"></div>');
 
     vasat.append('<div class="landprodtitle" style="text-align: center;">'+p.title+'</div>');
 
@@ -303,6 +319,17 @@ function oproduct(p) {
 
     prd.append('<div class="portprodtitle" style="text-align: center;">'+p.title+'</div>');
 
+
+    var landbox = $('<div class="prodlandbox" style="text-align: center;"></div>');
+
+    var leftlandbox = $('<div style="flex-grow:1">a</div>');
+    var rightlandbox = $('<div style="flex-grow:1"><a/div>');
+    rightlandbox.append(photos2);
+
+    landbox.append(leftlandbox);
+    landbox.append(rightlandbox);
+
+    prd.append(landbox);
 
     /**/
 

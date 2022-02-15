@@ -64,9 +64,11 @@
 
             .landprodtitle {display:none}
             .portprodtitle {display:block}
+            .prodtopvasat {align-self: start;}
+            .prodlandbox {display: none;}
 
-            .prodgalwidth {width:50vw;
-                margin-right:auto;margin-left:auto;
+            .prodgalport {
+                width:50vw;margin-right:auto;margin-left:auto;
             }
 
             .bottom {
@@ -95,7 +97,10 @@
 
             .landprodtitle {display:block}
             .portprodtitle {display:none}
-            .prodgalwidth {width:50vh;float:right}
+            .prodgalport {display:none}
+            .prodtopvasat {align-self: center;}
+            .prodlandbox {display: flex;}
+
 
             .bottom {
                 right: 0px;
