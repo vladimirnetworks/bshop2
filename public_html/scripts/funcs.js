@@ -290,6 +290,8 @@ function oproduct(p) {
     var back = $('<div style="text-align:center;padding: 0.9rem;"><img style="width:70%;height:auto" src="https://www.behkiana.ir/icons/back.png"/></div>');
     var srch = $('<div style="text-align:center;padding: 0.9rem ;"><img style="width:70%;height:auto" src="https://www.behkiana.ir/icons/mag.png"/></div>');
    
+    setTransFormAnim(back);
+    setTransFormAnim(srch);
    
     var title = $('<div style="flex-grow: 1;text-align:center">'+p.title+'</div>');
   
@@ -378,7 +380,7 @@ function oproduct(p) {
 
     var addtocartland = $('<button class="cartBtn" style="margin-right:1rem" >خرید</button>');
     priceAndAddtoCart.append(addtocartland);
-    setTransFormAnim(addtocartland)
+    setTransFormAnim(addtocartland);
 
     leftlandbox.append(priceAndAddtoCart);
 
@@ -555,6 +557,8 @@ function llist(path) {
     apix.get(path, function(vals) {
 
         var product = $("<div>" + vals.tinytitle + "</div>");
+
+        setTransFormAnim(product);
 
         product.click(function() {
             oproduct(vals);
