@@ -255,7 +255,9 @@ function oproduct(p) {
     var prdtop = $('<div style="display:flex;align-items: start;"></div>');
 
     var back = $('<div style="text-align:center;padding: 0.9rem;"><img style="width:70%;height:auto" src="https://www.behkiana.ir/icons/back.png"/></div>');
-    var srch = $('<div style="text-align:center;padding: 0.9rem ;"><img style="" src="https://www.behkiana.ir/icons/mag.png"/></div>');
+    var srch = $('<div style="text-align:center;padding: 0.9rem ;"><img style="width:70%;height:auto" src="https://www.behkiana.ir/icons/mag.png"/></div>');
+   
+   
     var title = $('<div style="flex-grow: 1;text-align:center">'+p.title+'</div>');
   
 
@@ -282,14 +284,19 @@ function oproduct(p) {
         items: photoitems
     });
 
-    var photos = $('<div style="width:50vw;margin-right: auto;margin-left: auto;max-width:300px;"></div>');
+    var photos = $('<div style="width:50vw;margin-right:auto;margin-left:auto"></div>');
     photos.append($(mySwipe.HTMLElement));
 
     //
 
+    var vasat = $('<div style="flex-grow:1"></div>');
+
+    vasat.append(photos);
 
     prdtop.append(back);
-    prdtop.append(photos);
+    
+    prdtop.append(vasat);
+
     prdtop.append(srch);
 
     prd.append('<div style="text-align: center;">'+p.title+'</div>');
