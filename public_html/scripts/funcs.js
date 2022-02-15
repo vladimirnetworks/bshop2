@@ -4,8 +4,8 @@ mmenu = {};
 function TransFormAnim(elem) {
     elem.css({ "transition": "all 0.100s", "transform": 'scale(0.8)' });
     setTimeout(function() {
-        elem.css({ "transform": 'scale(1.0)' });
-    }, 101);
+        elem.css({ "transition": "all 0.700s","transform": 'scale(1.0)' });
+    }, 100);
 }
 
 function setTransFormAnim(elem) {
