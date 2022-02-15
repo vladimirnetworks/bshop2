@@ -252,15 +252,13 @@ function oproduct(p) {
 
     var prd = $('<div></div>');
 
-    var prdtop = $('<div style="display:flex;align-items: center;"></div>');
+    var prdtop = $('<div style="display:flex;align-items: start;"></div>');
 
     var back = $('<div style="text-align:center;display:flex;padding: 0.9em;justify-content: center;"><img style="width:70%;min-width: 50px;object-fit: contain;" src="https://www.behkiana.ir/icons/back.png"/></div>');
     var srch = $('<div style="text-align:center;display:flex;padding: 0.9em ;justify-content: center;"><img style="width:70%;min-width: 50px;object-fit: contain;" src="https://www.behkiana.ir/icons/mag.png"/></div>');
     var title = $('<div style="flex-grow: 1;text-align:center">'+p.title+'</div>');
   
-    prdtop.append(back);
-    prdtop.append(title);
-    prdtop.append(srch);
+
 
 
     back.click(function() {
@@ -287,13 +285,22 @@ function oproduct(p) {
     var photos = $('<div style="width:50vw;margin-right: auto;margin-left: auto;max-width:300px;"></div>');
     photos.append($(mySwipe.HTMLElement));
 
-    prd.append(photos);
+    //
+
+
+    prdtop.append(back);
+    prdtop.append(photos);
+    prdtop.append(srch);
+
+    prd.append('<div style="text-align: center;">'+p.title+'</div>');
+
+
     /**/
 
 
    // prd.append(p.title);
 
-    var addtocartButton = $('<button>addTocart</button>');
+    var addtocartButton = $('<div style="text-align: center;"><button>addTocart</button></div>');
 
     addtocartButton.click(function() {
 
