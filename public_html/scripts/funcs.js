@@ -322,7 +322,7 @@ function oproduct(p) {
 
     var landbox = $('<div class="prodlandbox" style="text-align: center;"></div>');
 
-    var leftlandbox = $('<div style="flex-grow:1">a</div>');
+    var leftlandbox = $('<div style="flex-grow:2">a</div>');
     var rightlandbox = $('<div style="flex-grow:1"><a/div>');
     rightlandbox.append(photos2);
 
