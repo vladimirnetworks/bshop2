@@ -1,6 +1,21 @@
 mmenu = {};
 
 
+function addtocart(p) {
+    var itm = xcart.getItem(p.id);
+
+
+    if (!itm) {
+        xcart.add({
+            id: p.id,
+            title: p.title,
+            tinytitle: p.tinytitle,
+            price: parseInt(p.price)
+        });
+    } else {
+        xcart.changeCount(p.id, parseInt(itm.count) + 1);
+    }
+}
 function TransFormAnim(elem) {
     elem.css({ "transition": "all 0.100s", "transform": 'scale(0.8)' });
     setTimeout(function() {
@@ -379,8 +394,43 @@ function oproduct(p) {
     priceAndAddtoCart.append(price.clone());
 
     var addtocartland = $('<button class="cartBtn" style="margin-right:1rem" >خرید</button>');
+
+    var fly = $('<div class="fly" style="position:fixed;bottom:-100%;left:-100%;z-index:99991;"></div>');
+    fly.append('<img src="https://www.behkiana.ir/photos/shampoo.png" style="width:100%"/>');
+
+
     priceAndAddtoCart.append(addtocartland);
     setTransFormAnim(addtocartland);
+
+    addtocartland.click(function() {
+        addtocart(p);
+        $('body').append(fly);
+/* */
+var position_from_top = photos2.offset().top - $(window).scrollTop();
+
+        xofsset = photos2.offset();
+
+
+        var btm = $(window).height() - (position_from_top + photos2.height());
+
+        fly.css({
+            width: photos2.width() + "px",
+            bottom: btm + "px",
+            height: photos2.height() + "px",
+            left: xofsset.left + "px",
+        });
+
+        setTimeout(function() {
+     
+
+            jumping(fly, 100, 100, 180, 360, 90, 1);
+
+        },1);
+
+
+/* */
+
+    });
 
     leftlandbox.append(priceAndAddtoCart);
 
@@ -401,28 +451,23 @@ function oproduct(p) {
     /**/
 
 
-    var addtocartButton = $('<div class="portaddtocart" style="text-align: center;"><button>addTocart</button></div>');
-
-    addtocartButton.click(function() {
-
-        var itm = xcart.getItem(p.id);
+    var addtocartButtoncontPort = $('<div class="portaddtocart" style="text-align: center;"></div>');
 
 
-        if (!itm) {
-            xcart.add({
-                id: p.id,
-                title: p.title,
-                tinytitle: p.tinytitle,
-                price: parseInt(p.price)
-            });
-        } else {
-            xcart.changeCount(p.id, parseInt(itm.count) + 1);
-        }
+    var addtocartport= $('<button class="cartBtn" style="" >خرید</button>');
+    addtocartButtoncontPort.append(addtocartport);
+    setTransFormAnim(addtocartport);
+    
+
+    addtocartport.click(function() {
+
+          
+        addtocart(p);
 
 
     });
 
-    prd.append(addtocartButton);
+    prd.append(addtocartButtoncontPort);
 
     product.append(prd);
 
@@ -1048,3 +1093,103 @@ function onlinepay2() {
        }, 200); 
     },50);
 }
+
+
+
+
+
+function jumping(
+    telem,
+    VertAhrom,
+    HorizAhrom,
+    fromDeg,
+    toDeg,
+    moreDeg,
+    jahat
+  ) {
+    var elem = telem.clone();
+    telem.hide();
+
+    setTimeout(function () {
+      telem.show();
+    }, 200);
+
+    $('body').append(elem);
+
+    var end = false;
+
+    var xp = parseInt(elem[0].style.left.replace('px', ''));
+    var yp = parseInt(elem[0].style.bottom.replace('px', ''));
+
+    elem.removeClass('jump');
+    setTimeout(() => {
+      elem.addClass('jump');
+    }, 10);
+
+    setTimeout(() => {
+      elem.removeClass('jump');
+    }, 200);
+
+    elem.css({
+      'font-size': fromDeg,
+    });
+
+    setTimeout(() => {
+      elem.animate(
+        { 'font-size': toDeg + moreDeg },
+        {
+          duration: 800,
+          //     easing: 'swing',
+          //  easing: "easein",
+
+          step: function (t, fx) {
+            var xx = xp + t;
+            var yy = yp + t;
+
+            var a = t / 57.296;
+
+            if (t <= toDeg) {
+              var a2 = t / 57.296;
+            } else {
+              var a2 = toDeg / 57.296;
+            }
+
+            var ya = Math.sin(a) * VertAhrom;
+            var xa = Math.cos(a2) * HorizAhrom;
+
+            //  $(this).css({ "transition":"transform 0.2s ease-in", transform: 'rotate('+(180)*jahat+'deg)'});
+
+            if (t >= toDeg) {
+              if (!end) {
+                console.log('end');
+
+                $(this).css({
+                  transition: 'bottom 0.2s ease-in',
+                  bottom: '-' + elem.height() + 'px',
+                  left: xp + HorizAhrom * jahat + xa * jahat,
+                });
+
+
+                setTimeout(function() {
+                    elem.fadeOut();
+                },200);
+
+              }
+
+              end = true;
+              // $(this).css({ bottom: "-"+elem.height()+"px",left: xp+HorizAhrom*jahat + xa*jahat});
+            } else {
+              $(this).css({
+                transition: 'transform 0.4s ease-in',
+                transform: 'rotate(' + 170 * jahat + 'deg)',
+              });
+              $(this).css({
+                bottom: yp - ya,
+                left: xp + HorizAhrom * jahat + xa * jahat,
+              });
+            }
+          },
+        }
+      );
+    }, 200);
+  }

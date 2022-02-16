@@ -91,6 +91,8 @@ $(document).ready(function() {
           loadmyorders();hpu({act:"showmyorders"});       
         });
 
+        setTransFormAnim($('#oorder'));
+
         </script>
 
       <div class="itm" id="mainpage">mainpage</div>
@@ -102,6 +104,8 @@ $(document).ready(function() {
           llist("index");
           hpu({act:"list",path:'index'});       
         });
+
+        setTransFormAnim($('#mainpage'));
 
         </script>
 
