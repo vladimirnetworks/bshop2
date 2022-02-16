@@ -407,14 +407,14 @@ function oproduct(p) {
 
        
 
-      //  $('body').append(fly);
+      $('body').append(fly);
 /* */
 var position_from_top = photos2.offset().top - $(window).scrollTop();
 
 
 var position_from_right = ($(window).width()-photos2.offset().left)/2;
 
-console.log(position_from_right);
+
 
         xofsset = photos2.offset();
 
@@ -427,6 +427,8 @@ console.log(position_from_right);
             height: photos2.height() + "px",
             left: xofsset.left + "px",
         });
+
+     
         
      //   photos2.hide();
 
@@ -446,9 +448,21 @@ console.log(position_from_right);
        
          //  $('body').append(flya);
 
-         console.log($(window).width()-xofsset.left);
+        
        
-               jumping(fly, 50, $(window).width()-xofsset.left-fly.width(), 180, 360, 90, 1);
+         var rrr = ($(window).width()-xofsset.left);
+
+         rrr = rrr - photos2.width() ;
+
+         
+         rrr = rrr/2;
+
+         
+
+
+         console.log("is "+rrr);
+
+               jumping(fly, 50, rrr, 180, 360, 90, 1);
 
 
         },100);
@@ -1161,7 +1175,7 @@ function jumping(
     setTimeout(() => {
         elem.css({
             transition: 'transform 0.4s ease-in',
-            transform: 'rotate(' + 180 * jahat + 'deg)',
+            transform: 'rotate(' + 170 * jahat + 'deg)',
           });
 
       }, 300);
@@ -1225,8 +1239,9 @@ function jumping(
                     console.log("end");
 
                     elem.css({
-                        transition: 'bottom 0.2s ease-in',
-                        bottom: '-' + elem.height() + 'px'
+                        transition: 'all 0.2s ease-in',
+                        bottom: '-' + elem.height() + 'px',
+                        left: $(window).width()-(elem.width()/2) + 'px'
                        
                       });
                }
