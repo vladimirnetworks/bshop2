@@ -412,7 +412,7 @@ function oproduct(p) {
 var position_from_top = photos2.offset().top - $(window).scrollTop();
 
 
-var position_from_right = $(window).width()-photos2.offset().left-photos2.width();
+var position_from_right = ($(window).width()-photos2.offset().left)/2;
 
 console.log(position_from_right);
 
@@ -445,8 +445,10 @@ console.log(position_from_right);
          //  flya.append('<img style="width:100%;height:100%" src="https://www.behkiana.ir/photos/shampoo.png" />');
        
          //  $('body').append(flya);
+
+         console.log($(window).width()-xofsset.left);
        
-               jumping(fly, 50, position_from_right/2, 180, 360, 90, 1);
+               jumping(fly, 50, $(window).width()-xofsset.left-fly.width(), 180, 360, 90, 1);
 
 
         },100);
@@ -1159,7 +1161,7 @@ function jumping(
     setTimeout(() => {
         elem.css({
             transition: 'transform 0.4s ease-in',
-            transform: 'rotate(' + 170 * jahat + 'deg)',
+            transform: 'rotate(' + 180 * jahat + 'deg)',
           });
 
       }, 300);
