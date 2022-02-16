@@ -405,6 +405,7 @@ function oproduct(p) {
     addtocartland.click(function() {
         addtocart(p);
 
+       
 
       //  $('body').append(fly);
 /* */
@@ -427,9 +428,15 @@ console.log(position_from_right);
             left: xofsset.left + "px",
         });
         
+     //   photos2.hide();
 
+
+/*        setTimeout(function() {
+            photos2.show();
+        },1000);
+*/
         setTimeout(function() {
-     
+          
 
            // jumping(fly, 100, 100, 180, 360, 90, 1);
 
