@@ -238,7 +238,7 @@
             }
     
             50% {
-              transform: scale(1.2, 0.7) translate(0px, 50px);
+              transform: scale(1.2, 0.7) /* translate(0px, 50px);*/
             }
     
             100% {

@@ -395,8 +395,8 @@ function oproduct(p) {
 
     var addtocartland = $('<button class="cartBtn" style="margin-right:1rem" >خرید</button>');
 
-    var fly = $('<div class="fly" style="position:fixed;bottom:-100%;left:-100%;z-index:99991;"></div>');
-    fly.append('<img src="https://www.behkiana.ir/photos/shampoo.png" style="width:100%"/>');
+   var fly = $('<div class="fly" style="position: fixed; bottom: 100px; left: 300px;width:100px;heigh:100px;z-index:2000"></div>');
+   fly.append('<img style="width:100%;height:100%" src="https://www.behkiana.ir/photos/shampoo.png" />');
 
 
     priceAndAddtoCart.append(addtocartland);
@@ -404,7 +404,9 @@ function oproduct(p) {
 
     addtocartland.click(function() {
         addtocart(p);
-        $('body').append(fly);
+
+
+      //  $('body').append(fly);
 /* */
 var position_from_top = photos2.offset().top - $(window).scrollTop();
 
@@ -419,13 +421,23 @@ var position_from_top = photos2.offset().top - $(window).scrollTop();
             height: photos2.height() + "px",
             left: xofsset.left + "px",
         });
+        
 
         setTimeout(function() {
      
 
-            jumping(fly, 100, 100, 180, 360, 90, 1);
+           // jumping(fly, 100, 100, 180, 360, 90, 1);
 
-        },1);
+
+          // var flya = $('<div class="fly" style="position: fixed; bottom: 100px; left: 300px;width:100px;heigh:100px"></div>');
+         //  flya.append('<img style="width:100%;height:100%" src="https://www.behkiana.ir/photos/shampoo.png" />');
+       
+         //  $('body').append(flya);
+       
+               jumping(fly, 50, 50, 180, 360, 90, 1);
+
+
+        },100);
 
 
 /* */
@@ -1096,8 +1108,6 @@ function onlinepay2() {
 
 
 
-
-
 function jumping(
     telem,
     VertAhrom,
@@ -1107,6 +1117,8 @@ function jumping(
     moreDeg,
     jahat
   ) {
+
+    
     var elem = telem.clone();
     telem.hide();
 
@@ -1128,17 +1140,36 @@ function jumping(
 
     setTimeout(() => {
       elem.removeClass('jump');
+
+
     }, 200);
 
-    elem.css({
+    setTimeout(() => {
+        elem.css({
+            transition: 'transform 0.4s ease-in',
+            transform: 'rotate(' + 170 * jahat + 'deg)',
+          });
+
+      }, 300);
+
+
+
+    var xelem  = $("<div></div>")
+
+    xelem.css({
       'font-size': fromDeg,
     });
 
     setTimeout(() => {
-      elem.animate(
+
+   
+
+
+
+      xelem.animate(
         { 'font-size': toDeg + moreDeg },
         {
-          duration: 800,
+          duration: 1000,
           //     easing: 'swing',
           //  easing: "easein",
 
@@ -1154,42 +1185,48 @@ function jumping(
               var a2 = toDeg / 57.296;
             }
 
+  
+
             var ya = Math.sin(a) * VertAhrom;
             var xa = Math.cos(a2) * HorizAhrom;
 
-            //  $(this).css({ "transition":"transform 0.2s ease-in", transform: 'rotate('+(180)*jahat+'deg)'});
-
-            if (t >= toDeg) {
-              if (!end) {
-                console.log('end');
-
-                $(this).css({
-                  transition: 'bottom 0.2s ease-in',
-                  bottom: '-' + elem.height() + 'px',
-                  left: xp + HorizAhrom * jahat + xa * jahat,
-                });
 
 
-                setTimeout(function() {
-                    elem.fadeOut();
-                },200);
 
-              }
 
-              end = true;
-              // $(this).css({ bottom: "-"+elem.height()+"px",left: xp+HorizAhrom*jahat + xa*jahat});
-            } else {
-              $(this).css({
-                transition: 'transform 0.4s ease-in',
-                transform: 'rotate(' + 170 * jahat + 'deg)',
-              });
-              $(this).css({
+          if (t < toDeg) {
+
+            elem.css({
                 bottom: yp - ya,
                 left: xp + HorizAhrom * jahat + xa * jahat,
               });
-            }
+
+              console.log("rr");
+          
+
+          } else {
+
+               if (!end) {
+                    end = true;
+                    console.log("end");
+
+                    elem.css({
+                        transition: 'bottom 0.2s ease-in',
+                        bottom: '-' + elem.height() + 'px'
+                       
+                      });
+               }
+
+
+          }
+
+       
+
+
+
           },
         }
       );
     }, 200);
   }
+
