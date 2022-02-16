@@ -410,6 +410,11 @@ function oproduct(p) {
 /* */
 var position_from_top = photos2.offset().top - $(window).scrollTop();
 
+
+var position_from_right = $(window).width()-photos2.offset().left-photos2.width();
+
+console.log(position_from_right);
+
         xofsset = photos2.offset();
 
 
@@ -434,7 +439,7 @@ var position_from_top = photos2.offset().top - $(window).scrollTop();
        
          //  $('body').append(flya);
        
-               jumping(fly, 50, 50, 180, 360, 90, 1);
+               jumping(fly, 50, position_from_right/2, 180, 360, 90, 1);
 
 
         },100);
