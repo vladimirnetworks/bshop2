@@ -347,9 +347,10 @@ function oproduct(p) {
         items: photoitems2
     });
 
-    var photos2 = $('<div style="flex-grow:1"></div>');
-    photos2.append($(mySwipe2.HTMLElement));
+   // var photos2 = $('<div style="flex-grow:1"></div>');
+   // photos2.append($(mySwipe2.HTMLElement));
 
+    var photos2 = $(mySwipe2.HTMLElement);
 
 
     var price = $('<div class="pt-1 text-success" style="font-size:150%;font-weight:bold">' + farsi_price(p.price) + ' تومان </div>');
@@ -386,7 +387,7 @@ function oproduct(p) {
     var landbox = $('<div class="prodlandbox" style="text-align: center;padding-right:2rem"></div>');
 
     var leftlandbox = $('<div style="flex-grow:1;text-align: right;direction:rtl;    padding-right: 1rem"></div>');
-    var rightlandbox = $('<div style="flex-grow:1;"></div>');
+    var rightlandbox = $('<div style="flex-grow:1;max-width:250px"></div>');
 
 
     var priceAndAddtoCart = $('<div style="display:flex;padding:1rem"></div>');
@@ -405,6 +406,7 @@ function oproduct(p) {
     addtocartland.click(function() {
         addtocart(p);
 
+        photos2.css({"visibility":"hidden"});
        
 
       $('body').append(fly);
@@ -433,10 +435,7 @@ var position_from_right = ($(window).width()-photos2.offset().left)/2;
      //   photos2.hide();
 
 
-/*        setTimeout(function() {
-            photos2.show();
-        },1000);
-*/
+
         setTimeout(function() {
           
 
@@ -462,7 +461,14 @@ var position_from_right = ($(window).width()-photos2.offset().left)/2;
 
          console.log("is "+rrr);
 
+         
                jumping(fly, 50, rrr, 180, 360, 90, 1);
+               fly.remove();
+
+
+       setTimeout(function() {
+        photos2.css({"visibility":"visible"});
+       },800);
 
 
         },100);
