@@ -280,10 +280,10 @@ function readCookie(name) {
     return null;
 }
 
-function flymaker() {
+function flymaker(photo) {
 
     var fly = $('<div class="fly" style="position: fixed; bottom: 0px; left: 0px;width:1px;heigh:1px;z-index:2000"></div>');
-    fly.append('<img style="width:100%;height:100%" src="https://www.behkiana.ir/photos/shampoo.png" />');
+    fly.append('<img style="width:100%;height:100%" src="'+photo+'" />');
  
     return fly;
 }
@@ -327,7 +327,9 @@ function oproduct(p) {
 
     var photoitems = [];
     var photoitems2 = [];
-    console.log(photgals);
+   
+    var fisrtimage = "https://trns-bbn.apps.ir-thr-at1.arvan.run/?name=https://www.behkiana.ir/"+photgals[0].medium;
+    
     for (var i = 0; i < photgals.length; i++) {
         photoitems.push('<div class="myitem"><img style="width:100%" src="https://www.behkiana.ir/' + photgals[i].medium + '"  /></div>');  
         photoitems2.push('<div class="myitem"><img style="width:100%" src="https://www.behkiana.ir/' + photgals[i].medium + '"  /></div>');
@@ -391,7 +393,7 @@ function oproduct(p) {
     var addtocartland = $('<button class="cartBtn" style="margin-right:1rem" >خرید</button>');
 
 
-   var fly = flymaker();
+   var fly = flymaker(fisrtimage);
 
    priceAndAddtoCart_landscape.append(addtocartland);
     setTransFormAnim(addtocartland);

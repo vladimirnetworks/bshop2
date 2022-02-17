@@ -69,7 +69,7 @@ $(document).ready(function() {
 <div class="basket" style="display:flex;padding:0.1rem;align-items:center">
   
 
-  <div style="width: 100%;height:80%;background-color:blue;position: relative;z-index:1;opacity:0.5"></div>
+  <div style="width: 100%;height:80%;background-color:blue;position: relative;z-index:1;opacity:0.0"></div>
 
 
 
@@ -85,6 +85,43 @@ $(document).ready(function() {
       </div>
       <script>
 
+
+function renderbigcartview() {
+
+
+  $("#bigcartview").empty();
+      var tot = xcart.total();
+
+        var cartlist = $("<div></div>")
+      xcart.eech(function(prod) {
+
+        var bez = $('<button>+</button>');
+        var men = $('<button>-</button>');
+
+        men.click(function() {
+            xcart.changeCount(prod.id, prod.count - 1);
+        });
+
+        bez.click(function() {
+            xcart.changeCount(prod.id, prod.count + 1);
+        });
+
+        var itm = $("<div>"+prod.tinytitle+"</div>");
+
+        itm.prepend(bez);
+        itm.prepend(prod.count);
+        itm.prepend(men);
+
+        cartlist.append(itm);
+      });
+
+   
+
+        $("#bigcartview").append(cartlist);
+
+        $("#bigcartview").append("<hr>"+tot.count+"  , "+tot.amount);
+}
+
 var visualBasketfunc = function(delay) {
 
 var tot = xcart.total();
@@ -98,11 +135,11 @@ var tot = xcart.total();
 
 var notinbasket = itm.count - checkinbasket(itm.id);
 
-console.log(itm.id+":"+notinbasket);
+console.log(JSON.parse(itm.photos)[0]['medium']);
 
 if (notinbasket > 0) {
 for (var i = 0 ; i<notinbasket;i++) {
-var ff = flymaker();
+var ff = flymaker("https://trns-bbn.apps.ir-thr-at1.arvan.run/?name=https://www.behkiana.ir/"+JSON.parse(itm.photos)[0]['medium']);
 ff.attr("data-productid",itm.id);
 addtobasket(ff,delay);
 }
@@ -132,6 +169,7 @@ $("div[data-productid='"+itm.id+"']")[0].remove();
 xcart.onLoad = function() {
  console.log("loaded");
  visualBasketfunc(0);
+ renderbigcartview();
 };
 
 
@@ -249,39 +287,8 @@ xcart.addChangeListener(function () {
 
 
       xcart.addChangeListener(function() {
-
-        $("#bigcartview").empty();
-      var tot = xcart.total();
-
-        var cartlist = $("<div></div>")
-      xcart.eech(function(prod) {
-
-        var bez = $('<button>+</button>');
-        var men = $('<button>-</button>');
-
-        men.click(function() {
-            xcart.changeCount(prod.id, prod.count - 1);
-        });
-
-        bez.click(function() {
-            xcart.changeCount(prod.id, prod.count + 1);
-        });
-
-        var itm = $("<div>"+prod.tinytitle+"</div>");
-
-        itm.prepend(bez);
-        itm.prepend(prod.count);
-        itm.prepend(men);
-
-        cartlist.append(itm);
-      });
-
-   
-
-        $("#bigcartview").append(cartlist);
-
-        $("#bigcartview").append("<hr>"+tot.count+"  , "+tot.amount);
         
+        renderbigcartview();
 
       });
     </script>
