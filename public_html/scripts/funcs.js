@@ -383,7 +383,7 @@ function oproduct(p) {
 
     var addtocartland = $('<button class="cartBtn" style="margin-right:1rem" >خرید</button>');
 
-   var fly = $('<div class="fly" style="position: fixed; bottom: 100px; left: 300px;width:100px;heigh:100px;z-index:2000"></div>');
+   var fly = $('<div class="fly" style="position: fixed; bottom: 0px; left: 0px;width:1px;heigh:1px;z-index:2000"></div>');
    fly.append('<img style="width:100%;height:100%" src="https://www.behkiana.ir/photos/shampoo.png" />');
 
 
@@ -393,13 +393,15 @@ function oproduct(p) {
     addtocartland.click(function() {
         addtocart(p);
         photos_lanscape.css({"visibility":"hidden"});
-        $('body').append(fly);
+
+        var myfly = fly.clone();
+        $('body').append(myfly);
 
         var position_from_top = photos_lanscape.offset().top - $(window).scrollTop();
         xofsset = photos_lanscape.offset();
         var btm = $(window).height() - (position_from_top + photos_lanscape.height());
 
-        fly.css({
+        myfly.css({
             width: photos_lanscape.width() + "px",
             bottom: btm + "px",
             height: photos_lanscape.height() + "px",
@@ -407,20 +409,14 @@ function oproduct(p) {
         });
 
      
-        
-
-
-
-
         setTimeout(function() {
           
          var rrr = ($(window).width()-xofsset.left);
          rrr = rrr - photos_lanscape.width() ; 
          rrr = rrr/2;
 
-
-               jumping(fly, 50, rrr, 180, 360, 90, 1);
-               fly.remove();
+               jumping(myfly, 50, rrr, 180, 360, 90, 1);
+               myfly.remove();
 
        setTimeout(function() {
         photos_lanscape.css({"visibility":"visible"});
@@ -454,6 +450,42 @@ function oproduct(p) {
 
           
         addtocart(p);
+
+
+        photos_portrate.css({"visibility":"hidden"});
+
+        var myfly = fly.clone();
+        $('body').append(myfly);
+
+        var position_from_top = photos_portrate.offset().top - $(window).scrollTop();
+        xofsset = photos_portrate.offset();
+        var btm = $(window).height() - (position_from_top + photos_portrate.height());
+
+        myfly.css({
+            width: photos_portrate.width() + "px",
+            bottom: btm + "px",
+            height: photos_portrate.height() + "px",
+            left: xofsset.left + "px",
+        });
+
+     
+        setTimeout(function() {
+          
+         var rrr = ($(window).width()-xofsset.left);
+         rrr = rrr - photos_portrate.width() ; 
+         rrr = rrr/2;
+
+               jumping(myfly, 50, rrr, 180, 360, 90, -1);
+               myfly.remove();
+
+       setTimeout(function() {
+        photos_portrate.css({"visibility":"visible"});
+       },800);
+
+
+        },100);
+
+
 
 
     });
@@ -1189,10 +1221,17 @@ function jumping(
                     end = true;
                     console.log("end");
 
+                    var gotohell;
+
+                    if (jahat == 1 ) {
+                        gotohell = $(window).width()-(elem.width()/2);
+                    } else {
+                        gotohell = "-"+(elem.width()/2);
+                    }
                     elem.css({
                         transition: 'all 0.2s ease-in',
                         bottom: '-' + elem.height() + 'px',
-                        left: $(window).width()-(elem.width()/2) + 'px'
+                        left: gotohell + 'px'
                        
                       });
                }
