@@ -36,6 +36,9 @@ class mainPageController extends Controller
     {
 
         /**/
+
+        $im = new Imagick();
+        
        if (isset($_GET['paymentid'])) {
            
        
