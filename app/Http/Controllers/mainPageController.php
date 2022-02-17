@@ -37,8 +37,8 @@ class mainPageController extends Controller
 
         /**/
 
-        $im = new Imagick();
-        
+        //$im = new \Imagick();
+
        if (isset($_GET['paymentid'])) {
            
        
