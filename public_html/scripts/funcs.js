@@ -650,6 +650,10 @@ function makeid(length) {
     return result;
 }
 
+function rnd(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
 function me() {
     return readCookie('base_address') + ":" + readCookie('x_address');
 }
@@ -1235,6 +1239,28 @@ function jumping(
                         left: gotohell + 'px'
                        
                       });
+
+                 var inbasket = elem.clone();     
+
+                 inbasket.css({
+                     left:rnd(-20,20)+"%",
+                     bottom:"20px",
+                     width:"60%",
+                     position:"absolute",
+                     "z-index":"0",
+                     height:"auto"
+                 });
+
+                 $(".basket").append(inbasket);
+
+                 setTimeout(function(){
+                    inbasket.css({
+                        transition: 'transform 0.1s ease-in',
+                        transform: 'rotate(' + rnd(-20,20) + 'deg)',
+                      });
+                 });
+
+
                }
 
 

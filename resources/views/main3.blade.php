@@ -68,9 +68,11 @@ $(document).ready(function() {
 
 <div class="basket" style="display:flex;padding:0.1rem;align-items:center">
   
-  <div style="position: absolute;left:0px;top:0px; background-color:red;height:50px;width:50px;z-index:0"></div>
 
-  <div style="width: 100%;height:80%;background-color:blue;position: relative;z-index:1"></div>
+  <div style="width: 100%;height:80%;background-color:blue;position: relative;z-index:1;opacity:0.5"></div>
+
+
+
 
 </div>
   <div class="bottom">
