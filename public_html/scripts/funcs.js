@@ -510,6 +510,7 @@ function oproduct(p) {
 
 
 function closemenu() {
+    $('.basket').show();
     $('.min').show();
     $('.big').hide();
     $('.dim').hide();
@@ -1224,9 +1225,9 @@ function jumping(
                     var gotohell;
 
                     if (jahat == 1 ) {
-                        gotohell = $(window).width()-(elem.width()/2);
+                        gotohell = $(window).width()-(elem.width()/1.5);
                     } else {
-                        gotohell = "-"+(elem.width()/2);
+                        gotohell = "-"+(elem.width()/2.5);
                     }
                     elem.css({
                         transition: 'all 0.2s ease-in',

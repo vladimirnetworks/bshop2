@@ -23,11 +23,22 @@
             align-items: center;
             transition: all 0.1s;
         }
+
+
+        .basket {
+            z-index: 4009;
+            position: fixed;
+         
+        }
         
         .bottom {
+
+            box-shadow:rgb(136 136 136) 1px 0px 5px;
+
+
             z-index: 1001;
             position: fixed;
-            background-color: blue;
+            background-color: white;
             /*  bottom: 0px;
     left: 0px;
     width: 100%;
@@ -62,6 +73,9 @@
         
         @media screen and (orientation: portrait) {
 
+
+     
+
             .landprodtitle {display:none}
             .portprodtitle {display:block}
             .prodtopvasat {align-self: start;}
@@ -73,14 +87,28 @@
                 width:50vw;margin-right:auto;margin-left:auto;
             }
 
-            .bottom {
+
+
+
+            .basket , .bottom {
                 bottom: 0px;
                 left: 0px;
-                width: 100%;
+               
                 height: 11vh;
                 max-height: 4rem;
                 min-height: 3rem;
             }
+
+
+            .bottom {
+                width: 100%;
+            }
+
+            .basket {
+                width:  11vh;
+             
+            }
+
             .bottom .min .cart {
                 margin-right: auto;
                 background-color: white;
@@ -97,6 +125,11 @@
         
         @media screen and (orientation: landscape) {
 
+
+
+
+
+
             .landprodtitle {display:block}
             .portprodtitle {display:none}
             .prodgalport {display:none}
@@ -105,17 +138,38 @@
             .portaddtocart {display: none;}
 
 
-            .bottom {
+            .bottom , .basket {
                 right: 0px;
-                top: 0px;
-                width: 11vw;
-                height: 100%;
+                
+              
+              
                 max-width: 10rem;
                 min-width: 5rem;
             }
+
+
+
+            .basket {
+
+                bottom: 0px;
+                width: 11vw;
+                height: 11vw;
+               
+               
+            }
+
+
+            .bottom {
+                top: 0px;
+                width: 11vw;
+                height: 100%;
+       
+            }
+
+
             .bottom .min {
                 flex-direction: column-reverse;
-                justify-content: end;
+                justify-content: start;
                 align-items: center;
             }
             .bottom .min .cart {

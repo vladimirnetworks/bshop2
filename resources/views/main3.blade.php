@@ -64,23 +64,29 @@ $(document).ready(function() {
       display: none;
     " class="dim"></div>
 
+   
+
+<div class="basket" style="display:flex;padding:0.1rem;align-items:center">
+  
+  <div style="position: absolute;left:0px;top:0px; background-color:red;height:50px;width:50px;z-index:0"></div>
+
+  <div style="width: 100%;height:80%;background-color:blue;position: relative;z-index:1"></div>
+
+</div>
   <div class="bottom">
     <div class="min">
-      <div class="itm cart"></div>
+
+      <div class="itm cartx" style="">
+
+        <div style="position:relative;background-color:red;height:100%;width:100%"></div>
+
+      </div>
       <script>
         xcart.addChangeListener(function() {
 
         var tot = xcart.total();
 
-        $(".cart").text(tot.count);
-
-
-
         });
-
-  
-      
-
       </script>
       
 
@@ -227,6 +233,7 @@ $(document).ready(function() {
 
 
 
+
   <script>
 
 
@@ -247,6 +254,7 @@ $(document).ready(function() {
 
       $('.dim').fadeIn();
       $('.min').hide();
+      $('.basket').hide();
       $('.big').show();
       mmenu.open = true;
       if (island()) {
