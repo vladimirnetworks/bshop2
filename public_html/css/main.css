@@ -115,7 +115,7 @@
             }
             .bottom .min {
                 flex-direction: row;
-                justify-content: end;
+                justify-content: start;
                 align-items: center;
             }
             .top {
