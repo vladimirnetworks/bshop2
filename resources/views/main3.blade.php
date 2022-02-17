@@ -84,12 +84,68 @@ $(document).ready(function() {
 
       </div>
       <script>
-        xcart.addChangeListener(function() {
 
-        var tot = xcart.total();
+var visualBasketfunc = function(delay) {
 
-        });
-      </script>
+var tot = xcart.total();
+
+ if (tot.count < 1) {
+  $("div[data-productid]").remove();
+ } 
+ 
+
+ xcart.eech(function(itm) {
+
+var notinbasket = itm.count - checkinbasket(itm.id);
+
+console.log(itm.id+":"+notinbasket);
+
+if (notinbasket > 0) {
+for (var i = 0 ; i<notinbasket;i++) {
+var ff = flymaker();
+ff.attr("data-productid",itm.id);
+addtobasket(ff,delay);
+}
+}
+
+
+if (notinbasket < 0) {
+
+for (var i = 0 ; i<notinbasket*-1;i++) {
+console.log("remove "+itm.id+" ");
+$("div[data-productid='"+itm.id+"']")[0].remove();
+}
+}
+
+
+});
+
+
+
+
+
+
+
+
+};
+
+xcart.onLoad = function() {
+ console.log("loaded");
+ visualBasketfunc(0);
+};
+
+
+xcart.addOnItemDeletedListener(function(prodid) {
+   console.log("deleted",prodid);
+   $("div[data-productid='"+prodid+"']").remove();
+});
+
+
+xcart.addChangeListener(function () {
+  visualBasketfunc(1000);
+});
+
+</script>
       
 
       <div class="itm" id="oorder" >myorders</div>
