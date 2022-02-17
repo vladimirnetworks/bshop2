@@ -76,7 +76,7 @@ $(document).ready(function() {
   <div class="bottom">
     <div class="min">
 
-      <div class="itm cartx" style="">
+      <div class="itm cart" style="">
 
         <div style="position:relative;background-color:red;height:100%;width:100%"></div>
 
