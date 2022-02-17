@@ -287,9 +287,7 @@ function oproduct(p) {
    
 
     var rt = r('oproduct');
-
     var product = $('<div class="product"></div>');
-
     rt.append(product);
 
 
@@ -308,11 +306,7 @@ function oproduct(p) {
     setTransFormAnim(back);
     setTransFormAnim(srch);
    
-    var title = $('<div style="flex-grow: 1;text-align:center">'+p.title+'</div>');
-  
-
-
-
+   
     back.click(function() {
         history.back();
     });
@@ -328,29 +322,23 @@ function oproduct(p) {
     var photoitems2 = [];
     console.log(photgals);
     for (var i = 0; i < photgals.length; i++) {
-        photoitems.push('<div class="myitem"><img style="width:100%" src="https://www.behkiana.ir/' + photgals[i].medium + '"  /></div>');
-    
+        photoitems.push('<div class="myitem"><img style="width:100%" src="https://www.behkiana.ir/' + photgals[i].medium + '"  /></div>');  
         photoitems2.push('<div class="myitem"><img style="width:100%" src="https://www.behkiana.ir/' + photgals[i].medium + '"  /></div>');
     }
 
-    var mySwipe = new SwiperBox({
+    var mySwipe_portrate = new SwiperBox({
         items: photoitems
     });
 
-    var photos = $('<div class="prodgalport"></div>');
-    photos.append($(mySwipe.HTMLElement));
-
-
-
-
-    var mySwipe2 = new SwiperBox({
+    var photos_portrate = $('<div class="prodgalport"></div>');
+    photos_portrate.append($(mySwipe_portrate.HTMLElement));
+    var mySwipe_landscape = new SwiperBox({
         items: photoitems2
     });
 
-   // var photos2 = $('<div style="flex-grow:1"></div>');
-   // photos2.append($(mySwipe2.HTMLElement));
 
-    var photos2 = $(mySwipe2.HTMLElement);
+
+    var photos_lanscape = $(mySwipe_landscape.HTMLElement);
 
 
     var price = $('<div class="pt-1 text-success" style="font-size:150%;font-weight:bold">' + farsi_price(p.price) + ' تومان </div>');
@@ -364,9 +352,9 @@ function oproduct(p) {
 
     var vasat = $('<div class="prodtopvasat" style="flex-grow:1"></div>');
 
-    vasat.append('<div class="landprodtitle" style="text-align: center;">'+p.title+'</div>');
+   
 
-    vasat.append(photos);
+    vasat.append(photos_portrate);
 
     prdtop.append(back);
     
@@ -384,15 +372,14 @@ function oproduct(p) {
     
 
 
+    vasat.append('<div class="landprodtitle" style="text-align: center;">'+p.title+'</div>');
     var landbox = $('<div class="prodlandbox" style="text-align: center;padding-right:2rem"></div>');
-
     var leftlandbox = $('<div style="flex-grow:1;text-align: right;direction:rtl;    padding-right: 1rem"></div>');
     var rightlandbox = $('<div style="flex-grow:1;max-width:250px"></div>');
 
 
-    var priceAndAddtoCart = $('<div style="display:flex;padding:1rem"></div>');
-
-    priceAndAddtoCart.append(price.clone());
+    var priceAndAddtoCart_landscape = $('<div style="display:flex;padding:1rem"></div>');
+    priceAndAddtoCart_landscape.append(price.clone());
 
     var addtocartland = $('<button class="cartBtn" style="margin-right:1rem" >خرید</button>');
 
@@ -400,98 +387,56 @@ function oproduct(p) {
    fly.append('<img style="width:100%;height:100%" src="https://www.behkiana.ir/photos/shampoo.png" />');
 
 
-    priceAndAddtoCart.append(addtocartland);
+   priceAndAddtoCart_landscape.append(addtocartland);
     setTransFormAnim(addtocartland);
 
     addtocartland.click(function() {
         addtocart(p);
+        photos_lanscape.css({"visibility":"hidden"});
+        $('body').append(fly);
 
-        photos2.css({"visibility":"hidden"});
-       
-
-      $('body').append(fly);
-/* */
-var position_from_top = photos2.offset().top - $(window).scrollTop();
-
-
-var position_from_right = ($(window).width()-photos2.offset().left)/2;
-
-
-
-        xofsset = photos2.offset();
-
-
-        var btm = $(window).height() - (position_from_top + photos2.height());
+        var position_from_top = photos_lanscape.offset().top - $(window).scrollTop();
+        xofsset = photos_lanscape.offset();
+        var btm = $(window).height() - (position_from_top + photos_lanscape.height());
 
         fly.css({
-            width: photos2.width() + "px",
+            width: photos_lanscape.width() + "px",
             bottom: btm + "px",
-            height: photos2.height() + "px",
+            height: photos_lanscape.height() + "px",
             left: xofsset.left + "px",
         });
 
      
         
-     //   photos2.hide();
+
 
 
 
         setTimeout(function() {
           
-
-           // jumping(fly, 100, 100, 180, 360, 90, 1);
-
-
-          // var flya = $('<div class="fly" style="position: fixed; bottom: 100px; left: 300px;width:100px;heigh:100px"></div>');
-         //  flya.append('<img style="width:100%;height:100%" src="https://www.behkiana.ir/photos/shampoo.png" />');
-       
-         //  $('body').append(flya);
-
-        
-       
          var rrr = ($(window).width()-xofsset.left);
-
-         rrr = rrr - photos2.width() ;
-
-         
+         rrr = rrr - photos_lanscape.width() ; 
          rrr = rrr/2;
 
-         
 
-
-         console.log("is "+rrr);
-
-         
                jumping(fly, 50, rrr, 180, 360, 90, 1);
                fly.remove();
 
-
        setTimeout(function() {
-        photos2.css({"visibility":"visible"});
+        photos_lanscape.css({"visibility":"visible"});
        },800);
 
 
         },100);
 
 
-/* */
-
     });
 
-    leftlandbox.append(priceAndAddtoCart);
-
-
-
+    leftlandbox.append(priceAndAddtoCart_landscape);
     leftlandbox.append(caption.clone());
-
-
-    rightlandbox.append(photos2);
-
-   
-
+    rightlandbox.append(photos_lanscape);
     landbox.append(leftlandbox);
     landbox.append(rightlandbox);
-
     prd.append(landbox);
 
     /**/
