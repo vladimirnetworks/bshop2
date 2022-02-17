@@ -110,12 +110,12 @@
             }
 
             .bottom .min .cart {
-                margin-right: auto;
+                margin-left: auto;
                 background-color: white;
             }
             .bottom .min {
                 flex-direction: row;
-                justify-content: start;
+                justify-content: right;
                 align-items: center;
             }
             .top {
@@ -173,7 +173,7 @@
                 align-items: center;
             }
             .bottom .min .cart {
-                margin-top: auto;
+                margin-bottom: auto;
                 background-color: white;
             }
             .top {
