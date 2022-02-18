@@ -206,7 +206,7 @@ xcart.addChangeListener(function () {
 
 
 
-<div class="itm" id="mainpage">
+<div class="itm" id="contact">
   <div class="icon" style="background-image:url('https://www.behkiana.ir/icons/phone.png');"></div>
   <div class="txt">تماس‌باما</div>
  </div>
@@ -348,6 +348,8 @@ xcart.addChangeListener(function () {
       $('.min').hide();
       $('.basket').hide();
       $('.big').show();
+
+      
       mmenu.open = true;
       if (island()) {
         $('.bottom').css({
