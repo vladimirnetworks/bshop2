@@ -90,7 +90,7 @@ function renderbigcartview() {
   $("#bigcartview").empty();
       var tot = xcart.total();
 
-        var cartlist = $("<div></div>")
+        var cartlist = $('<div style="direction:rtl;display:flex;flex-direction: column;align-items: center;"></div>');
       xcart.eech(function(prod) {
 
         var bez = $('<button>+</button>');
@@ -104,11 +104,20 @@ function renderbigcartview() {
             xcart.changeCount(prod.id, prod.count + 1);
         });
 
-        var itm = $("<div>"+prod.tinytitle+"</div>");
+        var xtitle = $('<div style="flex-grow:1;text-align: right;">'+prod.tinytitle+'</div>');
+        var itm = $('<div style="display:flex;width:70%;justify-content: right;"></div>');
 
-        itm.prepend(bez);
-        itm.prepend(prod.count);
-        itm.prepend(men);
+
+     
+
+       var counbox = $('<div style="flex-direction:row;display: flex;"></div>');
+       counbox.append(bez);
+       counbox.append('<div style="width:2rem">'+prod.count+'</div>');
+       counbox.append(men);
+
+       itm.append(counbox);
+
+       itm.prepend(xtitle);
 
         cartlist.append(itm);
       });
@@ -243,9 +252,10 @@ xcart.addChangeListener(function () {
 
     <div class="big">
 
-      <button id="checkout">checkout</button>
+      
 
       <div id="bigcartview"></div>
+      <button id="checkout">checkout</button>
 
 
     </div>
