@@ -213,15 +213,16 @@
             flex: 0 0 33.33333333%;
             max-width: 33.33333333%;
             padding: 0.1rem;
+            text-align:center;
+            direction:rtl;
+        }
+
+        .products>div img {
+          width: 70%;
+          max-width:100px;
         }
         
-        .products>div:nth-child(odd) {
-            background-color: beige
-        }
-        
-        .products>div:nth-child(even) {
-            background-color: grey
-        }
+
         
         @media screen and (orientation: landscape) {
             .products>div {

@@ -633,7 +633,14 @@ function llist(path) {
   rt.append(products);
     apix.get(path, function(vals) {
 
-        var product = $("<div>" + vals.tinytitle + "</div>");
+        var product = $("<div></div>");
+
+
+        product.append('<img src="https://www.behkiana.ir/'+vals.photo.small+'" />');
+
+        product.append('<div style="font-size:70%">'+vals.tinytitle+"</div>");
+
+        product.append("<div>"+farsi_price(vals.price)+" ت</div>");
 
         setTransFormAnim(product);
 
