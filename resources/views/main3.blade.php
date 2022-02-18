@@ -66,23 +66,21 @@ $(document).ready(function() {
 
    
 
-<div class="basket" style="display:flex;padding:0.1rem;align-items:center">
+<div class="basket" style="display:flex;align-items:center;flex-direction: column;justify-content:center;">
   
 
-  <div style="width: 100%;height:80%;background-color:blue;position: relative;z-index:1;opacity:0.0"></div>
+
+    <img src="/icons/sabad.png" style="width:5em;position: relative;z-index:1;"/>
 
 
+ <div style="direction:rtl;display:flex;align-items:center"><span id="totalcart"></span> <span style="font-size: 70%">تومان</span></div>
 
 
 </div>
   <div class="bottom">
     <div class="min">
 
-      <div class="itm cart" style="">
 
-        <div style="position:relative;background-color:red;height:100%;width:100%"></div>
-
-      </div>
       <script>
 
 
@@ -125,6 +123,8 @@ function renderbigcartview() {
 var visualBasketfunc = function(delay) {
 
 var tot = xcart.total();
+
+$("#totalcart").text(farsi_price(tot.amount));
 
  if (tot.count < 1) {
   $("div[data-productid]").remove();
@@ -186,7 +186,14 @@ xcart.addChangeListener(function () {
 </script>
       
 
-      <div class="itm" id="oorder" >myorders</div>
+
+
+      <div class="itm" id="oorder">
+        <div class="icon" style="background-image:url('https://www.behkiana.ir/icons/orders.png');"></div>
+        <div class="txt">سفارشات‌من</div>
+       </div>
+
+
       <script>
         $('#oorder').click(function(e) {
           e.stopPropagation();
@@ -197,7 +204,27 @@ xcart.addChangeListener(function () {
 
         </script>
 
-      <div class="itm" id="mainpage">mainpage</div>
+
+
+<div class="itm" id="mainpage">
+  <div class="icon" style="background-image:url('https://www.behkiana.ir/icons/phone.png');"></div>
+  <div class="txt">تماس‌باما</div>
+ </div>
+
+
+<div class="itm" id="mainpage">
+ <div class="icon" style="background-image:url('https://www.behkiana.ir/icons/home.png');"></div>
+ <div class="txt">صفحه‌اول</div>
+</div>
+
+
+
+
+
+
+
+
+
 
 
       <script>

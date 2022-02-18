@@ -1158,10 +1158,10 @@ function addtobasket(inbasket,delay=1) {
     var newcss2 = {};
     if (rl == 1) {
          newcss = {
-           left:rnd(-20,20)+"%",
+           left:rnd(10,20)+"%",
            right:"unset",
-           bottom:"20px",
-           width:"60%",
+           bottom:"50%",
+           width:"3em",
            position:"absolute",
            "z-index":"0",
            height:"auto"
@@ -1174,10 +1174,10 @@ function addtobasket(inbasket,delay=1) {
     } else {
 
        newcss = {
-           right:rnd(-20,20)+"%",
+           right:rnd(10,20)+"%",
            left:"unset",
-           bottom:"20px",
-           width:"60%",
+           bottom:"50%",
+           width:"3em",
            position:"absolute",
            "z-index":"0",
            height:"auto"
@@ -1202,6 +1202,12 @@ function addtobasket(inbasket,delay=1) {
        setTimeout(function(){
        inbasket.css(newcss2);
        },100);
+
+
+       $(".basket").addClass("shakesabad");
+       setTimeout(function() {
+        $(".basket").removeClass("shakesabad");
+       },300);
 
     },100+delay);
 }
