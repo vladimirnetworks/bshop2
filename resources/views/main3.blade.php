@@ -188,7 +188,7 @@ xcart.addChangeListener(function () {
 
 
 
-      <div class="itm" id="oorder" style="margin-left:auto;margin-bottom:auto">
+      <div class="itm" id="oorder" style="">
         <div class="icon" style="background-image:url('https://www.behkiana.ir/icons/orders.png');"></div>
         <div class="txt">سفارشات‌من</div>
        </div>

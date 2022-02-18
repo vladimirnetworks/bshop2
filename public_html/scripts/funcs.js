@@ -298,6 +298,15 @@ function oproduct(p) {
     rt.append(product);
 
 
+
+      var products = $('<div class="products"></div>');
+      rt.append("<hr>");
+        rt.append(products);
+         olist("relateto/"+p.id,function(prod) {
+          products.append(prod);
+        }); 
+
+
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 
@@ -624,13 +633,7 @@ function r(tag) {
     return $("#router1");
 }
 
-function llist(path) {
-
-
-  var rt = r();
-
-  var products = $('<div class="products"></div>');
-  rt.append(products);
+function olist(path,dox) {
     apix.get(path, function(vals) {
 
         var product = $("<div></div>");
@@ -638,9 +641,9 @@ function llist(path) {
 
         product.append('<img src="https://www.behkiana.ir/'+vals.photo.small+'" />');
 
-        product.append('<div style="font-size:70%">'+vals.tinytitle+"</div>");
+        product.append('<div style="font-size:80%">'+vals.tinytitle+"</div>");
 
-        product.append("<div>"+farsi_price(vals.price)+" ت</div>");
+        product.append('<div style="display:flex;align-items:center;justify-content:center"><span>'+farsi_price(vals.price)+'</span> <span style="font-size:65%" >تومان</span></div>');
 
         setTransFormAnim(product);
 
@@ -649,8 +652,22 @@ function llist(path) {
             hpu({ act: "product", prod: vals });
         });
 
-        products.append(product);
+        dox(product);
+       
     })
+}
+
+function llist(path) {
+
+
+  var rt = r();
+  var products = $('<div class="products"></div>');
+  rt.append(products);
+  olist(path,function(prod) {
+    products.append(prod);
+  });
+
+    
 }
 
 
