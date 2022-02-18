@@ -90,7 +90,8 @@ function renderbigcartview() {
   $("#bigcartview").empty();
       var tot = xcart.total();
 
-        var cartlist = $('<div style="direction:rtl;display:flex;flex-direction: column;align-items: center;"></div>');
+      var cartlistcont = $('<div style="display:flex;flex-direction:column;height:100%"></div>');
+        var cartlist = $('<div style="direction:rtl;display:flex;flex-direction: column;align-items: center;overflow: scroll;"></div>');
       xcart.eech(function(prod) {
 
         var bez = $('<button>+</button>');
@@ -110,7 +111,7 @@ function renderbigcartview() {
 
      
 
-       var counbox = $('<div style="flex-direction:row;display: flex;"></div>');
+       var counbox = $('<div style="flex-direction:row;display: flex;align-items: center;"></div>');
        counbox.append(bez);
        counbox.append('<div style="width:2rem">'+prod.count+'</div>');
        counbox.append(men);
@@ -123,10 +124,82 @@ function renderbigcartview() {
       });
 
    
+      cartlistcont.append(cartlist);
 
-        $("#bigcartview").append(cartlist);
 
-        $("#bigcartview").append("<hr>"+tot.count+"  , "+tot.amount);
+      var checkoutbtn = $('<button>checkout</button>');
+
+      checkoutbtn.click(function() {
+
+
+        
+
+
+        /**/
+        toyou("preorder", xcart.items(), function(res) {
+         console.log(res.data.id);
+      
+         hpu({ act: "getnumber",orderid:res.data.id});
+
+         myorder.orderid = res.data.id;
+         myorder.shipping = res.data.shipping;
+         $("#shippingx").empty();
+         for (var i = 0; i < myorder.shipping.length; i++) {
+            var maindiv = $("<div></div>");
+            var labelx = $('<label ></label>');
+
+            labelx.click(function() {
+             // return true;
+            });
+            if (i === 0) {
+               var inputx = $('<input checked type="radio"  name="shiptype" value="' + i + '">');
+            } else {
+               var inputx = $('<input type="radio"  name="shiptype" value="' + i + '">');
+            }
+            var textx = $('<span>' + myorder.shipping[i].text + '</span>');
+            labelx.append(inputx);
+
+
+            
+            labelx.append(textx);
+            maindiv.append(labelx);
+            $("#shippingx").append(maindiv);
+         }
+
+
+
+        $.ajax({
+        url: "/api/xnotif",
+        type: "post",
+        data: "ok" ,
+        success: function (response) {
+
+         
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           console.log(textStatus, errorThrown);
+        }
+    });
+    
+
+
+
+      });
+        /**/
+          opendialog("dialog1");
+         
+          return false;
+
+
+      });
+
+      var endofcart = $('<div style="background-color:yellow;flex-grow:1"></div>');
+      cartlistcont.append(endofcart);
+      endofcart.append(checkoutbtn);
+
+        $("#bigcartview").append(cartlistcont);
+
+    //    $("#bigcartview").append("<hr>"+tot.count+"  , "+tot.amount);
 }
 
 var visualBasketfunc = function(delay) {
@@ -254,8 +327,10 @@ xcart.addChangeListener(function () {
 
       
 
-      <div id="bigcartview"></div>
-      <button id="checkout">checkout</button>
+      <div id="bigcartview" style="height:100%;background-color:red"></div>
+
+
+   
 
 
     </div>
