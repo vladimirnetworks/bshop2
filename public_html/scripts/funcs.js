@@ -393,7 +393,7 @@ function oproduct(p) {
     vasat.append('<div class="landprodtitle" style="text-align: center;">'+p.title+'</div>');
     var landbox = $('<div class="prodlandbox" style="text-align: center;padding-right:2rem"></div>');
     var leftlandbox = $('<div style="flex-grow:1;text-align: right;direction:rtl;    padding-right: 1rem"></div>');
-    var rightlandbox = $('<div style="flex-grow:1;max-width:250px"></div>');
+    var rightlandbox = $('<div style="flex-grow:1;max-width:150px"></div>');
 
 
     var priceAndAddtoCart_landscape = $('<div style="display:flex;padding:1rem"></div>');
