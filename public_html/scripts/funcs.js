@@ -300,7 +300,7 @@ function oproduct(p) {
 
 
       var products = $('<div class="products"></div>');
-      rt.append("<hr>");
+      //rt.append("<hr>");
         rt.append(products);
          olist("relateto/"+p.id,function(prod) {
           products.append(prod);
