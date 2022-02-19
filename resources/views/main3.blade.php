@@ -628,7 +628,7 @@ xcart.addChangeListener(function () {
 
 
           <div style="display: flex;flex-direction:column;align-items:center;">
-            <input id="usernumber" type="number" class="minpt" style="width:100%;flex-grow:1; "
+            <input id="usernumber" type="text" class="minpt" style="width:100%;flex-grow:1; "
               placeholder="شماره تماس" />
 
             <div style="display:flex;width: 100%;justify-content: space-between;">
