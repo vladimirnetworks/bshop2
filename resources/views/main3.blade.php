@@ -627,9 +627,11 @@ xcart.addChangeListener(function () {
     <form id="usernumber_form" action="/" method="post">
 
 
-      <div style="display: flex">
-        <input id="usernumber" type="number" class="minpt" style="width:100%;flex-grow:1; letter-spacing: 0.25em;" placeholder="شماره تماس" />
-        <input type="submit" value="ثبت">
+      <div style="display: flex;flex-direction:column;align-items:center">
+        <input id="usernumber" type="number" class="minpt" style="width:100%;flex-grow:1; " placeholder="شماره تماس" />
+       
+        <div class="dialogbtn" style="margin-top:1rem">ادامه </div>
+      
       </div>
 
     </form>
