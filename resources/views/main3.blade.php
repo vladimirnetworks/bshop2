@@ -705,7 +705,7 @@ return false;
 
         
 
-          <input id="useraddress" class="minpt" type="text" placeholder="آدرس" />
+          <input id="useraddress" style="width:100%;flex-grow:1; " class="minpt" type="text" placeholder="آدرس" />
 
 
           <div style="font-size: 90%;color:grey;line-height: 2rem;margin-top:1rem"> 
