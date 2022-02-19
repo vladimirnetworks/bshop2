@@ -1,6 +1,8 @@
 mmenu = {};
 mmenu.xtimeout = null;
 
+dialog_do = {};
+
 
 function addtocart(p) {
     var itm = xcart.getItem(p.id);
@@ -971,7 +973,7 @@ function closedialog(i) {
 function opendialog(i, w = "80%", h = "80%") {
 
 $(".dialog_dim").remove();
-var dim = $('<div class="dialog_dim" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1003;background-color:black;top:0px;left:0px;opacity:0.5"></div>');
+var dim = $('<div class="dialog_dim" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1003;background-color:black;top:0px;left:0px;opacity:0.8"></div>');
 $("body").append(dim);
 
     if (!$("#"+i+"_container")[0]) {
@@ -999,6 +1001,12 @@ $("body").append(dim);
         
     } else {
         $("#"+i+"_container").show();
+    }
+
+    if (dialog_do.hasOwnProperty(i)) {
+       setTimeout(function() {
+        dialog_do[i]();
+       },100);
     }
 
 }

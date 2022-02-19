@@ -614,14 +614,22 @@ xcart.addChangeListener(function () {
 
   <div class="dialog" id="dialog1">
 
-    <br>
-    enter number
+
+
+
     <form id="usernumber_form" action="/" method="post">
-      <input id="usernumber" type="number" placeholder="phone number" />
-      <input type="submit">
+      <input id="usernumber" type="number" placeholder="شماره تماس" />
+      <input type="submit" value="ثبت">
     </form>
 
   </div>
+  <script>
+
+    dialog_do['dialog1'] = function() {
+      $("#usernumber").focus();
+    } 
+          </script>
+
   <script>
     $("#usernumber_form").on('submit',function () {
 
