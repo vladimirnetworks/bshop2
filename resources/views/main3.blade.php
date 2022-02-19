@@ -633,8 +633,8 @@ xcart.addChangeListener(function () {
         <input id="usernumber" type="number" class="minpt" style="width:100%;flex-grow:1; " placeholder="شماره تماس" />
        
        <div style="display:flex;width: 100%;justify-content: space-between;">
-        <div class="dialogbtn dialogbtngrey" style="margin-top:1rem">قبلی </div>
-        <div class="dialogbtn dialogbtnblue" style="margin-top:1rem">ادامه </div>
+        <div class="dialogbtn dialogbtngrey" style="margin-top:1rem"><span style="font-size: 80%">❮</span> قبلی </div>
+        <div class="dialogbtn dialogbtnblue" style="margin-top:1rem">ادامه <span style="font-size: 80%">❯</span></div>
        </div>
       
       </div>
