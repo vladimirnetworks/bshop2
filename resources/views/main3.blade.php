@@ -90,12 +90,12 @@ function renderbigcartview() {
   $("#bigcartview").empty();
       var tot = xcart.total();
 
-      var cartlistcont = $('<div style="display:flex;flex-direction:column;height:100%"></div>');
+      var cartlistcont = $('<div  style="display:flex;flex-direction:column;height:100%"></div>');
         var cartlist = $('<div style="direction:rtl;display:flex;flex-direction: column;align-items: center;overflow: scroll;"></div>');
       xcart.eech(function(prod) {
 
-        var bez = $('<button>+</button>');
-        var men = $('<button>-</button>');
+        var bez = $('<button style="border-radius:0px 0.3rem 0.3rem 0px">+</button>');
+        var men = $('<button style="border-radius:0.3rem 0px 0px 0.3rem ">-</button>');
 
         men.click(function() {
             xcart.changeCount(prod.id, prod.count - 1);
@@ -106,12 +106,12 @@ function renderbigcartview() {
         });
 
         var xtitle = $('<div style="flex-grow:1;text-align: right;">'+prod.tinytitle+'</div>');
-        var itm = $('<div style="display:flex;width:70%;justify-content: right;"></div>');
+        var itm = $('<div style="display:flex;width:70%;justify-content: right; margin:0.3rem"></div>');
 
 
      
 
-       var counbox = $('<div style="flex-direction:row;display: flex;align-items: center;"></div>');
+       var counbox = $('<div class="counbtox" style="flex-direction:row;display: flex;align-items: center;"></div>');
        counbox.append(bez);
        counbox.append('<div style="width:2rem">'+prod.count+'</div>');
        counbox.append(men);
@@ -327,7 +327,7 @@ xcart.addChangeListener(function () {
 
       
 
-      <div id="bigcartview" style="height:100%;background-color:red"></div>
+      <div id="bigcartview" style="height:100%;"></div>
 
 
    
