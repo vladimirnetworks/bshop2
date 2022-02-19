@@ -981,7 +981,7 @@ $("body").append(dim);
         var dialogent = $("#" + i).clone(true, true);
         $("#" + i).remove();
 
-        var dialog_cont = $('<div id="' + i + '_container" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1016;top: 0px;left:0px;display: flex;justify-content: center;align-items: flex-start;overflow:scroll"></div>');
+        var dialog_cont = $('<div id="' + i + '_container" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1016;top: 0px;left:0px;display: flex;justify-content: center;align-items: flex-start;overflow:auto"></div>');
         var dialogbox = $('<div id="' + i + '_box" style="width:' + w + ';background-color:white;border-radius:1rem;border : 1px solid rgba(0,0,0,.2);padding: 1rem;margin-top:auto;margin-bottom:auto"></div>');
         dialogbox.click(function (e) {
             e.stopPropagation();
@@ -1144,7 +1144,8 @@ function gotopay(oid) {
         success: function (response) {
 
            if (response.res != "error") {
-                  window.location = response.res;
+                 window.location = response.res;
+                 
            }
          
         },
@@ -1159,12 +1160,14 @@ function onlinepay(oid) {
     window.history.go(-4);
 
     setTimeout(function() {
-        hpu({act:"waitforonlinepay"});  
+      
+       hpu({act:"waitforonlinepay"});  
         opendialog('onlinepaydialog');
 
 
-        gotopay(oid);
-    
+        setTimeout(function() {
+         gotopay(oid);
+         },1000);
         
 
     },100);

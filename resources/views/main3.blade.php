@@ -90,7 +90,7 @@ $(document).ready(function() {
       var tot = xcart.total();
 
       var cartlistcont = $('<div  style="display:flex;flex-direction:column;height:100%"></div>');
-        var cartlist = $('<div style="direction:rtl;display:flex;flex-direction: column;align-items: center;overflow: scroll;"></div>');
+        var cartlist = $('<div style="direction:rtl;display:flex;flex-direction: column;align-items: center;overflow: auto;padding-top:2rem;"></div>');
       xcart.eech(function(prod) {
 
         var bez = $('<button style="border-radius:0px 0.3rem 0.3rem 0px">+</button>');
@@ -791,10 +791,19 @@ return false;
 
   <div class="dialog" id="dialog3">
 
-    payment <button onclick="offlinepay()">offlinepayment</button>
+    <div style="display: flex;flex-direction:column;align-items:center;justify-content:center">
+    
+        <div>   مجموع فاکتور : ۴۵۰۰۰۰ تومان</div>
 
 
-    <button onclick="onlinepay(myorder.orderid)">onlinePayment</button>
+        <div style="display: flex;    justify-content: space-around;width: 100%;">
+          <button class="dialogbtn dialogbtnblue" onclick="offlinepay()">offlinepayment</button>
+          <button class="dialogbtn dialogbtnblue" onclick="onlinepay(myorder.orderid)">onlinePayment</button>
+        </div>
+
+    </div>
+
+
 
   </div>
 
