@@ -105,20 +105,23 @@ function renderbigcartview() {
             xcart.changeCount(prod.id, prod.count + 1);
         });
 
-        var xtitle = $('<div style="flex-grow:1;text-align: right;">'+prod.tinytitle+'</div>');
-        var itm = $('<div style="display:flex;width:70%;justify-content: right; margin:0.3rem"></div>');
+        var xtitle = $('<div style="font-size:80%;flex-grow:1;text-align: right;">'+prod.tinytitle+'</div>');
+        var xprice = $('<div style="text-align: right;margin-left:1rem">'+farsi_price(prod.price*prod.count)+' <span style="font-size:60%">تومان</span></div>');
+        var itm = $('<div style="display:flex;width:90%;justify-content: right; margin:0.3rem;max-width:400px"></div>');
 
 
      
 
        var counbox = $('<div class="counbtox" style="flex-direction:row;display: flex;align-items: center;"></div>');
        counbox.append(bez);
-       counbox.append('<div style="width:2rem">'+prod.count+'</div>');
+       counbox.append('<div style="width:1rem;font-size:80%">'+prod.count+'</div>');
        counbox.append(men);
 
        itm.append(counbox);
 
+       itm.prepend(xprice);
        itm.prepend(xtitle);
+      
 
         cartlist.append(itm);
       });
@@ -127,7 +130,7 @@ function renderbigcartview() {
       cartlistcont.append(cartlist);
 
 
-      var checkoutbtn = $('<button>checkout</button>');
+      var checkoutbtn = $('<button class="checkoubtn">تایید و ثبت سفارش</button>');
 
       checkoutbtn.click(function() {
 
@@ -193,8 +196,15 @@ function renderbigcartview() {
 
       });
 
-      var endofcart = $('<div style="background-color:yellow;flex-grow:1"></div>');
+      var endofcart = $('<div style="flex-grow:1;padding:1rem"></div>');
       cartlistcont.append(endofcart);
+
+
+      var tot = xcart.total();
+
+      endofcart.append('<div style="margin:1rem">مجموع : '+farsi_price(tot.amount)+'</div>');
+
+
       endofcart.append(checkoutbtn);
 
         $("#bigcartview").append(cartlistcont);
