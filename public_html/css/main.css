@@ -440,10 +440,10 @@
 
 .dialogbtn {
 
-    background-color: #007bff;
+
+
     border-radius: 0.3rem;
-    border-color: #007bff;
-    color: white;
+   
     border:0px;
     font-weight: bold;  
     padding :0.375rem 1.5rem;
@@ -452,11 +452,23 @@
     display:flex;
     justify-content: center;
     width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
    
 
 }
 
 
-.dialogbtn_icon {
+.dialogbtnblue {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
 
+.dialogbtngrey {
+    border:1px solid;
+    background-color: #ffffff;
+    border-color: #356292;
+    color:#494949
 }
