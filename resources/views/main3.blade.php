@@ -64,27 +64,26 @@ $(document).ready(function() {
       display: none;
     " class="dim"></div>
 
-   
-
-<div class="basket" style="display:flex;align-items:center;flex-direction: column;justify-content:center;">
-  
 
 
-    <img src="/icons/sabad.png" style="width:5em;position: relative;z-index:1;"/>
+  <div class="basket" style="display:flex;align-items:center;flex-direction: column;justify-content:center;">
 
 
- <div style="direction:rtl;display:flex;align-items:center"><span id="totalcart"></span> <span style="font-size: 70%">تومان</span></div>
+
+    <img src="/icons/sabad.png" style="width:5em;position: relative;z-index:1;" />
 
 
-</div>
+    <div style="direction:rtl;display:flex;align-items:center"><span id="totalcart"></span> <span
+        style="font-size: 70%">تومان</span></div>
+
+
+  </div>
   <div class="bottom">
     <div class="min">
 
 
       <script>
-
-
-function renderbigcartview() {
+        function renderbigcartview() {
 
 
   $("#bigcartview").empty();
@@ -275,15 +274,15 @@ xcart.addChangeListener(function () {
   visualBasketfunc(1000);
 });
 
-</script>
-      
+      </script>
+
 
 
 
       <div class="itm" id="oorder" style="">
         <div class="icon" style="background-image:url('https://www.behkiana.ir/icons/orders.png');"></div>
         <div class="txt">سفارشات‌من</div>
-       </div>
+      </div>
 
 
       <script>
@@ -294,20 +293,20 @@ xcart.addChangeListener(function () {
 
         setTransFormAnim($('#oorder'));
 
-        </script>
+      </script>
 
 
 
-<div class="itm" id="contact">
-  <div class="icon" style="background-image:url('https://www.behkiana.ir/icons/phone.png');"></div>
-  <div class="txt">تماس‌باما</div>
- </div>
+      <div class="itm" id="contact">
+        <div class="icon" style="background-image:url('https://www.behkiana.ir/icons/phone.png');"></div>
+        <div class="txt">تماس‌باما</div>
+      </div>
 
 
-<div class="itm" id="mainpage">
- <div class="icon" style="background-image:url('https://www.behkiana.ir/icons/home.png');"></div>
- <div class="txt">صفحه‌اول</div>
-</div>
+      <div class="itm" id="mainpage">
+        <div class="icon" style="background-image:url('https://www.behkiana.ir/icons/home.png');"></div>
+        <div class="txt">صفحه‌اول</div>
+      </div>
 
 
 
@@ -328,19 +327,19 @@ xcart.addChangeListener(function () {
 
         setTransFormAnim($('#mainpage'));
 
-        </script>
+      </script>
 
 
     </div>
 
     <div class="big">
 
-      
+
 
       <div id="bigcartview" style="height:100%;"></div>
 
 
-   
+
 
 
     </div>
@@ -422,8 +421,6 @@ xcart.addChangeListener(function () {
 
 
   <script>
-
-
     mmenu.open = false;
 
 
@@ -616,44 +613,55 @@ xcart.addChangeListener(function () {
 
 
 
-<div style="display:flex;align-items: center;justify-content: center;">
+    <div style="display:flex;align-items: center;justify-content: center;">
 
-  <div style="text-align:center;padding-top:2rem;padding-bottom:2rem;width: 80%;">
+      <div style="text-align:center;padding-top:2rem;padding-bottom:2rem;width: 80%;">
 
-   <div style="font-size: 90%;color:grey;line-height: 2rem;"> شماره تماستونُ وارد کنید
-    <br>
-    موبایل یا ثابت فرقی نداره </div>
+        <div style="font-size: 90%;color:grey;line-height: 2rem;"> شماره تماستونُ وارد کنید
+          <br>
+          موبایل یا ثابت فرقی نداره
+        </div>
 
-    <br>
+        <br>
 
-    <form id="usernumber_form" action="/" method="post">
+        <form id="usernumber_form" action="/" method="post">
 
 
-      <div style="display: flex;flex-direction:column;align-items:center;">
-        <input id="usernumber" type="number" class="minpt" style="width:100%;flex-grow:1; " placeholder="شماره تماس" />
-       
-       <div style="display:flex;width: 100%;justify-content: space-between;">
-        <div class="dialogbtn dialogbtngrey" style="margin-top:1rem"><span style="font-size: 80%">❮</span> قبلی </div>
-        <div class="dialogbtn dialogbtnblue" style="margin-top:1rem">ادامه <span style="font-size: 80%">❯</span></div>
-       </div>
-      
+          <div style="display: flex;flex-direction:column;align-items:center;">
+            <input id="usernumber" type="number" class="minpt" style="width:100%;flex-grow:1; "
+              placeholder="شماره تماس" />
+
+            <div style="display:flex;width: 100%;justify-content: space-between;">
+              <div id="backnumber" class="dialogbtn dialogbtngrey" style="margin-top:1rem"><span
+                  style="font-size: 80%">❮</span> قبلی </div>
+              <div id="submitnumber" class="dialogbtn dialogbtnblue" style="margin-top:1rem">ادامه <span
+                  style="font-size: 80%">❯</span></div>
+            </div>
+
+          </div>
+
+        </form>
       </div>
 
-    </form>
-  </div>
-
-  </div>
+    </div>
 
 
   </div>
   <script>
-
     dialog_do['dialog1'] = function() {
       $("#usernumber").focus();
     } 
-          </script>
+  </script>
 
   <script>
+    $("#submitnumber").click(function () {
+  $("#usernumber_form").submit();
+});
+
+$("#backnumber").click(function () {
+  history.back();
+});
+
     $("#usernumber_form").on('submit',function () {
 
 
@@ -682,24 +690,61 @@ return false;
 
 
   <div class="dialog" id="dialog2">
-    enter address
-
-    <form id="useraddress_form" action="/" method="post">
-      <div id="shippingx"></div>
 
 
-      <input id="useraddress" type="text" placeholder="address" />
+    <div style="display:flex;align-items: center;justify-content: center;">
 
-      <input type="submit">
-
-    </form>
+      <div style="text-align:center;padding-top:2rem;padding-bottom:2rem;width: 80%;">
 
 
+ 
+
+
+        <form style="direction:rtl;text-align:right" id="useraddress_form" action="/" method="post">
+
+
+        
+
+          <input id="useraddress" class="minpt" type="text" placeholder="آدرس" />
+
+
+          <div style="font-size: 90%;color:grey;line-height: 2rem;margin-top:1rem"> 
+            زمان تحویل : 
+          </div>
+
+          <div id="shippingx" style=""></div>
+
+
+        </form>
+
+
+        <div style="display:flex;width: 100%;justify-content: space-between;">
+          <div id="backaddress" class="dialogbtn dialogbtngrey" style="margin-top:1rem"><span
+              style="font-size: 80%">❮</span> قبلی </div>
+          <div id="submitaddress" class="dialogbtn dialogbtnblue" style="margin-top:1rem">ادامه <span
+              style="font-size: 80%">❯</span></div>
+        </div>
+
+      </div>
+    </div>
 
   </div>
 
 
   <script>
+    dialog_do['dialog2'] = function() {
+      $("#useraddress").focus();
+    } 
+
+$("#submitaddress").click(function () {
+  $("#useraddress_form").submit();
+});
+
+$("#backaddress").click(function () {
+  history.back();
+});
+
+
     $("#useraddress_form").on('submit', function() {
 
 
@@ -758,15 +803,15 @@ return false;
 
   <div class="dialog" id="singleorderview">
 
-        this is your order
+    this is your order
 
-        <button onclick="onlinepaygo(6113)">online pay</button>
+    <button onclick="onlinepaygo(6113)">online pay</button>
 
   </div>
 
 
 
-  
+
 
 
 
