@@ -620,7 +620,7 @@ xcart.addChangeListener(function () {
 
   <div style="text-align:center;padding-top:2rem;padding-bottom:2rem">
 
-   <div style="font-size: 90%;color::grey;line-height: 2rem;"> شماره تماستونُ وارد کنید، موبایل یا ثابت فرقی نداره </div>
+   <div style="font-size: 90%;color:grey;line-height: 2rem;"> شماره تماستونُ وارد کنید، موبایل یا ثابت فرقی نداره </div>
 
     <br>
 
@@ -628,7 +628,7 @@ xcart.addChangeListener(function () {
 
 
       <div style="display: flex">
-        <input id="usernumber" type="number" class="minpt" style="width:100%;flex-grow:1" placeholder="شماره تماس" />
+        <input id="usernumber" type="number" class="minpt" style="width:100%;flex-grow:1; letter-spacing: 0.25em;" placeholder="شماره تماس" />
         <input type="submit" value="ثبت">
       </div>
 

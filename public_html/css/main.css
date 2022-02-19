@@ -430,3 +430,9 @@
     box-shadow: rgb(136 136 136) 1px 0px 5px;
 
 }
+
+
+.minpt::placeholder {
+    letter-spacing: 0px;
+
+}
