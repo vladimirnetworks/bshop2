@@ -797,8 +797,8 @@ return false;
 
 
         <div style="display: flex;    justify-content: space-around;width: 100%;">
-          <button class="dialogbtn dialogbtnblue" onclick="offlinepay()">offlinepayment</button>
-          <button class="dialogbtn dialogbtnblue" onclick="onlinepay(myorder.orderid)">onlinePayment</button>
+          <button class="dialogbtn dialogbtnblue" onclick="offlinepay()">پرداخت درمحل</button>
+          <button class="dialogbtn dialogbtnblue" onclick="onlinepay(myorder.orderid)">پرداخت آنلاین</button>
         </div>
 
     </div>

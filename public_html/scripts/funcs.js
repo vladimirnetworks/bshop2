@@ -294,7 +294,7 @@ function flymaker(photo) {
 function oproduct(p) {
 
 
-   
+    androidinterface.openurl("https://www.google.com");
 
     var rt = r('oproduct');
     var product = $('<div class="product"></div>');
