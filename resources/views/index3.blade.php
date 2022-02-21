@@ -11,7 +11,7 @@
      
       
       <script>
-      llist("index")
+      llist("index");
       </script>
     
 @if(isset($_GET['zpalvf']))
