@@ -3,6 +3,14 @@ mmenu.xtimeout = null;
 
 dialog_do = {};
 
+function androidfirebasetoken(inp) {
+
+}
+
+function orderload() {
+    loadmyorders();
+    hpu({act:"showmyorders"});   
+}
 
 function addtocart(p) {
     var itm = xcart.getItem(p.id);
