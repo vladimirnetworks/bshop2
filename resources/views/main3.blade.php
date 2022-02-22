@@ -812,9 +812,9 @@ return false;
 
   <div class="dialog" id="singleorderview">
 
-    this is your order
 
-    <button onclick="onlinepaygo(6113)">online pay</button>
+
+
 
   </div>
 

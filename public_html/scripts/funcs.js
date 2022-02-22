@@ -1108,20 +1108,72 @@ $("body").append(dim);
 //    console.log("finished order");
 //}
 
+shippingstatus = [];
+shippingstatus[0] = "در حال بررسی";
+shippingstatus[1] = "ارسال شده";
+shippingstatus[2] = "کنسل";
+
+payemntstatus = [];
+payemntstatus[0] = "پرداخت نشده";
+payemntstatus[1] = "پرداخت شده";
+
 function loadmyorders() {
 
 
     var rt = r();
-    var myorders = $('<div class="myorders"  style="min-height:90vh"></div>');
+    var myorders = $('<div class="myorders"  style="display:flex;flex-direction:column;justify-content: center;"></div>');
     rt.append(myorders);
 
 
  apix.get("myorders", function(vals) {
      console.log(vals);
 
-     var orderitem = $("<div>"+vals.encoded_id+"</div>");
+     var orderitem = $('<div style="flex-basis:4.5rem;display:flex;direction:rtl;align-items: center;justify-content: space-around; background-color:#ffa400ad;margin:0.5rem;border-radius:1rem;padding-bottom:0.2rem;padding-top:0.2rem"></div>');
+
+     setTransFormAnim(orderitem);
+     //var orderitem = $("<div>"+vals.encoded_id+"</div>");
+
+     var codee = $('<div style="font-size:80%;">'+vals.encoded_id+'</div>');
+
+     var title = $('<div style="width:40%;text-align:right"></div>');
+
+
+     for (var i =0 ; i < vals.items.length ; i++) {
+         title.append('<div style="font-size:80%; white-space:nowrap;">'+vals.items[i].tinytext+'</div>');
+     }
+
+     var payemntstat = $('<div style="font-size:90%;">'+payemntstatus[vals.payment_status]+'</div>');
+
+     var shipping = $('<div style="font-size:90%;">'+shippingstatus[vals.shipping_status]+'</div>');
+
+
+     //orderitem.append(codee);
+     orderitem.append(title);
+     orderitem.append(payemntstat);
+     orderitem.append(shipping);
 
      orderitem.click(function() {
+
+
+        var ov = $("#singleorderview");
+        ov.empty();
+        
+
+
+        ov.append(vals.encoded_id);
+
+
+        var onlinepaybtn = $('<button>پرداخت آنلاین</button>');
+
+      onlinepaybtn.click(function() {
+        onlinepaygo(vals.encoded_id)
+      });
+
+
+
+      ov.append(onlinepaybtn);
+
+
             opendialog("singleorderview");
             hpu({act:"singleorderview",orderid:vals.encoded_id});
      });

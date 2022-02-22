@@ -240,7 +240,11 @@ class OrderController extends Controller
 
             foreach ($cart as $cartitem) {
 
-                $orderItems[] = ["text" => $cartitem['title'], "count" => $cartitem['count']];
+                $orderItems[] = [
+                    "text" => $cartitem['title'],
+                    "tinytext" => $cartitem['tinytitle'],
+                 "count" => $cartitem['count']
+                ];
 
                 $orderTot = $orderTot + intval($cartitem['price']) * intval($cartitem['count']);
             }
