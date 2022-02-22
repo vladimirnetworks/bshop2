@@ -1433,10 +1433,17 @@ function jumping(
     }, 200);
   }
 
+
+  function androidfirebasetoken(inpp) {
+    debb("aa: "+inpp);
+  }
 function appload() {
     llist("index");
 
-    setTimeout(function () {
+    /*setTimeout(function () {
         debb("de"+androidinterface.getFMStoken2("d"));
     },2000);
+    */
+
+    androidinterface.getFMStoken();
 }
