@@ -1174,7 +1174,12 @@ function gotopay(oid) {
         success: function (response) {
 
            if (response.res != "error") {
-                 window.location = response.res;
+                
+                 //if (typeof androidinterface !== 'undefined') {
+                    androidinterface.openurl(response.res);
+                 //} else {
+                 //   window.location = response.res;
+                 //}
                  
            }
          
@@ -1446,4 +1451,6 @@ function appload() {
     */
 
     androidinterface.getFMStoken();
+
+
 }
