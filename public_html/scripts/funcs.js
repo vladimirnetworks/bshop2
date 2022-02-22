@@ -7,10 +7,27 @@ function androidfirebasetoken(inp) {
 
 }
 
-function orderload() {
+//begin
+
+orderloadRunned = false;
+
+function orderloadFunc() {
     loadmyorders();
     hpu({act:"showmyorders"});   
 }
+
+function orderloadOnLoad() {
+    orderloadRunned = true;
+    orderloadFunc();
+}
+
+function orderloadEvl() {
+    if (!orderloadRunned) {
+     orderloadFunc();
+    }
+}
+
+//end
 
 function addtocart(p) {
     var itm = xcart.getItem(p.id);
