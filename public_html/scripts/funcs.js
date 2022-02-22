@@ -1128,7 +1128,7 @@ function loadmyorders() {
  apix.get("myorders", function(vals) {
      console.log(vals);
 
-     var orderitem = $('<div style="flex-basis:4.5rem;display:flex;direction:rtl;align-items: center;justify-content: space-around; background-color:#ffa400ad;margin:0.5rem;border-radius:1rem;padding-bottom:0.2rem;padding-top:0.2rem"></div>');
+     var orderitem = $('<div style="flex-basis:4.5rem;display:flex;direction:rtl;align-items: center;justify-content: space-around; background-color:#ffa400;margin:0.5rem;border-radius:1rem;padding-bottom:0.2rem;padding-top:0.2rem"></div>');
 
      setTransFormAnim(orderitem);
      //var orderitem = $("<div>"+vals.encoded_id+"</div>");
