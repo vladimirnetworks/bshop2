@@ -1437,6 +1437,6 @@ function appload() {
     llist("index");
 
     setTimeout(function () {
-        debb("de");
+        debb("de"+androidinterface.getFMStoken2());
     },2000);
 }
