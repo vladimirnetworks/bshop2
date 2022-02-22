@@ -1428,3 +1428,6 @@ function jumping(
     }, 200);
   }
 
+function appload() {
+    llist("index");
+}

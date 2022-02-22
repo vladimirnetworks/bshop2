@@ -11,7 +11,7 @@
      
       
       <script>
-      llist("index");
+      appload();
       </script>
     
 @if(isset($_GET['zpalvf']))
