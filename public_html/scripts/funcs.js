@@ -1502,7 +1502,7 @@ function appload() {
     },2000);
     */
 
-    androidinterface.getFMStoken();
+   // androidinterface.getFMStoken();
 
 
 }
