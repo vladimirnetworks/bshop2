@@ -43,12 +43,12 @@ $(document).ready(function() {
   @yield('main')
 
   <div class="top">
-    <a style="height: 90%" referrerpolicy="origin" target="_blank"
-      href="https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstposy1" style="height: 95%"><img
+    <a style="height: 90%;visibility: hidden;" referrerpolicy="origin" target="_blank"
+      href="https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstposy1" style="height: 95%;"><img
         style="height: 100%" referrerpolicy="origin"
         src="https://upload.wikimedia.org/wikipedia/commons/5/53/Wikimedia-logo.png" /></a>
 
-    <input id="searchinputtext" style="height: 60%; flex-grow: 2" placeholder="جستجو در محصولات" />
+    <input id="searchinputtext" class="minpt" style="text-align:right;height: 60%; flex-grow: 2" placeholder="جستجو در محصولات" />
     <img style="height: 60%; margin-left: 0.5em; margin-right: 0.5em" src="https://s6.uupload.ir/files/mag_91qh.png" />
   </div>
 
