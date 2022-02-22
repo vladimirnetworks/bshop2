@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/android-web-appver', function () {
-    return "4";
+    return rand(0,999999);
 });
 
-Route::get('/androidwebapp-4', "App\Http\Controllers\mainPageController@index33");
+Route::get('/androidwebapp-{id}', "App\Http\Controllers\mainPageController@index33");
 
 Route::get('/', "App\Http\Controllers\mainPageController@index")->middleware('tokin');
 Route::get('/index2', "App\Http\Controllers\mainPageController@index22")->middleware('tokin');

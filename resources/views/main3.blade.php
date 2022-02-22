@@ -48,7 +48,7 @@ $(document).ready(function() {
         style="height: 100%" referrerpolicy="origin"
         src="https://upload.wikimedia.org/wikipedia/commons/5/53/Wikimedia-logo.png" /></a>
 
-    <input style="height: 60%; flex-grow: 2" placeholder="جستجو در محصولات" />
+    <input id="searchinputtext" style="height: 60%; flex-grow: 2" placeholder="جستجو در محصولات" />
     <img style="height: 60%; margin-left: 0.5em; margin-right: 0.5em" src="https://s6.uupload.ir/files/mag_91qh.png" />
   </div>
 

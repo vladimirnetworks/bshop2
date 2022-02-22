@@ -7,8 +7,13 @@ function androidfirebasetoken(inp) {
 
 }
 
-//begin
 
+function debb(inp) {
+  $("#searchinputtext").val(inp);
+}
+
+//begin
+/*
 orderloadRunned = false;
 
 function orderloadFunc() {
@@ -26,7 +31,7 @@ function orderloadEvl() {
      orderloadFunc();
     }
 }
-
+*/
 //end
 
 function addtocart(p) {
@@ -1430,4 +1435,8 @@ function jumping(
 
 function appload() {
     llist("index");
+
+    setTimeout(function () {
+        debb("de");
+    },2000);
 }
