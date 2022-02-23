@@ -361,6 +361,13 @@ function oproduct(p) {
         history.back();
     });
 
+    srch.click(function() {
+        ssearchbox();
+        hpu({ act: "searchbox" });
+        $("#searchinputtext").focus();
+    });
+
+    
 
     prd.append(prdtop);
 
@@ -715,6 +722,25 @@ function llist(path) {
 
     
 }
+
+
+function ssearchbox() {
+
+
+    var rt = r();
+    var srch = $('<div class="srchbox products"></div>');
+    rt.append(srch);
+
+
+    olist("relateto/177",function(prod) {
+        srch.append(prod);
+      });
+    
+
+
+  
+      
+  }
 
 
 function makeid(length) {
