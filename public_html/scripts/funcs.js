@@ -72,13 +72,14 @@ function topersiannumber(str) {
 
 
     for (var i = 0; i < numbers.length; i++) {
-        str = str.replace(numbers[i], persiannumbers[i]);
+        str = str.toString().replace(numbers[i], persiannumbers[i]);
     }
     return str;
 
 }
 
 function farsi_price(inp) {
+    
     var inpc = inp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return topersiannumber(inpc);
 }
@@ -1139,7 +1140,7 @@ function loadmyorders() {
 
 
      for (var i =0 ; i < vals.items.length ; i++) {
-         title.append('<div style="font-size:80%; white-space:nowrap;">'+vals.items[i].tinytext+'</div>');
+         title.append('<div style="font-size:80%;">'+vals.items[i].tinytext+'</div>');
      }
 
      var payemntstat = $('<div style="font-size:90%;">'+payemntstatus[vals.payment_status]+'</div>');
@@ -1159,23 +1160,68 @@ function loadmyorders() {
         ov.empty();
         
 
+        var orderview = $('<div style="text-align:center;direction:rtl"></div>');
 
-        ov.append(vals.encoded_id);
 
 
-        var onlinepaybtn = $('<button>پرداخت آنلاین</button>');
+        orderview.append('<div> کد سفارش : '+vals.encoded_id+'</div>');
+
+        var items = $('<div style="max-height: 50vh;overflow:auto;"></div>');
+
+        var bbtm;
+        for (var i =0 ; i < vals.items.length ; i++) {
+
+            if (i != vals.items.length-1 ) {
+             bbtm = 'border-bottom:1px solid black;';
+            } else {
+                bbtm = "";
+            }
+            var itm = $('<div style="display:flex;align-items: center; justify-content: space-around;padding-bottom:0.5rem;padding-top:0.5rem; '+bbtm+'"></div>');
+
+            itm.append('<div style="font-size:80%;width:70%;text-align:right">'+vals.items[i].text+' ('+topersiannumber(vals.items[i].count)+' عدد)</div>');
+       
+            itm.append('<div style="font-size:80%;">'+topersiannumber(vals.items[i].price*vals.items[i].count)+' تومان</div>');
+
+            items.append(itm);
+
+        }
+
+        var shippindandtotal = $('<div style="border-top:1px solid black;padding-top:0.5rem;padding-bottom:0.5rem;margin-top:1rem;display:flex;justify-content: space-around;    line-height: 2rem;border-bottom:1px solid black"></div>');
+
+
+        var rightshippingandtot = $('<div></div>');
+        var leftshippingandtot = $('<div></div>');
+
+        rightshippingandtot.append('<div style="font-size:90%;">هزینه ارسال : رایگان</div>');
+        rightshippingandtot.append('<div style="font-size:90%;">مجموع : ۴۵۵۴۲ تومان</div>');
+
+        leftshippingandtot.append('<div style="font-size:90%;">وضعیت : در حال بررسی</div>');
+        leftshippingandtot.append('<div style="font-size:90%;">پرداخت نشده</div>');
+       
+        shippindandtotal.append(rightshippingandtot);
+        shippindandtotal.append('<div style="width:2px;border-left:1px solid black"></div>');
+        shippindandtotal.append(leftshippingandtot);
+
+        orderview.append(items);
+
+        orderview.append(shippindandtotal);
+
+        orderview.append('<div style="text-align:right;font-size:80%; padding-top:0.5rem"> آدرس تحویل : ایران ایران ایران</div>');
+
+
+        var onlinepaybtn = $('<button class="dialogbtn dialogbtnblue" style="margin:auto;margin-top:1rem">پرداخت آنلاین</button>');
 
       onlinepaybtn.click(function() {
         onlinepaygo(vals.encoded_id)
       });
 
-
-
-      ov.append(onlinepaybtn);
-
+      orderview.append(onlinepaybtn);
+      ov.append(orderview);
+     
 
             opendialog("singleorderview");
             hpu({act:"singleorderview",orderid:vals.encoded_id});
+
      });
 
      myorders.append(orderitem);
@@ -1190,7 +1236,8 @@ function loadmyorders() {
 
 function offlinepay2() {
 
-    myorder.orderid=null;xcart.empty();history.back();
+    myorder.orderid=null;xcart.empty();
+    history.back();
 
       //hpu({act:"showmyorders"});    
         loadmyorders();

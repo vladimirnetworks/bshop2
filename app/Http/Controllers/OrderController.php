@@ -243,7 +243,8 @@ class OrderController extends Controller
                 $orderItems[] = [
                     "text" => $cartitem['title'],
                     "tinytext" => $cartitem['tinytitle'],
-                 "count" => $cartitem['count']
+                     "count" => $cartitem['count'],
+                     "price" => $cartitem['price']
                 ];
 
                 $orderTot = $orderTot + intval($cartitem['price']) * intval($cartitem['count']);
