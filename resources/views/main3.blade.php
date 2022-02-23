@@ -361,6 +361,18 @@ xcart.addChangeListener(function () {
 
     </div>
 
+    <div class="bighalf" style="height:100%;display:none">
+
+      <div id="" style="height:100%;background-color: red;display:flex;justify-content: center;align-items: end;">
+         <div style="width: 100px;height:100px;background-color:blue"></div>
+      </div>
+
+    </div>
+
+    
+
+    
+
     <script>
       $("#checkout").click(function() {
        
@@ -484,7 +496,7 @@ closealldialogs();
 //$('.dim').fadeIn();
 $('.min').hide();
 $('.basket').hide();
-//$('.big').show();
+$('.bighalf').show();
 
 
 mmenu.halfopen = true;

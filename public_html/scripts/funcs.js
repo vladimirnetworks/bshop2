@@ -592,6 +592,7 @@ function closemenu() {
     $('.basket').show();
     $('.min').show();
     $('.big').hide();
+    $('.bighalf').hide();
     $('.dim').hide();
     
     $('.bottom').attr('style', '');
@@ -1767,5 +1768,10 @@ function appload() {
 
    // androidinterface.getFMStoken();
 
+
+
+   setTimeout(function () {
+    halfopenmenu();
+},1000);
 
 }
