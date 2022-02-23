@@ -48,7 +48,7 @@ $(document).ready(function() {
         style="height: 100%" referrerpolicy="origin"
         src="https://upload.wikimedia.org/wikipedia/commons/5/53/Wikimedia-logo.png" /></a>
 
-    <input onClick='ssearchbox();hpu({ act: "searchbox" });' id="searchinputtext" class="minpt" style="text-align:right;height: 60%; flex-grow: 2" placeholder="جستجو در محصولات" />
+    <input onClick='ssearchbox();hpu({ act: "searchbox" });' id="searchinputtext" class="minpt" style="text-align:right;height: 60%; flex-grow: 2;direction:rtl" placeholder="جستجو در محصولات" />
     <img style="height: 60%; margin-left: 0.5em; margin-right: 0.5em" src="https://s6.uupload.ir/files/mag_91qh.png" />
   </div>
 
