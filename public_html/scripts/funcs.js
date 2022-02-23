@@ -450,6 +450,20 @@ function oproduct(p) {
 
     addtocartland.click(function() {
         addtocart(p);
+
+    
+
+
+        setTimeout(function() {
+            halfopenmenu();
+        },700);
+
+        
+        setTimeout(function() {
+        closemenu();
+        },2000);
+
+
         photos_lanscape.css({"visibility":"hidden"});
 
         var myfly = fly.clone();
@@ -508,6 +522,11 @@ function oproduct(p) {
 
           
         addtocart(p);
+
+        halfopenmenu();
+        setTimeout(function() {
+        closemenu();
+        },2000);
 
 
         photos_portrate.css({"visibility":"hidden"});
@@ -1442,7 +1461,156 @@ function addtobasket(inbasket,delay=1) {
     },100+delay);
 }
 
+
 function jumping(
+    telem,
+    VertAhrom,
+    HorizAhrom,
+    fromDeg,
+    toDeg,
+    moreDeg,
+    jahat,
+    pid
+  ) {
+
+    
+    var elem = telem.clone();
+    telem.hide();
+
+    var inbasket = elem.clone(); 
+
+    inbasket.attr("data-productid",pid);
+
+    setTimeout(function () {
+      telem.show();
+    }, 200);
+
+    $('body').append(elem);
+
+    var end = false;
+
+    var xp = parseInt(elem[0].style.left.replace('px', ''));
+    var yp = parseInt(elem[0].style.bottom.replace('px', ''));
+
+    elem.removeClass('jump');
+    setTimeout(() => {
+      elem.addClass('jump');
+    }, 10);
+
+    setTimeout(() => {
+      elem.removeClass('jump');
+
+
+    }, 200);
+
+    setTimeout(() => {
+        elem.css({
+            transition: 'transform 0.4s ease-in',
+            transform: 'rotate(' + 170 * jahat + 'deg)',
+          });
+
+      }, 300);
+
+
+
+    var xelem  = $("<div></div>")
+
+    xelem.css({
+      'font-size': fromDeg,
+    });
+
+    setTimeout(() => {
+
+   
+
+
+
+      xelem.animate(
+        { 'font-size': toDeg + moreDeg },
+        {
+          duration: 1000,
+          //     easing: 'swing',
+          //  easing: "easein",
+
+          step: function (t, fx) {
+            var xx = xp + t;
+            var yy = yp + t;
+
+            var a = t / 57.296;
+
+            if (t <= toDeg) {
+              var a2 = t / 57.296;
+            } else {
+              var a2 = toDeg / 57.296;
+            }
+
+  
+
+            var ya = Math.sin(a) * VertAhrom;
+            var xa = Math.cos(a2) * HorizAhrom;
+
+
+
+
+
+          if (t < toDeg) {
+
+            elem.css({
+                bottom: yp - ya,
+                left: xp + HorizAhrom * jahat + xa * jahat,
+              });
+
+              console.log("rr");
+          
+
+          } else {
+
+               if (!end) {
+                    end = true;
+                    console.log("end");
+
+                    var gotohell;
+
+                    if (jahat == 1 ) {
+                        gotohell = $(window).width()-(elem.width()/1.5);
+                    } else {
+                        gotohell = ($(window).width()-elem.width())/2;
+                    }
+
+                    
+
+                    elem.css({
+                        transition: 'all 0.2s ease-in',
+                        bottom: '-' + elem.height() + 'px',
+                        left: gotohell + 'px',
+                        "transform": 'scale(0.4)'
+                      //  width:"10vw",
+                     //   height:"auto"
+                       
+                      });
+
+                    
+
+                     // addtobasket(inbasket);
+
+
+               }
+
+
+          }
+
+       
+
+
+
+          },
+        }
+      );
+    }, 200);
+  }
+
+  
+function jumping_sus(
     telem,
     VertAhrom,
     HorizAhrom,

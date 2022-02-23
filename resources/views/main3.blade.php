@@ -66,7 +66,7 @@ $(document).ready(function() {
 
 
 
-  <div class="basket" style="display:flex;align-items:center;flex-direction: column;justify-content:center;">
+  <div class="basket_sus" style="display:none;display:flex;align-items:center;flex-direction: column;justify-content:center;">
 
 
 
@@ -78,6 +78,9 @@ $(document).ready(function() {
 
 
   </div>
+
+
+
   <div class="bottom">
     <div class="min">
 
@@ -278,6 +281,20 @@ xcart.addChangeListener(function () {
 
 
 
+<div class="itm" style="align-items: center;justify-content: center;direction:rtl;font-size:0.8rem;font-weight:bold" >
+  <div style="white-space: nowrap;">۳۰۰۰ تومان</div>
+<div class="" style="background-color: #dc3545;border-color: #dc3545;color: white;font-size:0.8rem; border-radius: 0.3rem;  padding :0.3rem 0.4rem;display:flex;align-items: center;justify-content: center;">
+ 
+  
+ <div style="width:1rem;">
+  <img src="https://www.behkiana.ir/icons/cart.png" style="width:100%"/>
+</div> 
+ <div>سبد‌خرید </div> 
+
+</div>
+</div>
+
+
 
       <div class="itm" id="oorder" style="">
         <div class="icon" style="background-image:url('https://www.behkiana.ir/icons/orders.png');"></div>
@@ -461,6 +478,7 @@ xcart.addChangeListener(function () {
 
     function halfopenmenu() {
 
+      console.log("halfopenmenu called");
 closealldialogs();
 
 //$('.dim').fadeIn();
