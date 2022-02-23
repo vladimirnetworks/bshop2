@@ -1166,7 +1166,7 @@ function loadmyorders() {
 
         orderview.append('<div> کد سفارش : '+vals.encoded_id+'</div>');
 
-        var items = $('<div style="max-height: 50vh;overflow:auto;"></div>');
+        var items = $('<div style="max-height: 30vh;overflow:auto;"></div>');
 
         var bbtm;
         for (var i =0 ; i < vals.items.length ; i++) {
