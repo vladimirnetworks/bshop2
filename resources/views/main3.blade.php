@@ -459,6 +459,32 @@ xcart.addChangeListener(function () {
     }
 
 
+    function halfopenmenu() {
+
+closealldialogs();
+
+//$('.dim').fadeIn();
+$('.min').hide();
+$('.basket').hide();
+//$('.big').show();
+
+
+mmenu.halfopen = true;
+if (island()) {
+  $('.bottom').css({
+    'max-width': '40vw',
+    'min-width': 'auto',
+    width: '80vw',
+  });
+} else {
+  $('.bottom').css({
+    'max-height': '40vh',
+    'min-height': 'auto',
+    height: '80vh',
+  });
+}
+}
+
     function closemenu2() {
       if (island()) {
         $('.bottom').css({

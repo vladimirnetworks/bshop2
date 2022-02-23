@@ -579,6 +579,7 @@ function closemenu() {
     // marginize();
 
     mmenu.open = false;
+    mmenu.halfopen = false;
 
 
     clearTimeout(mmenu.xtimeout);
@@ -638,7 +639,17 @@ function marginize() {
         });
       }
 
-      if (!mmenu.open) {
+      if (mmenu.halfopen) {
+       
+        $('.bottom').attr('style', '');
+        $('.bottom').css({
+          'max-width': '40vw',
+          'min-width': 'auto',
+          width: '80vw',
+        });
+      }
+
+      if (!mmenu.open && !mmenu.halfopen) {
 
         $('.top').css({
           width: 'calc(100% - ' + $('.bottom').width() + 'px)',
@@ -646,7 +657,7 @@ function marginize() {
 
         $('body').css({ 'padding-right': $('.bottom').width() + 'px' });
 
-        console.log("iam called"+$('.bottom').width());
+      
 
       }
       $('body').css({ 'padding-bottom': '0px' });
@@ -656,7 +667,7 @@ function marginize() {
       $('body').css({ 'padding-bottom': $('.bottom').height() + 'px' });
 
       if (mmenu.open) {
-        console.log('ok');
+
         $('.bottom').attr('style', '');
         $('.bottom').css({
           'max-height': '100vh',
@@ -664,6 +675,17 @@ function marginize() {
           height: '80vh',
         });
       }
+
+      if (mmenu.halfopen) {
+
+        $('.bottom').attr('style', '');
+        $('.bottom').css({
+          'max-height': '40vh',
+          'min-height': 'auto',
+          height: '80vh',
+        });
+      }
+
     }
   }
 
