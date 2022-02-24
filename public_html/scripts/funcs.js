@@ -589,7 +589,7 @@ function oproduct(p) {
 function closemenu() {
 
 
-    $('.basket').show();
+   // $('.basket').show();
     $('.min').show();
     $('.big').hide();
     $('.bighalf').hide();
@@ -1410,8 +1410,8 @@ function addtobasket(inbasket,delay=1) {
          newcss = {
            left:rnd(10,20)+"%",
            right:"unset",
-           bottom:"50%",
-           width:"3em",
+           bottom:"60%",
+           width:"6em",
            position:"absolute",
            "z-index":"0",
            height:"auto"
@@ -1426,8 +1426,8 @@ function addtobasket(inbasket,delay=1) {
        newcss = {
            right:rnd(10,20)+"%",
            left:"unset",
-           bottom:"50%",
-           width:"3em",
+           bottom:"60%",
+           width:"6em",
            position:"absolute",
            "z-index":"0",
            height:"auto"
@@ -1447,17 +1447,17 @@ function addtobasket(inbasket,delay=1) {
 
     setTimeout(function(){
       
-       $(".basket").append(inbasket);
+       $("#basketv2").append(inbasket);
 
        setTimeout(function(){
        inbasket.css(newcss2);
        },100);
 
 
-       $(".basket").addClass("shakesabad");
+       $("#basketv2").addClass("shakesabad");
        setTimeout(function() {
-        $(".basket").removeClass("shakesabad");
-       },300);
+        $("#basketv2").removeClass("shakesabad");
+       },400);
 
     },100+delay);
 }

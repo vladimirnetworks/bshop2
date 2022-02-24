@@ -66,6 +66,7 @@ $(document).ready(function() {
 
 
 
+<!--
   <div class="basket_sus" style="display:none;display:flex;align-items:center;flex-direction: column;justify-content:center;">
 
 
@@ -77,7 +78,7 @@ $(document).ready(function() {
         style="font-size: 70%">تومان</span></div>
 
 
-  </div>
+  </div> -->
 
 
 
@@ -364,8 +365,8 @@ xcart.addChangeListener(function () {
     <div class="bighalf" style="height:100%;display:none">
 
       <div id="" style="height:100%;display:flex;justify-content: center;align-items: end;">
-         <div style="width: 200px;" id="basketv2">
-         <img src="icons/sabad.png" style="width:100%"/>
+         <div style="width: 200px;position:relative" id="basketv2">
+         <img src="icons/sabad.png" style="width:100%;position:relative;z-index:999999"/>
         </div>
       </div>
 
@@ -469,7 +470,7 @@ xcart.addChangeListener(function () {
 
       $('.dim').fadeIn();
       $('.min').hide();
-      $('.basket').hide();
+      //$('.basket').hide();
       $('.big').show();
 
       
@@ -497,7 +498,7 @@ closealldialogs();
 
 //$('.dim').fadeIn();
 $('.min').hide();
-$('.basket').hide();
+//$('.basket').hide();
 $('.bighalf').show();
 
 
