@@ -486,6 +486,9 @@ function oproduct(p) {
          var rrr = ($(window).width()-xofsset.left);
          rrr = rrr - photos_lanscape.width() ; 
          rrr = rrr/2;
+         console.log("is"+rrr);
+
+         rrr = 10;
 
                jumping(myfly, 50, rrr, 180, 360, 90, 1,p.id);
                myfly.remove();
