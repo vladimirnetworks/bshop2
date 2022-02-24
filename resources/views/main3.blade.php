@@ -363,8 +363,10 @@ xcart.addChangeListener(function () {
 
     <div class="bighalf" style="height:100%;display:none">
 
-      <div id="" style="height:100%;background-color: red;display:flex;justify-content: center;align-items: end;">
-         <div style="width: 100px;height:100px;background-color:blue"></div>
+      <div id="" style="height:100%;display:flex;justify-content: center;align-items: end;">
+         <div style="width: 200px;" id="basketv2">
+         <img src="icons/sabad.png" style="width:100%"/>
+        </div>
       </div>
 
     </div>
