@@ -105,4 +105,14 @@ function arabicToPersian($string)
         return round(pow(1024, $base - floor($base)), $precision) .' '. $suffixes[floor($base)];
     }
   
+
+
+    function apptype() {
+        if (!preg_match("!androidwvapp!",$_SERVER['HTTP_USER_AGENT'])) {
+          return "androidapp";
+        } else {
+           return "web";  
+        }
+       }
+
 ?>

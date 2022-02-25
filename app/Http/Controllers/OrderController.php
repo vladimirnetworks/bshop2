@@ -168,10 +168,20 @@ class OrderController extends Controller
     public function zarinpal_payapi($amout, $title, $mob, $paymentid)
     {
       
+
+        $callbackurlx = "";
+
+
+        if (preg_match("!127!",$_SERVER['HTTP_HOST'])) {
+            $callbackurlx = "http://127.0.0.1:8000";
+        } else {
+            $callbackurlx = "https://www.behkiana.ir";
+        }
+
         $data = array(
             "merchant_id" => env("ZARINMERCH"),
             "amount" => $amout * 10,
-            "callback_url" => "http://127.0.0.1:8000/index33?zpalvf=true&paymentid=" . $paymentid,
+            "callback_url" => $callbackurlx."/index33?zpalvf=true&paymentid=" . $paymentid,
             "description" => $title,
             "metadata" => ["email" => "alaeebehnam@gmail.com", "mobile" => $mob],
         );

@@ -7,6 +7,14 @@ function androidfirebasetoken(inp) {
 
 }
 
+function apptype() {
+ if (navigator.userAgent.match(/androidwvapp/)) {
+   return "androidapp";
+ } else {
+    return "web";  
+ }
+}
+
 
 function debb(inp) {
   $("#searchinputtext").val(inp);
@@ -1358,11 +1366,15 @@ function gotopay(oid) {
 
            if (response.res != "error") {
                 
-                 //if (typeof androidinterface !== 'undefined') {
+                 
+
+                 if (apptype() == 'androidapp') {
                     androidinterface.openurl(response.res);
-                 //} else {
-                 //   window.location = response.res;
-                 //}
+                 } else {
+                    window.location = response.res;
+                 }
+                    
+
                  
            }
          
