@@ -49,9 +49,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('index', 'App\Http\Controllers\ProductController@indexxv');
+Route::get('index', 'App\Http\Controllers\ProductController@indexxv')->middleware('tokin');
 Route::get('fromcat/{catid}', 'App\Http\Controllers\ProductController@indecat');
-Route::get('relateto/{prodid}', 'App\Http\Controllers\ProductController@relateto');
+Route::get('relateto/{prodid}', 'App\Http\Controllers\ProductController@relateto')->middleware('tokin');
 Route::get('maincat', 'App\Http\Controllers\CatController@maincat');
 Route::post('search', 'App\Http\Controllers\SearchController@search');
 Route::post('catload', 'App\Http\Controllers\CatController@catload');
