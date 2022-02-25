@@ -101,7 +101,7 @@ class mainPageController extends Controller
     }
         /**/
 
-        if (apptype()=='androidapp' && isset($_GET['paymentid'])) {
+        if (request('apptype')=='androidapp' && isset($_GET['paymentid'])) {
                return redirect("behkiana://pvf/?pid=".$_GET['paymentid']);
         } else {
 

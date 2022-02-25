@@ -1359,7 +1359,7 @@ function onlinepaygo(oid) {
 
 function gotopay(oid) {
     $.ajax({
-        url: "/api/onlinepay",
+        url: "/api/onlinepay?apptype="+apptype(),
         type: "post",
         data: {orderid:oid} ,
         success: function (response) {

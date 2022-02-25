@@ -54,7 +54,7 @@ class OrderController extends Controller
         ]);
 
 
-        $paymnt = $this->zarinpal_payapi($totamount, "سفارش " . $orderid, "09332806144", encode_id($ipayment->id));
+        $paymnt = $this->zarinpal_payapi($totamount, "سفارش " . $orderid, "09332806144", encode_id($ipayment->id),request('apptype'));
         
      
         $res = "";
@@ -165,7 +165,7 @@ class OrderController extends Controller
 
 
 
-    public function zarinpal_payapi($amout, $title, $mob, $paymentid)
+    public function zarinpal_payapi($amout, $title, $mob, $paymentid,$apptype)
     {
       
 
@@ -181,7 +181,7 @@ class OrderController extends Controller
         $data = array(
             "merchant_id" => env("ZARINMERCH"),
             "amount" => $amout * 10,
-            "callback_url" => $callbackurlx."/index33?zpalvf=true&paymentid=" . $paymentid,
+            "callback_url" => $callbackurlx."/index33?zpalvf=true&paymentid=" . $paymentid."apptype=".$apptype,
             "description" => $title,
             "metadata" => ["email" => "alaeebehnam@gmail.com", "mobile" => $mob],
         );
