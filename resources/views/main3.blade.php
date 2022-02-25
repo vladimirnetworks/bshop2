@@ -152,7 +152,7 @@ $(document).ready(function() {
          $("#shippingx").empty();
          for (var i = 0; i < myorder.shipping.length; i++) {
             var maindiv = $("<div></div>");
-            var labelx = $('<label ></label>');
+            var labelx = $('<label></label>');
 
             labelx.click(function() {
              // return true;
@@ -162,7 +162,7 @@ $(document).ready(function() {
             } else {
                var inputx = $('<input type="radio"  name="shiptype" value="' + i + '">');
             }
-            var textx = $('<span>' + myorder.shipping[i].text + '</span>');
+            var textx = $('<span style="font-size:90%;margin-right:0.2rem">' + myorder.shipping[i].text + '</span>');
             labelx.append(inputx);
 
 
@@ -679,7 +679,7 @@ if (island()) {
 
     <div style="display:flex;align-items: center;justify-content: center;">
 
-      <div style="text-align:center;padding-top:2rem;padding-bottom:2rem;width: 80%;">
+      <div style="text-align:center;padding-top:2rem;padding-bottom:2rem;width: 100%;">
 
         <div style="font-size: 90%;color:grey;line-height: 2rem;"> شماره تماستونُ وارد کنید
           <br>
@@ -696,10 +696,11 @@ if (island()) {
               placeholder="شماره تماس" />
 
             <div style="display:flex;width: 100%;justify-content: space-between;">
-              <div id="backnumber" class="dialogbtn dialogbtngrey" style="margin-top:1rem"><span
-                  style="font-size: 80%">❮</span> قبلی </div>
-              <div id="submitnumber" class="dialogbtn dialogbtnblue" style="margin-top:1rem">ادامه <span
-                  style="font-size: 80%">❯</span></div>
+              <div id="backnumber" class="dialogbtn dialogbtngrey" style="margin-top:1rem"> قبلی </div>
+              <div id="submitnumber" class="dialogbtn dialogbtnblue" style="margin-top:1rem">ادامه 
+
+                
+                </div>
             </div>
 
           </div>
@@ -758,7 +759,7 @@ return false;
 
     <div style="display:flex;align-items: center;justify-content: center;">
 
-      <div style="text-align:center;padding-top:2rem;padding-bottom:2rem;width: 80%;">
+      <div style="text-align:center;padding-top:2rem;padding-bottom:2rem;width: 100%;">
 
 
  
@@ -783,10 +784,8 @@ return false;
 
 
         <div style="display:flex;width: 100%;justify-content: space-between;">
-          <div id="backaddress" class="dialogbtn dialogbtngrey" style="margin-top:1rem"><span
-              style="font-size: 80%">❮</span> قبلی </div>
-          <div id="submitaddress" class="dialogbtn dialogbtnblue" style="margin-top:1rem">ادامه <span
-              style="font-size: 80%">❯</span></div>
+          <div id="backaddress" class="dialogbtn dialogbtngrey" style="margin-top:1rem"> قبلی </div>
+          <div id="submitaddress" class="dialogbtn dialogbtnblue" style="margin-top:1rem">ادامه</div>
         </div>
 
       </div>
