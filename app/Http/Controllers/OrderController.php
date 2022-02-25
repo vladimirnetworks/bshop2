@@ -181,7 +181,7 @@ class OrderController extends Controller
         $data = array(
             "merchant_id" => env("ZARINMERCH"),
             "amount" => $amout * 10,
-            "callback_url" => $callbackurlx."/index33?zpalvf=true&paymentid=" . $paymentid."apptype=".$apptype,
+            "callback_url" => $callbackurlx."/index33?zpalvf=true&paymentid=" . $paymentid."&apptype=".$apptype,
             "description" => $title,
             "metadata" => ["email" => "alaeebehnam@gmail.com", "mobile" => $mob],
         );
