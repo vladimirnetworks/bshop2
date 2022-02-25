@@ -486,9 +486,22 @@ function oproduct(p) {
          var rrr = ($(window).width()-xofsset.left);
          rrr = rrr - photos_lanscape.width() ; 
          rrr = rrr/2;
-         console.log("is"+rrr);
+        
 
-         rrr = 10;
+         var elemfromright = $(window).width()-xofsset.left;
+         elemfromright = elemfromright-photos_lanscape.width()/2
+
+        
+         var sabadvasat = ($(window).width()*0.4)/2;
+        
+
+        rrr =  elemfromright-sabadvasat;
+
+   
+        rrr = rrr/2;
+
+       
+      
 
                jumping(myfly, 50, rrr, 180, 360, 90, 1,p.id);
                myfly.remove();
@@ -1510,7 +1523,7 @@ function jumping(
     setTimeout(() => {
         elem.css({
             transition: 'transform 0.4s ease-in',
-            transform: 'rotate(' + 170 * jahat + 'deg)',
+           transform: 'rotate(' + 170 * jahat + 'deg)',
           });
 
       }, 300);
@@ -1548,7 +1561,7 @@ function jumping(
               var a2 = toDeg / 57.296;
             }
 
-  
+  console.log("vertAhrom "+HorizAhrom);
 
             var ya = Math.sin(a) * VertAhrom;
             var xa = Math.cos(a2) * HorizAhrom;
@@ -1560,6 +1573,7 @@ function jumping(
           if (t < toDeg) {
 
             elem.css({
+               
                 bottom: yp - ya,
                 left: xp + HorizAhrom * jahat + xa * jahat,
               });
@@ -1575,8 +1589,19 @@ function jumping(
 
                     var gotohell;
 
+
+                    console.log("jahat "+jahat);
+
+
                     if (jahat == 1 ) {
-                        gotohell = $(window).width()-(elem.width()/1.5);
+
+                        //gotohell = $(window).width()-(elem.width()/1.5);
+
+                        gotohell = $(window).width() - ($(window).width()*0.4/2);
+
+                        gotohell = gotohell-elem.width()/2;
+
+
                     } else {
                         gotohell = ($(window).width()-elem.width())/2;
                     }
