@@ -714,7 +714,10 @@ if (island()) {
   </div>
   <script>
     dialog_do['dialog1'] = function() {
+
+      if (!$("#usernumber").is(":focus")) {
       $("#usernumber").focus();
+      }
     } 
   </script>
 
@@ -796,7 +799,11 @@ return false;
 
   <script>
     dialog_do['dialog2'] = function() {
-      $("#useraddress").focus();
+      
+      if (!$("#useraddress").is(":focus")) {
+        $("#useraddress").focus();
+      }
+
     } 
 
 $("#submitaddress").click(function () {
