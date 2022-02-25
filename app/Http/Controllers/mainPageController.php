@@ -102,7 +102,7 @@ class mainPageController extends Controller
         /**/
 
         if (request('apptype')=='androidapp' && isset($_GET['paymentid'])) {
-               return redirect("behkiana://pvf/?pid=".$_GET['paymentid']);
+        return redirect("behkiana://app/setTimeout%28function%28%29%20%7B%0A%20%20%20%20loadmyorders%28%29%3B%0A%20%20%20%20hpu%28%7Bact%3A%22showmyorders%22%7D%29%3B%20%20%20%0A%20%20%20%20hpu%28%7Bact%3A%22showmyorders%22%7D%29%3B%20%20%20%0A%7D%20%2C%203000%29%3B"/*.$_GET['paymentid']*/);
         } else {
 
          return view('index3', ['pageTitle' => "بهکیانا - فروشگاه محصولات بهداشتی"]);
