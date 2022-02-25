@@ -1799,7 +1799,7 @@ function appload() {
 
 
    setTimeout(function () {
-    halfopenmenu();
+   // halfopenmenu();
 },1000);
 
 }
