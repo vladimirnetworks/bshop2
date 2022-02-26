@@ -149,6 +149,8 @@ $(document).ready(function() {
         toyou("preorder", xcart.items(), function(res) {
          console.log(res.data.id);
       
+         
+
          hpu({ act: "getnumber",orderid:res.data.id});
 
          myorder.orderid = res.data.id;
@@ -333,9 +335,9 @@ xcart.addChangeListener(function () {
 </div>
 </div>
 
+<div  id="itmspliter" style="width:1px;height:1px;"></div>
 
-
-      <div class="itm" id="oorder" style="">
+      <div class="itm" id="oorder" style="display:none">
         <div class="icon" style="background-image:url('https://www.behkiana.ir/icons/orders.png');"></div>
         <div class="txt">سفارشات‌من</div>
       </div>
@@ -422,7 +424,8 @@ xcart.addChangeListener(function () {
 
         /**/
         toyou("preorder", xcart.items(), function(res) {
-         console.log(res.data.id);
+  
+         
       
          hpu({ act: "getnumber",orderid:res.data.id});
 
@@ -444,6 +447,7 @@ xcart.addChangeListener(function () {
             var textx = $('<span>' + myorder.shipping[i].text + '</span>');
             labelx.append(inputx);
 
+          
 
             
             labelx.append(textx);
@@ -784,7 +788,9 @@ hpu({ act: "getaddress",orderid:myorder.orderid});
 closedialog("dialog1");
 opendialog("dialog2");
  
- toyou("reguserdata",{orderid:myorder.orderid,type:"phone",data:$('#usernumber').val()});
+ toyou("reguserdata",{orderid:myorder.orderid,type:"phone",data:$('#usernumber').val()},function() {
+  $("#oorder").show();
+ });
 }
 
 return false;

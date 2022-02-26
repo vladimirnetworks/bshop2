@@ -231,8 +231,15 @@ class OrderController extends Controller
     {
        
 
+        if (request('latest') != null) {
+            $orders[] = liteauth::me()->orders->get(1);
+        } else {
+            $orders = liteauth::me()->orders;
+        }
 
-        $orders = liteauth::me()->orders;
+        
+
+       
 
         $ords = [];
 

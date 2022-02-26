@@ -741,7 +741,7 @@ function r(tag) {
         $(".top").show();
     }
 
-    console.log( $(".top").height());
+  
 
     marginize();
 
@@ -749,6 +749,10 @@ function r(tag) {
 
     closemenu();
     $("#router1").empty();
+
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    
     return $("#router1");
 }
 
@@ -836,7 +840,12 @@ function toyou(path, data, onloadx) {
         if (onloadx != null) {
 
 
-            onloadx(JSON.parse(this.responseText))
+            if (this.responseText != null && this.responseText != "") {
+                onloadx(JSON.parse(this.responseText));
+            } else {
+                onloadx();
+            }
+           
         }
     }
 
@@ -1865,3 +1874,15 @@ function appload() {
 },1000);
 
 }
+
+
+$(document).ready(function() {
+
+    apix.get("myorders?latest=true", function(vals) {
+        $("#oorder").show();
+    });
+
+
+
+
+  });
