@@ -780,6 +780,15 @@ function olist(path,dox) {
     })
 }
 
+function customepage(id) {
+
+
+
+    var rt = r();
+    var page = $('<div class="customepage"></div>');
+    rt.append(page);
+    page.append($("#custompage_"+id).clone(true,true).html());
+}
 function llist(path) {
 
 

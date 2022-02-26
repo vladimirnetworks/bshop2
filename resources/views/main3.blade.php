@@ -17,6 +17,26 @@
 </head>
 
 <body>
+
+<div id="custompage_contactus" class="custompage" style="display:none">
+
+  <div style="direction: rtl;text-align:right;padding: 1rem;">
+     <h1>تماس با ما</h1>
+    <div style="padding: 1rem;"> <p>شماره تماس : 42448787</p>
+     <p>واتسپ : 09332999594</p>
+
+     <p>آدرس :‌ شهرک نیاوران دانش شمالی ، دانش ۶</p>
+
+
+    </div>
+
+    <div style="direction: rtl;text-align:center;margin-top: 1rem;">
+      <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstposy1"><img style="width:100%" referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=244136&Code=NAYvp5VDiHI1pstposy1" alt="" style="cursor:pointer" id="NAYvp5VDiHI1pstposy1"></a>
+    </div>
+  </div>
+
+</div>
+  
   <script>
     myorder = {};
    
@@ -383,6 +403,13 @@ xcart.addChangeListener(function () {
           hpu({act:"list",path:'index'});       
         });
 
+
+        $('#contact').click(function(e) {
+          e.stopPropagation();
+          customepage("contactus");
+          hpu({act:"customepage",id:'contactus'});       
+        });
+
         setTransFormAnim($('#mainpage'));
 
       </script>
@@ -653,10 +680,17 @@ if (island()) {
           oproduct(event.state.prod);
         }
 
+        if (event.state.act == 'customepage') {
+          customepage(event.state.id);
+        }
+       
+
 
         if (event.state.act == 'list') {
           llist(event.state.path);
         }
+
+
 
 
         if (event.state.act == 'cartup') {
