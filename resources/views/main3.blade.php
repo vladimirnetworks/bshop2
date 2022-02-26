@@ -41,7 +41,7 @@
   $("#enamadlink").click(function() {
     if (apptype() == 'androidapp') {
       androidinterface.openurl("https://www.behkiana.ir/enamad"));
-     return false;
+    // return false;
     }
   });
 </script>
