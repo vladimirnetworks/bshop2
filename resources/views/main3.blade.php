@@ -39,6 +39,7 @@
   </div>
 <script>
   $("#enamadlink").click(function() {
+    debb("clicked");
     if (apptype() == 'androidapp') {
       androidinterface.openurl("https://www.behkiana.ir/enamad"));
     // return false;
