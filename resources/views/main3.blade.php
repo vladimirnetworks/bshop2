@@ -93,6 +93,10 @@ $(document).ready(function() {
   $("#bigcartview").empty();
       var tot = xcart.total();
 
+      if (tot.count > 0) {
+
+   
+
       var cartlistcont = $('<div  style="display:flex;flex-direction:column;height:100%"></div>');
         var cartlist = $('<div style="direction:rtl;display:flex;flex-direction: column;align-items: center;overflow: auto;padding-top:2rem;"></div>');
       xcart.eech(function(prod) {
@@ -213,6 +217,12 @@ $(document).ready(function() {
         $("#bigcartview").append(cartlistcont);
 
     //    $("#bigcartview").append("<hr>"+tot.count+"  , "+tot.amount);
+        } else {
+          var cartisempty = $('<div style="display:flex;height:100%;width:100%;justify-content:center;align-items:center">✋🙂 سبد خریدتون خالیه </div>');
+
+          $("#bigcartview").append(cartisempty);
+
+        }
 }
 
 var visualBasketfunc = function(delay) {
@@ -796,10 +806,10 @@ return false;
  
 
 
-        <form style="direction:rtl;text-align:right" id="useraddress_form" action="/" method="post">
+      <form style="direction:rtl;text-align:right" id="useraddress_form" action="/" method="post">
 
 
-        
+    
 
           <input id="useraddress" style="width:100%;flex-grow:1; " class="minpt" type="text" placeholder="آدرس" />
 
@@ -809,9 +819,9 @@ return false;
           </div>
 
           <div id="shippingx" style=""></div>
+      
 
-
-        </form>
+      </form> 
 
 
         <div style="display:flex;width: 100%;justify-content: space-between;">
@@ -834,16 +844,18 @@ return false;
 
     } 
 
+    
 $("#submitaddress").click(function () {
-  $("#useraddress_form").submit();
+ // $("#useraddress_form").submit();
+ sndaddress();
 });
 
 $("#backaddress").click(function () {
   history.back();
 });
 
+var sndaddress = function () {
 
-    $("#useraddress_form").on('submit', function() {
 
 
 if ($('#useraddress').val() == "") {
@@ -875,10 +887,20 @@ $("#orderfinalx").append('<div class="mb-2">مبلغ فاکتور : '+farsi_pric
 
 
 return false;
-});
+}
+
+   $("#useraddress_form").on('submit', function() { 
+    
+    $("input[type='radio']")[0].focus();
+
+    return false;
+    
+    });
 
 
-
+ $("#useraddress_btn").click(function() {
+   sndaddress();
+ });
 
 
   </script>

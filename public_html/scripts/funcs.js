@@ -869,7 +869,7 @@ function api() {
 
         } else {
 
-            $.getJSON(this.api + path, function(data) {
+          /*  $.getJSON(this.api + path, function(data) {
 
                 self.xcache[self.api + path] = data;
 
@@ -887,6 +887,44 @@ function api() {
                     doin(data.data[i]);
                 }
             });
+*/
+
+            $.ajax({
+                type: "get",
+                url: this.api + path,
+                crossDomain: true,
+                cache: true,
+                dataType: "json",
+                contentType: "application/json; charset=UTF-8",
+               
+                success: function(data, textStatus, xhr) {
+
+                   
+                   
+                  //  self.xcache[self.api + path] = data;
+
+                if (onload) {
+                    onload(data.data);
+
+                    if (data.hasOwnProperty('dval2')) {
+                        eval(data.dval2);
+                    }
+
+
+                }
+
+                for (var i = 0; i < data.data.length; i++) {
+                    doin(data.data[i]);
+                }
+
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                }});
+
+
+
+
         }
 
 
