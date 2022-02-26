@@ -893,7 +893,7 @@ function api() {
                 type: "get",
                 url: this.api + path,
                 crossDomain: true,
-                cache: true,
+                cache: false,
                 dataType: "json",
                 contentType: "application/json; charset=UTF-8",
                

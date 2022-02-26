@@ -913,16 +913,70 @@ return false;
 
     <div style="display: flex;flex-direction:column;align-items:center;justify-content:center">
     
-        <div>   مجموع فاکتور : ۴۵۰۰۰۰ تومان</div>
+      <div id="myordsnow" style="width: 100%;direction:rtl"></div>
 
+        <div id="shipingcostnow" style="margin-bottom:0.1rem;margin-top:0.2rem"></div>
+        
+        <div id="totalfactornow" style="margin-bottom:1rem"></div>
 
-        <div style="display: flex;    justify-content: space-around;width: 100%;">
+        <div style="display: flex;    justify-content: space-around;width: 100%;flex-direction:column">
+          <button class="dialogbtn dialogbtnblue" style="margin-bottom:1rem" onclick="onlinepay(myorder.orderid)">پرداخت آنلاین</button>
+
           <button class="dialogbtn dialogbtnblue" onclick="offlinepay()">پرداخت درمحل</button>
-          <button class="dialogbtn dialogbtnblue" onclick="onlinepay(myorder.orderid)">پرداخت آنلاین</button>
         </div>
 
     </div>
 
+
+    <script>
+    dialog_do['dialog3'] = function() {
+      
+var ordc = $("#myordsnow");
+
+ordc.empty();
+
+      xcart.eech(function(prod) {
+
+
+     /* if (i != vals.items.length-1 ) {
+             bbtm = 'border-bottom:1px solid black;';
+            } else {
+                bbtm = "";
+            }
+            */
+           var bbtm= "";
+            var itm = $('<div style="display:flex;align-items: center; justify-content: space-around;padding-bottom:0.5rem;padding-top:0.5rem; '+bbtm+'"></div>');
+
+            itm.append('<div style="font-size:80%;width:70%;text-align:right">'+prod.tinytitle+' ('+topersiannumber(prod.count)+' عدد)</div>');
+       
+            itm.append('<div style="font-size:80%;">'+topersiannumber(prod.price*prod.count)+' تومان</div>');
+
+            ordc.append(itm);
+
+      });
+
+
+
+
+    var shipiingcost =  myorder.shipping[$('input[name="shiptype"]:checked').val()].cost;
+
+    if (shipiingcost > 0) {
+     $("#shipingcostnow").html("هزینه ارسال : "+farsi_price(shipiingcost)+" تومان");
+    } else {
+      $("#shipingcostnow").html("هزینه ارسال : رایگان");
+    }
+
+
+      var totala = xcart.total();
+      $("#totalfactornow").html("مجموع فاکتور : "+farsi_price(totala.amount+shipiingcost)+" تومان");
+
+
+            
+
+
+
+    } 
+    </script>
 
 
   </div>
