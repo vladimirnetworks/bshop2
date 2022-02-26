@@ -240,6 +240,7 @@ class OrderController extends Controller
 
 
 
+          
 
             $cart = json_decode($order->data, true);
 
@@ -266,6 +267,9 @@ class OrderController extends Controller
                 'shipping_status' => $order->shipping_status,
                 'payment_status' => $order->payment_status,
                 'encoded_id' => $order->encoded_id,
+                'shipping_cost' => $order->show_shipping['cost'],
+                'amount' =>$order->cart['amount']+$order->show_shipping['cost'],
+                'orderaddress' =>$order->address." , ".$order->show_shipping['text']." , ".$order->phone
             ];
         }
 

@@ -1316,17 +1316,27 @@ function loadmyorders() {
 
         }
 
-        var shippindandtotal = $('<div style="border-top:1px solid black;padding-top:0.5rem;padding-bottom:0.5rem;margin-top:1rem;display:flex;justify-content: space-around;    line-height: 2rem;border-bottom:1px solid black"></div>');
+        var shippindandtotal = $('<div style="border-top:1px solid black;padding-top:0.5rem;padding-bottom:0.5rem;margin-top:1rem;display:flex;flex-direction:column;justify-content: space-around;    line-height: 2rem;border-bottom:1px solid black"></div>');
 
 
         var rightshippingandtot = $('<div></div>');
         var leftshippingandtot = $('<div></div>');
 
-        rightshippingandtot.append('<div style="font-size:90%;">هزینه ارسال : رایگان</div>');
-        rightshippingandtot.append('<div style="font-size:90%;">مجموع : ۴۵۵۴۲ تومان</div>');
+        var shipingcost = "";
 
-        leftshippingandtot.append('<div style="font-size:90%;">وضعیت : در حال بررسی</div>');
-        leftshippingandtot.append('<div style="font-size:90%;">پرداخت نشده</div>');
+        if (vals.shipping_cost < 1) {
+            shipingcost = "رایگان";
+        } else {
+            shipingcost = farsi_price(vals.shipping_cost)+" تومان";
+        }
+
+
+
+        rightshippingandtot.append('<div style="font-size:90%;">هزینه ارسال : '+shipingcost+'</div>');
+        rightshippingandtot.append('<div style="font-size:90%;">مجموع : '+farsi_price(vals.amount)+' تومان</div>');
+
+        leftshippingandtot.append('<div style="font-size:90%;">وضعیت : '+shippingstatus[vals.shipping_status]+'</div>');
+        leftshippingandtot.append('<div style="font-size:90%;">'+payemntstatus[vals.payment_status]+'</div>');
        
         shippindandtotal.append(rightshippingandtot);
         shippindandtotal.append('<div style="width:2px;border-left:1px solid black"></div>');
@@ -1336,7 +1346,7 @@ function loadmyorders() {
 
         orderview.append(shippindandtotal);
 
-        orderview.append('<div style="text-align:right;font-size:80%; padding-top:0.5rem"> آدرس تحویل : ایران ایران ایران</div>');
+        orderview.append('<div style="text-align:right;font-size:80%; padding-top:0.5rem">'+vals.orderaddress+'</div>');
 
 
         var onlinepaybtn = $('<button class="dialogbtn dialogbtnblue" style="margin:auto;margin-top:1rem">پرداخت آنلاین</button>');
@@ -1345,7 +1355,9 @@ function loadmyorders() {
         onlinepaygo(vals.encoded_id)
       });
 
+      if (vals.payment_status ==0) {
       orderview.append(onlinepaybtn);
+    }
       ov.append(orderview);
      
 
