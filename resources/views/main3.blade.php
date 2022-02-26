@@ -37,7 +37,7 @@
 <script>
   $("#enamadlink").click(function() {
     if (apptype() == 'androidapp') {
-      androidinterface.openurl($("#enamadlink").attr("href"));
+      androidinterface.openurl("https://www.behkiana.ir/enamad"));
      return false;
     }
   });
