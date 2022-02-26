@@ -75,10 +75,10 @@ $(document).ready(function() {
   @yield('main')
 
   <div class="top">
-    <a style="height: 90%;visibility: hidden;" referrerpolicy="origin" target="_blank"
+    <a style="height: 90%;" referrerpolicy="origin" target="_blank"
       href="https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstposy1" style="height: 95%;"><img
         style="height: 100%" referrerpolicy="origin"
-        src="https://upload.wikimedia.org/wikipedia/commons/5/53/Wikimedia-logo.png" /></a>
+        src="https://Trustseal.eNamad.ir/logo.aspx?id=244136&Code=NAYvp5VDiHI1pstposy1" /></a>
 
     <img style="display:none;height: 60%; margin-left: 0.5em; margin-right: 0.5em" src="https://s6.uupload.ir/files/mag_91qh.png" />
   
@@ -489,7 +489,7 @@ xcart.addChangeListener(function () {
     <div class="bighalf" style="height:100%;display:none">
 
       <div id="" style="height:100%;display:flex;justify-content: center;align-items: end;">
-         <div style="width: 200px;position:relative" id="basketv2">
+         <div style="width: 200px;position:relative;margin-top: auto;" id="basketv2">
          <img src="icons/sabad.png" style="width:100%;position:relative;z-index:999999"/>
         </div>
       </div>
