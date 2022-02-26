@@ -57,6 +57,7 @@ Route::post('search', 'App\Http\Controllers\SearchController@search');
 Route::post('catload', 'App\Http\Controllers\CatController@catload');
 
 
+Route::get('search/{squery}', 'App\Http\Controllers\SearchController@search2')->middleware('tokin');
 
 
 Route::get('myorders', 'App\Http\Controllers\OrderController@indexapi');

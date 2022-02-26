@@ -435,6 +435,12 @@
 
 }
 
+#searchinputtext:focus {
+    outline: none;
+   
+
+}
+
 
 .minpt::placeholder {
     letter-spacing: 0px;

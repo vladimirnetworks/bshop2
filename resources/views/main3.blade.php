@@ -39,7 +39,7 @@
   </div>
 <script>
   $("#enamadlink").click(function() {
-    debb("clicked");
+  
     if (apptype() == 'androidapp') {
       androidinterface.openurl("https://www.behkiana.ir/enamad");
      return false;
@@ -80,8 +80,53 @@ $(document).ready(function() {
         style="height: 100%" referrerpolicy="origin"
         src="https://upload.wikimedia.org/wikipedia/commons/5/53/Wikimedia-logo.png" /></a>
 
-    <input onClick='ssearchbox();hpu({ act: "searchbox" });' id="searchinputtext" class="minpt" style="text-align:right;height: 60%; flex-grow: 2;direction:rtl" placeholder="جستجو در محصولات" />
-    <img style="height: 60%; margin-left: 0.5em; margin-right: 0.5em" src="https://s6.uupload.ir/files/mag_91qh.png" />
+    <img style="display:none;height: 60%; margin-left: 0.5em; margin-right: 0.5em" src="https://s6.uupload.ir/files/mag_91qh.png" />
+  
+    <div style="display:flex;flex-grow: 2;direction:rtl;  border: 1px solid #ced4da;border-radius: 1rem;font-size: 1rem;font-weight: 400;line-height: 1.5;height: calc(1.5em + 0.75rem + 2px); padding: 0.375rem 0.75rem;transition: box-shadow 0.3s;margin-right: 1rem">
+    
+      <img id="searchmag" style="width:auto;height: 100%; margin-left: 0.5em; " src="https://s6.uupload.ir/files/mag_91qh.png" />
+
+      <input  id="searchinputtext" class="" style="border:0px ; direction:rtl;font-size: 1rem;font-weight: 400;width:100%" placeholder="جستجو در محصولات" />
+
+      <script>
+        $("#searchmag").click(function() {
+          if ( $("#searchinputtext").val() == '') {
+
+            $("#searchinputtext").focus();
+            ssearchbox();
+            if (chpu != 'searchbox') {
+            hpu({ act: "searchbox" });
+            }
+
+          } else {
+            ssearchbox();
+          }
+        });
+
+
+        $("#searchinputtext").click(function() {
+          if ( $("#searchinputtext").val() == '') {
+
+            $("#searchinputtext").focus();
+            ssearchbox();
+            if (chpu != 'searchbox') {
+            hpu({ act: "searchbox" });
+            }
+
+          } else {
+            ssearchbox();
+          }
+        });
+
+        $("#searchinputtext").on('keyup',function() {
+        
+          ssearchbox();
+        });
+
+      </script>
+
+    </div>
+  
   </div>
 
   <div style="

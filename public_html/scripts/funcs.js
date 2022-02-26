@@ -301,10 +301,11 @@ function SwiperBox(fields) {
 
 
 
-
+chpu = "";
 
 function hpu(xact) {
     console.log("added " + xact.act);
+    chpu = xact.act;
     history.pushState(xact, xact.act, "?" + xact.act);
 }
 
@@ -370,6 +371,7 @@ function oproduct(p) {
     });
 
     srch.click(function() {
+        $("#searchinputtext").val("");
         ssearchbox();
         hpu({ act: "searchbox" });
         $("#searchinputtext").focus();
@@ -756,7 +758,18 @@ function r(tag) {
     return $("#router1");
 }
 
-function olist(path,dox) {
+function olist(path,dox,onnothing=null) {
+
+    var apionnothing = null;
+
+    if (onnothing != null) {
+        apionnothing = function(res) {
+ 
+                onnothing(res);
+          
+        };
+    }
+
     apix.get(path, function(vals) {
 
         var product = $("<div></div>");
@@ -777,7 +790,7 @@ function olist(path,dox) {
 
         dox(product);
        
-    })
+    },null,apionnothing)
 }
 
 function customepage(id) {
@@ -793,7 +806,7 @@ function customepage(id) {
 }
 function llist(path) {
 
-
+    $("#searchinputtext").val("");
   var rt = r();
   var products = $('<div class="products"></div>');
   rt.append(products);
@@ -806,16 +819,26 @@ function llist(path) {
 
 
 function ssearchbox() {
-
+    console.log("ssearchboxssearchbox");
 
     var rt = r();
     var srch = $('<div class="srchbox products"></div>');
     rt.append(srch);
 
 
-    olist("relateto/177",function(prod) {
+    srch.empty();
+    if ($("#searchinputtext").val() != "" && $("#searchinputtext").val().length > 2) {
+
+    olist("search/"+$("#searchinputtext").val(),function(prod) {
+     
         srch.append(prod);
+      },function(res) {
+      srch.append('<div style="text-align:center;direction:rtl">'+"هیچی برای \""+$("#searchinputtext").val() + "\" پیدا نشد <br>😔😔😔"+'</div>');
+
       });
+    } else {
+      
+    }
     
 
 
@@ -872,8 +895,9 @@ function api() {
 
     this.xcache = {};
 
-    this.get = function(path, doin, onload = null) {
+    this.get = function(path, doin, onload = null,onnothing=null) {
 
+       
         if (self.xcache[self.api + path]) {
 
             if (onload) {
@@ -885,6 +909,11 @@ function api() {
 
             for (var i = 0; i < self.xcache[self.api + path].data.length; i++) {
                 doin(self.xcache[self.api + path].data[i]);
+            }
+
+            if (onnothing !=null && self.xcache[self.api + path].data.length == 0) {
+                console.log("call on nothing api cache");
+                onnothing(self.xcache[self.api + path].data);
             }
 
         } else {
@@ -933,9 +962,20 @@ function api() {
 
                 }
 
+                var ihve = false;
                 for (var i = 0; i < data.data.length; i++) {
                     doin(data.data[i]);
+                    ihve = true;
                 }
+
+
+               
+                if (onnothing !=null && !ihve) {
+                   
+                 onnothing(data.data);
+                   
+                }
+
 
                 },
                 error: function (xhr, textStatus, errorThrown) {
@@ -1894,7 +1934,7 @@ $(document).ready(function() {
     });
 
 
-    debb(apptype());
+
 
 
 
