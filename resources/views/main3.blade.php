@@ -31,7 +31,7 @@
     </div>
 
     <div style="direction: rtl;text-align:center;margin-top: 1rem;">
-      <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstposy1"><img style="width:100%" referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=244136&Code=NAYvp5VDiHI1pstposy1" alt="" style="cursor:pointer" id="NAYvp5VDiHI1pstposy1"></a>
+      <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstposy1"><img  referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=244136&Code=NAYvp5VDiHI1pstposy1" alt="" style="cursor:pointer" id="NAYvp5VDiHI1pstposy1"></a>
     </div>
   </div>
 
