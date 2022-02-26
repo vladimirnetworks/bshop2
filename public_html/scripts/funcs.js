@@ -787,7 +787,9 @@ function customepage(id) {
     var rt = r();
     var page = $('<div class="customepage"></div>');
     rt.append(page);
-    page.append($("#custompage_"+id).clone(true,true).html());
+    var apnd = $("#custompage_"+id).clone(true,true);
+    apnd.css({"display":"block"});
+    page.append(apnd);
 }
 function llist(path) {
 
