@@ -31,8 +31,10 @@
     </div>
 
     <div style="direction: rtl;text-align:center;margin-top: 1rem;">
-      <div id="enamadlink" referrerpolicy="origin" target="_blank" href=""><img style="width:100%"  referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=244136&Code=NAYvp5VDiHI1pstposy1" alt="" style="cursor:pointer" id="NAYvp5VDiHI1pstposy1"></div>
-   <!-- https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstposy1 -->
+      <div id="enamadlink" referrerpolicy="origin" target="_blank" href=""><img style="width:100%"  referrerpolicy="origin" src="https://www.behkiana.ir/photos/small_72181087.jpg" alt="" style="cursor:pointer" id="NAYvp5VDiHI1pstposy1"></div>
+   <!-- https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstposy1
+  https://Trustseal.eNamad.ir/logo.aspx?id=244136&Code=NAYvp5VDiHI1pstposy1
+  -->
     </div>
   </div>
 <script>
