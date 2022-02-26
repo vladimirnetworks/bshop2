@@ -205,7 +205,7 @@ $(document).ready(function() {
 
       var tot = xcart.total();
 
-      endofcart.append('<div style="margin:1rem">مجموع : '+farsi_price(tot.amount)+'</div>');
+      endofcart.append('<div style="margin:1rem">مجموع : '+farsi_price(tot.amount)+' تومان'+'</div>');
 
 
       endofcart.append(checkoutbtn);
@@ -230,6 +230,7 @@ $("#totalcart").text(farsi_price(tot.amount));
 
 var notinbasket = itm.count - checkinbasket(itm.id);
 
+//error is here
 console.log(JSON.parse(itm.photos)[0]['medium']);
 
 if (notinbasket > 0) {
@@ -283,14 +284,41 @@ xcart.addChangeListener(function () {
 
 
 <div class="itm" style="align-items: center;justify-content: center;direction:rtl;font-size:0.8rem;font-weight:bold" >
-  <div style="white-space: nowrap;">۳۰۰۰ تومان</div>
+  <div style="white-space: nowrap;" id="bottomtotalcart"></div>
+ 
 <div class="" style="background-color: #dc3545;border-color: #dc3545;color: white;font-size:0.8rem; border-radius: 0.3rem;  padding :0.3rem 0.4rem;display:flex;align-items: center;justify-content: center;">
  
   
  <div style="width:1rem;">
   <img src="https://www.behkiana.ir/icons/cart.png" style="width:100%"/>
 </div> 
- <div>سبد‌خرید </div> 
+ <div id="sabadbottontext">سبد‌خرید </div> 
+
+ <script>
+
+  xcartfnc = function () {
+  
+  var tot = xcart.total();
+  if (tot.count>0) {
+    $("#bottomtotalcart").show();
+  $("#bottomtotalcart").html(farsi_price(tot.amount)+" تومان");
+
+  $("#sabadbottontext").html("اتمام‌خرید");
+
+  }  else {
+    $("#bottomtotalcart").hide();
+    $("#sabadbottontext").html("سبد‌خرید");
+  }
+  };
+  
+  
+  xcart.addChangeListener(xcartfnc);
+  
+  $(document).ready(function() {
+    xcartfnc();
+  });
+  
+      </script>
 
 </div>
 </div>
