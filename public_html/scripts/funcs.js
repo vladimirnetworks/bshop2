@@ -1894,6 +1894,8 @@ $(document).ready(function() {
     });
 
 
+    debb(apptype());
+
 
 
   });
