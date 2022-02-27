@@ -238,7 +238,7 @@ class OrderController extends Controller
         }
 
         
-
+        dd($orders);
        
 
         $ords = [];
@@ -246,7 +246,7 @@ class OrderController extends Controller
         foreach ($orders as $order) {
 
 
-dd($order);
+
           
 
             $cart = json_decode($order->data, true);
