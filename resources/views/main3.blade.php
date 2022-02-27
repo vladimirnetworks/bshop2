@@ -939,9 +939,9 @@ return false;
   <script>
     dialog_do['dialog2'] = function() {
      
+     
 
-
-      if (!$("#useraddress")).is(":focus")) {
+      if (!$("#useraddress").is(":focus")) {
       
         setTimeout(function() {
         
