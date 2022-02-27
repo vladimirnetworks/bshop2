@@ -940,7 +940,10 @@ return false;
     dialog_do['dialog2'] = function() {
       
       if (!$("#useraddress").is(":focus")) {
-        //$("#useraddress").focus();
+        setTimeout(function() {
+          $("#useraddress").focus();
+        },100);
+        
       }
 
     } 
