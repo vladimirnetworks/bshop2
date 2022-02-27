@@ -230,6 +230,7 @@ class OrderController extends Controller
     public function indexapi()
     {
        
+        $orders = Array();
 
         if (request('latest') != null) {
             $fistord =  liteauth::me()->orders->get(1);
