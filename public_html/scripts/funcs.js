@@ -307,7 +307,7 @@ function hpu(xact) {
     console.log("added " + xact.act);
     chpu = xact.act;
     // history.pushState(xact, xact.act, "?" + xact.act);
-    history.pushState(xact, xact.act, "?" + xact.act);
+    history.pushState(xact, xact.act);
 }
 
 
