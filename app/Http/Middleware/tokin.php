@@ -46,14 +46,14 @@ class tokin
             "x_address",
             $hash,
             time() + (10 * 365 * 24 * 60 * 60)
-            ,"/",$hostx
+            ,"/"/*,$hostx*/
           ); 
 
           setcookie(
             "base_address",
             $id ,
             time() + (10 * 365 * 24 * 60 * 60)
-            ,"/",$hostx
+            ,"/"/*,$hostx*/
           );
      }
 
