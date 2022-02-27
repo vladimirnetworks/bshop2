@@ -892,7 +892,7 @@ function toyou(path, data, onloadx) {
 
 function api() {
     self = this;
-    this.api = "/api/";
+    this.api = "https://www.behkiana.ir/api/";
 
     this.xcache = {};
 
