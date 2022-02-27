@@ -320,9 +320,9 @@ $("#totalcart").text(farsi_price(tot.amount));
 var notinbasket = itm.count - checkinbasket(itm.id);
 
 //error is here
-console.log('error is here');
-console.log(itm);
-console.log(JSON.parse(itm.photos[0]['medium']));
+//console.log('error is here');
+//console.log(itm);
+//console.log(JSON.parse(itm.photos[0]['medium']));
 
 if (notinbasket > 0) {
 for (var i = 0 ; i<notinbasket;i++) {
