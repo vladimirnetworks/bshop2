@@ -232,13 +232,16 @@ class OrderController extends Controller
        
 
         if (request('latest') != null) {
-            $orders[] = liteauth::me()->orders->get(1);
+            $fistord =  liteauth::me()->orders->get(1);
+            if ($fistord) {
+             $orders[] = $fistord ;
+            }
         } else {
             $orders = liteauth::me()->orders;
         }
 
         
-        dd($orders);
+      
        
 
         $ords = [];
