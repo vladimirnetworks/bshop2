@@ -938,11 +938,13 @@ return false;
 
   <script>
     dialog_do['dialog2'] = function() {
-      
+      console.log("called");
       if (!$("#useraddress").is(":focus")) {
+        console.log("called2");
         setTimeout(function() {
+          console.log("called3");
           $("#useraddress").focus();
-        },100);
+        },2000);
         
       }
 
