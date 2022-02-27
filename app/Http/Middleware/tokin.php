@@ -40,6 +40,8 @@ class tokin
 
         $hostx = str_replace(":8000","",$hostx);
 
+        dd($hostx);
+
         setcookie(
             "x_address",
             $hash,
