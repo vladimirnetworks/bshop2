@@ -321,6 +321,7 @@ var notinbasket = itm.count - checkinbasket(itm.id);
 
 //error is here
 console.log('error is here');
+console.log(itm);
 console.log(itm.photos);
 console.log(JSON.parse(itm.photos));
 //console.log(JSON.parse(itm.photos[0]['medium']));
