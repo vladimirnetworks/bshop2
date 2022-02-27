@@ -1934,7 +1934,10 @@ $(document).ready(function() {
     });
 
 
-
+    if (apptype() == 'androidapp') {
+        androidinterface.setliteauthid(me());
+    }
+    
 
 
 
