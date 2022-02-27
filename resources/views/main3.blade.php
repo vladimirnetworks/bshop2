@@ -738,7 +738,9 @@ if (island()) {
 
 
         if (event.state.act == 'product') {
+          console.log(event.state.prod);
           oproduct(event.state.prod);
+          
         }
 
         if (event.state.act == 'customepage') {
