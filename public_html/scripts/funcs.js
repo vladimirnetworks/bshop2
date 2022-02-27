@@ -303,12 +303,46 @@ function SwiperBox(fields) {
 
 chpu = "";
 
+myhistor = {};
+myhistor.state = [];
+myhistor.curs = false;
+myhistor.pushstate = function (v,t) {
+    
+    var pp = {};
+    pp.state = v;
+    pp.state.act = t;
+
+    myhistor.state.push(pp);
+   
+}
+
+myhistor.onpop = function(act) {
+  console.log(act);
+}
+myhistor.back = function(tot = 1) {
+
+    
+
+   for (var i = 0 ; i < tot ;i++) {
+
+        var poped = myhistor.state.pop();  
+        myhistor.onpop(myhistor.state[myhistor.state.length-1]);
+
+   }
+
+
+}
+
+
+
 function hpu(xact) {
     console.log("added " + xact.act);
     chpu = xact.act;
     // history.pushState(xact, xact.act, "?" + xact.act);
     history.pushState(xact, xact.act,window.location);
+    myhistor.pushstate(xact, xact.act);
 }
+
 
 
 function readCookie(name) {

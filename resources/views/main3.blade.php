@@ -692,35 +692,87 @@ if (island()) {
     });
 
 
+myhistor.onpop = function(event) {
+
+
+
+  if (typeof event === 'undefined' || typeof event.state === 'undefined' || event.state == null) {
+       llist("index");      
+      } else {
+
+
+
+        
+
+        if (event.state.act == 'singleorderview') {
+
+          closedialog("onlinepaydialog");
+          opendialog("singleorderview");
+
+        }
+
+
+        if (event.state.act == 'product') {
+          console.log(event.state.prod);
+          oproduct(event.state.prod);
+          
+        }
+
+        if (event.state.act == 'customepage') {
+          customepage(event.state.id);
+        }
+       
+
+
+        if (event.state.act == 'list') {
+          llist(event.state.path);
+        }
+
+
+
+
+        if (event.state.act == 'cartup') {
+           openmenu();       
+        }
+
+        if (event.state.act == 'getnumber') {
+
+          closedialog("dialog2");
+          opendialog("dialog1");
+        
+        }
+
+
+        if (event.state.act == 'getaddress') {
+          
+          closedialog("dialog3");
+          opendialog("dialog2");
+
+        }
+
+        if (event.state.act == 'showmyorders') {
+
+       loadmyorders();
+
+        }
+
+
+        if (event.state.act == 'searchbox') {
+          ssearchbox()
+        }
+
+      }
+
+
+
+   
+
+}
+
 
     window.addEventListener('popstate', (event) => {
 
-  
-  
 
-
-
-
-
-
-
-
-      // if any back
-
-      if (xcart.total().count < 1) {
-
-           // closedialog("dialog3");
-            
-            
-      }
-      //closedialog("onlinepaydialog");
-     // 
-     
-     
-      
-
-     
-     
       if (event.state == null) {
        llist("index");      
       } else {
