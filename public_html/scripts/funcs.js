@@ -344,7 +344,7 @@ function oproduct(p) {
 
 
       var products = $('<div class="products"></div>');
-      //rt.append("<hr>");
+    
         rt.append(products);
          olist("relateto/"+p.id,function(prod) {
           products.append(prod);
@@ -898,6 +898,7 @@ function api() {
 
     this.get = function(path, doin, onload = null,onnothing=null) {
 
+            
        
         if (self.xcache[self.api + path]) {
 
@@ -938,6 +939,8 @@ function api() {
                 }
             });
 */
+
+console.log(this.api + path);
 
             $.ajax({
                 type: "get",
