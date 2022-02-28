@@ -1985,8 +1985,8 @@ function appload() {
 
 
    setTimeout(function () {
-   // halfopenmenu();
-},1000);
+   iamerro();
+},6000);
 
 }
 
