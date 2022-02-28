@@ -313,14 +313,24 @@ myhistor.pushstate = function (v,t) {
     pp.state.act = t;
 
     myhistor.state.push(pp);
+    myhistor.ended = false;
+
    
 }
 
 myhistor.onpop = function(act) {
   console.log(act);
 }
+
+myhistor.ended = true;
+
 myhistor.back = function(tot = 1) {
 
+    if (tot > myhistor.state.length) {
+
+        tot = myhistor.state.length;
+       
+    }
     
 
    for (var i = 0 ; i < tot ;i++) {
@@ -329,6 +339,13 @@ myhistor.back = function(tot = 1) {
         myhistor.onpop(myhistor.state[myhistor.state.length-1]);
 
    }
+   
+   if (tot ==0 ) {
+    myhistor.ended = true;
+   }
+
+   return myhistor.ended;
+
 
 
 }
@@ -402,7 +419,8 @@ function oproduct(p) {
    
    
     back.click(function() {
-        history.back();
+        //history.back();
+        appback();
     });
 
     srch.click(function() {
@@ -1252,7 +1270,8 @@ $("body").append(dim);
 
        dialog_cont.click(function(e) {
            
-            history.back();
+            //history.back();
+            appback();
             return false;
         });
        
@@ -1309,7 +1328,8 @@ function opendialog_sus(i, w = "80%", h = "80%") {
 
     
     dialog_cont.click(function() {
-        history.back();
+        //history.back();
+        appback();
         return false;
     });
     $("body").append(dialog_cont);
@@ -1477,7 +1497,8 @@ function loadmyorders() {
 function offlinepay2() {
 
     myorder.orderid=null;xcart.empty();
-    history.back();
+    //history.back();
+    appback();
 
       //hpu({act:"showmyorders"});    
         loadmyorders();
@@ -1488,7 +1509,8 @@ function offlinepay2() {
 
 function offlinepay() {
     xcart.empty();
-    window.history.go(-4);
+    //window.history.go(-4);
+    appback(-4);
 
            
     setTimeout(function() {
@@ -1535,7 +1557,8 @@ function gotopay(oid) {
 
 function onlinepay(oid) {
     xcart.empty();
-    window.history.go(-4);
+    //window.history.go(-4);
+    appback(-4);
 
     setTimeout(function() {
       
@@ -1554,11 +1577,14 @@ function onlinepay(oid) {
 }
 
 function onlinepay2() {
-    history.back();
+    //history.back();
+    appback();
     setTimeout(function() {
     hpu({act:"waitforonlinepay"});
     var oid = myorder.orderid;
-    myorder.orderid=null;xcart.empty();history.back();
+    myorder.orderid=null;xcart.empty();
+    //history.back();
+    appback();
 
        setTimeout(function() {
         opendialog('onlinepaydialog');
@@ -1980,3 +2006,19 @@ $(document).ready(function() {
 
 
   });
+
+  isbrowser = true;
+  if (apptype() != 'web') {
+    isbrowser = false;
+  }
+  function appback(lvl = 1) {
+      if (isbrowser) {
+         if (lvl ==1) {
+           history.back();
+         } else {
+            window.history.go(lvl);
+         }
+      } else {
+          myhistor.back(lvl);
+      }
+  }

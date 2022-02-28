@@ -679,7 +679,8 @@ if (island()) {
 
     $('.dim').click(function () {
      
-      history.back();
+      //history.back();
+      appback();
    
     });
 
@@ -769,8 +770,8 @@ myhistor.onpop = function(event) {
 
 }
 
-
-    window.addEventListener('popstate', (event) => {
+window.addEventListener('popstate',myhistor.onpop);
+   /* window.addEventListener('popstate', (event) => {
 
 
       if (event.state == null) {
@@ -855,6 +856,7 @@ myhistor.onpop = function(event) {
         console.log("back called null");
       }
     });
+    */
   </script>
 
 
@@ -918,7 +920,8 @@ myhistor.onpop = function(event) {
 });
 
 $("#backnumber").click(function () {
-  history.back();
+  //history.back();
+  appback();
 });
 
     $("#usernumber_form").on('submit',function () {
@@ -1015,7 +1018,8 @@ $("#submitaddress").click(function () {
 });
 
 $("#backaddress").click(function () {
-  history.back();
+  //history.back();
+  appback();
 });
 
 var sndaddress = function () {
