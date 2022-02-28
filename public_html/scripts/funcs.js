@@ -707,7 +707,7 @@ function island_sus() {
   }
 
 
-  function island_x() {
+  function island() {
     if (window.matchMedia("(orientation: portrait)").matches) {
       return false;
 }
@@ -715,10 +715,6 @@ function island_sus() {
 if (window.matchMedia("(orientation: landscape)").matches) {
 return true;
 }
-  }
-
-  function island() {
-    return false;
   }
 
 function marginize() {
