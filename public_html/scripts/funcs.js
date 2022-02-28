@@ -1985,7 +1985,7 @@ function appload() {
 
 
    setTimeout(function () {
-   iamerro();
+   //iamerro();
 },6000);
 
 }
