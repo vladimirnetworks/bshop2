@@ -1656,6 +1656,10 @@ function addtobasket(inbasket,delay=1) {
 
 
        $("#basketv2").addClass("shakesabad");
+
+       if (apptype() == 'androidapp') {
+       androidinterface.vibb("[0,80,100,50]");
+       }
        setTimeout(function() {
         $("#basketv2").removeClass("shakesabad");
        },400);
