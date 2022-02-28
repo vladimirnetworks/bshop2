@@ -2019,6 +2019,6 @@ $(document).ready(function() {
             window.history.go(lvl);
          }
       } else {
-          myhistor.back(lvl);
+          myhistor.back(lvl*-1);
       }
   }
