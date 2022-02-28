@@ -313,7 +313,7 @@ myhistor.pushstate = function (v,t) {
     pp.state.act = t;
 
     myhistor.state.push(pp);
-    myhistor.ended = false;
+    myhistor.ended = "false";
 
    
 }
@@ -322,7 +322,7 @@ myhistor.onpop = function(act) {
   console.log(act);
 }
 
-myhistor.ended = true;
+myhistor.ended = "true";
 
 myhistor.back = function(tot = 1) {
 
@@ -341,7 +341,7 @@ myhistor.back = function(tot = 1) {
    }
    
    if (tot ==0 ) {
-    myhistor.ended = true;
+    myhistor.ended = "true";
    }
 
    return myhistor.ended;
