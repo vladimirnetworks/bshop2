@@ -1984,9 +1984,11 @@ function appload() {
 
 
 
-   setTimeout(function () {
-   //iamerro();
-},6000);
+
+setInterval(function () {
+    debb("or : "+androidinterface.getor());
+}, 1000);
+
 
 }
 
