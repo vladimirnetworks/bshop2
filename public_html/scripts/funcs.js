@@ -1995,7 +1995,7 @@ function appload() {
 
 
 setInterval(function () {
-    debb("or : "+androidinterface.getor());
+    //debb("or : "+androidinterface.getor());
 }, 1000);
 
 
