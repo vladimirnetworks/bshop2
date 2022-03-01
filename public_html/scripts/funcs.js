@@ -319,7 +319,7 @@ myhistor.pushstate = function (v,t) {
 }
 
 myhistor.onpop = function(act) {
-  console.log(act);
+  ////console.log(act);
 }
 
 myhistor.ended = "true";
@@ -353,7 +353,7 @@ myhistor.back = function(tot = 1) {
 
 
 function hpu(xact) {
-    console.log("added " + xact.act);
+    //console.log("added " + xact.act);
     chpu = xact.act;
     // history.pushState(xact, xact.act, "?" + xact.act);
     history.pushState(xact, xact.act,window.location);
@@ -871,7 +871,7 @@ function llist(path) {
 
 
 function ssearchbox() {
-    console.log("ssearchboxssearchbox");
+   // console.log("ssearchboxssearchbox");
 
     var rt = r();
     var srch = $('<div class="srchbox products"></div>');
@@ -965,7 +965,7 @@ function api() {
             }
 
             if (onnothing !=null && self.xcache[self.api + path].data.length == 0) {
-                console.log("call on nothing api cache");
+              //  console.log("call on nothing api cache");
                 onnothing(self.xcache[self.api + path].data);
             }
 
@@ -991,7 +991,7 @@ function api() {
             });
 */
 
-console.log(this.api + path);
+//console.log(this.api + path);
 
             $.ajax({
                 type: "get",
@@ -1034,7 +1034,7 @@ console.log(this.api + path);
 
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    console.log(errorThrown);
+                    ///console.log(errorThrown);
                 }});
 
 
@@ -1098,7 +1098,7 @@ function Cart() {
     }
 
 this.onLoad = function() {
- console.log("override me I am onload");
+ //console.log("override me I am onload");
 }
     this.empty = function() {
 
@@ -1166,7 +1166,7 @@ this.onLoad = function() {
         let expires = "expires=" + d.toUTCString();
 
 
-        console.log("coockeset");
+       // console.log("coockeset");
         document.cookie = "zcart=" + JSON.stringify(this.prods) + ';' + expires + '; path=/';
 
         for (i = 0; i < self.changeListeners.length; i++) {
@@ -1294,13 +1294,13 @@ function opendialog_sus(i, w = "80%", h = "80%") {
     if (!$("#"+i+"_container")[0]) {
        
     
-     console.log("make it");
+     //console.log("make it");
   
 
     var ddialog = $("#" + i).clone(true, true);
   $("#" + i).remove();
 
-    console.log(ddialog);
+    //console.log(ddialog);
     ddialog.css({ "display": "block" });
 
     $(".dialog_container").hide();
@@ -1335,7 +1335,7 @@ function opendialog_sus(i, w = "80%", h = "80%") {
     
 } else {
 
-    console.log("reload"+i);
+    //console.log("reload"+i);
 /**/
 $("#" + i + "_container").show();
 setTimeout(function() {
@@ -1353,7 +1353,7 @@ $("body").append(dim);
 }
 
 //function onFinishorder() {
-//    console.log("finished order");
+//    //console.log("finished order");
 //}
 
 shippingstatus = [];
@@ -1374,7 +1374,7 @@ function loadmyorders() {
 
 
  apix.get("myorders", function(vals) {
-     console.log(vals);
+     //console.log(vals);
 
      var orderitem = $('<div style="flex-basis:4.5rem;display:flex;direction:rtl;align-items: center;justify-content: space-around; background-color:#ffa400;margin:0.5rem;border-radius:1rem;padding-bottom:0.2rem;padding-top:0.2rem"></div>');
 
@@ -1549,7 +1549,7 @@ function gotopay(oid) {
          
         },
         error: function(jqXHR, textStatus, errorThrown) {
-           console.log(textStatus, errorThrown);
+           //console.log(textStatus, errorThrown);
         }
     });
 }
@@ -1756,7 +1756,7 @@ function jumping(
               var a2 = toDeg / 57.296;
             }
 
-  console.log("vertAhrom "+HorizAhrom);
+  //console.log("vertAhrom "+HorizAhrom);
 
             var ya = Math.sin(a) * VertAhrom;
             var xa = Math.cos(a2) * HorizAhrom;
@@ -1773,19 +1773,19 @@ function jumping(
                 left: xp + HorizAhrom * jahat + xa * jahat,
               });
 
-              console.log("rr");
+              //console.log("rr");
           
 
           } else {
 
                if (!end) {
                     end = true;
-                    console.log("end");
+                    //console.log("end");
 
                     var gotohell;
 
 
-                    console.log("jahat "+jahat);
+                    //console.log("jahat "+jahat);
 
 
                     if (jahat == 1 ) {
@@ -1932,14 +1932,14 @@ function jumping_sus(
                 left: xp + HorizAhrom * jahat + xa * jahat,
               });
 
-              console.log("rr");
+              //console.log("rr");
           
 
           } else {
 
                if (!end) {
                     end = true;
-                    console.log("end");
+                    //console.log("end");
 
                     var gotohell;
 
