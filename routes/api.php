@@ -67,6 +67,10 @@ Route::post('onlinepay', 'App\Http\Controllers\OrderController@onlinepayapi');
 Route::get('onelevelchild/{rootid}', 'App\Http\Controllers\CatController@oneLevelChild');
 Route::post('setshipping', 'App\Http\Controllers\OrderController@setshipping');
 Route::post('reguserdata', 'App\Http\Controllers\UserdataController@setuserdata');
+Route::post('androidwebviewlog', function() {
+  return "ok";
+});
+
 
 
 Route::get('setbaseaddress', function(Request $request) {
