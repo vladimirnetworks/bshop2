@@ -77,7 +77,7 @@ $(document).ready(function() {
   @yield('main')
 
   <div class="top">
-    <a style="height: 90%;" referrerpolicy="origin" target="_blank"
+    <a style="display:none;height: 90%;" referrerpolicy="origin" target="_blank"
       href="https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstposy1" style="height: 95%;"><img
         style="height: 100%" referrerpolicy="origin"
         src="https://Trustseal.eNamad.ir/logo.aspx?id=244136&Code=NAYvp5VDiHI1pstposy1" /></a>
