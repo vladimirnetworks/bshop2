@@ -60,7 +60,7 @@ Route::post('catload', 'App\Http\Controllers\CatController@catload');
 Route::get('search/{squery}', 'App\Http\Controllers\SearchController@search2')->middleware('tokin');
 
 
-Route::get('myorders', 'App\Http\Controllers\OrderController@indexapi');
+Route::get('myorders', 'App\Http\Controllers\OrderController@indexapi')->middleware('tokin');
 Route::post('onlinepay', 'App\Http\Controllers\OrderController@onlinepayapi');
 
 
