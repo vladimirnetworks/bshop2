@@ -84,7 +84,7 @@ $(document).ready(function() {
 
     <img style="display:none;height: 60%; margin-left: 0.5em; margin-right: 0.5em" src="https://www.behkiana.ir/icons/srch.png" />
   
-    <div style="display:flex;flex-grow: 2;direction:rtl;  border: 1px solid #ced4da;border-radius: 1rem;font-size: 1rem;font-weight: 400;line-height: 1.5;height: calc(1.5em + 0.75rem + 2px); padding: 0.375rem 0.75rem;transition: box-shadow 0.3s;margin-right: 1rem">
+    <div style="display:flex;flex-grow: 2;direction:rtl;  border: 1px solid #ced4da;border-radius: 1rem;font-size: 1rem;font-weight: 400;line-height: 1.5;height: calc(1.5em + 0.75rem + 2px); padding: 0.375rem 0.75rem;transition: box-shadow 0.3s;margin-right: 1rem;margin-left: 1rem">
     
       <img id="searchmag" style="width:auto;height: 100%; margin-left: 0.5em; " src="https://www.behkiana.ir/icons/srch.png" />
 
