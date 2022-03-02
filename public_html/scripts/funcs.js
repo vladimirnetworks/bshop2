@@ -324,7 +324,7 @@ myhistor.onpop = function(act) {
 
 myhistor.ended = "true";
 
-myhistor.back = function(tot = 1) {
+myhistor.back = function(tot) {
 
     if (tot > myhistor.state.length) {
 
@@ -2025,7 +2025,7 @@ $(document).ready(function() {
   function appback(lvl = 1) {
       if (isbrowser) {
          if (lvl ==1) {
-           history.back();
+           history.back(1);
          } else {
             window.history.go(lvl);
          }
