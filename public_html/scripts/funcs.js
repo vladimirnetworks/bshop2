@@ -2027,7 +2027,7 @@ $(document).ready(function() {
 
     setTimeout(function() {
         $(".ripple").remove();
-    },200);
+    },1000);
    
   
     button.appendChild(circle);
