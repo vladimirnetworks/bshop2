@@ -947,7 +947,7 @@ function api() {
 
     this.xcache = {};
 
-    this.get = function(path, doin, onload = null,onnothing=null) {
+    this.get = function(path, doin, onload,onnothing) {
 
             
        
@@ -1484,7 +1484,7 @@ function loadmyorders() {
      });
 
      myorders.append(orderitem);
- });
+ },null,null);
 
 
 
@@ -2006,7 +2006,7 @@ $(document).ready(function() {
 
     apix.get("myorders?latest=true", function(vals) {
         $("#oorder").show();
-    });
+    },null,null);
 
 
     if (apptype() == 'androidapp') {
