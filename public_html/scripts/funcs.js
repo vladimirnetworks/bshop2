@@ -1999,6 +1999,12 @@ $(document).ready(function() {
   function setTransFormAnim(elem) {
     elem.on("click touchstart", function() {
 
+
+
+    elem.css({
+        "position":"relative",
+        "overflow":"hidden"
+    });
         createRipple(elem[0]);
 
     });
@@ -2009,6 +2015,7 @@ $(document).ready(function() {
   function createRipple(button) {
    
   
+    
     var circle = document.createElement("span");
     var diameter = Math.max(button.clientWidth, button.clientHeight);
     var radius = diameter / 2;
