@@ -42,7 +42,7 @@ function orderloadEvl() {
 */
 //end
 
-function zaddtocart(p) {
+function addtocart(p) {
     var itm = xcart.getItem(p.id);
 
 
