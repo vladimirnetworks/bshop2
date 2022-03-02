@@ -1541,7 +1541,7 @@ function checkinbasket(pid) {
    return $("div[data-productid='"+pid+"']").length;
 }
 
-function addtobasket(inbasket,delay=1) {
+function addtobasket(inbasket,delay) {
 
 
     var rl = rnd(1,2);
