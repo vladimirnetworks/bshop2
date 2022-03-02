@@ -414,8 +414,8 @@ function oproduct(p) {
 
     var prdtop = $('<div style="display:flex;align-items: start;"></div>');
 
-    var back = $('<div style="text-align:center;padding: 0.9rem;"><img style="width:70%;height:auto" src="https://www.behkiana.ir/icons/back.png?"/></div>');
-    var srch = $('<div style="text-align:center;padding: 0.9rem ;"><img style="width:70%;height:auto" src="https://www.behkiana.ir/icons/mag.png"/></div>');
+    var back = $('<div style="text-align:center;padding: 0.9rem;"><img style="width:100%;height:auto" src="https://www.behkiana.ir/icons/back.png?"/></div>');
+    var srch = $('<div style="text-align:center;padding: 0.9rem ;"><img style="width:100%;height:auto" src="https://www.behkiana.ir/icons/mag.png"/></div>');
    
     setTransFormAnim(back);
     setTransFormAnim(srch);
