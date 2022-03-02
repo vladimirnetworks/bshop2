@@ -695,7 +695,7 @@ if (island()) {
 
 myhistor.onpop = function(event) {
 
-
+console.log(event);
 
   if (typeof event === 'undefined' || typeof event.state === 'undefined' || event.state == null) {
        llist("index");      
