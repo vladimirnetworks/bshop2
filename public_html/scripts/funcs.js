@@ -65,8 +65,8 @@ function TransFormAnim(elem) {
     }, 100);
 }
 
-function setTransFormAnim2(elem) {
-    elem.on("click touchstart", function() {
+function setTransFormAnim(elem) {
+    elem.on("click", function() {
 
         TransFormAnim(elem);
 
@@ -1996,7 +1996,7 @@ $(document).ready(function() {
 
 
 
-  function setTransFormAnim(elem) {
+  function setTransFormAnim_end(elem) {
     elem.on("click touchstart", function() {
 
 
