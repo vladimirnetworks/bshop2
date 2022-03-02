@@ -2025,7 +2025,10 @@ $(document).ready(function() {
     circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
     circle.classList.add("ripple");
 
-    $(".ripple").removeClass("ripple");
+    setTimeout(function() {
+        $(".ripple").remove();
+    },200);
+   
   
     button.appendChild(circle);
   }
