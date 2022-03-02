@@ -1656,7 +1656,7 @@ function jumping(
 
     }, 200);
 
-    setTimeout(() => {
+    setTimeout(function() {
         elem.css({
             transition: 'transform 0.4s ease-in',
            transform: 'rotate(' + 170 * jahat + 'deg)',
@@ -1672,7 +1672,7 @@ function jumping(
       'font-size': fromDeg,
     });
 
-    setTimeout(() => {
+    setTimeout(function() {
 
    
 
@@ -1806,17 +1806,17 @@ function jumping_sus(
     var yp = parseInt(elem[0].style.bottom.replace('px', ''));
 
     elem.removeClass('jump');
-    setTimeout(() => {
+    setTimeout(function() {
       elem.addClass('jump');
     }, 10);
 
-    setTimeout(() => {
+    setTimeout(function() {
       elem.removeClass('jump');
 
 
     }, 200);
 
-    setTimeout(() => {
+    setTimeout(function() {
         elem.css({
             transition: 'transform 0.4s ease-in',
             transform: 'rotate(' + 170 * jahat + 'deg)',
@@ -1832,7 +1832,7 @@ function jumping_sus(
       'font-size': fromDeg,
     });
 
-    setTimeout(() => {
+    setTimeout(function() {
 
    
 
