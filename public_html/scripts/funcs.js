@@ -1246,7 +1246,10 @@ function closedialog(i) {
     $("#"+i+"_container").hide();
     $(".dialog_dim").remove();
 }
-function opendialog(i, w = "80%", h = "80%") {
+function opendialog(i) {
+
+    var w = "80%";
+    var h = "80%";
 
 $(".dialog_dim").remove();
 var dim = $('<div class="dialog_dim" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1003;background-color:black;top:0px;left:0px;opacity:0.8"></div>');
