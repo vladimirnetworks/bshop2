@@ -598,7 +598,7 @@ function oproduct(p) {
     var addtocartButtoncontPort = $('<div class="portaddtocart" style="text-align: center;"></div>');
 
 
-    var addtocartport= $('<button class="cartBtn" style="" >خرید</button>');
+    var addtocartport= $('<button class="cartBtn" style="margin-bottom:1rem" >خرید</button>');
     addtocartButtoncontPort.append(addtocartport);
     setTransFormAnim(addtocartport);
     
