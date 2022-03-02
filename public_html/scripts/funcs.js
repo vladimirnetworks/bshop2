@@ -399,7 +399,7 @@ function oproduct(p) {
         rt.append(products);
          olist("relateto/"+p.id,function(prod) {
           products.append(prod);
-        }); 
+        },null); 
 
 
     document.body.scrollTop = 0;
@@ -810,7 +810,7 @@ function r(tag) {
     return $("#router1");
 }
 
-function olist(path,dox,onnothing=null) {
+function olist(path,dox,onnothing) {
 
     var apionnothing = null;
 
@@ -864,7 +864,7 @@ function llist(path) {
   rt.append(products);
   olist(path,function(prod) {
     products.append(prod);
-  });
+  },null);
 
     
 }
