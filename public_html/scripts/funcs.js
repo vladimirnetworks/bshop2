@@ -1650,7 +1650,7 @@ function jumping(
       elem.addClass('jump');
     }, 10);
 
-    setTimeout(() => {
+    setTimeout(function() {
       elem.removeClass('jump');
 
 
