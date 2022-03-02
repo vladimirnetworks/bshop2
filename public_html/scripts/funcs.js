@@ -59,14 +59,14 @@ function addtocart(p) {
     }
 }
 function TransFormAnim(elem) {
-    elem.css({ "transition": "all 0.100s", "transform": 'scale(0.8)' });
+    elem.css({ "transition": "all 0.100s", "transform": 'scale(0.85)' });
     setTimeout(function() {
         elem.css({ "transition": "all 0.700s","transform": 'scale(1.0)' });
     }, 100);
 }
 
 function setTransFormAnim(elem) {
-    elem.on("click", function() {
+    elem.on("click touchstart", function() {
 
         TransFormAnim(elem);
 
