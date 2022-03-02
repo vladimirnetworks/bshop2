@@ -1964,13 +1964,16 @@ $(document).ready(function() {
     isbrowser = false;
   }
   function appback(lvl) {
+      console.log("appback called");
       if (isbrowser) {
+        console.log("appback called is browser");
          if (lvl ==1) {
            history.back(1);
          } else {
             window.history.go(lvl);
          }
       } else {
+        console.log("appback called is app");
           myhistor.back(lvl*-1);
       }
   }
