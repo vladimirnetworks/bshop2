@@ -710,7 +710,7 @@ function island_sus() {
   }
 
 
-  function island() {
+  function island_sus2() {
     if (window.matchMedia("(orientation: portrait)").matches) {
       return false;
 }
@@ -718,6 +718,15 @@ function island_sus() {
 if (window.matchMedia("(orientation: landscape)").matches) {
 return true;
 }
+  }
+
+
+  function island() {
+    if (window.innerWidth/window.innerHeight < (13/9)) {
+        return false;
+      } else {
+       return true;
+      }
   }
 
 function marginize() {
