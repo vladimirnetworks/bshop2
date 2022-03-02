@@ -1646,7 +1646,7 @@ function jumping(
     var yp = parseInt(elem[0].style.bottom.replace('px', ''));
 
     elem.removeClass('jump');
-    setTimeout(() => {
+    setTimeout(function() {
       elem.addClass('jump');
     }, 10);
 
