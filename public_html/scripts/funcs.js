@@ -65,13 +65,16 @@ function TransFormAnim(elem) {
     }, 100);
 }
 
-function setTransFormAnim(elem) {
+function setTransFormAnim2(elem) {
     elem.on("click touchstart", function() {
 
         TransFormAnim(elem);
 
     });
 }
+
+
+
 
 
 function topersiannumber(str) {
@@ -1988,4 +1991,34 @@ $(document).ready(function() {
         console.log("appback called is app");
           myhistor.back(lvl*-1);
       }
+  }
+
+
+
+
+  function setTransFormAnim(elem) {
+    elem.on("click touchstart", function() {
+
+        createRipple(elem[0]);
+
+    });
+}
+
+
+ 
+  function createRipple(button) {
+   
+  
+    var circle = document.createElement("span");
+    var diameter = Math.max(button.clientWidth, button.clientHeight);
+    var radius = diameter / 2;
+  
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+    circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+    circle.classList.add("ripple");
+
+    $(".ripple").removeClass("ripple");
+  
+    button.appendChild(circle);
   }
