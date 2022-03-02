@@ -1163,7 +1163,7 @@ this.onLoad = function() {
 
         var exdays = 10;
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        let expires = "expires=" + d.toUTCString();
+        var expires = "expires=" + d.toUTCString();
 
 
        // console.log("coockeset");
