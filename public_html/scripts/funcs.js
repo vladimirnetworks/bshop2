@@ -332,9 +332,12 @@ myhistor.back = function(tot) {
        
     }
     
+    console.log("tot :"+tot);
+
 
    for (var i = 0 ; i < tot ;i++) {
 
+    console.log("i :"+i);
         var poped = myhistor.state.pop();  
         myhistor.onpop(myhistor.state[myhistor.state.length-1]);
 
