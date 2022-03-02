@@ -680,7 +680,7 @@ if (island()) {
     $('.dim').click(function () {
      
       //history.back();
-      appback(1);
+      appback(-1);
    
     });
 
@@ -921,7 +921,7 @@ window.addEventListener('popstate',myhistor.onpop);
 
 $("#backnumber").click(function () {
   //history.back();
-  appback(1);
+  appback(-1);
 });
 
     $("#usernumber_form").on('submit',function () {
@@ -1019,7 +1019,7 @@ $("#submitaddress").click(function () {
 
 $("#backaddress").click(function () {
   //history.back();
-  appback(1);
+  appback(-1);
 });
 
 var sndaddress = function () {

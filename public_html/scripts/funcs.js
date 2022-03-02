@@ -423,7 +423,7 @@ function oproduct(p) {
    
     back.click(function() {
         //history.back();
-        appback(1);
+        appback(-1);
     });
 
     srch.click(function() {
@@ -1276,7 +1276,7 @@ $("body").append(dim);
        dialog_cont.click(function(e) {
            
             //history.back();
-            appback(1);
+            appback(-1);
             return false;
         });
        
@@ -1441,7 +1441,7 @@ function offlinepay2() {
 
     myorder.orderid=null;xcart.empty();
     //history.back();
-    appback(1);
+    appback(-1);
 
       //hpu({act:"showmyorders"});    
         loadmyorders();
@@ -1521,13 +1521,13 @@ function onlinepay(oid) {
 
 function onlinepay2() {
     //history.back();
-    appback(1);
+    appback(-1);
     setTimeout(function() {
     hpu({act:"waitforonlinepay"});
     var oid = myorder.orderid;
     myorder.orderid=null;xcart.empty();
     //history.back();
-    appback(1);
+    appback(-1);
 
        setTimeout(function() {
         opendialog('onlinepaydialog');
