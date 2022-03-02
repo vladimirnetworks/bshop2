@@ -1291,69 +1291,7 @@ $("body").append(dim);
 
 }
 
-function opendialog_sus(i, w = "80%", h = "80%") {
 
-    $(".dialog_container").hide();
-    if (!$("#"+i+"_container")[0]) {
-       
-    
-     //console.log("make it");
-  
-
-    var ddialog = $("#" + i).clone(true, true);
-  $("#" + i).remove();
-
-    //console.log(ddialog);
-    ddialog.css({ "display": "block" });
-
-    $(".dialog_container").hide();
-    
-
-    var dialog_cont = $('<div id="' + i + '_container" class="dialog_container" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1016;top: 0px;left:0px;display: flex;justify-content: center;align-items: center;"></div>');
-
-    var dialogbox = $('<div  id="' + i + '_box" style="transform: scale(0.8);transition: all 0.2s  cubic-bezier(0.175, 0.885, 0.32, 1.275) ;width:' + w + ';height:' + h + ';background-color:white;border-radius:1rem;border : 1px solid rgba(0,0,0,.2);padding: 1rem;margin-top: 40%;opacity:0"></div>');
-
-    dialogbox.click(function () {
-        return false;
-    });
-    dialogbox.append(ddialog);
-
-    setTimeout(function() {
-        dialogbox.css({ "margin-top": "unset", "opacity": "1", "transform": "scale(1.2)" });
-        setTimeout(function() {
-            dialogbox.css({ "transform": "scale(1)" });
-        }, 200)
-    }, 150);
-
-    dialog_cont.append(dialogbox);
-
-
-    
-    dialog_cont.click(function() {
-        //history.back();
-        appback();
-        return false;
-    });
-    $("body").append(dialog_cont);
-    
-} else {
-
-    //console.log("reload"+i);
-/**/
-$("#" + i + "_container").show();
-setTimeout(function() {
-var dialogbox = $("#" + i + '_box');
-dialogbox.css({ "margin-top": "unset", "transform": "scale(1)" });
-$("#" + i + "_container").css({ "opacity": "1" });
-},1000);
-/**/
-
-}
-$(".dialog_dim").remove();
-var dim = $('<div class="dialog_dim" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1003;background-color:black;top:0px;left:0px;opacity:0.5"></div>');
-$("body").append(dim);
-
-}
 
 //function onFinishorder() {
 //    //console.log("finished order");
