@@ -1046,7 +1046,7 @@ function api() {
     }
 
 
-    this.post = function(path, data, doin, onload = null) {
+    this.post = function(path, data, doin, onload) {
 
 
         /*
