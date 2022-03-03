@@ -1512,7 +1512,7 @@ function onlinepaygo(oid) {
 
     setTimeout(function() {
         gotopay(oid);
-           },500);
+           },1000);
 
 }
 
