@@ -1738,7 +1738,11 @@ function jumping(
     setTimeout(function() {
 
    
-
+        setTimeout(function() {
+            if (apptype() == 'androidapp') {
+            androidinterface.playmedias(0);
+            }
+        },500);
 
 
       xelem.animate(
@@ -1790,9 +1794,7 @@ function jumping(
 
 
 
-                    if (apptype() == 'androidapp') {
-                    androidinterface.playmedias(0);
-                    }
+        
 
 
                     if (jahat == 1 ) {
