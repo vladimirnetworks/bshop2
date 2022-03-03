@@ -20,9 +20,9 @@
 
 <div id="custompage_contactus" class="custompage" style="display:none">
 
-  <div style="direction: rtl;text-align:right;padding: 0.1rem;">
-     <h1>2تماس با ما</h1>
-    <div style="padding: 1rem;"> <p>شماره تماس : 42448787</p>
+  <div style="direction: rtl;text-align:right;padding: 0.5rem;">
+     <h1>تماس با ما</h1>
+    <div style="padding: 0.3rem;"> <p>شماره تماس : 42448787</p>
      <p>واتسپ : 09332999594</p>
 
      <p>آدرس :‌ لرستان - بروجرد- شهرک نیاوران دانش شمالی ، دانش ۶</p>
