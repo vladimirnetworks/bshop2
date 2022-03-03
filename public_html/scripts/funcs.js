@@ -7,6 +7,10 @@ function androidfirebasetoken(inp) {
 
 }
 
+function randomx(min, max) { 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
 function apptype() {
  if (navigator.userAgent.match(/androidwvapp/)) {
    return "androidapp";
@@ -1825,7 +1829,7 @@ function jumping(
 
                      setTimeout(function() {
                         if (apptype() == 'androidapp') {
-                        androidinterface.playmedias(1);
+                        androidinterface.playmedias(randomx(1,3));
                         }
                     },180);  
                     
