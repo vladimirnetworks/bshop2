@@ -1258,17 +1258,32 @@ function shakeAnim(elem) {
 }
 
 function closedialog(i) {
-    $("#"+i+"_container").hide();
+   
+
+    setTimeout(function() {
+        $("#"+i+"_box").css({"transform":"translateY(-100%)"});
+
+        setTimeout(function() {
+           $("#"+i+"_container").hide();
+           $("#"+i+"_box").css({"transform":"translateY(100%)"});
+        },0.1);
+     
+
+    },10);
+
     $(".dialog_dim").remove();
 }
 function opendialog(i) {
 
-    var w = "80%";
+    var w = "95%";
     var h = "80%";
 
 $(".dialog_dim").remove();
-var dim = $('<div class="dialog_dim" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1003;background-color:black;top:0px;left:0px;opacity:0.8"></div>');
+var dim = $('<div class="dialog_dim" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1003;background-color:black;top:0px;left:0px;opacity:0"></div>');
 $("body").append(dim);
+setTimeout(function() {
+    dim.css({"opacity":"0.8"});
+},10);
 
     if (!$("#"+i+"_container")[0]) {
 
@@ -1276,10 +1291,14 @@ $("body").append(dim);
         $("#" + i).remove();
 
         var dialog_cont = $('<div id="' + i + '_container" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1016;top: 0px;left:0px;display: flex;justify-content: center;align-items: flex-start;overflow:auto"></div>');
-        var dialogbox = $('<div id="' + i + '_box" style="width:' + w + ';background-color:white;border-radius:1rem;border : 1px solid rgba(0,0,0,.2);padding: 1rem;margin-top:auto;margin-bottom:auto"></div>');
+        var dialogbox = $('<div id="' + i + '_box" style="transform:translateY(100%);transition: all 0.1s ease-out;width:' + w + ';background-color:white;border-radius:1rem;border : 1px solid rgba(0,0,0,.2);padding: 0.2rem;margin-top:auto;margin-bottom:auto"></div>');
         dialogbox.click(function (e) {
             e.stopPropagation();
         });
+
+        setTimeout(function() {
+            dialogbox.css({"transform":"translateY(0%)"});
+        },10);
 
         dialogent.css({"display":"block"});
         dialogbox.append(dialogent);
@@ -1295,7 +1314,15 @@ $("body").append(dim);
         $("body").append(dialog_cont);
         
     } else {
+
+
+
         $("#"+i+"_container").show();
+
+        setTimeout(function() {
+            $("#"+i+"_box").css({"transform":"translateY(0%)"});
+        },10);
+
     }
 
     if (dialog_do.hasOwnProperty(i)) {

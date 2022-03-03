@@ -888,10 +888,10 @@ window.addEventListener('popstate',myhistor.onpop);
 
 
           <div style="display: flex;flex-direction:column;align-items:center;">
-            <input id="usernumber" type="number" class="minpt" style="width:100%;flex-grow:1; "
+            <input id="usernumber" type="number" class="minpt" style="width:80%;flex-grow:1; "
               placeholder="شماره تماس" />
 
-            <div style="display:flex;width: 100%;justify-content: space-between;">
+            <div style="display:flex;width: 80%;justify-content: space-between;">
               <div id="backnumber" class="dialogbtn dialogbtngrey" style="margin-top:1rem"> قبلی </div>
               <div id="submitnumber" class="dialogbtn dialogbtnblue" style="margin-top:1rem">ادامه 
 
@@ -1093,7 +1093,7 @@ return false;
         <div style="display: flex;    justify-content: space-around;width: 100%;flex-direction:column">
           <button class="dialogbtn dialogbtnblue" style="margin-bottom:1rem" onclick="onlinepay(myorder.orderid)">پرداخت آنلاین</button>
 
-          <button class="dialogbtn dialogbtnblue" onclick="offlinepay()">پرداخت درمحل</button>
+          <button class="dialogbtn dialogbtnblue" style="margin-bottom:1rem" onclick="offlinepay()">پرداخت درمحل</button>
         </div>
 
     </div>
@@ -1116,7 +1116,7 @@ ordc.empty();
             }
             */
            var bbtm= "";
-            var itm = $('<div style="display:flex;align-items: center; justify-content: space-around;padding-bottom:0.5rem;padding-top:0.5rem; '+bbtm+'"></div>');
+            var itm = $('<div style="display:flex;align-items: center; justify-content: space-around;padding-bottom:0.5rem;padding-top:0.5rem;border-bottom:1px solid #c3c3c3; '+bbtm+'"></div>');
 
             itm.append('<div style="font-size:80%;width:70%;text-align:right">'+prod.tinytitle+' ('+topersiannumber(prod.count)+' عدد)</div>');
        
