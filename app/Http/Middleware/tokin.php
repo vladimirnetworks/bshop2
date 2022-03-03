@@ -55,13 +55,17 @@ class tokin
             time() + (10 * 365 * 24 * 60 * 60)
             ,"/"/*,$hostx*/
           );
+
+          return ["x_address"=>$hash,"base_address"=>$id];
      }
 
     public function handle(Request $request, Closure $next)
     {
 
         if (!isset($_COOKIE['x_address']) || !isset($_COOKIE['base_address'])) {
-              $this->makeme();              
+            $newisme =   $this->makeme();   
+           
+            $request->merge(array("x_address" => $newisme['x_address'],"base_address" => $newisme['base_address']));           
         } else {
             
             $id =  base_convert($_COOKIE['base_address'],33,10);
@@ -70,8 +74,10 @@ class tokin
             $whoiam = liteauth::where([["id",'=',$id],['hash','=',$_COOKIE['x_address']]]);
 
             if (!isset($whoiam->get()[0]['id'])) {
-                 $this->makeme();
-            } 
+                $newisme = $this->makeme();
+                 $request->merge(array("x_address" => $newisme['x_address'],"base_address" => $newisme['base_address']));
+        
+                } 
 
         }
 
