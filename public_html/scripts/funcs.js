@@ -450,9 +450,17 @@ function oproduct(p) {
 
     var photoitems = [];
     var photoitems2 = [];
+    var fisrtimage = "";
+    if (!p.flyphoto) {
    
-    var fisrtimage = "https://trns-bbn.apps.ir-thr-at1.arvan.run/?name=https://www.behkiana.ir/"+photgals[0].medium;
+     fisrtimage = "https://trns-bbn.apps.ir-thr-at1.arvan.run/?name=https://www.behkiana.ir/"+photgals[0].medium;
     
+    } else {
+
+         fisrtimage = "https://www.behkiana.ir/"+p.flyphoto;
+
+    }
+
     for (var i = 0; i < photgals.length; i++) {
         photoitems.push('<div class="myitem"><img style="width:100%" src="https://www.behkiana.ir/' + photgals[i].medium + '"  /></div>');  
         photoitems2.push('<div class="myitem"><img style="width:100%" src="https://www.behkiana.ir/' + photgals[i].medium + '"  /></div>');
