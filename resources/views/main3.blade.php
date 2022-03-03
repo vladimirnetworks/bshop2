@@ -1171,7 +1171,7 @@ ordc.empty();
 
   <div class="dialog" id="onlinepaydialog">
 
-    <div style="width: 100%;text-align:center">
+    <div style="width: 100%;text-align:center;direction:rtl;padding-top:2rem;padding-bottom:2rem">
     
       در حال اتصال به درگاه ...
 

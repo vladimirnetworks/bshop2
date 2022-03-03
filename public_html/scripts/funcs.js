@@ -1506,9 +1506,14 @@ function offlinepay() {
 function onlinepaygo(oid) {
 
     
+    
     hpu({act:"waitforonlinepay"});  
     opendialog('onlinepaydialog');
-    gotopay(oid);
+
+    setTimeout(function() {
+        gotopay(oid);
+           },500);
+
 }
 
 function gotopay(oid) {
@@ -1552,7 +1557,7 @@ function onlinepay(oid) {
 
         setTimeout(function() {
          gotopay(oid);
-         },1000*90000);
+         },500);
         
 
     },1000);
