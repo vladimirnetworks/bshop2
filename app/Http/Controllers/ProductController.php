@@ -81,7 +81,11 @@ class ProductController extends Controller
 
     public function flymaker($pid) {
         $prd = Product::whereId($pid)->first();
-        dd($prd->photos);
+       
+        $pp=json_decode($prd->photos,true);
+
+        $ppurl = 'https://www.behkiana.ir/'.$pp[0]['small'];
+        dd($ppurl);
     }
 
     public function relateto($prodid)
