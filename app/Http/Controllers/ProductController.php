@@ -81,7 +81,7 @@ class ProductController extends Controller
 
     public function flymaker($pid) {
         $prd = Product::whereId($pid)->first();
-        dd($prd->photo);
+        dd($prd);
     }
 
     public function relateto($prodid)
