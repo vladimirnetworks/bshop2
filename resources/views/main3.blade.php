@@ -28,6 +28,11 @@
      <p>آدرس :‌ لرستان - بروجرد- شهرک نیاوران دانش شمالی ، دانش ۶</p>
 
 
+     <div style="text-align:center">
+      <a referrerpolicy="origin" id="enamadlink" target="_blank" href="https://trustseal.enamad.ir/?id=244136&amp;Code=NAYvp5VDiHI1pstposy1"><img style="width:100%" referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=244136&amp;Code=NAYvp5VDiHI1pstposy1" alt="" id="NAYvp5VDiHI1pstposy1"></a>
+
+    </div>
+
     </div>
 
        <!--
