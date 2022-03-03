@@ -56,7 +56,8 @@ function addtocart(p) {
             title: p.title,
             tinytitle: p.tinytitle,
             price: parseInt(p.price),
-            photos:p.photos
+            photos:p.photos,
+            flyphoto:p.flyphoto,
         });
     } else {
         xcart.changeCount(p.id, parseInt(itm.count) + 1);

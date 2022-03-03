@@ -352,7 +352,17 @@ var notinbasket = itm.count - checkinbasket(itm.id);
 
 if (notinbasket > 0) {
 for (var i = 0 ; i<notinbasket;i++) {
-var ff = flymaker("https://trns-bbn.apps.ir-thr-at1.arvan.run/?name=https://www.behkiana.ir/"+JSON.parse(itm.photos)[0]['medium']);
+
+  var fimg = "https://trns-bbn.apps.ir-thr-at1.arvan.run/?name=https://www.behkiana.ir/"+JSON.parse(itm.photos)[0]['medium'];
+
+if (typeof itm.flyphoto !== 'undefined' && itm.flyphoto != null) {
+  fimg = "https://www.behkiana.ir/"+itm.flyphoto;
+} else {
+   fimg = "https://trns-bbn.apps.ir-thr-at1.arvan.run/?name=https://www.behkiana.ir/"+JSON.parse(itm.photos)[0]['medium'];
+
+}
+
+var ff = flymaker();
 ff.attr("data-productid",itm.id);
 addtobasket(ff,delay);
 }
