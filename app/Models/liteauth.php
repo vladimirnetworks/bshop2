@@ -13,7 +13,7 @@ class liteauth extends Model
     public static function me()
     {
 
-        if ($_COOKIE['base_address'] && $_COOKIE['x_address']) {
+        if (isset($_COOKIE['base_address']) && isset($_COOKIE['x_address'])) {
             $baseaddress = $_COOKIE['base_address'];
             $xaddress = $_COOKIE['x_address'];
         } else if (isset($_POST['me'])) {
