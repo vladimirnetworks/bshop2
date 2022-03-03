@@ -1790,6 +1790,9 @@ function jumping(
 
 
 
+                    if (apptype() == 'androidapp') {
+                    androidinterface.playmedias(0);
+                    }
 
 
                     if (jahat == 1 ) {
@@ -2015,6 +2018,10 @@ $(document).ready(function() {
 
     if (apptype() == 'androidapp') {
         androidinterface.setliteauthid(me());
+
+        androidinterface.createmedias("https://www.behkiana.ir/p.mp3");
+        
+
     }
     
 
