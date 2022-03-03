@@ -45,8 +45,13 @@ Route::get('/contactus', function() {
 
 
 
+
 Route::get('/200297.txt',function() {
     return "";
+});
+
+Route::get('/enamad',function() {
+    return view("enamad2");
 });
 
 
