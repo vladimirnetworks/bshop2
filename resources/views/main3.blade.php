@@ -981,7 +981,7 @@ return false;
   <div class="dialog" id="dialog2">
 
 
-    <div style="display:flex;align-items: center;justify-content: center;">
+    <div style="display:flex;align-items: center;justify-content: center;padding:1rem">
 
       <div style="text-align:center;padding-top:2rem;padding-bottom:2rem;width: 100%;">
 
