@@ -120,7 +120,11 @@ class ProductController extends Controller
 
         }
 
-        return ["data" => Product::findMany($prd)];
+        if (isset($prd) && count($prd) > 0) {
+         return ["data" => Product::findMany($prd)];
+        } else {
+            return ["data" => null];
+        }
     }
 
     public function index(Request $request)
