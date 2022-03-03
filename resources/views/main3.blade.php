@@ -362,7 +362,7 @@ if (typeof itm.flyphoto !== 'undefined' && itm.flyphoto != null) {
 
 }
 
-var ff = flymaker();
+var ff = flymaker(fimg);
 ff.attr("data-productid",itm.id);
 addtobasket(ff,delay);
 }
