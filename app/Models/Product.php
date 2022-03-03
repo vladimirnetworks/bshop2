@@ -20,7 +20,8 @@ class Product extends Model
         'photo',
         'caption',
         'searchkey',
-        'instagramed'
+        'instagramed',
+        'flyphoto'
 
     ];
 

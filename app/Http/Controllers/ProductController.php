@@ -86,7 +86,11 @@ class ProductController extends Controller
 
         $ppurl = 'https://trns-bbn.apps.ir-thr-at1.arvan.run/?name=https://www.behkiana.ir/'.$pp[0]['small'];
 
-        copy($ppurl,"photos/fly_".basename($pp[0]['small']).".png");
+        $ffnm = "photos/fly_".basename($pp[0]['small']).".png";
+        copy($ppurl,$ffnm);
+
+        $prd->flyphoto = $ffnm;
+        $prd->save();
        
     }
 
