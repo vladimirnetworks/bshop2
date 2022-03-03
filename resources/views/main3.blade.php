@@ -1090,10 +1090,10 @@ return false;
         
         <div id="totalfactornow" style="margin-bottom:1rem"></div>
 
-        <div style="display: flex;    justify-content: space-around;width: 100%;flex-direction:column">
-          <button class="dialogbtn dialogbtnblue" style="margin-bottom:1rem" onclick="onlinepay(myorder.orderid)">پرداخت آنلاین</button>
+        <div style="display: flex;    justify-content: space-around;width: 100%;flex-direction:column;align-items: center;">
+          <button class="dialogbtn dialogbtnblue" style="margin-bottom:1rem;width:70%" onclick="onlinepay(myorder.orderid)">پرداخت آنلاین</button>
 
-          <button class="dialogbtn dialogbtnblue" style="margin-bottom:1rem" onclick="offlinepay()">پرداخت درمحل</button>
+          <button class="dialogbtn dialogbtnblue" style="margin-bottom:1rem;width:70%" onclick="offlinepay()">پرداخت درمحل</button>
         </div>
 
     </div>

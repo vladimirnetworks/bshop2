@@ -1261,12 +1261,12 @@ function closedialog(i) {
    
 
     setTimeout(function() {
-        $("#"+i+"_box").css({"transform":"translateY(-100%)"});
+        $("#"+i+"_box").css({"transform":"translateY(-100%)","opacity":"0"});
 
         setTimeout(function() {
            $("#"+i+"_container").hide();
            $("#"+i+"_box").css({"transform":"translateY(100%)"});
-        },0.1);
+        },150);
      
 
     },10);
@@ -1291,13 +1291,13 @@ setTimeout(function() {
         $("#" + i).remove();
 
         var dialog_cont = $('<div id="' + i + '_container" style="transition: all 0.2s;position: fixed;width:100%;height:100%;z-index: 1016;top: 0px;left:0px;display: flex;justify-content: center;align-items: flex-start;overflow:auto"></div>');
-        var dialogbox = $('<div id="' + i + '_box" style="transform:translateY(100%);transition: all 0.1s ease-out;width:' + w + ';background-color:white;border-radius:1rem;border : 1px solid rgba(0,0,0,.2);padding: 0.2rem;margin-top:auto;margin-bottom:auto"></div>');
+        var dialogbox = $('<div id="' + i + '_box" style="opacity:0;transform:translateY(100%);transition: all 0.15s ease-out;width:' + w + ';background-color:white;border-radius:1rem;border : 1px solid rgba(0,0,0,.2);padding: 0.2rem;margin-top:auto;margin-bottom:auto"></div>');
         dialogbox.click(function (e) {
             e.stopPropagation();
         });
 
         setTimeout(function() {
-            dialogbox.css({"transform":"translateY(0%)"});
+            dialogbox.css({"transform":"translateY(0%)","opacity":"1"});
         },10);
 
         dialogent.css({"display":"block"});
@@ -1320,7 +1320,7 @@ setTimeout(function() {
         $("#"+i+"_container").show();
 
         setTimeout(function() {
-            $("#"+i+"_box").css({"transform":"translateY(0%)"});
+            $("#"+i+"_box").css({"transform":"translateY(0%)","opacity":"1"});
         },10);
 
     }
