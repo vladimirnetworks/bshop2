@@ -2071,7 +2071,7 @@ $(document).ready(function() {
  
   function createRipple(button) {
    
-  
+  /*
     
     var circle = document.createElement("span");
     var diameter = Math.max(button.clientWidth, button.clientHeight);
@@ -2088,4 +2088,5 @@ $(document).ready(function() {
    
   
     button.appendChild(circle);
+    */
   }
