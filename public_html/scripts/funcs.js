@@ -1505,7 +1505,7 @@ function offlinepay() {
 
 function onlinepaygo(oid) {
 
-    
+    appback(-1);
     
     hpu({act:"waitforonlinepay"});  
     opendialog('onlinepaydialog');
