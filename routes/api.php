@@ -82,3 +82,7 @@ Route::get('setbaseaddress', function(Request $request) {
   }
 
 });
+
+
+
+Route::get('flyphoto/{pid}', 'App\Http\Controllers\ProductController@flymaker');

@@ -78,6 +78,12 @@ class ProductController extends Controller
     }
 
 
+
+    public function flymaker($pid) {
+        $prd = Product::whereId($pid)->first();
+        dd($prd->photo);
+    }
+
     public function relateto($prodid)
     {
         $rels = Relish::whereProductId($prodid)->orderBy('cat_id', 'ASC')->get(['cat_id']);
