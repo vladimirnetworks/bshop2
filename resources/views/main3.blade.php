@@ -20,7 +20,7 @@
 
 <div id="custompage_contactus" class="custompage" style="display:none">
 
-  <div style="direction: rtl;text-align:right;padding: 1rem;">
+  <div style="direction: rtl;text-align:right;padding: 0.5rem;">
      <h1>تماس با ما</h1>
     <div style="padding: 1rem;"> <p>شماره تماس : 42448787</p>
      <p>واتسپ : 09332999594</p>
