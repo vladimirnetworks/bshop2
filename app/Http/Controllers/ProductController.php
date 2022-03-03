@@ -84,7 +84,8 @@ class ProductController extends Controller
        
         $pp=json_decode($prd->photos,true);
 
-        $ppurl = 'https://www.behkiana.ir/'.$pp[0]['small'];
+        $ppurl = 'https://trns-bbn.apps.ir-thr-at1.arvan.run/?name=https://www.behkiana.ir/'.$pp[0]['medium'];
+
         dd($ppurl);
     }
 
