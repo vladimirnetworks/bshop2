@@ -1033,10 +1033,12 @@ function api() {
                 }
 
                 var ihve = false;
+            if (data.data != null) {
                 for (var i = 0; i < data.data.length; i++) {
                     doin(data.data[i]);
                     ihve = true;
                 }
+            }
 
 
                
