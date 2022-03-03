@@ -12,7 +12,7 @@
   <div style="height:100vh;display:flex;flex-direction:column;align-items:center;justify-content: center;text-align:center;direction:rtl">
 
 
-    <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=244136&amp;Code=NAYvp5VDiHI1pstposy1"><img  referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=244136&amp;Code=NAYvp5VDiHI1pstposy1" alt="" id="NAYvp5VDiHI1pstposy1"></a>
+    <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=244136&Code=NAYvp5VDiHI1pstposy1"><img  referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=244136&Code=NAYvp5VDiHI1pstposy1" alt="" id="NAYvp5VDiHI1pstposy1"></a>
 <br>
 برای مشاهده نماد روی لوگوی اینماد کلیک کنید
 <br>
