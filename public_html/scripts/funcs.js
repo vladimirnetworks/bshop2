@@ -1822,6 +1822,12 @@ function jumping(
                        
                       });
 
+
+                     setTimeout(function() {
+                        if (apptype() == 'androidapp') {
+                        androidinterface.playmedias(1);
+                        }
+                    },180);  
                     
 
                      // addtobasket(inbasket);
@@ -2022,6 +2028,9 @@ $(document).ready(function() {
         androidinterface.setliteauthid(me());
 
         androidinterface.createmedias("https://www.behkiana.ir/p.mp3");
+        androidinterface.createmedias("https://www.behkiana.ir/fall1.mp3");
+        androidinterface.createmedias("https://www.behkiana.ir/fall2.mp3");
+        androidinterface.createmedias("https://www.behkiana.ir/fall3.mp3");
         
 
     }
