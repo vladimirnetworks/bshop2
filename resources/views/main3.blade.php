@@ -226,7 +226,7 @@ $(document).ready(function() {
 
         /**/
         toyou("preorder", xcart.items(), function(res) {
-         console.log(res.data.id);
+
       
          
 
@@ -268,7 +268,7 @@ $(document).ready(function() {
          
         },
         error: function(jqXHR, textStatus, errorThrown) {
-           console.log(textStatus, errorThrown);
+
         }
     });
     
@@ -321,12 +321,7 @@ $("#totalcart").text(farsi_price(tot.amount));
 
 var notinbasket = itm.count - checkinbasket(itm.id);
 
-//error is here
-console.log('error is here');
-console.log(itm);
-console.log(itm.photos);
-console.log(JSON.parse(itm.photos));
-//console.log(JSON.parse(itm.photos[0]['medium']));
+
 
 if (notinbasket > 0) {
 for (var i = 0 ; i<notinbasket;i++) {
@@ -340,7 +335,7 @@ addtobasket(ff,delay);
 if (notinbasket < 0) {
 
 for (var i = 0 ; i<notinbasket*-1;i++) {
-console.log("remove "+itm.id+" ");
+
 $("div[data-productid='"+itm.id+"']")[0].remove();
 }
 }
@@ -358,14 +353,14 @@ $("div[data-productid='"+itm.id+"']")[0].remove();
 };
 
 xcart.onLoad = function() {
- console.log("loaded");
+
  visualBasketfunc(0);
  renderbigcartview();
 };
 
 
 xcart.addOnItemDeletedListener(function(prodid) {
-   console.log("deleted",prodid);
+
    $("div[data-productid='"+prodid+"']").remove();
 });
 
@@ -557,7 +552,7 @@ xcart.addChangeListener(function () {
          
         },
         error: function(jqXHR, textStatus, errorThrown) {
-           console.log(textStatus, errorThrown);
+  
         }
     });
     
@@ -626,7 +621,7 @@ xcart.addChangeListener(function () {
 
     function halfopenmenu() {
 
-      console.log("halfopenmenu called");
+
 closealldialogs();
 
 //$('.dim').fadeIn();
@@ -690,7 +685,7 @@ if (island()) {
     $('.bottom').click(function () {
       if (!mmenu.open) {
       openmenu();
-      console.log("bottom clicked");
+
       hpu({ act: "cartup"});
       }
     });
@@ -698,7 +693,7 @@ if (island()) {
 
 myhistor.onpop = function(event) {
 
-console.log(event);
+
 
   if (typeof event === 'undefined' || typeof event.state === 'undefined' || event.state == null) {
        llist("index");      
@@ -717,7 +712,7 @@ console.log(event);
 
 
         if (event.state.act == 'product') {
-          console.log(event.state.prod);
+   
           oproduct(event.state.prod);
           
         }
@@ -794,7 +789,7 @@ window.addEventListener('popstate',myhistor.onpop);
 
 
         if (event.state.act == 'product') {
-          console.log(event.state.prod);
+     
           oproduct(event.state.prod);
           
         }
@@ -854,9 +849,9 @@ window.addEventListener('popstate',myhistor.onpop);
 
 
       if (event.state != null) {
-         console.log("back called "+event.state.act);
+
       } else {
-        console.log("back called null");
+
       }
     });
     */

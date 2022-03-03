@@ -322,7 +322,7 @@ myhistor.pushstate = function (v,t) {
 }
 
 myhistor.onpop = function(act) {
-  ////console.log(act);
+ 
 }
 
 myhistor.ended = "true";
@@ -335,12 +335,12 @@ myhistor.back = function(tot) {
        
     }
     
-    console.log("tot :"+tot);
+
 
 
    for (var i = 0 ; i < tot ;i++) {
 
-    console.log("i :"+i);
+   
         var poped = myhistor.state.pop();  
         myhistor.onpop(myhistor.state[myhistor.state.length-1]);
 
@@ -359,7 +359,7 @@ myhistor.back = function(tot) {
 
 
 function hpu(xact) {
-    //console.log("added " + xact.act);
+ 
     chpu = xact.act;
     // history.pushState(xact, xact.act, "?" + xact.act);
     history.pushState(xact, xact.act,window.location);
@@ -659,7 +659,7 @@ function oproduct(p) {
 
     if (p.hasOwnProperty('dval2')) {
       //eval(p.dval2);
-      // console.log(p.dval2);
+
     }
 
 
@@ -886,7 +886,7 @@ function llist(path) {
 
 
 function ssearchbox() {
-   // console.log("ssearchboxssearchbox");
+
 
     var rt = r();
     var srch = $('<div class="srchbox products"></div>');
@@ -980,7 +980,7 @@ function api() {
             }
 
             if (onnothing !=null && self.xcache[self.api + path].data.length == 0) {
-              //  console.log("call on nothing api cache");
+
                 onnothing(self.xcache[self.api + path].data);
             }
 
@@ -1006,7 +1006,7 @@ function api() {
             });
 */
 
-//console.log(this.api + path);
+
 
             $.ajax({
                 type: "get",
@@ -1049,7 +1049,7 @@ function api() {
 
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    ///console.log(errorThrown);
+
                 }});
 
 
@@ -1113,7 +1113,7 @@ function Cart() {
     }
 
 this.onLoad = function() {
- //console.log("override me I am onload");
+
 }
     this.empty = function() {
 
@@ -1181,7 +1181,7 @@ this.onLoad = function() {
         var expires = "expires=" + d.toUTCString();
 
 
-       // console.log("coockeset");
+
         document.cookie = "zcart=" + JSON.stringify(this.prods) + ';' + expires + '; path=/';
 
         for (i = 0; i < self.changeListeners.length; i++) {
@@ -1261,11 +1261,11 @@ function closedialog(i) {
    
 
     setTimeout(function() {
-        $("#"+i+"_box").css({"transform":"translateY(-100%)","opacity":"0"});
+        $("#"+i+"_box").css({"opacity":"0"});
 
         setTimeout(function() {
            $("#"+i+"_container").hide();
-           $("#"+i+"_box").css({"transform":"translateY(100%)"});
+          // $("#"+i+"_box").css({"transform":"translateY(100%)"});
         },150);
      
 
@@ -1297,7 +1297,7 @@ setTimeout(function() {
         });
 
         setTimeout(function() {
-            dialogbox.css({"transform":"translateY(0%)","opacity":"1"});
+            dialogbox.css({"opacity":"1"});
         },10);
 
         dialogent.css({"display":"block"});
@@ -1320,7 +1320,7 @@ setTimeout(function() {
         $("#"+i+"_container").show();
 
         setTimeout(function() {
-            $("#"+i+"_box").css({"transform":"translateY(0%)","opacity":"1"});
+            $("#"+i+"_box").css({"opacity":"1"});
         },10);
 
     }
@@ -1336,7 +1336,7 @@ setTimeout(function() {
 
 
 //function onFinishorder() {
-//    //console.log("finished order");
+
 //}
 
 shippingstatus = [];
@@ -1357,7 +1357,7 @@ function loadmyorders() {
 
 
  apix.get("myorders", function(vals) {
-     //console.log(vals);
+
 
      var orderitem = $('<div style="flex-basis:4.5rem;display:flex;direction:rtl;align-items: center;justify-content: space-around; background-color:#ffa400;margin:0.5rem;border-radius:1rem;padding-bottom:0.2rem;padding-top:0.2rem"></div>');
 
@@ -1540,7 +1540,7 @@ function gotopay(oid) {
          
         },
         error: function(jqXHR, textStatus, errorThrown) {
-           //console.log(textStatus, errorThrown);
+
         }
     });
 }
@@ -1747,7 +1747,7 @@ function jumping(
               var a2 = toDeg / 57.296;
             }
 
-  //console.log("vertAhrom "+HorizAhrom);
+
 
             var ya = Math.sin(a) * VertAhrom;
             var xa = Math.cos(a2) * HorizAhrom;
@@ -1764,19 +1764,19 @@ function jumping(
                 left: xp + HorizAhrom * jahat + xa * jahat,
               });
 
-              //console.log("rr");
+
           
 
           } else {
 
                if (!end) {
                     end = true;
-                    //console.log("end");
+
 
                     var gotohell;
 
 
-                    //console.log("jahat "+jahat);
+
 
 
                     if (jahat == 1 ) {
@@ -1923,14 +1923,14 @@ function jumping_sus(
                 left: xp + HorizAhrom * jahat + xa * jahat,
               });
 
-              //console.log("rr");
+
           
 
           } else {
 
                if (!end) {
                     end = true;
-                    //console.log("end");
+
 
                     var gotohell;
 
@@ -2014,16 +2014,16 @@ $(document).ready(function() {
     isbrowser = false;
   }
   function appback(lvl) {
-      console.log("appback called");
+
       if (isbrowser) {
-        console.log("appback called is browser");
+ 
          if (lvl ==1) {
            history.back(1);
          } else {
             window.history.go(lvl);
          }
       } else {
-        console.log("appback called is app");
+
           myhistor.back(lvl*-1);
       }
   }
