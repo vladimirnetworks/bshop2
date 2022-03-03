@@ -1742,7 +1742,7 @@ function jumping(
             if (apptype() == 'androidapp') {
             androidinterface.playmedias(0);
             }
-        },500);
+        },250);
 
 
       xelem.animate(
