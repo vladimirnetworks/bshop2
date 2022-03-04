@@ -1222,7 +1222,9 @@ this.onLoad = function() {
         document.cookie = "zcart=" + JSON.stringify(this.prods) + ';' + expires + '; path=/';
 
         if (apptype() == 'androidapp') {
+            if (typeof androidinterface.flshcookie !== "undefined") { 
             androidinterface.flshcookie();
+            }
          }
 
 
@@ -2049,7 +2051,11 @@ function appload() {
                 success: function(res) {
                  
                     androidinterface.setliteauthid(res);
-                    androidinterface.flshcookie();
+                
+
+                    if (typeof androidinterface.flshcookie !== "undefined") { 
+                        androidinterface.flshcookie();
+                    }
                 }
             });
          }
