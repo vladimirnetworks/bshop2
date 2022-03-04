@@ -2012,7 +2012,8 @@ function jumping_sus(
   }
 function appload() {
     llist("index",function() {
-      
+     
+        /*
     $.ajax({
         url: "/api/myorders?latest=true",
         type: 'GET',
@@ -2028,7 +2029,7 @@ function appload() {
             $.ajax({
                 url: "/api/whoisme",
                 type: 'GET',
-                dataType: 'json', // added data type
+                dataType: 'json', 
                 success: function(res) {
                  
                     androidinterface.setliteauthid(res);
@@ -2038,6 +2039,9 @@ function appload() {
            
         }
     });
+
+
+    */
     });
 
     /*setTimeout(function () {
