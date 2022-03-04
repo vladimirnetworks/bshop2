@@ -228,7 +228,7 @@ class OrderController extends Controller
 
     public function indexapitest()
     {
-          dd(liteauth::me()->orders->get(1));
+          dd(liteauth::me()->orders->first());
     }
 
     public function indexapi()
