@@ -2014,7 +2014,7 @@ function appload() {
     llist("index",function() {
      
        
-    $.ajax({
+    /*$.ajax({
         url: "/api/myorders?latest=true",
         type: 'GET',
         dataType: 'json', 
@@ -2038,7 +2038,7 @@ function appload() {
          }
            
         }
-    });
+    });*/
 
 
    
