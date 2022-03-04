@@ -2038,7 +2038,7 @@ $(document).ready(function() {
         apix.get("myorders?latest=true", function(vals) {
             $("#oorder").show();
         },null,null);
-    },6000);
+    },1);
 
 
 
