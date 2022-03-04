@@ -2015,7 +2015,7 @@ function appload() {
      
        
     $.ajax({
-        url: "https://www.behkiana.ir/api/myorders?latest=true",
+        url: "/api/myorders?latest=true",
         type: 'GET',
         dataType: 'json', 
         success: function(res) {
@@ -2027,7 +2027,7 @@ function appload() {
          if (apptype() == 'androidapp') {
            
             $.ajax({
-                url: "https://www.behkiana.ir/api/whoisme",
+                url: "/api/whoisme",
                 type: 'GET',
                 dataType: 'json', 
                 success: function(res) {
