@@ -20,9 +20,31 @@ Route::get('/android-web-appver', function () {
 
 Route::get('/androidwebapp-{id}', "App\Http\Controllers\mainPageController@index33");
 
-Route::get('/', "App\Http\Controllers\mainPageController@index")->middleware('tokin');
+
+
+
+Route::get('/', "App\Http\Controllers\mainPageController@index33")->middleware('tokin');
 Route::get('/index2', "App\Http\Controllers\mainPageController@index22")->middleware('tokin');
 Route::get('/index33', "App\Http\Controllers\mainPageController@index33")->middleware('tokin');
+
+
+Route::get('/debb', function() {
+
+    date_default_timezone_set("Asia/Tehran");
+    $t = date("H:i:s");
+   
+    $txt = "";
+    if (!isset($_COOKIE['debtime'])) {
+        setcookie('debtime', $t, time() + (60*60*24*10), "/"); 
+        $txt = "new cookie set";
+    } else {
+        $txt = $_COOKIE['debtime'];
+    }
+
+    return  $txt;
+});
+
+
 
 
 Route::get('/cat/{cat}', "App\Http\Controllers\mainPageController@index")->middleware('tokin');
