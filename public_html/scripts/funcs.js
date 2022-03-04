@@ -2031,6 +2031,20 @@ setInterval(function () {
 }
 
 
+function whoisme() {
+    $.ajax({
+        url: "/api/whoisme",
+        type: 'GET',
+        dataType: 'json', // added data type
+        success: function(res) {
+            console.log(res);
+            androidinterface.setliteauthid(res);
+        }
+    });
+
+}
+
+
 $(document).ready(function() {
 
 
@@ -2050,15 +2064,6 @@ $(document).ready(function() {
        
 
 
-        $.ajax({
-            url: "/api/whoisme",
-            type: 'GET',
-            dataType: 'json', // added data type
-            success: function(res) {
-               
-                androidinterface.setliteauthid(res);
-            }
-        });
 
 
 
