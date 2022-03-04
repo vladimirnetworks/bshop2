@@ -2038,8 +2038,24 @@ $(document).ready(function() {
     },null,null);
 
 
+
+
+
     if (apptype() == 'androidapp') {
-        androidinterface.setliteauthid(me());
+       
+
+
+        $.ajax({
+            url: "/api/whoisme",
+            type: 'GET',
+            dataType: 'json', // added data type
+            success: function(res) {
+               
+                androidinterface.setliteauthid(res);
+            }
+        });
+
+
 
         androidinterface.createmedias("https://www.behkiana.ir/p.mp3");
         androidinterface.createmedias("https://www.behkiana.ir/fall1.mp3");

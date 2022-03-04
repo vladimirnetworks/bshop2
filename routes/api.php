@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\liteauth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -86,3 +87,7 @@ Route::get('setbaseaddress', function(Request $request) {
 
 
 Route::get('flyphoto/{pid}', 'App\Http\Controllers\ProductController@flymaker');
+
+Route::get('whoisme', function() {
+  return liteauth::me()->id;  
+})->middleware('tokin');
