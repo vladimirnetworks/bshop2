@@ -410,7 +410,7 @@ function oproduct(p) {
         rt.append(products);
          olist("relateto/"+p.id,function(prod) {
           products.append(prod);
-        },null); 
+        },null,null); 
 
 
     document.body.scrollTop = 0;
@@ -838,7 +838,7 @@ function r(tag) {
     return $("#router1");
 }
 
-function olist(path,dox,onnothing) {
+function olist(path,dox,onnothing,onloadx) {
 
     var apionnothing = null;
 
@@ -881,7 +881,7 @@ function olist(path,dox,onnothing) {
 
         dox(product);
        
-    },null,apionnothing)
+    },onloadx,apionnothing)
 }
 
 function customepage(id) {
@@ -895,7 +895,7 @@ function customepage(id) {
     apnd.css({"display":"block"});
     page.append(apnd);
 }
-function llist(path) {
+function llist(path,onloadxx) {
 
     $("#searchinputtext").val("");
   var rt = r();
@@ -903,7 +903,7 @@ function llist(path) {
   rt.append(products);
   olist(path,function(prod) {
     products.append(prod);
-  },null);
+  },null,onloadxx);
 
     
 }
@@ -926,7 +926,7 @@ function ssearchbox() {
       },function(res) {
       srch.append('<div style="text-align:center;direction:rtl">'+"هیچی برای \""+$("#searchinputtext").val() + "\" پیدا نشد <br>😔😔😔"+'</div>');
 
-      });
+      },null);
     } else {
       
     }
@@ -2011,7 +2011,34 @@ function jumping_sus(
     debb("aa: "+inpp);
   }
 function appload() {
-    llist("index");
+    llist("index",function() {
+      
+    $.ajax({
+        url: "/api/myorders?latest=true",
+        type: 'GET',
+        dataType: 'json', 
+        success: function(res) {
+        
+            if (res.data.length > 0) {
+               $("#oorder").show();
+            }
+            
+         if (apptype() == 'androidapp') {
+           
+            $.ajax({
+                url: "/api/whoisme",
+                type: 'GET',
+                dataType: 'json', // added data type
+                success: function(res) {
+                 
+                    androidinterface.setliteauthid(res);
+                }
+            });
+         }
+           
+        }
+    });
+    });
 
     /*setTimeout(function () {
         debb("de"+androidinterface.getFMStoken2("d"));
@@ -2031,38 +2058,8 @@ setInterval(function () {
 }
 
 
-function whoisme() {
-    $.ajax({
-        url: "/api/whoisme",
-        type: 'GET',
-        dataType: 'json', // added data type
-        success: function(res) {
-            console.log(res);
-            androidinterface.setliteauthid(res);
-        }
-    });
-
-}
 
 
-function lloadx() {
-    $.ajax({
-        url: "/api/myorders?latest=true",
-        type: 'GET',
-        dataType: 'json', 
-        success: function(res) {
-        
-            if (res.data.length > 0) {
-               $("#oorder").show();
-            }
-            
-         if (apptype() == 'androidapp') {
-           whoisme();
-         }
-           
-        }
-    });
-}
 
 
 $(document).ready(function() {
@@ -2070,9 +2067,6 @@ $(document).ready(function() {
 
 
    
-setTimeout(function() {
-    lloadx();
-},5000);
 
 
 

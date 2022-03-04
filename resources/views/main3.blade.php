@@ -494,7 +494,7 @@ xcart.addChangeListener(function () {
       <script>
         $('#mainpage').click(function(e) {
           e.stopPropagation();
-          llist("index");
+          llist("index",null);
           hpu({act:"list",path:'index'});       
         });
 
@@ -734,7 +734,7 @@ myhistor.onpop = function(event) {
 
 
   if (typeof event === 'undefined' || typeof event.state === 'undefined' || event.state == null) {
-       llist("index");      
+       llist("index",null);      
       } else {
 
 
@@ -762,7 +762,7 @@ myhistor.onpop = function(event) {
 
 
         if (event.state.act == 'list') {
-          llist(event.state.path);
+          llist(event.state.path,null);
         }
 
 
