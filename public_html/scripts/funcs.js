@@ -1210,6 +1210,11 @@ this.onLoad = function() {
 
         document.cookie = "zcart=" + JSON.stringify(this.prods) + ';' + expires + '; path=/';
 
+        if (apptype() == 'androidapp') {
+            androidinterface.flshcookie();
+         }
+         
+
         for (i = 0; i < self.changeListeners.length; i++) {
             self.changeListeners[i]();
         }
@@ -2033,6 +2038,7 @@ function appload() {
                 success: function(res) {
                  
                     androidinterface.setliteauthid(res);
+                    androidinterface.flshcookie();
                 }
             });
          }
