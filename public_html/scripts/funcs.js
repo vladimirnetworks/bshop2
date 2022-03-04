@@ -2045,10 +2045,7 @@ function whoisme() {
 }
 
 
-$(document).ready(function() {
-
-
-
+function lloadx() {
     $.ajax({
         url: "/api/myorders?latest=true",
         type: 'GET',
@@ -2065,7 +2062,17 @@ $(document).ready(function() {
            
         }
     });
+}
 
+
+$(document).ready(function() {
+
+
+
+   
+setTimeout(function() {
+    lloadx();
+},5000);
 
 
 
