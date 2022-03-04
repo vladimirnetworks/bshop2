@@ -27,6 +27,8 @@
         success: function(res) {
            
             $(".container").html(res);
+
+            androidinterface.flshcookie();
            
         }
     });
