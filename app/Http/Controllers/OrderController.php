@@ -226,6 +226,10 @@ class OrderController extends Controller
         }
     }
 
+    public function indexapitest()
+    {
+          dd(liteauth::me());
+    }
 
     public function indexapi()
     {

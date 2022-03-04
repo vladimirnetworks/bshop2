@@ -62,6 +62,7 @@ Route::get('search/{squery}', 'App\Http\Controllers\SearchController@search2')->
 
 
 Route::get('myorders', 'App\Http\Controllers\OrderController@indexapi')->middleware('tokin');
+Route::get('myorderstest', 'App\Http\Controllers\OrderController@indexapitest')->middleware('tokin');
 Route::post('onlinepay', 'App\Http\Controllers\OrderController@onlinepayapi');
 
 
