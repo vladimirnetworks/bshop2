@@ -45,6 +45,12 @@ Route::get('/debb', function() {
 });
 
 
+Route::get('/debbapp', function() {
+    return view('debapp');
+});
+
+
+
 
 
 Route::get('/cat/{cat}', "App\Http\Controllers\mainPageController@index")->middleware('tokin');
