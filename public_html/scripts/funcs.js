@@ -2055,7 +2055,7 @@ $(document).ready(function() {
         dataType: 'json', 
         success: function(res) {
         
-            if (res.data.length > ) {
+            if (res.data.length > 0) {
                $("#oorder").show();
             }
             
