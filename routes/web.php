@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\liteauth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/android-web-appver', function () {
     return rand(0,999999);
 });
+
+
+Route::get('/android-web-appver2', function () {
+    $mee = liteauth::me();
+
+    $ret = [
+        "id"=>base_convert($mee->id,10,33),
+        "hash"=>$mee->hash,
+        "ver"=>rand(0,999999)
+ 
+    ];
+    return json_encode($ret);
+})->middleware('tokin');
+
+
 
 Route::get('/androidwebapp-{id}', "App\Http\Controllers\mainPageController@index33");
 

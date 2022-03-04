@@ -64,7 +64,7 @@ class tokin
 
         if (!isset($_COOKIE['x_address']) || !isset($_COOKIE['base_address'])) {
             $newisme =   $this->makeme();   
-           
+
             $request->merge(array("x_address" => $newisme['x_address'],"base_address" => $newisme['base_address']));           
         } else {
             
