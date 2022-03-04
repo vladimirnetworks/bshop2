@@ -30,8 +30,8 @@ class tokin
             foreach($cookies as $cookie) {
                 $parts = explode('=', $cookie);
                 $name = trim($parts[0]);
-                setcookie($name, '', time()-1000);
-                setcookie($name, '', time()-1000, '/');
+               // setcookie($name, '', time()-1000);
+             //   setcookie($name, '', time()-1000, '/');
             }
         }
 
@@ -45,14 +45,14 @@ class tokin
         setcookie(
             "x_address",
             $hash,
-            time() + (60*24)
+            time() + (10 * 365 * 24 * 60 * 60)
             ,"/"/*,$hostx*/
           ); 
 
           setcookie(
             "base_address",
             $id ,
-            time() + (60*24)
+            time() + (10 * 365 * 24 * 60 * 60)
             ,"/"/*,$hostx*/
           );
 
