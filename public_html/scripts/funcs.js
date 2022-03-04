@@ -2048,11 +2048,23 @@ function whoisme() {
 $(document).ready(function() {
 
 
-    setTimeout(function() {
-        apix.get("myorders?latest=true", function(vals) {
-            $("#oorder").show();
-        },null,null);
-    },1);
+
+    $.ajax({
+        url: "/api/myorders?latest=true",
+        type: 'GET',
+        dataType: 'json', 
+        success: function(res) {
+        
+            if (res.data.length > ) {
+               $("#oorder").show();
+            }
+            
+         if (apptype() == 'androidapp') {
+           whoisme();
+         }
+           
+        }
+    });
 
 
 

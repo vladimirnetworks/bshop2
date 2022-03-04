@@ -552,6 +552,7 @@ xcart.addChangeListener(function () {
       
          hpu({ act: "getnumber",orderid:res.data.id});
 
+
          myorder.orderid = res.data.id;
          myorder.shipping = res.data.shipping;
          $("#shippingx").empty();
