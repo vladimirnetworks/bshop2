@@ -237,7 +237,7 @@ class OrderController extends Controller
         $orders = Array();
 
         if (request('latest') != null) {
-            $fistord =  liteauth::me()->orders->get(1);
+            $fistord =  liteauth::me()->orders->first();
             if ($fistord) {
              $orders[] = $fistord ;
             }
