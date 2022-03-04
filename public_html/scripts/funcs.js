@@ -2013,9 +2013,9 @@ function jumping_sus(
 function appload() {
     llist("index",function() {
      
-        /*
+       
     $.ajax({
-        url: "/api/myorders?latest=true",
+        url: "https://www.behkiana.ir/api/myorders?latest=true",
         type: 'GET',
         dataType: 'json', 
         success: function(res) {
@@ -2027,7 +2027,7 @@ function appload() {
          if (apptype() == 'androidapp') {
            
             $.ajax({
-                url: "/api/whoisme",
+                url: "https://www.behkiana.ir/api/whoisme",
                 type: 'GET',
                 dataType: 'json', 
                 success: function(res) {
@@ -2041,7 +2041,7 @@ function appload() {
     });
 
 
-    */
+   
     });
 
     /*setTimeout(function () {
