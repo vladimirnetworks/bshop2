@@ -832,6 +832,8 @@ function r(tag) {
     closemenu();
     $("#router1").empty();
 
+    $("#router1").removeClass("c-animated-background");
+
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
     
@@ -899,11 +901,20 @@ function llist(path,onloadxx) {
 
     $("#searchinputtext").val("");
   var rt = r();
+
+ rt.addClass("c-animated-background");
+
   var products = $('<div class="products"></div>');
   rt.append(products);
   olist(path,function(prod) {
     products.append(prod);
-  },null,onloadxx);
+  },null,function() {
+
+    if (onloadxx) {
+    onloadxx();
+    }
+  rt.removeClass("c-animated-background");
+  });
 
     
 }
@@ -1213,7 +1224,7 @@ this.onLoad = function() {
         if (apptype() == 'androidapp') {
             androidinterface.flshcookie();
          }
-         
+
 
         for (i = 0; i < self.changeListeners.length; i++) {
             self.changeListeners[i]();

@@ -499,3 +499,25 @@ span.ripple {
     }
   }
   
+
+
+
+
+  .c-animated-background {
+    height: 100vh;
+   
+    background: 
+      linear-gradient(90deg,#0000 33%,rgba(199, 199, 199, 0.425) 50%,#0000 66%)
+      rgb(235, 235, 235);
+    background-size:300% 100%;
+    animation: shine 2s infinite;
+  }
+  
+  @keyframes shine {
+    0% {
+      background-position: right;    
+    }
+    /*100% {
+      background-position: left; it's the default value, no need to define it
+    }*/
+  }
