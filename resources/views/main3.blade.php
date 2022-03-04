@@ -517,7 +517,9 @@ xcart.addChangeListener(function () {
 
 
 
-      <div id="bigcartview" style="height:100%;"></div>
+      <div id="bigcartview" style="height:100%;">
+        <div style="display:flex;height:100%;width:100%;justify-content:center;align-items:center">✋🙂 سبد خریدتون خالیه </div>
+      </div>
 
 
 
