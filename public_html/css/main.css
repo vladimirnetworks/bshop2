@@ -507,7 +507,7 @@ span.ripple {
     height: 100vh;
    
     background: 
-      linear-gradient(90deg,#0000 33%,rgba(107, 107, 107, 0.425) 50%,#0000 66%)
+      linear-gradient(90deg,#0000 33%,rgba(134, 134, 134, 0.425) 50%,#0000 66%)
       rgb(235, 235, 235);
     background-size:300% 100%;
     animation: shine 2s infinite;
