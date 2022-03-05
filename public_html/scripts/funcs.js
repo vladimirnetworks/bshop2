@@ -857,7 +857,7 @@ function olist(path,dox,onnothing,onloadx) {
         var product = $('<div style="opacity:0;transition:all 0.3s"></div>');
 
 
-        var pimp = $('<img src="https://www.behkiana.ir/'+vals.photo.small+'"/>');
+        var pimp = $('<img src="https://www.behkiana.ir/'+vals.photo.small+'" style="border-radius: 0.3rem;"/>');
        
         product.append(pimp);
 
