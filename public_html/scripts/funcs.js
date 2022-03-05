@@ -463,8 +463,8 @@ function oproduct(p) {
     }
 
     for (var i = 0; i < photgals.length; i++) {
-        photoitems.push('<div class="myitem"><img style="width:100%" src="https://www.behkiana.ir/' + photgals[i].medium + '"  /></div>');  
-        photoitems2.push('<div class="myitem"><img style="width:100%" src="https://www.behkiana.ir/' + photgals[i].medium + '"  /></div>');
+        photoitems.push('<div class="myitem"><img style="border-radius: 0.3rem;width:100%" src="https://www.behkiana.ir/' + photgals[i].medium + '"  /></div>');  
+        photoitems2.push('<div class="myitem"><img style="border-radius: 0.3rem;width:100%" src="https://www.behkiana.ir/' + photgals[i].medium + '"  /></div>');
     }
 
     var mySwipe_portrate = new SwiperBox({
