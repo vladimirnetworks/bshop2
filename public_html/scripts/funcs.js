@@ -2035,6 +2035,7 @@ function jumping_sus(
 
   function androidfirebasetoken(inpp) {
     debb("aa: "+inpp);
+    console.log(inpp);
   }
 function appload() {
     llist("index",function() {
