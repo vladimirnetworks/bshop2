@@ -92,3 +92,51 @@ Route::get('flyphoto/{pid}', 'App\Http\Controllers\ProductController@flymaker');
 Route::get('whoisme', function() {
   return liteauth::me()->id;  
 })->middleware('tokin');
+
+
+
+Route::get('sendfcmtest', function() {
+  
+
+
+$ch = curl_init();
+curl_setopt($ch,CURLOPT_URL, "https://fcm.googleapis.com/fcm/send");
+curl_setopt($ch,CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch,CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch,CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($ch,CURLOPT_CONNECTTIMEOUT, 5);
+curl_setopt($ch,CURLOPT_TIMEOUT, 7);
+curl_setopt($ch,CURLOPT_NOBODY, false);
+curl_setopt($ch,CURLOPT_POST, 1);
+
+
+$headers = array(
+    'Content-type: application/json',
+    'Authorization: key=AAAAleo7Xes:APA91bGOowQFsIXPUuISHvodUiiHMifDr9DPxiCc6uPQ0Q6wr__mf0SZUYftwk7tK0xyXW17mfMSAT164cVgB4y1Vi9vRM86oFv9sIZs666LBi_JLp8U0Ei3NGhTqyruYvDcvWhPIlre',
+);
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+$data = [
+'to'=>'colcv1nxQzuIJGRx2QHLgv:APA91bHY5_TdHXzkhIhTLbODOQEv0Y1hicawBykwJCB9RC4qKOBQAXDQSX_CJdFDnZONb7Jx9Tbpwb9aSAzJ82_43RPtiDvGQ3LsFtRo03bB9Mr-cXkSalJgy6E6woYpTr8bSNyhUc-I',
+'notification'=>[
+                 'title'=>'title'
+                 ,
+                 'body'=>'body'
+                ]
+ ,               
+'data'=>[
+  'onload'=>'$(document).ready(function() { debb("سلام"); }); debb("سلام");',
+  'evl'=>'debb("acting is ok"); debb("سلام");'
+]
+];
+
+curl_setopt($ch,CURLOPT_POSTFIELDS, json_encode($data));
+
+
+$retx = curl_exec($ch);
+
+return $retx;
+
+});
