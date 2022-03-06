@@ -994,7 +994,11 @@ $("#backnumber").click(function () {
   <script>
 
 $("#usernumber_form").on('submit',function (e) { 
+
+  $("#ppaccept").focus();
+
    e.preventDefault();
+
    return false;
  });
 
