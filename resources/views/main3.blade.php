@@ -995,7 +995,9 @@ $("#backnumber").click(function () {
 
 $("#usernumber_form").on('submit',function (e) { 
 
-  $("#ppaccept").focus();
+  $("#usernumber").focus();
+
+  $('input').blur();
 
    e.preventDefault();
 
