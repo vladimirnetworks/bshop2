@@ -999,6 +999,12 @@ $("#usernumber_form").on('submit',function (e) {
 
   $('input').blur();
 
+
+  setTimeout(function() {
+tavajoh($("#submitnumber"));
+    }, 2000);
+
+
    e.preventDefault();
 
    return false;

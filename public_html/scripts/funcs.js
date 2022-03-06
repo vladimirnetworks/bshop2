@@ -1301,6 +1301,14 @@ function shakeAnim(elem) {
     }, 201 * 2);
 }
 
+function tavajoh(elem) {
+    elem.addClass("tavajoh");
+    setTimeout(function() {
+        elem.removeClass("tavajoh");
+        elem.focus();
+    }, 301 * 2);
+}
+
 function closedialog(i) {
     $("#"+i+"_container").hide();
 
