@@ -1034,7 +1034,7 @@ opendialog("dialog2");
 
 }
 
-return false;
+//return false;
 });
 
   </script>
