@@ -930,7 +930,7 @@ window.addEventListener('popstate',myhistor.onpop);
             <input id="usernumber" type="number" class="minpt" style="width:80%;flex-grow:1; "
               placeholder="شماره تماس" />
 
-              <div id="ppbox" style="direction:rtl;margin-top:1rem;font-size: 80%;">
+              <div id="ppbox" style="direction:rtl;margin-top:1.5rem;margin-bottom:1rem;font-size: 80%;">
 
                 <input checked type="checkbox" id="ppaccept" name="ppaccept" value="1">
 
