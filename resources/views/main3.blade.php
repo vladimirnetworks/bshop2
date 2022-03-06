@@ -776,8 +776,12 @@ myhistor.onpop = function(event) {
 
         if (event.state.act == 'getnumber') {
 
+          closedialog("sharayet");
+          closedialog("harim");
           closedialog("dialog2");
           opendialog("dialog1");
+
+         
         
         }
 
@@ -919,12 +923,40 @@ window.addEventListener('popstate',myhistor.onpop);
 
         <br>
 
-        <form id="usernumber_form" action="/" method="post">
+     <!--   <form id="usernumber_form" action="/" method="post"> -->
 
 
           <div style="display: flex;flex-direction:column;align-items:center;">
             <input id="usernumber" type="number" class="minpt" style="width:80%;flex-grow:1; "
               placeholder="شماره تماس" />
+
+              <div id="ppbox" style="direction:rtl;margin-top:1rem;font-size: 80%;">
+
+                <input checked type="checkbox" id="ppaccept" name="ppaccept" value="1">
+
+                <span id="shrayt" style="color:#007bff">
+              شرایط استفاده از خدمات
+                </span>
+                <script>
+                  $("#shrayt").click(function() {
+                    opendialog("sharayet");
+                    hpu({ act: "sharayet"});
+                  });
+                </script>
+و 
+<span id="hrim" style="color:#007bff">
+حریم خصوصی
+</span>
+
+<script>
+  $("#hrim").click(function() {
+    opendialog("harim");
+    hpu({ act: "harim"});
+  });
+</script>
+
+را میپریم.
+              </div>
 
             <div style="display:flex;width: 80%;justify-content: space-between;">
               <div id="backnumber" class="dialogbtn dialogbtngrey" style="margin-top:1rem"> قبلی </div>
@@ -936,7 +968,7 @@ window.addEventListener('popstate',myhistor.onpop);
 
           </div>
 
-        </form>
+       <!-- </form> -->
       </div>
 
     </div>
@@ -953,24 +985,24 @@ window.addEventListener('popstate',myhistor.onpop);
   </script>
 
   <script>
-    $("#submitnumber").click(function () {
-  $("#usernumber_form").submit();
-});
 
-$("#backnumber").click(function () {
-  //history.back();
-  appback(-1);
-});
+$("#submitnumber").click(function () {
+ // $("#usernumber_form").submit();
 
-    $("#usernumber_form").on('submit',function () {
 
+
+
+
+if ($('#usernumber').val() == 0 || !$("#ppaccept").is(":checked")) {
 
 
 if ($('#usernumber').val() == 0) {
-
-
-
   shakeAnim($('#usernumber'));
+}
+
+if (!$("#ppaccept").is(":checked")) {
+  shakeAnim($('#ppbox'));
+}
 
 } else {
 
@@ -980,7 +1012,16 @@ opendialog("dialog2");
  
  toyou("reguserdata",{orderid:myorder.orderid,type:"phone",data:$('#usernumber').val()},function() {
   $("#oorder").show();
- });
+
+
+});
+
+$("#backnumber").click(function () {
+  //history.back();
+  appback(-1);
+});
+
+   // $("#usernumber_form").on('submit',function () { });
 }
 
 return false;
@@ -1112,7 +1153,26 @@ return false;
   </script>
 
 
+<div class="dialog" id="sharayet">
+  <div style="min-height:60vh">...
+  
+    <div  class="dialogbtn dialogbtnblue appbackx" style="width:50%;margin-top:1rem">بازگشت</div>    
+  </div>
+</div>
 
+<div class="dialog" id="harim">
+  <div style="min-height:60vh">...
+  
+    <div  class="dialogbtn dialogbtnblue appbackx" style="width:50%;margin-top:1rem">بازگشت</div>    
+
+  </div>
+</div>
+
+<script>
+  $(".appbackx").click(function() {
+    appback(-1);
+  });
+  </script>
 
 
   <div class="dialog" id="dialog3">
