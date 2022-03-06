@@ -923,7 +923,7 @@ window.addEventListener('popstate',myhistor.onpop);
 
         <br>
 
-     <!--   <form id="usernumber_form" action="/" method="post"> -->
+       <form id="usernumber_form" action="/" method="post">
 
 
           <div style="display: flex;flex-direction:column;align-items:center;">
@@ -975,7 +975,7 @@ $("#backnumber").click(function () {
 
           </div>
 
-       <!-- </form> -->
+        </form> 
       </div>
 
     </div>
@@ -993,11 +993,17 @@ $("#backnumber").click(function () {
 
   <script>
 
+$("#usernumber_form").on('submit',function (e) { 
+   e.preventDefault();
+   return false;
+ });
+
+ 
 $("#submitnumber").click(function () {
+
+
+
  // $("#usernumber_form").submit();
-
-
-
 
 
 if ($('#usernumber').val() == 0 || !$("#ppaccept").is(":checked")) {
@@ -1025,7 +1031,7 @@ opendialog("dialog2");
 
 
 
-   // $("#usernumber_form").on('submit',function () { });
+
 }
 
 return false;
