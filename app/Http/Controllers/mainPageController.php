@@ -27,14 +27,25 @@ class mainPageController extends Controller
         });
 
 
+       // if (true) {
+         //   return view('androidinstall');
+       // } else {
 
         return view('index', ['pageTitle' => "بهکیانا - فروشگاه محصولات بهداشتی", "products" => $prods]);
+  
+       // }
+  
     }
 
 
     public function index33(Request $request)
     {
 
+      
+
+        if (preg_match("!android!i",$_SERVER['HTTP_USER_AGENT']) && !preg_match("!webapp!i",$_SERVER['REQUEST_URI'])) {
+            return view('androidinstall');
+        } else {
         /**/
 
         //$im = new \Imagick();
@@ -116,6 +127,8 @@ class mainPageController extends Controller
          return view('index3', ['pageTitle' => "بهکیانا - فروشگاه محصولات بهداشتی"]);
 
         }
+
+    }
 
     }
 
