@@ -124,7 +124,7 @@ class mainPageController extends Controller
 
         } else {
 
-         return view('index3', ['pageTitle' => "بهکیانا - فروشگاه محصولات بهداشتی"]);
+         return view('index3', ['pageTitle' => "سوپرمارکت آنلاین بروجرد"]);
 
         }
 
