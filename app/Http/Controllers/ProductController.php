@@ -136,10 +136,10 @@ class ProductController extends Controller
 
         }
 
-        dd($prd);
+      
 
         if (isset($prd) && count($prd) > 0) {
-         return ["data" => Product::findMany($prd)];
+         return ["data" => Product::findMany($prd)->orderBy('id', 'DESC')];
         } else {
             return ["data" => null];
         }
