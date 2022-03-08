@@ -663,7 +663,7 @@ function oproduct(p) {
 
     var addtocartport= $('<button class="cartBtn" style="margin-bottom:1rem;    position: relative" >خرید </button>');
 
-    var checked = $('<div style="position: absolute;right: 2px;top: 30%"></div>');
+    var checked = $('<div style="position: absolute;right: 2px;top: 31%"></div>');
     var cnvx = $('<canvas id="myCanvas2" width="15" height="0" style="border: 0px solid red; display: none"></canvas>');
     checked.append(cnvx);
     addtocartport.append(checked);
