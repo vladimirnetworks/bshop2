@@ -121,7 +121,7 @@ class ProductController extends Controller
        
       */
 
-        $rels = Relish::whereIn('cat_id', $cats)->get(['product_id']);
+        $rels = Relish::whereIn('cat_id', $cats)->orderBy('product_id', 'DESC')->get(['product_id']);
 
 
 
