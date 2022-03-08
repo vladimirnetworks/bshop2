@@ -94,7 +94,7 @@
 
 
 
- <a  class="xa" href="bazaar://details?id=ir.divar"><img style="max-width:100%;max-height:100%;" src="/icons/baazar.png"/></a>
+ <a style="display:none" class="xa" href="bazaar://details?id="><img style="max-width:100%;max-height:100%;" src="/icons/baazar.png"/></a>
 
 
 <a class="xa" href="/download/SuperMarket.apk">دریافت فایل نصب APK</a>
