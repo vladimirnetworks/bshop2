@@ -682,7 +682,7 @@ function oproduct(p) {
 
 
 
-        setTimeout(function() {
+       /* setTimeout(function() {
             drawCheckedToCanvas({
                 init: true,
                 canv: cnvx[0],
@@ -692,7 +692,7 @@ function oproduct(p) {
                 t: 20,
               });
             },10);
-
+*/
 
           
         addtocart(p);
