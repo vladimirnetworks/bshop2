@@ -82,7 +82,7 @@
 
 
 
-<div style="width:100%;position:absolute;left:-100%;right:-100%;top:-100%;bottom:-100%;margin:auto">
+<div style="width:100%;position:absolute;left:0px;top:0px;">
 <svg width="100%" height="100%" viewBox="0 0 285 285" >
 
   <path id="Shape 3" fill="white" d="m10 144c0-21.8 17.7-39.5 39.5-39.5h187c21.8 0 39.5 17.7 39.5 39.5c0 21.8-17.7 39.5-39.5 39.5h-187c-21.8 0-39.5-17.7-39.5-39.5z" />
