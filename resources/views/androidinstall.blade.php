@@ -53,9 +53,9 @@
 
 <body>
   
-<div style="width:100%;direction:rtl">
+<div style="width:100%;display:flex;justify-content:center;align-items:center;flex-direction:column;direction:rtl">
 
-<div  style="margin-left: auto;margin-right: auto;max-width:100%;width:20vh;height:20vh;position:relative">
+<div  style="max-width:100%;width:20vh;height:20vh;position:relative">
   
 <svg class="rotating" width="100%" height="100%" viewBox="0 0 285 285"  >
   <title>logo</title>
