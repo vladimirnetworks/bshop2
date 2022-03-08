@@ -20,6 +20,56 @@ function apptype() {
 }
 
 
+
+function drawCheckedToCanvas(inp) {
+    var canvas = inp.canv;
+    var ctx = canvas.getContext('2d');
+
+    if (inp.init) {
+      inp.x = inp.round / 2;
+
+      canvas.height = inp.taghir + inp.y;
+      inp.starty = inp.y;
+      inp.t2 = inp.t * 2;
+      inp.width = canvas.width;
+      //ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      canvas.style.display = 'block';
+      inp.init = false;
+    }
+    //var x = inp.x;
+
+    ctx.beginPath();
+
+    ctx.moveTo(inp.x, inp.y);
+
+    inp.x = inp.x + 1;
+
+    if (inp.x <= inp.taghir) {
+      inp.y++;
+    } else {
+      inp.t = inp.t2;
+      inp.y =
+        inp.y -
+        (inp.starty + inp.taghir - inp.round) / (inp.width - inp.taghir);
+    }
+
+    ctx.lineTo(inp.x, inp.y);
+
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = inp.round;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+
+    setTimeout(function () {
+      if (inp.x + inp.round < inp.width) {
+        drawCheckedToCanvas(inp);
+      }
+    }, inp.t);
+  }
+
+
+
 function debb(inp) {
   $("#searchinputtext").val(inp);
 }
@@ -611,12 +661,38 @@ function oproduct(p) {
     var addtocartButtoncontPort = $('<div class="portaddtocart" style="text-align: center;"></div>');
 
 
-    var addtocartport= $('<button class="cartBtn" style="margin-bottom:1rem" >خرید</button>');
+    var addtocartport= $('<button class="cartBtn" style="margin-bottom:1rem;    position: relative" >خرید </button>');
+
+    var checked = $('<div style="position: absolute;right: 2px;top: 30%"></div>');
+    var cnvx = $('<canvas id="myCanvas2" width="15" height="0" style="border: 0px solid red; display: none"></canvas>');
+    checked.append(cnvx);
+    addtocartport.append(checked);
     addtocartButtoncontPort.append(addtocartport);
     setTransFormAnim(addtocartport);
+
+
+
+
+                      
+
+
     
 
     addtocartport.click(function() {
+
+
+
+        setTimeout(function() {
+            drawCheckedToCanvas({
+                init: true,
+                canv: cnvx[0],
+                round: 3,
+                y: 7,
+                taghir: 5,
+                t: 20,
+              });
+            },10);
+
 
           
         addtocart(p);
@@ -624,6 +700,11 @@ function oproduct(p) {
         halfopenmenu();
         setTimeout(function() {
         closemenu();
+
+
+
+
+
         },2000);
 
 
@@ -2188,3 +2269,5 @@ $(document).ready(function() {
     button.appendChild(circle);
     */
   }
+
+
