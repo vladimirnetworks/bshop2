@@ -99,7 +99,9 @@ class NotifController extends Controller
         $LineNumber = "30002176999072";
         $APIURL = "https://ws.sms.ir/";
         $MobileNumbers = array('09332999594'/*,'09163686265'*/);
-        $Messages = array('بهکیانا سفارش جدید','بهکیانا سفارش جدید');
+        //$Messages = array('بهکیانا سفارش جدید','بهکیانا سفارش جدید');
+
+        $Messages = array('بهکیانا سفارش جدید');
 
         @$SendDateTime = date("Y-m-d")."T".date("H:i:s");
         $SmsIR_SendMessage = new \App\bensms\smsir($APIKey, $SecretKey, $LineNumber, $APIURL);
