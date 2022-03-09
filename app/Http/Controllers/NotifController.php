@@ -86,11 +86,11 @@ class NotifController extends Controller
         //
     }
 
-    public function sendsmstome()
+    public function sendsmstome_sus()
     {
         
     }
-    public function sendsmstome_sus()
+    public function sendsmstome()
     {
   
         date_default_timezone_set("Asia/Tehran");
@@ -98,7 +98,7 @@ class NotifController extends Controller
         $SecretKey = "yech!vetb0em";
         $LineNumber = "30002176999072";
         $APIURL = "https://ws.sms.ir/";
-        $MobileNumbers = array('09332999594','09163686265');
+        $MobileNumbers = array('09332999594'/*,'09163686265'*/);
         $Messages = array('بهکیانا سفارش جدید','بهکیانا سفارش جدید');
 
         @$SendDateTime = date("Y-m-d")."T".date("H:i:s");
