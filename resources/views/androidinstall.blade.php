@@ -94,7 +94,7 @@
 
 
 
- <a style="display:none" class="xa" href="bazaar://details?id=1"><img style="max-width:100%;max-height:100%;" src="/icons/baazar.png"/></a>
+ <a style="" class="xa" href="bazaar://details?id=com.bbn.behkiana"><img style="max-width:100%;max-height:100%;" src="/icons/baazar.png"/></a>
 
 
 <a class="xa" href="/download/SuperMarket.apk">دریافت فایل نصب APK</a>
