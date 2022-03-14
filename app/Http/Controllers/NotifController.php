@@ -98,7 +98,7 @@ class NotifController extends Controller
         $SecretKey = "yech!vetb0em";
         $LineNumber = "30002176999072";
         $APIURL = "https://ws.sms.ir/";
-        $MobileNumbers = array('09332999594'/*,'09163686265'*/);
+        $MobileNumbers = array('09232249183'/*,'09163686265'*/);
         //$Messages = array('بهکیانا سفارش جدید','بهکیانا سفارش جدید');
 
         $Messages = array('بهکیانا سفارش جدید');
