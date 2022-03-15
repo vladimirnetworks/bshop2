@@ -458,12 +458,7 @@ xcart.addChangeListener(function () {
       </div>
 
 
-      <div class="itm" id="enamadbottom"  style="display:none">
-        <div class="icon" style="">
-          <a referrerpolicy="origin" id="enamadlink" target="_blank" href="https://trustseal.enamad.ir/?id=244136&amp;Code=NAYvp5VDiHI1pstposy1"><img style="" referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=244136&amp;Code=NAYvp5VDiHI1pstposy1" alt="" id="NAYvp5VDiHI1pstposy1"></a>
-        </div>
-        <div class="txt">نماد اعتماد</div>
-      </div>
+
 
 
       <script>
