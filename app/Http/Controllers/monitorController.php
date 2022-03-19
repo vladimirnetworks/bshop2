@@ -23,7 +23,7 @@ class monitorController extends Controller
      public function Usersearchs(Request $request)
      {
        
-      $latest = monitor::where("url",">","%/api/search/%")->orderBy('id', 'DESC')->paginate(20, ['*'], 'page', $request->page);
+      $latest = monitor::where("url","like","%/api/search/%")->orderBy('id', 'DESC')->paginate(20, ['*'], 'page', $request->page);
 
      // $latest = DB::select("SELECT useragent FROM monitor where `liteauth_id` > 0 GROUP BY `liteauth_id` ORDER BY `liteauth_id` DESC limit 50");
       return  $latest ;
