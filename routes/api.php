@@ -28,6 +28,8 @@ Route::get('admin/orders', 'App\Http\Controllers\OrderController@allorders');
 Route::put('admin/orders/{order}', 'App\Http\Controllers\OrderController@changeorder');
 Route::get('admin/latestusers', 'App\Http\Controllers\monitorController@LatestUsers');
 
+Route::get('admin/usersearchs', 'App\Http\Controllers\monitorController@Usersearchs');
+
 Route::get('admin/imagecleaner', 'App\Http\Controllers\ProductController@imagecleaner');
 
 
