@@ -35,7 +35,9 @@ Route::get('/android-web-appver2', function () {
 
 
 Route::get('/androidwebapp-{id}', "App\Http\Controllers\mainPageController@index33");
-Route::get('/webapp', "App\Http\Controllers\mainPageController@index33");
+Route::get('/ioswebapp-{id}', "App\Http\Controllers\mainPageController@index33");
+
+Route::get('/webapp', "App\Http\Controllers\mainPageController@index33")->middleware('tokin');
 
 
 
