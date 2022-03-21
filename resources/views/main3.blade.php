@@ -498,7 +498,10 @@ xcart.addChangeListener(function () {
         $('#mainpage').click(function(e) {
           e.stopPropagation();
           llist("index",null);
-          hpu({act:"list",path:'index'});       
+          hpu({act:"list",path:'index'}); 
+          
+          ioshandler();
+
         });
 
 

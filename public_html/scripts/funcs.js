@@ -2270,4 +2270,10 @@ $(document).ready(function() {
     */
   }
 
+function ioshandler() {
 
+    if (typeof  webkit !== 'undefined' && typeof  webkit.messageHandlers !== 'undefined'  && typeof  webkit.messageHandlers.iosinterface !== 'undefined') {
+        webkit.messageHandlers.iosinterface.postMessage("Hello from JavaScript");
+    }
+    
+}
