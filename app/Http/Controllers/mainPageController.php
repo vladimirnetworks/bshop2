@@ -112,7 +112,7 @@ class mainPageController extends Controller
     }
         /**/
 
-        if (request('apptype')=='androidapp' && isset($_GET['paymentid'])) {
+        if ((request('apptype')=='androidapp' || request('apptype')=='iosapp') && isset($_GET['paymentid'])) {
       //  return redirect(""/*.$_GET['paymentid']*/);
 
       if (strtoupper($_GET['Status']) == 'OK') {
