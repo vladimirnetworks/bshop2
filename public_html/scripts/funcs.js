@@ -14,7 +14,10 @@ function randomx(min, max) {
 function apptype() {
  if (navigator.userAgent.match(/androidwvapp/)) {
    return "androidapp";
- } else {
+ } else if(iamisoapp()) {
+  return "iosapp";
+ }
+ else {
     return "web";  
  }
 }
@@ -1664,8 +1667,13 @@ function gotopay(oid) {
 
                  if (apptype() == 'androidapp') {
                     androidinterface.openurl(response.res);
-                 } else {
+
+                 } else if(apptype() == 'iosapp') {
+                    iosinterface(response.res)
+                 }else {
+
                     window.location = response.res;
+
                  }
                     
 
@@ -2277,3 +2285,20 @@ function ioshandler() {
     }
     
 }
+
+function iamisoapp() {
+    if (typeof  webkit !== 'undefined' && typeof  webkit.messageHandlers !== 'undefined'  && typeof  webkit.messageHandlers.iosinterface !== 'undefined') {
+       return true;
+    } else {
+        return false;
+    }
+}
+
+function iosinterface(inp) {
+
+    if (typeof  webkit !== 'undefined' && typeof  webkit.messageHandlers !== 'undefined'  && typeof  webkit.messageHandlers.iosinterface !== 'undefined') {
+        webkit.messageHandlers.iosinterface.postMessage(inp);
+    }
+    
+}
+
