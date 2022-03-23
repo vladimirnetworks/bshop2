@@ -1437,7 +1437,19 @@ setTimeout(function() {
         },10);
 */
 
+var dialogclosebtn = $('<div style="text-align:right;padding:0rem"><img style="height:2.5rem" src="/icons/close.png"/></div>');
+
+//setTransFormAnim(dialogclosebtn);
+
+dialogclosebtn.click(function(e) {
+           
+
+    appback(-1);
+
+});
+
         dialogent.css({"display":"block"});
+        dialogbox.append(dialogclosebtn);
         dialogbox.append(dialogent);
         dialog_cont.append(dialogbox);
 
@@ -2190,6 +2202,14 @@ setInterval(function () {
 $(document).ready(function() {
 
 
+
+
+    setTransFormAnim($("#backs"));
+
+    $("#backs").click(function() {
+     
+        appback(-1);
+    });
 
    
 
