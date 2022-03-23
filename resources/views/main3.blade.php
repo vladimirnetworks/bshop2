@@ -73,6 +73,12 @@
       androidinterface.openurl("https://www.behkiana.ir/enamad");
      return false;
     }
+
+    if (apptype() == 'iosapp') {
+      iosinterface("https://www.behkiana.ir/enamad")
+     return false;
+    }
+
   });
 </script>
 
