@@ -29,6 +29,8 @@ Route::put('admin/orders/{order}', 'App\Http\Controllers\OrderController@changeo
 Route::get('admin/latestusers', 'App\Http\Controllers\monitorController@LatestUsers');
 
 Route::get('admin/usersearchs', 'App\Http\Controllers\monitorController@Usersearchs');
+Route::get('admin/monitoring', 'App\Http\Controllers\monitorController@Monitoring');
+
 
 Route::get('admin/imagecleaner', 'App\Http\Controllers\ProductController@imagecleaner');
 
