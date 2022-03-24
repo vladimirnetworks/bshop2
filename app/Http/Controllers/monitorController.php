@@ -35,6 +35,7 @@ class monitorController extends Controller
      public function Monitoring(Request $request)
      {
        
+          date_default_timezone_set("Asia/Tehran");
       $latest = monitor::where("url","not like","%/api/admin/%")->orderBy('id', 'DESC')->paginate(20, ['*'], 'page', $request->page);
 
      // $latest = DB::select("SELECT useragent FROM monitor where `liteauth_id` > 0 GROUP BY `liteauth_id` ORDER BY `liteauth_id` DESC limit 50");
