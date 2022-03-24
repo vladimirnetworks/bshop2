@@ -67,9 +67,9 @@ return [
     |
     */
 
-   // 'timezone' => 'Asia/Tehran',
+   'timezone' => 'Asia/Tehran',
 
-    'timezone' => 'UTC',
+    // 'timezone' => 'UTC',
 
     /*
     |--------------------------------------------------------------------------
