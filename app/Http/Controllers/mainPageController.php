@@ -45,6 +45,8 @@ class mainPageController extends Controller
 
         if (preg_match("!android!i",$_SERVER['HTTP_USER_AGENT']) && !preg_match("!webapp!i",$_SERVER['REQUEST_URI']) && !preg_match("!paymentid!i",$_SERVER['REQUEST_URI'])) {
             return view('androidinstall');
+        } else if(preg_match("!iPhone!i",$_SERVER['HTTP_USER_AGENT']) && !preg_match("!webapp!i",$_SERVER['REQUEST_URI']) && !preg_match("!paymentid!i",$_SERVER['REQUEST_URI'])) {
+            return view('iosinstall');
         } else {
         /**/
 
