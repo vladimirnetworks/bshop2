@@ -542,3 +542,8 @@ span.ripple {
       background-position: left; it's the default value, no need to define it
     }*/
   }
+
+
+  #mainenamadlogo {
+    display:none;height: 90%;
+  }

@@ -2203,6 +2203,17 @@ $(document).ready(function() {
 
 
 
+    if (apptype() == 'web') {
+        $("#mainenamadlogo").css({"display":"inline"})
+
+         /*height: 11vh;*/
+
+
+         $(".top").css({"height":"13vh","max-height":"13vh"});
+    }
+
+
+
 
     setTransFormAnim($("#backs"));
 
