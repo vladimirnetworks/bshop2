@@ -290,6 +290,7 @@ class ProductController extends Controller
         $Product->tinytitle = $request->tinytitle;
         $Product->searchkey = $request->searchkey;
         $Product->instagramed = $request->instagramed;
+        $Product->isarchive = $request->isarchive;
 
         $sgal = [];
         foreach ($request->gal as $gal) {
