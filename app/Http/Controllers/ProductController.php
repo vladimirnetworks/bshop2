@@ -21,7 +21,7 @@ class ProductController extends Controller
     {
 
 
-        $prods = Product::orderBy('id', 'DESC')->paginate(50, ['*'], 'page', $request->page);
+        $prods = Product::whereIsarchive(0)->orderBy('id', 'DESC')->paginate(50, ['*'], 'page', $request->page);
 
 
         /*  $prods->each(function ($item) {

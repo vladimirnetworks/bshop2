@@ -40,8 +40,6 @@ Route::get('/ioswebapp-{id}', "App\Http\Controllers\mainPageController@index33")
 Route::get('/webapp', "App\Http\Controllers\mainPageController@index33")->middleware('tokin');
 
 
-
-
 Route::get('/', "App\Http\Controllers\mainPageController@index33")->middleware('tokin');
 Route::get('/index2', "App\Http\Controllers\mainPageController@index22")->middleware('tokin');
 Route::get('/index33', "App\Http\Controllers\mainPageController@index33")->middleware('tokin');
