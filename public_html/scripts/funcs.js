@@ -1491,7 +1491,8 @@ dialogclosebtn.click(function(e) {
 shippingstatus = [];
 shippingstatus[0] = "در حال بررسی";
 shippingstatus[1] = "ارسال شده";
-shippingstatus[2] = "کنسل";
+shippingstatus[2] = "تحویل داده شده";
+shippingstatus[3] = "کنسل";
 
 payemntstatus = [];
 payemntstatus[0] = "پرداخت نشده";
