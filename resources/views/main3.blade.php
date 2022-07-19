@@ -256,8 +256,16 @@ $(document).ready(function() {
       var checkoutbtn = $('<button class="checkoubtn">تایید و ثبت سفارش</button>');
 
       checkoutbtn.click(function() {
+        alert("در حال حاضر امکان ارائه ی سرویس مقدور نیست");
+      });
 
 
+      var checkoutbtn_sus = $("<div></div>");
+
+      checkoutbtn_sus.click(function() {
+
+
+       
         
 
 
